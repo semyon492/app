@@ -16,6 +16,8 @@
 
 <script>
 import Axios from "axios";
+import config from "/config";
+
 export default {
     name:'ArticleHome',
     props:['id'],
@@ -29,7 +31,7 @@ export default {
     },
     methods: {
         get_article(){
-            Axios.get("http://localhost:8000/api/articles/" + this.id).then(res => res.data)
+            Axios.get(config.domain + "articles/" + this.id).then(res => res.data)
             .then(data => {
                 console.log(data)
                 //remplace article par le nom de l'object article

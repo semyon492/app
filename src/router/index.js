@@ -12,6 +12,8 @@ import Post from '@/views/admin/Post.vue'
 import List from '@/views/admin/List.vue'
 import Edit from '@/views/admin/Edit.vue'
 
+import config from "/config"
+
 const routes = [
     {
         path:'/',
@@ -46,7 +48,7 @@ const router = createRouter({
 router.beforeEach( async (to, from, next) => {
     if(to.matched[0].name == "admin"){
         console.log("JESUISEXECUTE")
-        await Axios.post("http://localhost:8000/api/me",
+        await Axios.post(config.domain + "me",
         localStorage.getItem('token'), 
         {
             headers: {

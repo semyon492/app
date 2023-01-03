@@ -5,14 +5,17 @@
         </div>
         <form class="login_form" @submit.prevent="login">
             <div>
-                <label for="username">Username :</label>
-                <input type="username" name="username" id="username" v-model="user.username" required>
+                <label for="email">Email :</label>
+                <input type="email" name="email" id="email" v-model="user.email" required>
             </div>
             <div>
                 <label for="password">Mot de passe :</label>
                 <input type="password" name="password" id="password" v-model="user.password" required>
             </div>
             <button type="submit" class="connexion_btn">Connexion</button>
+            <div v-if="form_alert" id="form_alert">
+                <p ref="err_alert">{{ err_info }}</p>
+            </div>
         </form>
         <router-link to="/register" class="register_login_btn">Register</router-link>
     </div>
@@ -20,24 +23,42 @@
 
 <script>
 import Axios from "axios";
+import config from "/config";
+
 export default {
     name:'Login',
     data(){
         return{
             user : {
-                username:'',
+                email:'',
                 password:''
-            }
+            },
+            form_alert : false,
+            err_info: '',
         }
     },
     methods: {
         login(){
-            Axios.post("http://localhost:8000/api/login_check", this.user)
+            Axios.post(config.domain + "authorize", this.user)
             .then(res => {
-                localStorage.setItem('token', res.data.token)
-            })
+                localStorage.setItem('token', res.data.access_token);
+                if(res.data.status == 7){
+                    this.form_alert = true;
+                    this.err_info = "Неверно введена почта или пароль";
+                }
+                if(res.data.status == 4) {
+                    this.form_alert = true;
+                    this.err_info = "Пользователь не найден";
+                }
+                if(res.data.status == 16) {
+                    this.form_alert = true;
+                    this.err_info = "Неизвестная ошибка";
+                }
 
-            this.$router.push('/')
+                if(res.data.status == 1) {
+                    this.$router.push('/')
+                }
+            })
         }
     },
 }

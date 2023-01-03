@@ -45,6 +45,8 @@
 
 <script>
 import Axios from "axios";
+import config from "/config";
+
 export default {
     name:'Post',
     data() {
@@ -78,7 +80,7 @@ export default {
         async getUserID() {
             if(this.is_connected) 
 
-            return await Axios.post("http://localhost:8000/api/me",
+            return await Axios.post(config.domain + "me",
             localStorage.getItem('token'), 
             {
                 headers: {
@@ -95,7 +97,7 @@ export default {
             this.getUserID().finally(() => {
                 console.log(this.article)
 
-                Axios.post("http://localhost:8000/api/articles", this.article)
+                Axios.post(config.domain + "articles", this.article)
                 .then(
                     res => console.log(res)
                 ).finally(

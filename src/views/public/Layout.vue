@@ -1,5 +1,5 @@
 <template>
-    <div id="content">
+    <div id="content1">
         <header>
             <Navigation/>
         </header>
@@ -17,7 +17,8 @@ import Footer from '@/components/Footer.vue'
 export default{
     name:'PublicLayout',
     components: {
-        Navigation
+        Navigation,
+        Footer
     }
 }
 </script>

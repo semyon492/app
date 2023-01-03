@@ -45,6 +45,7 @@
 
 <script>
 import Axios from "axios";
+import config from "/config";
 export default {
     name:'Edit',
     props:['id'],
@@ -59,7 +60,7 @@ export default {
     },
     methods: {
         get_article(){
-            Axios.get("http://localhost:8000/api/articles/" + this.id).then(res => res.data)
+            Axios.get(config.domain + "articles/" + this.id).then(res => res.data)
             .then(data => {
                 console.log(data)
                 //remplace article par le nom de l'object article
@@ -80,7 +81,7 @@ export default {
             document.getElementsByClassName("choice")[0].style.display = "none";
         },
         edit(){
-            Axios.put("http://localhost:8000/api/articles/" + this.id, this.article).then(res => console.log(res)).finally(
+            Axios.put(config.domain + "articles/" + this.id, this.article).then(res => console.log(res)).finally(
                 () => {
                     this.$router.push('/admin/list')
                 }

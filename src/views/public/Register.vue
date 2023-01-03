@@ -32,7 +32,8 @@ export default {
     },
     methods: {
         register(){
-            Axios.post("http://localhost:8000/api/register", this.user).then(res => console.log(res))
+            Axios.post(config.domain + "register", this.user)
+            .then(res => console.log(res))
 
             this.$router.push('/login')
         }

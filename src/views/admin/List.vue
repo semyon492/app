@@ -25,6 +25,8 @@
 
 <script>
 import Axios from "axios";
+import config from "/config";
+
 import { getCurrentInstance } from 'vue';
 export default {
     name:'List',
@@ -38,7 +40,7 @@ export default {
     },
     methods: {
         create_articles(){
-            Axios.get("http://localhost:8000/api/articles").then(res => res.data)
+            Axios.get(config.domain + "articles").then(res => res.data)
             .then(data => {
                 console.log(data["hydra:member"])
                 //remplace datas par le nom de l'array contenant tout les articles
@@ -46,7 +48,7 @@ export default {
             })
         },
         delete_article(id){
-            Axios.delete("http://localhost:8000/api/articles/" + id).then(res => console.log(res)).finally(() => 
+            Axios.delete(config.domain + "articles/" + id).then(res => console.log(res)).finally(() => 
             {
                 window.location.reload();
             })

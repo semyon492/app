@@ -2,8 +2,8 @@
     <main>
         <div class="title">
             <div class="background_title"></div>
-            <h1>BLOG DE ROMAIN & COLIN</h1>
-            <p>Voici notre blog, nous avons fais tout de A à Z sur ce site.</p>
+            <h1>lorem ipsum</h1>
+            <p>small text.</p>
         </div>
         <div class="recherche_fav">
         <form class="research_div" @submit.prevent="searching" autocomplete="off">
@@ -43,6 +43,7 @@
 
 <script>
 import Axios from "axios";
+import config from "/config";
 
 export default {
     name:'Home',
@@ -69,120 +70,112 @@ export default {
         
         console.log("Token : " + (this.is_connected == true))
 
-        return await this.init_articles().finally(
-            () => {
-                console.log("test : " + this.is_connected == false)
-                if(this.is_connected) {
-                    console.log("gergerbgaerbgçbzeuiezugbdiycfvqsyuev")
-                    this.getUserID().finally(
-                    () => {
-                        console.log("trttt")
-                        this.get_fav_articles().finally( () => {
+        // return await this.init_articles().finally(
+        //     () => {
+        //         console.log("test : " + this.is_connected == false)
+        //         if(this.is_connected) {
+        //             console.log("gergerbgaerbgçbzeuiezugbdiycfvqsyuev")
+        //             this.getUserID().finally(
+        //             () => {
+        //                 console.log("trttt")
+        //                 this.get_fav_articles().finally( () => {
                             
-                            let parent_btn = document.getElementById("pages_choice")
-                            let nbr_btn_page = Math.ceil(this.nbr_article/9)
-                            for(let i=0; (this.id < nbr_btn_page)?i<=nbr_btn_page:i<nbr_btn_page; i++){
-                                let btn = document.createElement("a");
-                                if(i == nbr_btn_page){
-                                    btn.innerHTML = '<i class="fa fa-angle-right">';
-                                        btn.classList.add("next");
-                                        btn.href="/home/"+ (parseInt(this.id)+1);
-                                    }else{
-                                        btn.innerHTML = i+1;
-                                        btn.href="/home/"+ (i+1);
-                                    }
-                                    btn.classList.add("page");
-                                    parent_btn.appendChild(btn);
-                                }
+        //                     let parent_btn = document.getElementById("pages_choice")
+        //                     let nbr_btn_page = Math.ceil(this.nbr_article/9)
+        //                     for(let i=0; (this.id < nbr_btn_page)?i<=nbr_btn_page:i<nbr_btn_page; i++){
+        //                         let btn = document.createElement("a");
+        //                         if(i == nbr_btn_page){
+        //                             btn.innerHTML = '<i class="fa fa-angle-right">';
+        //                                 btn.classList.add("next");
+        //                                 btn.href="/home/"+ (parseInt(this.id)+1);
+        //                             }else{
+        //                                 btn.innerHTML = i+1;
+        //                                 btn.href="/home/"+ (i+1);
+        //                             }
+        //                             btn.classList.add("page");
+        //                             parent_btn.appendChild(btn);
+        //                         }
                                 
-                                let list_pages_btn = document.getElementsByClassName("page");
-                            list_pages_btn[this.id - 1].classList.add("selected_page");
+        //                         let list_pages_btn = document.getElementsByClassName("page");
+        //                     list_pages_btn[this.id - 1].classList.add("selected_page");
                             
-                            document.getElementById("home_link").className = ["router-link-exact-active"];
+        //                     document.getElementById("home_link").className = ["router-link-exact-active"];
                             
-                            this.select_articles()
-                            this.sort_article()
-                        }) 
-                    })
-                } else {
-                    console.log("else")
-                    let parent_btn = document.getElementById("pages_choice")
-                    let nbr_btn_page = Math.ceil(this.nbr_article/9)
-                    for(let i=0; (this.id < nbr_btn_page)?i<=nbr_btn_page:i<nbr_btn_page; i++){
-                        let btn = document.createElement("a");
-                        if(i == nbr_btn_page){
-                            btn.innerHTML = '<i class="fa fa-angle-right">';
-                                btn.classList.add("next");
-                                btn.href="/home/"+ (parseInt(this.id)+1);
-                            }else{
-                                btn.innerHTML = i+1;
-                                btn.href="/home/"+ (i+1);
-                            }
-                            btn.classList.add("page");
-                            parent_btn.appendChild(btn);
-                        }
+        //                     this.select_articles()
+        //                     this.sort_article()
+        //                 }) 
+        //             })
+        //         } else {
+        //             console.log("else")
+        //             let parent_btn = document.getElementById("pages_choice")
+        //             let nbr_btn_page = Math.ceil(this.nbr_article/9)
+        //             for(let i=0; (this.id < nbr_btn_page)?i<=nbr_btn_page:i<nbr_btn_page; i++){
+        //                 let btn = document.createElement("a");
+        //                 if(i == nbr_btn_page){
+        //                     btn.innerHTML = '<i class="fa fa-angle-right">';
+        //                         btn.classList.add("next");
+        //                         btn.href="/home/"+ (parseInt(this.id)+1);
+        //                     }else{
+        //                         btn.innerHTML = i+1;
+        //                         btn.href="/home/"+ (i+1);
+        //                     }
+        //                     btn.classList.add("page");
+        //                     parent_btn.appendChild(btn);
+        //                 }
                         
-                        let list_pages_btn = document.getElementsByClassName("page");
-                        list_pages_btn[this.id - 1].classList.add("selected_page");
+        //                 let list_pages_btn = document.getElementsByClassName("page");
+        //                 list_pages_btn[this.id - 1].classList.add("selected_page");
                 
-                        document.getElementById("home_link").className = ["router-link-exact-active"];
+        //                 document.getElementById("home_link").className = ["router-link-exact-active"];
                 
-                        this.select_articles()
-                        this.sort_article()
-                }
-        })
+        //                 this.select_articles()
+        //                 this.sort_article()
+        //         }
+        // })
     },
     methods: {
-        async init_articles(){
-            return Axios.get("http://localhost:8000/api/articles").then(res => res.data)
-            .then(data => {
-                console.log(data)
-                //remplace datas par le nom de l'array contenant tout les articles
-                this.all_articles = data['hydra:member']
-                //console.log(data['hydra:member'])
-                //console.log(this.all_articles)
+        // async init_articles(){
+        //     return Axios.get(config.domain + "articles").then(res => res.data)
+        //     .then(data => {
+        //         console.log(data)
+        //         //remplace datas par le nom de l'array contenant tout les articles
+        //         this.all_articles = data['hydra:member']
+        //         //console.log(data['hydra:member'])
+        //         //console.log(this.all_articles)
 
-                this.nbr_article = this.all_articles.length
-            })
-        },
-        select_articles(){
-            this.selected_articles = []
+        //         this.nbr_article = this.all_articles.length
+        //     })
+        // },
 
-            for(let i = 9 * (parseInt(this.id) - 1); i < 9 * parseInt(this.id); i++){
-                if(i >= this.all_articles.length)
-                    break;
-                this.selected_articles.push(this.all_articles[i]);
-            }
-        },
-        async searching(){
-            if(this.search != "") {
-                //Potentiellement changer la route
-                console.log(this.search)
-                return await Axios.post("http://localhost:8000/api/articles/search", {"searchText" : this.search}).then(res => res.data)
-                .then(data => {
-                    console.log(data)
-                    data.forEach(a => {
-                        console.log(a)
-                    })
-                    //remplace datas par le nom de l'array contenant tout les articles
-                    this.all_articles = data.datas
-                }).finally(() => {
-                    this.nbr_article = this.all_articles.length
-                    this.select_articles()
-                    this.sort_article()
-                })
+        // async searching(){
+        //     if(this.search != "") {
+        //         //Potentiellement changer la route
+        //         console.log(this.search)
+        //         return await Axios.post(config.domain + "articles/search", {"searchText" : this.search}).then(res => res.data)
+        //         .then(data => {
+        //             console.log(data)
+        //             data.forEach(a => {
+        //                 console.log(a)
+        //             })
+        //             //remplace datas par le nom de l'array contenant tout les articles
+        //             this.all_articles = data.datas
+        //         }).finally(() => {
+        //             this.nbr_article = this.all_articles.length
+        //             this.select_articles()
+        //             this.sort_article()
+        //         })
 
-            } else {
-                return await this.init_articles().finally(() => {
-                    this.select_articles()
-                    this.sort_article()
-                })
-            }
-        },
+        //     } else {
+        //         return await this.init_articles().finally(() => {
+        //             this.select_articles()
+        //             this.sort_article()
+        //         })
+        //     }
+        // },
         async getUserID() {
             if(this.is_connected) {
 
-                return Axios.post("http://localhost:8000/api/me",
+                return Axios.post(config.domain + "me",
                 localStorage.getItem('token'), 
                 {
                     headers: {
@@ -197,88 +190,6 @@ export default {
                 throw "Not connected"
             }
             
-        },
-        async get_fav_articles(){
-            if(this.is_connected)
-
-            return Axios.get("http://localhost:8000/api/favorites/?user=" + this.user_id).then(res => res.data)
-            .then(data => {                
-                let tempFav = data["hydra:member"]
-                console.log(tempFav)
-                tempFav.forEach(f => {
-                    var id = f["article"].split("/")[3]
-
-                    this.fav_articlesId.push(parseInt(id))
-                    this.fav_articlesFavId.push(f["id"])
-                })
-
-            }).finally(
-            () => {
-                this.list_fav_articles = []
-                this.all_articles.forEach(e => {
-                    if(Object.values(this.fav_articlesId).includes(e.id))
-                        this.list_fav_articles.push(e)
-                })
-                console.log("Liste des articles en favoris")
-                console.log(this.list_fav_articles)
-            })
-        },
-        fav(id){
-            if(this.is_connected)
-                // Vérification que l'article n'est pas déjà en favoris
-                var test = false
-                this.list_fav_articles.forEach(e => {
-                    if(e['id'] == id) {
-                        test = true    
-                    }
-                })
-
-                // Si il est déjà en favoris alors on le retire
-                if(test) {
-                    var index = this.fav_articlesId.indexOf(id)
-                    var favId = this.fav_articlesFavId[index]
-                    Axios.delete("http://localhost:8000/api/favorites/"+ favId)
-                    .then(res => {
-                        console.log(res)
-                        this.fav_articlesFavId.slice(index, 1)
-                        this.fav_articlesId.slice(index, 1)
-                    })
-                } else {
-                    console.log("/api/articles/" + id)
-                    console.log("/api/users/" + this.user_id)
-                    Axios.post("http://localhost:8000/api/favorites", {"article" : "/api/articles/"+id, "user" : "/api/users/"+this.user_id})
-                    .then(res => {
-                        console.log(res.data)
-                        this.get_fav_articles()
-                        this.show_fav = !this.show_fav
-                        this.show_fav = !this.show_fav
-                    })
-                }
-        },
-        select_fav(){
-            let btn = document.getElementById("fav_toggle")
-            if(this.show_fav)
-                btn.classList = ["select_fav_v1"]
-            else
-                btn.classList = ["select_fav_v2"]
-
-            this.show_fav = !this.show_fav
-            this.sort_article()
-            this.select_articles();
-        },
-        sort_article(){
-            //Permet d'avoir une grid adapté au nombre d'article
-            let list_articles = document.getElementsByClassName("article");
-            console.log(list_articles.item(0))
-            if(list_articles.length > 0 && document.getElementsByClassName("first_article").length == 0) {
-                list_articles[0].classList = ["first_article"];
-                let articles_container = document.getElementById("articles_container");
-                if(list_articles.length > 4){
-                    articles_container.style.gridTemplateRows = "auto repeat(2, 1fr)";
-                }else{
-                    articles_container.style.gridTemplateRows = "auto 1fr";
-                }
-            }
         }
     },
 }
