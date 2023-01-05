@@ -5,6 +5,8 @@ import Home from '@/views/public/Home.vue'
 import Login from '@/views/public/Login.vue'
 import Article from '@/views/public/ArticleHome.vue'
 import Register from '@/views/public/Register.vue'
+import Restore from '@/views/public/Restore.vue'
+import Rules from '@/views/public/Rules.vue'
 import PublicLayout from '@/views/public/Layout.vue'
 
 import AdminLayout from '@/views/admin/Layout.vue'
@@ -22,12 +24,15 @@ const routes = [
         children : [
             {path:'home/:id(\\d+)',name:'home',component:Home, props:true},
             {path:'article/:id(\\d+)',name:'article', component:Article, props:true},
-            {path:'/', redirect:'/home/1'},
-            {path:'/:pathMatch(.*)*', redirect: '/home/1'}
+            // {path:'/', redirect:'/home/1'},
+            {path:'/',name:'home',component:Home, props:true},
+            {path:'/privacy-and-terms',name:'rules',component:Rules, props:true},
+            // {path:'/:pathMatch(.*)*', redirect: '/home/1'}
         ]
     },
     {path:'/login',name:'login',component:Login},
     {path:'/register',name:'register',component:Register},
+    {path:'/restore',name:'restore',component:Restore},
     {
         path:'/admin',
         name:'admin',
