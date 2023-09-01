@@ -92,6 +92,10 @@ export default {
                     this.form_alert = true;
                     this.err_info = "Неверно введена почта или пароль";
                 }
+                if(res.data.status == 9){
+                    this.form_alert = true;
+                    this.err_info = "Пользователь не найден";
+                }                
                 if(res.data.status == 4) {
                     this.form_alert = true;
                     this.err_info = "Пользователь не найден";
