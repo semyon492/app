@@ -1,5 +1,5 @@
 export default {
-    title: "Mixchat",
+    title: "Rapigram",
     domain: "https://api.rapigram.ru/api/",
     SEO_title: " - yunyuyuan blog",
     SEO_description: "云与原的博客，书写值得书写的东西", // description meta header
