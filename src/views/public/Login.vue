@@ -100,6 +100,10 @@ export default {
                     this.form_alert = true;
                     this.err_info = "Пользователь не найден";
                 }
+                if(res.data.status == 8) {
+                    this.form_alert = true;
+                    this.err_info = "Пользователь не найден";
+                }                
                 if(res.data.status == 16) {
                     this.form_alert = true;
                     this.err_info = "Неизвестная ошибка";
