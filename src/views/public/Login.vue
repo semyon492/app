@@ -104,6 +104,10 @@ export default {
                     this.form_alert = true;
                     this.err_info = "Неизвестная ошибка";
                 }
+                setTimeout(() => {
+                    this.form_alert = false;
+                    this.err_info = "";
+                }, 1000);                
 
                 if(res.data.status == 1) {
                   console.log(res.data.access_token);
