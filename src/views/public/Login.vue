@@ -28,7 +28,7 @@
               </div>
               <div class="d-flex mt-1">
                 <!-- Password message notification -->
-                <div class="ms-auto" v-if="form_alert" id="form_alert">
+                <div class="ms-auto invalid-feedback" v-if="form_alert" id="form_alert">
                   <i class="bi bi-info-circle ps-1" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" 
                   data-bs-content="Include at least one uppercase, one lowercase, one special character, one number and 8 characters long." 
                   data-bs-original-title="" title="" ref="err_alert">{{ err_info }}</i>
