@@ -116,7 +116,7 @@
                         </div>
                         <div id="new-post" class="h-32 p-2 bg-myGray-150 rounded-lg flex flex-col justify-between">
                             <div id="new-post-top" class="p-1 flex gap-3 items-center">
-                                <div class="_pp_ cursor-pointer"><img src="./assets/images/pp.jpg"
+                                <div class="_pp_ cursor-pointer"><img src="https://bayirdan.github.io/facebook-clone/assets/images/pp.jpg"
                                         class="w-10 rounded-full" alt=""></div><input
                                     class="cursor-pointer w-full bg-myGray-250 h-10 rounded-full outline-none text-tiny px-3 font-semibold placeholder-myGray-650 hover:bg-myGray-300 transition-colors duration-300 mobile-x:text-base"
                                     type="text" name="" placeholder="What's on your mind, Elliot ?">
@@ -180,7 +180,7 @@
                                 <div id="post-top_left" class="flex items-center gap-4">
                                     <div id="post-top_left_pp"
                                         class="ring-2 ring-blue-500 ring-opacity-70 border-2 border-black w-max rounded-full cursor-pointer">
-                                        <img src="./assets/images/angela-pp.jpg" class="w-8 h-8 rounded-full" alt="">
+                                        <img src="https://bayirdan.github.io/facebook-clone/assets/images/angela-pp.jpg" class="w-8 h-8 rounded-full" alt="">
                                     </div>
                                     <div id="post-top_left_title">
                                         <p class="hover:underline cursor-pointer">Angela Moss</p>
@@ -277,7 +277,7 @@
                                 </div>
                                 <div id="post-bottom-comments">
                                     <div id="other" class="flex gap-2 my-4">
-                                        <div id="other_pp"><img src="./assets/images/tyrell-pp.jpg"
+                                        <div id="other_pp"><img src="https://bayirdan.github.io/facebook-clone/assets/images/tyrell-pp.jpg"
                                                 class="w-9 h-9 rounded-full cursor-pointer" alt=""></div>
                                         <div id="other_comment">
                                             <div class="py-2 px-3 bg-myGray-200 rounded-2xl">
@@ -293,7 +293,7 @@
                                                     class="cursor-pointer hover:underline">2d</span></div>
                                         </div>
                                     </div>
-                                    <div id="me" class="flex w-full gap-2"><img src="./assets/images/pp.jpg"
+                                    <div id="me" class="flex w-full gap-2"><img src="https://bayirdan.github.io/facebook-clone/assets/images/pp.jpg"
                                             class="w-9 h-9 rounded-full cursor-pointer" alt="">
                                         <div class="flex w-full flex-col">
                                             <div id="me_comment" class="flex w-full bg-myGray-200 rounded-2xl"><input
@@ -376,7 +376,7 @@
                                 <div id="post-top_left" class="flex items-center gap-4">
                                     <div id="post-top_left_pp"
                                         class="ring-2 ring-blue-500 ring-opacity-70 border-2 border-black w-max rounded-full cursor-pointer">
-                                        <img src="./assets/images/tyrell-pp.jpg" class="w-8 h-8 rounded-full" alt="">
+                                        <img src="https://bayirdan.github.io/facebook-clone/assets/images/tyrell-pp.jpg" class="w-8 h-8 rounded-full" alt="">
                                     </div>
                                     <div id="post-top_left_title">
                                         <p class="hover:underline cursor-pointer">Tyrell Wellick</p>
@@ -474,7 +474,7 @@
                                 </div>
                                 <div id="post-bottom-comments">
                                     <div id="other" class="flex gap-2 my-4">
-                                        <div id="other_pp"><img src="./assets/images/angela-pp.jpg"
+                                        <div id="other_pp"><img src="https://bayirdan.github.io/facebook-clone/assets/images/angela-pp.jpg"
                                                 class="w-9 h-9 rounded-full cursor-pointer" alt=""></div>
                                         <div id="other_comment">
                                             <div class="py-2 px-3 bg-myGray-200 rounded-2xl">
@@ -490,7 +490,7 @@
                                                     class="cursor-pointer hover:underline">2d</span></div>
                                         </div>
                                     </div>
-                                    <div id="me" class="flex w-full gap-2"><img src="./assets/images/pp.jpg"
+                                    <div id="me" class="flex w-full gap-2"><img src="https://bayirdan.github.io/facebook-clone/assets/images/pp.jpg"
                                             class="w-9 h-9 rounded-full cursor-pointer" alt="">
                                         <div class="flex w-full flex-col">
                                             <div id="me_comment" class="flex w-full bg-myGray-200 rounded-2xl"><input
@@ -573,7 +573,7 @@
                                 <div id="post-top_left" class="flex items-center gap-4">
                                     <div id="post-top_left_pp"
                                         class="ring-2 ring-blue-500 ring-opacity-70 border-2 border-black w-max rounded-full cursor-pointer">
-                                        <img src="./assets/images/darlene-pp.jpg" class="w-8 h-8 rounded-full" alt="">
+                                        <img src="https://bayirdan.github.io/facebook-clone/assets/images/darlene-pp.jpg" class="w-8 h-8 rounded-full" alt="">
                                     </div>
                                     <div id="post-top_left_title">
                                         <p class="hover:underline cursor-pointer">Darlene Alderson</p>
@@ -671,7 +671,7 @@
                                 </div>
                                 <div id="post-bottom-comments">
                                     <div id="other" class="flex gap-2 my-4">
-                                        <div id="other_pp"><img src="./assets/images/dominique-pp.jpg"
+                                        <div id="other_pp"><img src="https://bayirdan.github.io/facebook-clone/assets/images/dominique-pp.jpg"
                                                 class="w-9 h-9 rounded-full cursor-pointer" alt=""></div>
                                         <div id="other_comment">
                                             <div class="py-2 px-3 bg-myGray-200 rounded-2xl">
@@ -687,7 +687,7 @@
                                                     class="cursor-pointer hover:underline">2d</span></div>
                                         </div>
                                     </div>
-                                    <div id="me" class="flex w-full gap-2"><img src="./assets/images/pp.jpg"
+                                    <div id="me" class="flex w-full gap-2"><img src="https://bayirdan.github.io/facebook-clone/assets/images/pp.jpg"
                                             class="w-9 h-9 rounded-full cursor-pointer" alt="">
                                         <div class="flex w-full flex-col">
                                             <div id="me_comment" class="flex w-full bg-myGray-200 rounded-2xl"><input
@@ -770,7 +770,7 @@
                                 <div id="post-top_left" class="flex items-center gap-4">
                                     <div id="post-top_left_pp"
                                         class="ring-2 ring-blue-500 ring-opacity-70 border-2 border-black w-max rounded-full cursor-pointer">
-                                        <img src="./assets/images/dominique-pp.jpg" class="w-8 h-8 rounded-full" alt="">
+                                        <img src="https://bayirdan.github.io/facebook-clone/assets/images/dominique-pp.jpg" class="w-8 h-8 rounded-full" alt="">
                                     </div>
                                     <div id="post-top_left_title">
                                         <p class="hover:underline cursor-pointer">Dominique DiPierro</p>
@@ -868,7 +868,7 @@
                                 </div>
                                 <div id="post-bottom-comments">
                                     <div id="other" class="flex gap-2 my-4">
-                                        <div id="other_pp"><img src="./assets/images/darlene-pp.jpg"
+                                        <div id="other_pp"><img src="https://bayirdan.github.io/facebook-clone/assets/images/darlene-pp.jpg"
                                                 class="w-9 h-9 rounded-full cursor-pointer" alt=""></div>
                                         <div id="other_comment">
                                             <div class="py-2 px-3 bg-myGray-200 rounded-2xl">
@@ -884,7 +884,7 @@
                                                     class="cursor-pointer hover:underline">2d</span></div>
                                         </div>
                                     </div>
-                                    <div id="me" class="flex w-full gap-2"><img src="./assets/images/pp.jpg"
+                                    <div id="me" class="flex w-full gap-2"><img src="https://bayirdan.github.io/facebook-clone/assets/images/pp.jpg"
                                             class="w-9 h-9 rounded-full cursor-pointer" alt="">
                                         <div class="flex w-full flex-col">
                                             <div id="me_comment" class="flex w-full bg-myGray-200 rounded-2xl"><input
@@ -1016,25 +1016,25 @@
                             <ul>
                                 <li
                                     class="flex items-center gap-3 text-myGray-800 font-bold text-tiny cursor-pointer hover:bg-myGray-150 rounded-lg my-2 px-3 py-2 transition-colors duration-300">
-                                    <img src="./assets/images/angela-pp.jpg" class="w-10 h-10 rounded-full"
+                                    <img src="https://bayirdan.github.io/facebook-clone/assets/images/angela-pp.jpg" class="w-10 h-10 rounded-full"
                                         alt=""><span>Angela Moss</span></li>
                             </ul>
                             <ul>
                                 <li
                                     class="flex items-center gap-3 text-myGray-800 font-bold text-tiny cursor-pointer hover:bg-myGray-150 rounded-lg my-2 px-3 py-2 transition-colors duration-300">
-                                    <img src="./assets/images/tyrell-pp.jpg" class="w-10 h-10 rounded-full"
+                                    <img src="https://bayirdan.github.io/facebook-clone/assets/images/tyrell-pp.jpg" class="w-10 h-10 rounded-full"
                                         alt=""><span>Tyrell Wellick</span></li>
                             </ul>
                             <ul>
                                 <li
                                     class="flex items-center gap-3 text-myGray-800 font-bold text-tiny cursor-pointer hover:bg-myGray-150 rounded-lg my-2 px-3 py-2 transition-colors duration-300">
-                                    <img src="./assets/images/darlene-pp.jpg" class="w-10 h-10 rounded-full"
+                                    <img src="https://bayirdan.github.io/facebook-clone/assets/images/darlene-pp.jpg" class="w-10 h-10 rounded-full"
                                         alt=""><span>Darlene Alderson</span></li>
                             </ul>
                             <ul>
                                 <li
                                     class="flex items-center gap-3 text-myGray-800 font-bold text-tiny cursor-pointer hover:bg-myGray-150 rounded-lg my-2 px-3 py-2 transition-colors duration-300">
-                                    <img src="./assets/images/dominique-pp.jpg" class="w-10 h-10 rounded-full"
+                                    <img src="https://bayirdan.github.io/facebook-clone/assets/images/dominique-pp.jpg" class="w-10 h-10 rounded-full"
                                         alt=""><span>Dominique DiPierro</span></li>
                             </ul>
                         </div>
