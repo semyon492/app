@@ -53,12 +53,12 @@
             </div>
             <div id="footer" class="w-full hidden 2xl:block">
               <div class="text-muted text-xs pl-1 mb-14">
-                <a router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Privacy</a>·
-                <a router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Terms</a>·
-                <a router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Adversiting</a>·
-                <a router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Ad Choices</a>·
-                <a router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Cookies</a>·<br>
-                <a router-link to="/privacy-and-terms" class="cursor-pointer">More</a>·
+                <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Privacy</router-link>·
+                <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Terms</router-link>·
+                <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Adversiting</router-link>·
+                <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Ad Choices</router-link>·
+                <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Cookies</router-link>·<br>
+                <router-link to="/privacy-and-terms" class="cursor-pointer">More</router-link>·
                 <a>Naame © 2023</a>
               </div>
             </div>
