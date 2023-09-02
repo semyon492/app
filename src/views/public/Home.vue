@@ -32,7 +32,7 @@
   </main>
   <main v-if="(is_connected)">
     <div class="row">
-      <div class="col-lg-3 relative w-80 hidden xl:block">
+      <div class="col-2">
         <div class="absolute">
           <div class="bg-myGray-100 h-screen px-2 py-4 flex-col justify-between hidden xl:flex fixed w-80">
             <div id="left-bar-top" class="w-full">
@@ -90,7 +90,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-8 flex-1">
+      <div class="col-8">
         <div
             class="h-auto desktop:w-180 laptop:w-160 lg:w-160 sm:w-140 w-full sm:m-auto p-1 text-xs text-myGray-800 font-semibold mobile-x:text-tiny mobile-x:p-8">
           <div class="flex flex-col gap-4">
@@ -106,7 +106,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-3 relative w-80 hidden lg:block">
+      <div class="col-2">
         <div class="absolute">
           <div class="bg-myGray-100 h-screen px-5 py-5 hidden w-80 lg:block fixed">
             <div id="contacts" class="w-full flex items-center justfiy-between text-myGray-800"><span
