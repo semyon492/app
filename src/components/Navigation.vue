@@ -38,20 +38,19 @@ export default {
         return {
             is_connected:false,
             is_admin:false,
-            name:config.title
+            name:config.title,
+            access_token : {
+                access_token: ''
+            }
         }
     },
     async mounted() {
-        // console.log(!!(localStorage.getItem('token')), 'test');
-        // if(!!(localStorage.getItem('token')))
-        //     this.is_connected = true;
-        
-
-        this.is_connected = false;
-        if(!!localStorage.getItem('token'))
+         this.is_connected = false;
+        if (!!localStorage.getItem('token')){
             this.is_connected = true;
-
-        await Axios.post(config.domain + "account/getinfo", localStorage.getItem('token'))
+            this.access_token.access_token = localStorage.getItem('token');
+        }     
+        await Axios.post(config.domain + "account/getinfo", this.access_token)
         .then(res => res.data)
         .then(data => {
             if(data.roles == 'ROLE_ADMIN'){

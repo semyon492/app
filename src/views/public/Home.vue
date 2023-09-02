@@ -1087,13 +1087,18 @@ export default {
       user_id: null,
       is_connected: false,
       show_fav: false,
-      name: config.title
+      name: config.title,
+      access_token : {
+        access_token: ''
+      }
     }
   },
   async mounted() {
     this.is_connected = false;
-    if (!!localStorage.getItem('token'))
+    if (!!localStorage.getItem('token')){
       this.is_connected = true;
+      this.access_token.access_token = localStorage.getItem('token');
+    }     
 
     console.log("Token : " + (this.is_connected == true))
 
