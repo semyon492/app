@@ -245,7 +245,10 @@ export default {
       access_token : {
         access_token: ''
       },
-      user : []
+      user : {
+        firstname: '',
+        lastname: '',
+      }
     }
   },
   async mounted() {
@@ -259,7 +262,8 @@ export default {
         })
         .then(res => {
             console.log(res.data);
-            this.user = res.data;
+            this.user.firstname = res.data.firstname;
+            this.user.lastname = res.data.lastname;
             if(res.data.roles == 'ROLE_ADMIN'){
                 this.is_admin = true;
             } 
