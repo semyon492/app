@@ -56,6 +56,7 @@ export default {
             }
         })
         .then(res => {
+            console.log(res);
             if(res.data.roles == 'ROLE_ADMIN'){
                 this.is_admin = true;
             } 
