@@ -39,7 +39,7 @@
               <ul>
                 <li class="d-flex align-items-center gap-2 px-3 py-2 ">
                   <img src="https://bayirdan.github.io/facebook-clone/assets/images/pp.jpg" class="rounded-circle w-9" alt="">
-                  <span class="fw-bold text-muted">{{ user.firstname }} {{ user.lastname }} Elliot Anderson</span>
+                  <span class="fw-bold text-muted">{{ user.firstname }} {{ user.lastname }}</span>
                 </li>
                 <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-150 transition-color duration-300">
                   <img src="https://bayirdan.github.io/facebook-clone/assets/images/png/friends.png" class="rounded-full w-9" alt=""><span
@@ -246,8 +246,8 @@ export default {
         access_token: ''
       },
       user : {
-        firstname: '',
-        lastname: '',
+        firstname: 'Elliot',
+        lastname: 'Anderson',
       }
     }
   },
