@@ -39,7 +39,7 @@
               <ul>
                 <li class="d-flex align-items-center gap-2 px-3 py-2 ">
                   <img src="https://bayirdan.github.io/facebook-clone/assets/images/pp.jpg" class="rounded-circle w-9" alt="">
-                  <span class="fw-bold text-muted">Elliot Anderson</span>
+                  <span class="fw-bold text-muted">{{ user.firstname }} {{ user.lastname }} Elliot Anderson</span>
                 </li>
                 <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-150 transition-color duration-300">
                   <img src="https://bayirdan.github.io/facebook-clone/assets/images/png/friends.png" class="rounded-full w-9" alt=""><span
@@ -244,7 +244,8 @@ export default {
       name: config.title,
       access_token : {
         access_token: ''
-      }
+      },
+      user : []
     }
   },
   async mounted() {
@@ -253,8 +254,23 @@ export default {
       this.is_connected = true;
       this.access_token.access_token = localStorage.getItem('token');
     }     
+    await Axios.post(config.domain + "account/getinfo", {
+                access_token: localStorage.getItem('token')
+        })
+        .then(res => {
+            console.log(res.data);
+            this.user = res.data;
+            if(res.data.roles == 'ROLE_ADMIN'){
+                this.is_admin = true;
+            } 
+        })
+    // console.log("Token : " + (this.is_connected == true))
 
-    console.log("Token : " + (this.is_connected == true))
+
+
+
+
+
 
     // return await this.init_articles().finally(
     //     () => {
