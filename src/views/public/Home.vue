@@ -31,9 +31,10 @@
     </section>
   </main>
   <main v-if="(is_connected)">
-    <div class="row">
-      <div class="col-2">
-        <div class="absolute">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+          <div class="absolute">
           <div class="bg-myGray-100 h-screen px-2 py-4 flex-col justify-between hidden xl:flex fixed w-80">
             <div id="left-bar-top" class="w-full">
               <ul>
@@ -89,25 +90,12 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-8">
-        <div
-            class="h-auto desktop:w-180 laptop:w-160 lg:w-160 sm:w-140 w-full sm:m-auto p-1 text-xs text-myGray-800 font-semibold mobile-x:text-tiny mobile-x:p-8">
-          <div class="flex flex-col gap-4">
-            <div id="storie" class="p-2 bg-myGray-150 rounded-lg">
-              <div
-                  class="w-full h-18 rounded-lg py-1 px-2 flex items-center gap-3 cursor-pointer hover:bg-myGray-200 transition-colors duration-300">
-                <div id="title" class="flex flex-col"><span class="mobile-x:text-lg text-tiny">Create
-                                        Story</span><span class="mobile-x:text-tiny text-xs text-myGray-600">Share a
-                                        photo or write something.</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="col-2">
-        <div class="absolute">
+        <div class="col-6">
+          2 of 3 (wider)
+        </div>
+        <div class="col">
+          <div class="absolute">
           <div class="bg-myGray-100 h-screen px-5 py-5 hidden w-80 lg:block fixed">
             <div id="contacts" class="w-full flex items-center justfiy-between text-myGray-800"><span
                 class="flex-1 font-semibold text-base pl-5">Contacts</span>
@@ -202,7 +190,9 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
+    </div>    
     </div>
   </main>
 
