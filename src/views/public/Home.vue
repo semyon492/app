@@ -97,21 +97,10 @@
             <div id="storie" class="p-2 bg-myGray-150 rounded-lg">
               <div
                   class="w-full h-18 rounded-lg py-1 px-2 flex items-center gap-3 cursor-pointer hover:bg-myGray-200 transition-colors duration-300">
-                <div id="post-svg-plus" class="p-2.5 bg-face-blue-light rounded-full cursor-pointer">
-                  <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                       class="w-5 text-face-blue">
-                    <g fill-rule="evenodd" transform="translate(-446 -350)">
-                      <g fill-rule="nonzero">
-                        <path d="M95 201.5h13a1 1 0 1 0 0-2H95a1 1 0 1 0 0 2z"
-                              transform="translate(354.5 159.5)"></path>
-                        <path d="M102.5 207v-13a1 1 0 1 0-2 0v13a1 1 0 1 0 2 0z"
-                              transform="translate(354.5 159.5)"></path>
-                      </g>
-                    </g>
-                  </svg></div>
                 <div id="title" class="flex flex-col"><span class="mobile-x:text-lg text-tiny">Create
                                         Story</span><span class="mobile-x:text-tiny text-xs text-myGray-600">Share a
-                                        photo or write something.</span></div>
+                                        photo or write something.</span>
+                </div>
               </div>
             </div>
           </div>
