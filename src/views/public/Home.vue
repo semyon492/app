@@ -193,7 +193,6 @@
         </div>
       </div>
     </div>    
-    </div>
   </main>
 
   <!-- <button class="change_view" @click="this.name = 'big_view'">Change</button> -->
