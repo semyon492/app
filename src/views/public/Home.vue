@@ -31,7 +31,7 @@
     </section>
   </main>
   <main v-if="(is_connected)">
-    <div class="container text-center">
+    <div class="container-fluid">
       <div class="row">
         <div class="col">
           <div class="absolute">
@@ -99,25 +99,6 @@
                   <img src="https://bayirdan.github.io/facebook-clone/assets/images/dominique-pp.jpg" class="w-10 h-10 rounded-full"
                        alt=""><span>Dominique DiPierro</span></li>
               </ul>
-            </div>
-            <div id="group-conversation" class="mt-2">
-              <div class="my-4 font-semibold text-base text-myGray-650 px-3"> Group conversations </div>
-              <div
-                  class="flex items-center gap-3 w-full cursor-pointer hover:bg-myGray-150 p-3 rounded-lg transition-colors duration-300">
-                <div id="svg-box" class="p-2 rounded-full bg-myGray-200 text-myGray-800"><svg
-                    fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                    class="w-5">
-                  <g fill-rule="evenodd" transform="translate(-446 -350)">
-                    <g fill-rule="nonzero">
-                      <path d="M95 201.5h13a1 1 0 1 0 0-2H95a1 1 0 1 0 0 2z"
-                            transform="translate(354.5 159.5)"></path>
-                      <path d="M102.5 207v-13a1 1 0 1 0-2 0v13a1 1 0 1 0 2 0z"
-                            transform="translate(354.5 159.5)"></path>
-                    </g>
-                  </g>
-                </svg></div><span class="text-myGray-800 font-semibold text-tiny">Create New
-                                    Group</span>
-              </div>
             </div>
           </div>
         </div>
