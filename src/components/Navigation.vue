@@ -54,7 +54,7 @@ export default {
                 access_token: localStorage.getItem('token')
         })
         .then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             if(res.data.roles == 'ROLE_ADMIN'){
                 this.is_admin = true;
             } 

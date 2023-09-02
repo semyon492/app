@@ -262,6 +262,7 @@ export default {
         })
         .then(res => {
             console.log(res.data);
+            console.log(res.data.firstname);
             this.user.firstname = res.data.firstname;
             this.user.lastname = res.data.lastname;
             if(res.data.roles == 'ROLE_ADMIN'){
