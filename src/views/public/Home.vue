@@ -217,8 +217,7 @@
               </div>
               <div id="post-middle">
                 <p class="px-3 font-normal leading-5 text-sm">Lorem ipsum dolor, sit amet consectetur
-                  adipisicing elit. Quae inventore assumenda nulla temporibus ea </p><img
-                  src="https://picsum.photos/300/" class="w-full my-2" alt="">
+                  adipisicing elit. Quae inventore assumenda nulla temporibus ea </p>
               </div>
               <div id="post-bottom" class="px-4 py-2 text-sm font-normal">
                 <div id="post-bottom_info" class="flex items-center justify-between">
@@ -414,8 +413,7 @@
               <div id="post-middle">
                 <p class="px-3 font-normal leading-5 text-sm">Lorem ipsum dolor, sit amet consectetur
                   adipisicing elit. Quae inventore assumenda nulla temporibus ea tempore nihil
-                  praesentium necessitatibus vel quia!</p><img src="https://picsum.photos/200"
-                                                               class="w-full my-2" alt="">
+                  praesentium necessitatibus vel quia!</p>
               </div>
               <div id="post-bottom" class="px-4 py-2 text-sm font-normal">
                 <div id="post-bottom_info" class="flex items-center justify-between">
@@ -611,8 +609,7 @@
               <div id="post-middle">
                 <p class="px-3 font-normal leading-5 text-sm">Lorem ipsum dolor, sit amet consectetur
                   adipisicing elit. Quae inventore assumenda nulla temporibus ea tempore nihil
-                  praesentium necessitatibus vel quia!</p><img src="https://picsum.photos/250"
-                                                               class="w-full my-2" alt="">
+                  praesentium necessitatibus vel quia!</p>
               </div>
               <div id="post-bottom" class="px-4 py-2 text-sm font-normal">
                 <div id="post-bottom_info" class="flex items-center justify-between">
@@ -808,8 +805,8 @@
               <div id="post-middle">
                 <p class="px-3 font-normal leading-5 text-sm">Lorem ipsum dolor, sit amet consectetur
                   adipisicing elit. Quae inventore assumenda nulla temporibus ea tempore nihil
-                  praesentium necessitatibus vel quia!</p><img src="https://picsum.photos/350"
-                                                               class="w-full my-2" alt="">
+                  praesentium necessitatibus vel quia!</p>
+
               </div>
               <div id="post-bottom" class="px-4 py-2 text-sm font-normal">
                 <div id="post-bottom_info" class="flex items-center justify-between">
