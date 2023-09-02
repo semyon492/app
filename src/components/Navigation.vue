@@ -51,9 +51,7 @@ export default {
             // this.access_token.access_token = localStorage.getItem('token');
         }     
         await Axios.post(config.domain + "account/getinfo", {
-            access_token : {
                 access_token: localStorage.getItem('token')
-            }
         })
         .then(res => {
             console.log(res.data);
