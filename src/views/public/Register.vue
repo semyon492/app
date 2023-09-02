@@ -55,7 +55,14 @@
             <div class="mb-3 input-group-lg">
               <input class="form-control" type="password" placeholder="Подтвердите пароль" name="repassword" id="repassword" v-model="user.repassword" required>
             </div>
-
+            <div class="d-flex mt-1">
+                <!-- Password message notification -->
+                <div class="alert alert-danger d-flex align-items-center" role="alert" v-if="form_alert" id="form_alert">
+                  <div>
+                    {{ err_info }}
+                  </div>
+                </div> 
+              </div>  
             <!-- Button -->
             <div class="d-grid">
                 <button type="submit" class="btn btn-lg btn-primary">Регистрация</button>
@@ -99,9 +106,26 @@ export default {
     methods: {
         register(){
             Axios.post(config.domain + "account/register", this.user)
-            .then(res => console.log(res))
+            .then(res => {
+              if(res.data.status == 4){
+                    this.form_alert = true;
+                    this.err_info = "Неверно введена почта";
+                }
+                if(res.data.status == 5){
+                    this.form_alert = true;
+                    this.err_info = "Неверно введен пароль";
+                }
+                if(res.data.status == 20){
+                    this.form_alert = true;
+                    this.err_info = "Неизвестная ошибка";
+                }
 
-            // this.$router.push('/login')
+              if(res.data.status == 1) {
+                  console.log(res.data.data.access_token);
+                  localStorage.setItem('token', res.data.data.access_token);
+                    this.$router.push('/')
+                }
+            })
         }
     },
 }
