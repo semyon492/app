@@ -39,24 +39,32 @@ export default {
             is_connected:false,
             is_admin:false,
             name:config.title,
-            access_token : {
-                access_token: ''
-            }
+            // access_token : {
+            //     access_token: localStorage.getItem('token')
+            // }
         }
     },
     async mounted() {
          this.is_connected = false;
         if (!!localStorage.getItem('token')){
             this.is_connected = true;
-            this.access_token.access_token = localStorage.getItem('token');
+            // this.access_token.access_token = localStorage.getItem('token');
         }     
-        await Axios.post(config.domain + "account/getinfo", this.access_token)
-        .then(res => res.data)
-        .then(data => {
-            if(data.roles == 'ROLE_ADMIN'){
-                this.is_admin = true;
+        await Axios.post(config.domain + "account/getinfo", {
+            access_token : {
+                access_token: localStorage.getItem('token')
             }
         })
+        .then(res => {
+            if(res.data.roles == 'ROLE_ADMIN'){
+                this.is_admin = true;
+            } 
+        })
+        // .then(data => {
+        //     if(data.roles == 'ROLE_ADMIN'){
+        //         this.is_admin = true;
+        //     }
+        // })
     },
     methods: {
         logout(){
