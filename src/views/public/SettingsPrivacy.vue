@@ -34,53 +34,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <div class="absolute">
-          <div class="bg-myGray-100 h-screen px-2 py-4 flex-col justify-between hidden xl:flex fixed w-80">
-            <div id="left-bar-top" class="w-full">
-              <ul>
-                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-150 transition-color duration-300">
-                  <router-link to="/" >              
-                    <img src="https://bayirdan.github.io/facebook-clone/assets/images/png/mostRecent.png" class="rounded-full w-9" alt=""><span
-                      class="text-myGray-800 font-bold text-tiny">Feed</span>
-                  </router-link>
-                </li>                  
-                <li class="d-flex align-items-center gap-2 px-3 py-2 ">
-                  <router-link to="/profile" >
-                    <img src="https://bayirdan.github.io/facebook-clone/assets/images/pp.jpg" class="rounded-circle w-9" alt="">
-                    <span class="fw-bold text-muted">{{ user.firstname }} {{ user.lastname }}</span>
-                  </router-link>
-                </li>
-                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-150 transition-color duration-300">
-                  <router-link to="/chat" >              
-                    <img src="https://bayirdan.github.io/facebook-clone/assets/images/png/mostRecent.png" class="rounded-full w-9" alt=""><span
-                      class="text-myGray-800 font-bold text-tiny">Chat</span>
-                  </router-link>
-                </li>                  
-                <!-- <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-150 transition-color duration-300">
-                  <img src="https://bayirdan.github.io/facebook-clone/assets/images/png/friends.png" class="rounded-full w-9" alt=""><span
-                    class="text-myGray-800 font-bold text-tiny">Friends</span>
-                </li> -->
-                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-150 transition-color duration-300">
-                  <router-link to="/settings" >              
-                    <img src="https://bayirdan.github.io/facebook-clone/assets/images/png/mostRecent.png" class="rounded-full w-9" alt=""><span
-                      class="text-myGray-800 font-bold text-tiny">Настройки</span>
-                  </router-link>
-                </li>  
-              </ul>
-            </div>
-            <div id="footer" class="w-full hidden 2xl:block">
-              <div class="text-muted text-xs pl-1 mb-14">
-                <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Privacy</router-link>·
-                <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Terms</router-link>·
-                <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Adversiting</router-link>·
-                <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Ad Choices</router-link>·
-                <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Cookies</router-link>·<br>
-                <router-link to="/privacy-and-terms" class="cursor-pointer">More</router-link>·
-                <a>Naame © 2023</a>
-              </div>
-            </div>
-          </div>
-        </div>
+          <Menu  :user="user"/>
         </div>
         <div class="col-10">
           <div class="row">
@@ -148,7 +102,8 @@ import Menu from '@/components/Menu.vue'
 export default {
   name: 'Home',
   components: {
-    SettingsMenu
+    SettingsMenu,
+    Menu
   },  
   props: ['user'],
   data() {

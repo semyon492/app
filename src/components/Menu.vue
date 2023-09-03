@@ -47,7 +47,7 @@ export default {
         },
         {
             link: '/profile',
-            text: this.user.firstname + ' ' + this.user.lastname,
+            text: 'Profile',
             img: 'https://bayirdan.github.io/facebook-clone/assets/images/pp.jpg',
         },
         {
