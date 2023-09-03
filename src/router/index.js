@@ -2,6 +2,15 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Axios from "axios";
 
 import Home from '@/views/public/Home.vue'
+import Settings from '@/views/public/Settings.vue'
+import SettingsPassword from '@/views/public/SettingsPassword.vue'
+import SettingsPrivacy from '@/views/public/SettingsPrivacy.vue'
+import SettingsEmail from '@/views/public/SettingsEmail.vue'
+import SettingsNotifications from '@/views/public/SettingsNotifications.vue'
+
+import SettingsDeleteAcc from '@/views/public/SettingsDeleteAcc.vue'
+import Profile from '@/views/public/Profile.vue'
+import Chat from '@/views/public/Chat.vue'
 import Login from '@/views/public/Login.vue'
 import Article from '@/views/public/ArticleHome.vue'
 import Register from '@/views/public/Register.vue'
@@ -27,6 +36,14 @@ const routes = [
             // {path:'/', redirect:'/home/1'},
             {path:'/',name:'home',component:Home, props:true},
             {path:'/privacy-and-terms',name:'rules',component:Rules, props:true},
+            {path:'/settings',name:'settings',component:Settings, props:true},
+            {path:'/settings/delete',name:'delete',component:SettingsDeleteAcc, props:true},
+            {path:'/settings/password',name:'password',component:SettingsPassword, props:true},
+            {path:'/settings/privacy',name:'privacy',component:SettingsPrivacy, props:true},
+            {path:'/settings/email',name:'email',component:SettingsEmail, props:true},
+            {path:'/settings/notifications',name:'notifications',component:SettingsNotifications, props:true},
+            {path:'/profile',name:'profile',component:Profile, props:true},
+            {path:'/chat',name:'chat',component:Chat, props:true},
             // {path:'/:pathMatch(.*)*', redirect: '/home/1'}
         ]
     },
@@ -47,7 +64,9 @@ const routes = [
 
 const router = createRouter({
     history : createWebHistory(import.meta.env.BASE_URL),
-    routes
+    routes,
+    linkActiveClass: 'active',
+    linkExactActiveClass: 'exact-active',    
 })
 
 router.beforeEach( async (to, from, next) => {
