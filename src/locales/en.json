@@ -1,5 +1,7 @@
 {
+    "message": "Hello i18n !!",
     "prueba": "Test",
+
     "login": "Log In",
     "user": "User | Users",
     "password": "Password | Passwords"
