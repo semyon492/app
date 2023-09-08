@@ -28,10 +28,6 @@
 
 <script>
 import config from "/config";
-import imgMostRecent from 'src/assets/images/mostRecent.png'
-import imgPp from 'src/assets/images/pp.jpg'
-import imgFriends from 'src/assets/images/friends.png'
-
 export default {
     name:'Menu',
     props: ['user'],
@@ -51,22 +47,22 @@ export default {
         {
             link: '/profile',
             text: 'Profile',
-            img: imgPp,
+            img: './assets/images/pp.jpg',
         },
         {
             link: '/',
             text: 'Friends',
-            img: imgFriends,
+            img: './assets/images/friends.png',
         },         
         {
             link: '/chat',
             text: 'Chat',
-            img: imgMostRecent,
+            img: './assets/images/mostRecent.png',
         },
         {
             link: '/settings',
             text: 'Настройки',
-            img: imgMostRecent,
+            img: './assets/images/mostRecent.png',
         },
 
         ]);
