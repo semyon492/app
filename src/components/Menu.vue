@@ -29,7 +29,7 @@
 <script>
 import config from "/config";
 import imgMostRecent from './assets/images/mostRecent.png'
-import imgPp from './assets/images/pp.png'
+import imgPp from './assets/images/pp.jpg'
 import imgFriends from './assets/images/friends.png'
 
 export default {
@@ -46,7 +46,7 @@ export default {
         {
             link: '/',
             text: 'Feed',
-            img: imgMostRecent,
+            img: './assets/images/mostRecent.png',
         },       
         {
             link: '/profile',
