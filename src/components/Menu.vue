@@ -113,22 +113,22 @@ export default {
         },       
         {
             link: '/profile',
-            text: 'Profile',
+            text: this.t('leftbar.profile'),
             img: imgPp,
         },
         {
             link: '/',
-            text: 'Friends',
+            text: this.t('leftbar.friends'),
             img: imgFriends,
         },         
         {
             link: '/chat',
-            text: 'Chat',
+            text: this.t('leftbar.chat'),
             img: imgMostRecent,
         },
         {
             link: '/settings',
-            text: 'Настройки',
+            text: this.t('leftbar.settings'),
             img: imgMostRecent,
         },
 
