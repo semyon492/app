@@ -48,10 +48,10 @@
 
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a :class="classLang('en')" href="#" @click="setLang('en')">English</a>
+                <a class="nav-link" href="#" @click="setLang('en')">English</a>
             </li>
             <li class="nav-item">
-                <a :class="classLang('en')" href="#" @click="setLang('ru')">Русский</a>
+                <a class="nav-link" href="#" @click="setLang('ru')">Русский</a>
             </li>
         </ul>
 
@@ -82,10 +82,6 @@ export default {
         const { t, locale } = useI18n()
         return { t, locale }
     },
-    async mounted() {
-
-
-    },
     data() {
         return {
             name:config.title,
@@ -101,13 +97,13 @@ export default {
             this.locale = lang;
             localStorage.setItem('currLang',lang);
         },
-        classLang(lang){
-            if (this.locale = lang) {
-                return 'nav-link active';
-            }else{
-                return 'nav-link';
-            }
-        },
+        // classLang(lang){
+        //     if (this.locale = lang) {
+        //         return 'nav-link active';
+        //     }else{
+        //         return 'nav-link';
+        //     }
+        // },
     },
 }
 </script>
