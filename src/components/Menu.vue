@@ -6,7 +6,7 @@
                   <li v-for="(info, idx) in infoTiles" :key="idx" :to="info.link" class="nav-item d-flex align-items-center gap-2 px-3 py-2">
                     <router-link :to="info.link" class="nav-link d-flex align-items-center">
                         <div class="">
-                          <img :src="info.img" class="rounded img-xl" :alt="info.text">
+                          <img :src="info.img" class="rounded-circle img-xl" :alt="info.text">
                         </div>
                         <div class="">
                           {{ info.text }}
