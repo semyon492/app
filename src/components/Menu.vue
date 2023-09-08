@@ -2,20 +2,7 @@
           <div class="absolute">
             <div class="bg-myGray-100 h-screen px-2 py-4 flex-col justify-between hidden xl:flex fixed w-80">
               <div id="left-bar-top" class="w-full">
-                <ul>
-                    <li v-for="(info, idx) in infoTiles" :key="idx" :to="info.link" class="d-flex align-items-center gap-2 px-3 py-2">
-                        <router-link :to="info.link" >              
-                            <img :src="info.img" class="rounded-full w-9" :alt="info.text">
-                            <span class="text-myGray-800 font-bold text-tiny">{{ info.text }}</span>
-                        </router-link>
-                    </li>
-                </ul>
-
                 <ul class="nav flex-column">
-                  <li class="nav-item d-flex align-items-center gap-2 px-3 py-2">
-                    <a class="nav-link active" aria-current="page" href="#">Active</a>
-                  </li>
-
                   <li v-for="(info, idx) in infoTiles" :key="idx" :to="info.link" class="nav-item d-flex align-items-center gap-2 px-3 py-2">
                     <router-link :to="info.link" class="nav-link">
                       <img :src="info.img" class="rounded-full w-9" :alt="info.text">
