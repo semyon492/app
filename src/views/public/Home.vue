@@ -515,6 +515,7 @@ export default {
   async mounted() {
     this.is_connected = false;
     if (!!localStorage.getItem('token')){
+      this.is_connected = true;
       this.access_token.access_token = localStorage.getItem('token');
     }     
     await Axios.post(config.domain + "account/getinfo", {
@@ -528,8 +529,9 @@ export default {
                 this.is_admin = true;
             } 
         })
-
   },
+  methods: {
+    async getUserID() {
       if (this.is_connected) {
 
         return Axios.post(config.domain + "account.getInfo",
