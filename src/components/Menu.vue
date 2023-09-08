@@ -5,8 +5,14 @@
                 <ul class="nav flex-column">
                   <li v-for="(info, idx) in infoTiles" :key="idx" :to="info.link" class="nav-item d-flex align-items-center gap-2 px-3 py-2">
                     <router-link :to="info.link" class="nav-link">
-                      <img :src="info.img" class="rounded-full w-9" :alt="info.text">
-                      {{ info.text }}
+                      <div>
+                        <div class="col">
+                          <img :src="info.img" class="rounded-full w-9" :alt="info.text">
+                        </div>
+                        <div class="col">
+                          {{ info.text }}
+                        </div>
+                      </div>
                     </router-link>
                   </li>
                 </ul>
