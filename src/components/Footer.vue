@@ -29,14 +29,27 @@
       <h3>{{ $t('language.language_selection') }}</h3>
     </template>
     <template #body>
-        <form>
+        <form @submit.prevent="selectLang">
             <label>{{ $t('language.name') }}</label>
-            <select v-model="locale">
+            <select v-model="langset">
                 <option value="en">en</option>
                 <option value="ru">ru</option>
             </select>
+            <button type="submit" class="btn btn-secondary" @click="showModalLang = false">Сохранить</button>
         </form>
-    </template>    
+
+        <form>
+    <label>{{ $t('language.language_selection') }}</label>
+    <select v-model="locale">
+      <option value="en">en</option>
+      <option value="ja">ja</option>
+    </select>
+  </form>
+    </template>
+    <template #footer>
+        
+        <button type="button" class="btn btn-secondary" @click="showModalLang = false">Close</button>
+    </template> 
   </Modal>
 </Teleport>
 </template>
@@ -52,18 +65,22 @@ export default {
         Modal
     },
     setup() {
-        const { t, locale } = useI18n({
-            inheritLocale: true,
-            useScope: 'local'
-        })
+        // use global scope
+        const { t, locale } = useI18n()
         return { t, locale }
     },
     data() {
         return {
             name:config.title,
-            showModalLang: false
+            showModalLang: false,
+            langset: 'en'
         }
-    }
+    },
+    methods: {
+        selectLang(){
+            localStorage.setItem('currLang', this.langset);
+        }
+    },
 }
 </script>
 
