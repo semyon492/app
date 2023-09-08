@@ -24,22 +24,22 @@
 
 <Teleport to="body">
   <!-- use the modal component, pass in the prop -->
-  <ModalLang :show="showModalLang" @close="showModalLang = false">
+  <Modal :show="showModalLang" @close="showModalLang = false">
     <template #header>
       <h3>custom header</h3>
     </template>
-  </ModalLang>
+  </Modal>
 </Teleport>
 </template>
 
 <script>
 import config from "/config";
-import ModalLang from '@/components/ModalLang.vue'
+import Modal from '@/components/ModalLang.vue'
 
 export default {
     name:'Footer',
     components: {
-        ModalLang
+        Modal
     },
     data() {
         return {
