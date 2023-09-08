@@ -51,22 +51,22 @@ export default {
         {
             link: '/profile',
             text: 'Profile',
-            img: './assets/images/pp.jpg',
+            img: imgPp,
         },
         {
             link: '/',
             text: 'Friends',
-            img: './assets/images/friends.png',
+            img: imgFriends,
         },         
         {
             link: '/chat',
             text: 'Chat',
-            img: './assets/images/mostRecent.png',
+            img: imgMostRecent,
         },
         {
             link: '/settings',
             text: 'Настройки',
-            img: './assets/images/mostRecent.png',
+            img: imgMostRecent,
         },
 
         ]);
