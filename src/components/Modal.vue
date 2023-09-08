@@ -1,5 +1,5 @@
 <template>   
-  <Transition name="modal">
+  <Transition :name="modalName">
     <div v-if="show" class="modal-mask">
       <div class="modal-container">
         <!-- <div class="modal-content"> -->
@@ -32,11 +32,13 @@
 export default {
     name:'Modal',
     props: {
-        show: Boolean
+        show: Boolean,
+        modalName: String
     },
     data() {
         return {
-            open: false
+            open: false,
+            // modalName: 'modal'
         }
     },   
 }

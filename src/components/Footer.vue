@@ -24,7 +24,7 @@
 
 <Teleport to="body">
   <!-- use the modal component, pass in the prop -->
-  <Modal :show="showModalLang" @close="showModalLang = false">
+  <Modal :modalName="modalLang" :show="showModalLang" @close="showModalLang = false">
     <template #header>
       <h3>custom header</h3>
     </template>
