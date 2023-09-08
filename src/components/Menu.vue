@@ -43,27 +43,27 @@ export default {
         {
             link: '/',
             text: 'Feed',
-            img: 'src/assets/images/mostRecent.png',
+            img: '../src/assets/images/mostRecent.png',
         },       
         {
             link: '/profile',
             text: 'Profile',
-            img: 'src/assets/images/pp.jpg',
+            img: '../src/assets/images/pp.jpg',
         },
         {
             link: '/',
             text: 'Friends',
-            img: 'src/assets/images/friends.png',
+            img: '../src/assets/images/friends.png',
         },         
         {
             link: '/chat',
             text: 'Chat',
-            img: 'src/assets/images/mostRecent.png',
+            img: '../src/assets/images/mostRecent.png',
         },
         {
             link: '/settings',
             text: 'Настройки',
-            img: 'src/assets/images/mostRecent.png',
+            img: '../src/assets/images/mostRecent.png',
         },
 
         ]);
