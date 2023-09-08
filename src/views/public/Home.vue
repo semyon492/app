@@ -615,25 +615,10 @@ ol, ul {
 .avatar.status-online:before {
     background-color: var(--falcon-success)
 }
-.avatar-m {
-    height: 1.5rem;
-    width: 1.5rem
-}
-
-.avatar-xl {
-    height: 2rem;
-    width: 2rem
-}
-
-.avatar-2xl {
-    height: 2.5rem;
-    width: 2.5rem
-}
-
-.avatar-3xl {
-    height: 3.5rem;
-    width: 3.5rem
-}
+.avatar-m {height: 1.5rem;width: 1.5rem}
+.avatar-xl {height: 2rem;width: 2rem}
+.avatar-2xl {height: 2.5rem;width: 2.5rem}
+.avatar-3xl {height: 3.5rem;width: 3.5rem}
 
 .avatar-group .avatar-s:not(:first-child),
 .avatar-group .avatar-m:not(:first-child),
