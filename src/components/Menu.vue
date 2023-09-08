@@ -79,6 +79,6 @@ export default {
 }
 </script>
 <style>
-.img-3xl {height: 3.5rem;width: 3.5rem;}
 .img-xl {height: 2rem;width: 2rem}
+.img-3xl {height: 3.5rem;width: 3.5rem;}
 </style>

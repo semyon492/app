@@ -52,7 +52,8 @@ export default {
 
 <style>
 
-.links a, .logout{
+.links a, 
+.logout{
     text-decoration: none;
     text-transform: uppercase;
     color: var(--first);
