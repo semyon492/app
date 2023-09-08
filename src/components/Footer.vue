@@ -50,6 +50,13 @@ export default {
     components: {
         Modal
     },
+    setup() {
+        const { t, locale } = useI18n({
+            inheritLocale: true,
+            useScope: 'local'
+        })
+        return { t, locale }
+    },
     data() {
         return {
             name:config.title,
