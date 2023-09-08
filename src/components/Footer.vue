@@ -14,7 +14,7 @@
                 <router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">Конфиденциальность и условия</router-link>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-muted"  @click="showModalLang = true">Язык</a>
+                <a href="#" class="nav-link px-2 text-muted"  @click="showModalLang = true">{{ $t('language.language_name') }}</a>
             </li>
         </ul>
         <p class="text-center text-muted">©2023 {{ name }}. Все права защищены</p>
@@ -26,7 +26,7 @@
   <!-- use the modal component, pass in the prop -->
   <Modal :modalName="modalLang" :show="showModalLang" @close="showModalLang = false">
     <template #header>
-      <h3>custom header</h3>
+      <h3>{{ $t('message') }}</h3>
     </template>
   </Modal>
 </Teleport>

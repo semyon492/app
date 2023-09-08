@@ -1,0 +1,14 @@
+{
+  "language": {
+    "name": "Русский",
+    "language_name": "Язык: Русский",
+    "language": "Язык"
+  },   
+  "language_name": "Язык: Русский",
+  "message": "Hello i18n !!",
+  "prueba": "Test",
+
+  "login": "Log In",
+  "user": "User | Users",
+  "password": "Password | Passwords"
+  }

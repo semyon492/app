@@ -1,8 +1,14 @@
 {
-    "message": "Hello i18n !!",
-    "prueba": "Test",
+  "language": {
+    "name": "English",
+    "language_name": "Language: English",
+    "language": "Language"
+  },  
+  "language_name": "Language: English",
+  "message": "Hello i18n !!",
+  "prueba": "Test",
 
-    "login": "Log In",
-    "user": "User | Users",
-    "password": "Password | Passwords"
+  "login": "Log In",
+  "user": "User | Users",
+  "password": "Password | Passwords"
   }

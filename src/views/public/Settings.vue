@@ -42,7 +42,7 @@
 
 							<div class="card">
 								<div class="card-header">
-									<h5 class="card-title mb-0">{{ $t('message') }}Profile Settings</h5>
+									<h5 class="card-title mb-0">Profile Settings</h5>
 								</div>
 
 								<div class="list-group list-group-flush" role="tablist">
