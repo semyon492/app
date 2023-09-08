@@ -39,15 +39,24 @@
         </form>
 
         <form>
-    <label>{{ $t('language.name') }}</label>
-    <select v-model="locale">
-      <option value="en">en</option>
-      <option value="ru">ru</option>
-    </select>
-  </form>
+            <label>{{ $t('language.name') }}</label>
+            <select v-model="locale">
+                <option value="en">en</option>
+                <option value="ru">ru</option>
+            </select>
+        </form>
 
-  <button type="button" @click="setLang('ru')">RU</button>
-    <button type="button" @click="setLang('en')">EN</button>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a :class="classLang('en')" href="#" @click="setLang('en')">English</a>
+            </li>
+            <li class="nav-item">
+                <a :class="classLang('en')" href="#" @click="setLang('ru')">Русский</a>
+            </li>
+        </ul>
+
+        <button type="button" @click="setLang('ru')">RU</button>
+        <button type="button" @click="setLang('en')">EN</button>
 
     </template>
     <template #footer>
@@ -73,6 +82,10 @@ export default {
         const { t, locale } = useI18n()
         return { t, locale }
     },
+    async mounted() {
+
+
+    },
     data() {
         return {
             name:config.title,
@@ -87,6 +100,13 @@ export default {
         setLang(lang){
             this.locale = lang;
             localStorage.setItem('currLang',lang);
+        },
+        classLang(lang){
+            if (this.locale = lang) {
+                return 'nav-link active';
+            }else{
+                return 'nav-link';
+            }
         },
     },
 }
