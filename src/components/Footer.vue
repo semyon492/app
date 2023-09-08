@@ -39,10 +39,10 @@
         </form>
 
         <form>
-    <label>{{ $t('language.language_selection') }}</label>
+    <label>{{ $t('language.name') }}</label>
     <select v-model="locale">
       <option value="en">en</option>
-      <option value="ja">ja</option>
+      <option value="ru">ru</option>
     </select>
   </form>
     </template>
