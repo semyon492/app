@@ -344,4 +344,6 @@ ol, ul {
   background-repeat: no-repeat;
   z-index: 0;
 }
+.mb-7 {margin-bottom: 5rem !important;}
+.min-vh-25 {min-height: 25vh !important;}
 </style>
