@@ -13,8 +13,7 @@
             <div class="d-sm-flex justify-content-center">
               <!-- button -->
               <!-- <button class="btn btn-primary">Зарегистрируйтесь бесплатно</button> -->
-              <router-link to="/register" class="btn btn-primary">Зарегистрируйтесь
-                бесплатно</router-link>
+              <router-link to="/register" class="btn btn-primary">{{ $t('auth.signup') }}</router-link>
               <div class="mt-2 mt-sm-0 ms-sm-3">
 
                 <!-- Rating END -->

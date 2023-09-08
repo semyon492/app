@@ -19,7 +19,7 @@
                 <a aria-current="page" href="/" @click="logout" class="nav-link" id="home_link">{{ $t('header.logout') }}</a>
             </li>
             <li class="nav-item" v-if="user.is_connected !== true">
-                <router-link to="/login" :class="['nav-link']">Вход</router-link>
+                <router-link to="/login" :class="['nav-link']">{{ $t('auth.signin') }}</router-link>
             </li>
         </ul>
         </div>

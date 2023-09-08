@@ -14,8 +14,13 @@
     "logout": "Выход"
   },
   "footer": {
+    "home": "Главная",
     "privacy": "Конфиденциальность",
     "terms": "Условия"
+  },
+  "auth": {
+    "signup": "Регистрация",
+    "signin": "Вход"
   },
   "language_name": "Язык: Русский",
   "message": "Hello i18n !!",

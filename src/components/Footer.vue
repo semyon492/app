@@ -4,15 +4,18 @@
     <footer class="py-3 my-4 d-flex justify-content-between align-items-center">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item">
-                <router-link to="/" class="nav-link px-2 text-muted">Главная</router-link>
+                <router-link to="/" class="nav-link px-2 text-muted">{{ $t('footer.home') }}</router-link>
             </li>
         <!-- <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
          -->
             <li class="nav-item">
-                <router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">Конфиденциальность и условия</router-link>
+                <router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">{{ $t('header.privacy') }}</router-link>
             </li>
+            <li class="nav-item">
+                <router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">{{ $t('header.terms') }}</router-link>
+            </li>            
             <li class="nav-item">
                 <a href="#" class="nav-link px-2 text-muted"  @click="showModalLang = true">{{ $t('language.language_name') }}</a>
             </li>

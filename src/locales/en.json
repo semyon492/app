@@ -11,11 +11,16 @@
   },
   "header": {
     "home": "Home",
-    "logout": "logout"
+    "logout": "Logout"
   },
   "footer": {
+    "home": "Home",
     "privacy": "Privacy",
     "terms": "Terms"
+  },
+  "auth": {
+    "signup": "Sign up",
+    "signin": "Sugn in"
   },
   "language_name": "Language: English",
   "message": "Hello i18n !!",
