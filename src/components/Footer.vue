@@ -14,7 +14,7 @@
                 <router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">Конфиденциальность и условия</router-link>
             </li>
             <li class="nav-item">
-                <button id="show-modal" @click="showModalLang = true">Язык</button>
+                <a href="#" class="nav-link px-2 text-muted"  @click="showModalLang = true">Язык</a>
             </li>
         </ul>
         <p class="text-center text-muted">©2023 {{ name }}. Все права защищены</p>
