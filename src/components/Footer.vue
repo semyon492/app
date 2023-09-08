@@ -44,6 +44,7 @@
 <script>
 import config from "/config";
 import Modal from '@/components/Modal.vue'
+import { useI18n } from 'vue-i18n'
 
 export default {
     name:'Footer',
