@@ -509,6 +509,7 @@ export default {
       user_id: null,
       is_connected: false,
       is_admin:false,
+      access_token :  '',
       name: config.title,
     }
   },
