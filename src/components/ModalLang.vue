@@ -29,5 +29,12 @@
 </template>
 
 <script>
-
+export default {
+    name:'ModalLang',
+    data() {
+        return {
+            showModal: false
+        }
+    }
+}
 </script>
