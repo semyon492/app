@@ -94,6 +94,11 @@ export default {
     components: {
         Modal
     },    
+    setup() {
+        // use global scope
+        const { t, locale } = useI18n()
+        return { t, locale }
+    },
     data() {
         return {      
             infoTiles : [], 
