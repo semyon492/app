@@ -44,11 +44,11 @@
       <option value="en">en</option>
       <option value="ru">ru</option>
     </select>
-
-    <button @click="setLang('ru')">RU</button>
-    <button @click="setLang('en')">EN</button>
-    
   </form>
+
+  <button type="button" @click="setLang('ru')">RU</button>
+    <button type="button" @click="setLang('en')">EN</button>
+
     </template>
     <template #footer>
         
