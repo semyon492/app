@@ -9,14 +9,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <router-link to="/" id="home_link" :class="['nav-link']">Главная</router-link>
+                <router-link to="/" id="home_link" :class="['nav-link']">{{ $t('header.home') }}</router-link>
             </li>
             <li class="nav-item" v-if="user.is_admin">
                 <router-link to="/admin/post" :class="['nav-link']">Poster</router-link>
             </li>
             <li class="nav-item" v-if="user.is_connected">
                 <!-- <router-link @click="logout" :class="['nav-link']">Выход</router-link> -->
-                <a aria-current="page" href="/" @click="logout" class="nav-link" id="home_link">Выход</a>
+                <a aria-current="page" href="/" @click="logout" class="nav-link" id="home_link">{{ $t('header.logout') }}</a>
             </li>
             <li class="nav-item" v-if="user.is_connected !== true">
                 <router-link to="/login" :class="['nav-link']">Вход</router-link>

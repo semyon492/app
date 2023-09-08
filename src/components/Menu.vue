@@ -18,11 +18,8 @@
               </div>
               <div id="footer" class="w-full hidden 2xl:block">
                 <div class="text-muted text-xs pl-1 mb-14">
-                  <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Privacy</router-link>·
-                  <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Terms</router-link>·
-                  <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Adversiting</router-link>·
-                  <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Ad Choices</router-link>·
-                  <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Cookies</router-link>·<br>
+                  <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">{{ $t('footer.privacy') }}</router-link>·
+                  <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">{{ $t('footer.terms') }}</router-link>·
                   <a href="#" class="hover:underline cursor-pointer" @click="showModalLang = true">{{ $t('language.language_name') }}</a>·
                   <a>{{ name }} © 2023</a>
                 </div>

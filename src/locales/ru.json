@@ -9,6 +9,14 @@
     "close": "Закрыть",
     "save": "Сохранить"
   },
+  "header": {
+    "home": "Главная",
+    "logout": "Выход"
+  },
+  "footer": {
+    "privacy": "Конфиденциальность",
+    "terms": "Условия"
+  },
   "language_name": "Язык: Русский",
   "message": "Hello i18n !!",
   "prueba": "Test",
