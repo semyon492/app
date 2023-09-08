@@ -11,19 +11,21 @@
         <li class="nav-item"><router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">Конфиденциальность и условия</router-link></li>
         </ul>
         <p class="text-center text-muted">©2023 {{ name }}. Все права защищены</p>
-        <button type="button" @click="showModal = !showModal" class="" >Open Modal</button>
+
     </footer>
     </div>
 
-    <button @click="open = true">Open Modal</button>
+
+    <button id="show-modal" @click="showModal = true">Show Modal</button>
 
 <Teleport to="body">
-  <div v-if="open" class="modal">
-    <p>Hello from the modal!</p>
-    <button @click="open = false">Close</button>
-  </div>
+  <!-- use the modal component, pass in the prop -->
+  <modal :show="showModal" @close="showModal = false">
+    <template #header>
+      <h3>custom header</h3>
+    </template>
+  </modal>
 </Teleport>
-
 </template>
 
 <script>
@@ -38,22 +40,13 @@ export default {
     data() {
         return {
             name:config.title,
-            showModal: false,
-            open: false
+            showModal: false
         }
     }
 }
 </script>
 
 <style>
-.modal {
-  position: fixed;
-  z-index: 999;
-  top: 20%;
-  left: 50%;
-  width: 300px;
-  margin-left: -150px;
-}
 .footer{
     width: 100%;
     height: 130px;
