@@ -28,9 +28,9 @@
 
 <script>
 import config from "/config";
-import imgMostRecent from './assets/images/mostRecent.png'
-import imgPp from './assets/images/pp.jpg'
-import imgFriends from './assets/images/friends.png'
+import imgMostRecent from '../src/assets/images/mostRecent.png'
+import imgPp from '../src/assets/images/pp.jpg'
+import imgFriends from '../src/assets/images/friends.png'
 
 export default {
     name:'Menu',
@@ -46,7 +46,7 @@ export default {
         {
             link: '/',
             text: 'Feed',
-            img: '../src/assets/images/mostRecent.png',
+            img: './assets/images/mostRecent.png',
         },       
         {
             link: '/profile',
