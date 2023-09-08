@@ -46,7 +46,7 @@ export default {
         {
             link: '/',
             text: 'Feed',
-            img: './assets/images/mostRecent.png',
+            img: '../src/assets/images/mostRecent.png',
         },       
         {
             link: '/profile',
