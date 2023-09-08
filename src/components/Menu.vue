@@ -108,7 +108,7 @@ export default {
       this.infoTiles = ([
         {
             link: '/',
-            text: 'Feed',
+            text: this.t('leftbar.feed'),
             img: imgMostRecent,
         },       
         {

@@ -5,6 +5,8 @@
       <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
         <!-- Sign in START -->
         <div class="card card-body text-center p-4 p-sm-5">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
           <!-- Title -->
           <h1 class="mb-2">Вход</h1>
           <p class="mb-0">

@@ -22,6 +22,13 @@
     "signup": "Sign up",
     "signin": "Sign in"
   },
+  "leftbar": {
+    "feed": "Feed",
+    "profile": "Profile",
+    "friends": "Friends",
+    "chat": "Chat",
+    "settings": "Settings"
+  },
   "language_name": "Language: English",
   "message": "Hello i18n !!",
   "prueba": "Test",
