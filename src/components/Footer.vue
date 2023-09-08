@@ -1,7 +1,7 @@
 <template>
     <div class="container">
 
-    <footer class="py-3 my-4">
+    <footer class="py-3 my-4 d-flex justify-content-between align-items-center">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item"><router-link to="/" class="nav-link px-2 text-muted">Главная</router-link></li>
         <!-- <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
@@ -32,11 +32,6 @@ export default {
 .footer{
     width: 100%;
     height: 130px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
     padding: 0 10px;
     background: var(--first);
     color:var(--second);

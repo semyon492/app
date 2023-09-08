@@ -99,46 +99,12 @@
   </script>
   
   <style>
-  .login{
-      width: 100%;
-      height:100vh;
-  
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap:50px;
-  }
-  
-  .logo_login_register{
-      margin-top:-200px;
-  }
-  
   .logo_login_register a{
       text-decoration: none;
       font-size: 3rem;
       font-weight: 600;
       color:var(--first)
   }
-  
-  .login_link_home{
-      position: absolute;
-      left: 50%;
-      top:15px;
-      transform: translateX(-50%);
-  
-      width:100px;
-  }
-  
-  .login_form{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-content: center;
-  
-      gap:35px;
-  }
-  
   .login_form div{
       position: relative;
   }
@@ -164,32 +130,5 @@
   
   .login_form div input:focus{
       outline: none;
-  }
-  
-  .connexion_btn{
-      color:var(--second);
-      background: var(--first);
-      padding:10px 40px;
-      border:none;
-      border-radius:5px;
-      font-size:20px;
-  
-      cursor: pointer;
-  }
-  
-  .register_login_btn{
-      text-decoration: none;
-      color:var(--second);
-      background: var(--first);
-      padding:10px 40px;
-      border:none;
-      border-radius:5px;
-      font-size:12px;
-  
-      position: absolute;
-      right:50px;
-      bottom:50px;
-  
-      cursor: pointer;
   }
   </style>

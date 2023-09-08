@@ -51,29 +51,6 @@ export default {
 </script>
 
 <style>
-.navigation{
-    width: 100%;
-    height: 70px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
- 
-.logo{
-    height: 100%;
-    width: 150px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.links{
-    height:100%;
-    display: flex;
-    align-items: center;
-}
 
 .links a, .logout{
     text-decoration: none;
@@ -90,17 +67,7 @@ export default {
     font-weight: 600;
 }
 
-.logout{
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
 .navigation .router-link-exact-active, .links a:hover,
-.logout:hover{
-    color: var(--second) !important;
-    background: var(--blue) !important;
-}
 
 :root,:root.light,:root .light {
     --falcon-primary: #2c7be5;

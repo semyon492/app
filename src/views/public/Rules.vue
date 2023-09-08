@@ -174,6 +174,3 @@
       name:'Rules',
   }
   </script>
-  
-  <style>
-  </style>

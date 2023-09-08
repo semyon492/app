@@ -350,38 +350,6 @@ main {
   min-height: 74.6vh;
 }
 
-.title {
-  width: 100%;
-  padding: 200px 0;
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-
-  color: var(--second);
-  overflow: hidden;
-}
-
-.background_title {
-  position: absolute;
-  left: -1%;
-  top: 0;
-  width: 102%;
-  height: 100%;
-
-  z-index: -100;
-
-  filter: blur(3px) invert(15%);
-
-  background: rgb(71, 71, 71);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .title h1 {
   font-size: 3rem;
 }
@@ -391,19 +359,10 @@ ol, ul {
   margin: 0;
   padding: 0;
 }
-.w-9 {
-  width: 2.25rem;
-}
-.text-xs {
-  font-size: .75rem;
-  line-height: 1rem;
-}
 #footer > div > a{
   color: inherit;
   text-decoration: inherit;
 }
-
-
 .chat-messages {
     display: flex;
     flex-direction: column;
@@ -425,6 +384,4 @@ ol, ul {
     display: flex;
     flex-shrink: 0;
 }
-
-
 </style>

@@ -71,11 +71,4 @@ export default{
 </script>
 
 <style>
-#content{
-    width: 1400px;
-    margin:auto;
-
-    min-height: 100vh;
-    position: relative;
-}
 </style>
