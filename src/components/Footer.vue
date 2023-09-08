@@ -3,28 +3,32 @@
 
     <footer class="py-3 my-4 d-flex justify-content-between align-items-center">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><router-link to="/" class="nav-link px-2 text-muted">Главная</router-link></li>
+            <li class="nav-item">
+                <router-link to="/" class="nav-link px-2 text-muted">Главная</router-link>
+            </li>
         <!-- <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
          -->
-        <li class="nav-item"><router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">Конфиденциальность и условия</router-link></li>
+            <li class="nav-item">
+                <router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">Конфиденциальность и условия</router-link>
+            </li>
+            <li class="nav-item">
+                <button id="show-modal" @click="showModalLang = true">Язык</button>
+            </li>
         </ul>
         <p class="text-center text-muted">©2023 {{ name }}. Все права защищены</p>
 
     </footer>
     </div>
 
-
-    <button id="show-modal" @click="showModal = true">Show Modal</button>
-
 <Teleport to="body">
   <!-- use the modal component, pass in the prop -->
-  <modal :show="showModal" @close="showModal = false">
+  <ModalLang :show="showModalLang" @close="showModalLang = false">
     <template #header>
       <h3>custom header</h3>
     </template>
-  </modal>
+  </ModalLang>
 </Teleport>
 </template>
 
@@ -40,7 +44,7 @@ export default {
     data() {
         return {
             name:config.title,
-            showModal: false
+            showModalLang: false
         }
     }
 }
