@@ -3,7 +3,7 @@
             <div class="bg-myGray-100 h-screen px-2 py-4 flex-col justify-between hidden xl:flex fixed w-80">
               <div id="left-bar-top" class="w-full">
                 <ul class="nav flex-column">
-                  <li v-for="(info, idx) in infoTiles" :key="idx" :to="info.link" class="nav-item d-flex align-items-center gap-2 px-3 py-2">
+                  <li v-for="(info, idx) in infoTiles" :key="idx" :to="info.link" class="nav-item d-flex align-items-center gap-2 px-3 py-1">
                     <router-link :to="info.link" class="nav-link d-flex align-items-center">
                         <div class="">
                           <img :src="info.img" class="rounded-circle img-xl" :alt="info.text">
