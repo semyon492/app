@@ -12,17 +12,15 @@
                 </ul>
 
                 <ul class="nav flex-column">
-                  <li class="nav-item">
+                  <li class="nav-item d-flex align-items-center gap-2 px-3 py-2">
                     <a class="nav-link active" aria-current="page" href="#">Active</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+
+                  <li v-for="(info, idx) in infoTiles" :key="idx" :to="info.link" class="nav-item d-flex align-items-center gap-2 px-3 py-2">
+                    <router-link :to="info.link" class="nav-link">
+                      <img :src="info.img" class="rounded-full w-9" :alt="info.text">
+                      {{ info.text }}
+                    </router-link>
                   </li>
                 </ul>
 
