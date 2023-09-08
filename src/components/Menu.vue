@@ -28,6 +28,10 @@
 
 <script>
 import config from "/config";
+import imgMostRecent from 'src/assets/images/mostRecent.png'
+import imgPp from 'src/assets/images/pp.jpg'
+import imgFriends from 'src/assets/images/friends.png'
+
 export default {
     name:'Menu',
     props: ['user'],
@@ -42,7 +46,7 @@ export default {
         {
             link: '/',
             text: 'Feed',
-            img: './assets/images/mostRecent.png',
+            img: imgMostRecent,
         },       
         {
             link: '/profile',
