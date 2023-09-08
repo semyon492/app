@@ -26,8 +26,17 @@
   <!-- use the modal component, pass in the prop -->
   <Modal :modalName="modalLang" :show="showModalLang" @close="showModalLang = false">
     <template #header>
-      <h3>{{ $t('message') }}</h3>
+      <h3>{{ $t('language.language_selection') }}</h3>
     </template>
+    <template #body>
+        <form>
+            <label>{{ t('language.name') }}</label>
+            <select v-model="locale">
+                <option value="en">en</option>
+                <option value="ru">ru</option>
+            </select>
+        </form>
+    </template>    
   </Modal>
 </Teleport>
 </template>

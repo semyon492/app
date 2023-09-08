@@ -2,7 +2,8 @@
   "language": {
     "name": "Русский",
     "language_name": "Язык: Русский",
-    "language": "Язык"
+    "language": "Язык",
+    "Language_selection": "Выбор языка"
   },   
   "language_name": "Язык: Русский",
   "message": "Hello i18n !!",
