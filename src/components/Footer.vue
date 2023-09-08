@@ -29,22 +29,13 @@
       <h3>{{ $t('language.language_selection') }}</h3>
     </template>
     <template #body>
-        <form @submit.prevent="selectLang">
-            <label>{{ $t('language.name') }}</label>
-            <select v-model="langset">
-                <option value="en">en</option>
-                <option value="ru">ru</option>
-            </select>
-            <button type="submit" class="btn btn-secondary" @click="showModalLang = false">{{ $t('modal.save') }}</button>
-        </form>
-
-        <form>
+        <!-- <form>
             <label>{{ $t('language.name') }}</label>
             <select v-model="locale">
                 <option value="en">en</option>
                 <option value="ru">ru</option>
             </select>
-        </form>
+        </form> -->
 
         <ul class="nav flex-column">
             <li class="nav-item">
@@ -72,10 +63,6 @@
                 </a>
             </li>
         </ul>
-
-        <button type="button" @click="setLang('ru')">RU</button>
-        <button type="button" @click="setLang('en')">EN</button>
-
     </template>
     <template #footer>
         
@@ -115,13 +102,6 @@ export default {
             this.locale = lang;
             localStorage.setItem('currLang',lang);
         },
-        // classLang(lang){
-        //     if (this.locale = lang) {
-        //         return 'nav-link active';
-        //     }else{
-        //         return 'nav-link';
-        //     }
-        // },
     },
 }
 </script>

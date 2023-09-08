@@ -23,12 +23,60 @@
                   <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Adversiting</router-link>·
                   <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Ad Choices</router-link>·
                   <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">Cookies</router-link>·<br>
-                  <router-link to="/privacy-and-terms" class="cursor-pointer">More</router-link>·
+                  <a href="#" class="hover:underline cursor-pointer" @click="showModalLang = true">{{ $t('language.language_name') }}</a>·
                   <a>{{ name }} © 2023</a>
                 </div>
               </div>
             </div>
           </div>
+          <Teleport to="body">
+  <!-- use the modal component, pass in the prop -->
+  <Modal :modalName="modalLang" :show="showModalLang" @close="showModalLang = false">
+    <template #header>
+      <h3>{{ $t('language.language_selection') }}</h3>
+    </template>
+    <template #body>
+        <!-- <form>
+            <label>{{ $t('language.name') }}</label>
+            <select v-model="locale">
+                <option value="en">en</option>
+                <option value="ru">ru</option>
+            </select>
+        </form> -->
+
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#" @click="setLang('en')">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <img class="img-xl" alt="English" src="https://unpkg.com/language-icons/icons/en.svg">
+                        </div>
+                        <div>
+                            English
+                        </div>                        
+                    </div>                    
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" @click="setLang('ru')">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <img class="img-xl" alt="Русский" src="https://unpkg.com/language-icons/icons/ru.svg">
+                        </div>
+                        <div>
+                            Русский
+                        </div>                        
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </template>
+    <template #footer>
+        
+        <button type="button" class="btn btn-secondary" @click="showModalLang = false">{{ $t('modal.close') }}</button>
+    </template> 
+  </Modal>
+</Teleport>          
 </template>
 
 <script>
@@ -37,13 +85,21 @@ import imgMostRecent from '@/assets/images/mostRecent.png'
 import imgPp from '@/assets/images/pp.jpg'
 import imgFriends from '@/assets/images/friends.png'
 
+import Modal from '@/components/Modal.vue'
+import { useI18n } from 'vue-i18n'
+
 export default {
     name:'Menu',
     props: ['user'],
+    components: {
+        Modal
+    },    
     data() {
         return {      
             infoTiles : [], 
             name: config.title,      
+            showModalLang: false,
+            langset: 'en'
         }
     },
     async mounted() {
@@ -75,7 +131,16 @@ export default {
         },
 
         ]);
-    },    
+    },  
+    methods: {
+        selectLang(){
+            localStorage.setItem('currLang', this.langset);
+        },
+        setLang(lang){
+            this.locale = lang;
+            localStorage.setItem('currLang',lang);
+        },
+    },  
 }
 </script>
 <style>
