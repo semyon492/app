@@ -34,7 +34,7 @@
 
 <script>
 import config from "/config";
-import Modal from '@/components/ModalLang.vue'
+import Modal from '@/components/Modal.vue'
 
 export default {
     name:'Footer',
