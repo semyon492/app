@@ -11,36 +11,34 @@
         <li class="nav-item"><router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">Конфиденциальность и условия</router-link></li>
         </ul>
         <p class="text-center text-muted">©2023 {{ name }}. Все права защищены</p>
-        <button id="show-modal" @click="showModal = true">Show Modal</button>
+        <button type="button" @click="showModal = !showModal" class="" >Open Modal</button>
     </footer>
     </div>
 
-<transition name="modal">
-  <Modal v-if="showModal" @close="showModal = false">
-    <!--
-      you can use custom content here to overwrite
-      default content
-    -->
-    <template v-slot:header>
-      <h3>custom header</h3>
-    </template>
-  </Modal>
-  </transition>
-
+    <ModalLang :show="showModal" />
 </template>
 
 <script>
 import config from "/config";
-import Modal from '@/components/ModalLang.vue'
+import ModalLang from '@/components/ModalLang.vue'
 
 export default {
     name:'Footer',
+    components: {
+        ModalLang
+    },
     data() {
         return {
             name:config.title,
             showModal: false
         }
-    }
+    },
+    setup() {
+        const showModal = ref(false);
+        return {
+            showModal,
+        };
+    },
 }
 </script>
 

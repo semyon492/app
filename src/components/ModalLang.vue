@@ -1,40 +1,47 @@
-<template>
-    <div class="modal-mask">
+<template>   
+    <teleport to="body">
+        <div ref="modal-backdrop" class="modal-mask">
       <div class="modal-wrapper">
-        <div class="modal-container">
-
-          <div class="modal-header">
-            <slot name="header">
-              default header
-            </slot>
-          </div>
-
-          <div class="modal-body">
-            <slot name="body">
-              default body
-            </slot>
-          </div>
-
-          <div class="modal-footer">
-            <slot name="footer">
-              default footer
-              <button class="modal-default-button" @click="$emit('close')">
-                OK
-              </button>
-            </slot>
-          </div>
+        <div
+          class="modal-container"
+          role="dialog"
+          ref="modal"
+          aria-modal="true"
+          aria-labelledby="modal-headline">
+          Awiwi
         </div>
       </div>
-    </div>    
+    </div>
+  </teleport>
 </template>
 
 <script>
 export default {
     name:'ModalLang',
+    props: {
+        show: {
+            type: Boolean,
+            default: false,
+        },        
+    },
     data() {
         return {
-            showModal: false
+            // showModal: false
         }
-    }
+    },
+    setup(props) {
+        const showModal = ref(false);
+
+        watch(
+            () => props.show,
+            show => {
+                showModal.value = show;
+            },
+        );
+
+        return {
+            showModal,
+        };
+    },    
 }
 </script>
