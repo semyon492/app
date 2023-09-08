@@ -115,13 +115,13 @@ export default {
             this.locale = lang;
             localStorage.setItem('currLang',lang);
         },
-        classLang(lang){
-            if (this.locale = lang) {
-                return 'nav-link active';
-            }else{
-                return 'nav-link';
-            }
-        },
+        // classLang(lang){
+        //     if (this.locale = lang) {
+        //         return 'nav-link active';
+        //     }else{
+        //         return 'nav-link';
+        //     }
+        // },
     },
 }
 </script>
