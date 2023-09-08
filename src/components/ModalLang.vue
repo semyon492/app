@@ -1,47 +1,30 @@
 <template>   
-    <teleport to="body">
-        <div ref="modal-backdrop" class="modal-mask">
-      <div class="modal-wrapper">
-        <div
-          class="modal-container"
-          role="dialog"
-          ref="modal"
-          aria-modal="true"
-          aria-labelledby="modal-headline">
-          Awiwi
-        </div>
-      </div>
-    </div>
-  </teleport>
+  <button @click="open = true">Open Modal</button>
+
+<div v-if="open" class="modal">
+  <p>Hello from the modal!</p>
+  <button @click="open = false">Close</button>
+</div>
 </template>
 
 <script>
 export default {
     name:'ModalLang',
-    props: {
-        show: {
-            type: Boolean,
-            default: false,
-        },        
-    },
     data() {
         return {
-            // showModal: false
+            open: false
         }
-    },
-    setup(props) {
-        const showModal = ref(false);
-
-        watch(
-            () => props.show,
-            show => {
-                showModal.value = show;
-            },
-        );
-
-        return {
-            showModal,
-        };
-    },    
+    },   
 }
 </script>
+
+<style scoped>
+.modal {
+  position: fixed;
+  z-index: 999;
+  top: 20%;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
+}
+</style>
