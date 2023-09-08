@@ -522,12 +522,17 @@ export default {
                 access_token: localStorage.getItem('token')
         })
         .then(res => {
-            console.log(res.data);
-            this.user.firstname = res.data.data.firstname;
-            this.user.lastname = res.data.data.lastname;
-            if(res.data.roles == 'ROLE_ADMIN'){
-                this.is_admin = true;
-            } 
+              if(res.data.status !== 20 ) {
+                this.user.firstname = res.data.data.firstname;
+                this.user.lastname = res.data.data.lastname;
+                if (res.data.roles === 'ROLE_ADMIN') {
+                  this.is_admin = true;
+                }
+              }else{
+                localStorage.removeItem('token')
+                this.user.is_connected = false;
+                this.user.is_admin = false;
+              }
         })
   },
   methods: {

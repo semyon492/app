@@ -50,6 +50,10 @@ export default{
                 if(res.data.roles == 'ROLE_ADMIN'){
                     this.user.is_admin = true;
                 }                 
+            }else{
+              localStorage.removeItem('token')
+              this.user.is_connected = false;
+              this.user.is_admin = false;
             }
 
         })
