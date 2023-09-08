@@ -48,10 +48,28 @@
 
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a :class="classLang('en')" href="#" @click="setLang('en')">English</a>
+                <a class="nav-link" href="#" @click="setLang('en')">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <img class="img-xl" alt="English" src="https://unpkg.com/language-icons/icons/en.svg">
+                        </div>
+                        <div>
+                            English
+                        </div>                        
+                    </div>                    
+                </a>
             </li>
             <li class="nav-item">
-                <a :class="classLang('en')" href="#" @click="setLang('ru')">Русский</a>
+                <a class="nav-link" href="#" @click="setLang('ru')">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <img class="img-xl" alt="Русский" src="https://unpkg.com/language-icons/icons/ru.svg">
+                        </div>
+                        <div>
+                            Русский
+                        </div>                        
+                    </div>
+                </a>
             </li>
         </ul>
 
@@ -81,10 +99,6 @@ export default {
         // use global scope
         const { t, locale } = useI18n()
         return { t, locale }
-    },
-    async mounted() {
-
-
     },
     data() {
         return {
