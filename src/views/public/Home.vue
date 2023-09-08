@@ -506,13 +506,94 @@ export default {
   },  
   data() {
     return {
+      nbr_article: 0,
+      all_articles: [],
+      selected_articles: [],
+      fav_articlesId: [],
+      fav_articlesFavId: [],
+      list_fav_articles: [],
+      search: '',
+
+      user_id: null,
+      is_connected: false,
+      is_admin:false,
+      show_fav: false,
       name: config.title,
     }
   },
   async mounted() {
-  },
-  methods: {
-    async getUserID() {
+    this.is_connected = false;
+    if (!!localStorage.getItem('token')){
+      this.access_token.access_token = localStorage.getItem('token');
+    }     
+    await Axios.post(config.domain + "account/getinfo", {
+                access_token: localStorage.getItem('token')
+        })
+        .then(res => {
+            console.log(res.data);
+            this.user.firstname = res.data.data.firstname;
+            this.user.lastname = res.data.data.lastname;
+            if(res.data.roles == 'ROLE_ADMIN'){
+                this.is_admin = true;
+            } 
+        })
+    // console.log("Token : " + (this.is_connected == true))
+    // return await this.init_articles().finally(
+    //     () => {
+    //         console.log("test : " + this.is_connected == false)
+    //         if(this.is_connected) {
+    //             console.log("gergerbgaerbgçbzeuiezugbdiycfvqsyuev")
+    //             this.getUserID().finally(
+    //             () => {
+    //                 console.log("trttt")
+    //                 this.get_fav_articles().finally( () => {
+    //                     let parent_btn = document.getElementById("pages_choice")
+    //                     let nbr_btn_page = Math.ceil(this.nbr_article/9)
+    //                     for(let i=0; (this.id < nbr_btn_page)?i<=nbr_btn_page:i<nbr_btn_page; i++){
+    //                         let btn = document.createElement("a");
+    //                         if(i == nbr_btn_page){
+    //                             btn.innerHTML = '<i class="fa fa-angle-right">';
+    //                                 btn.classList.add("next");
+    //                                 btn.href="/home/"+ (parseInt(this.id)+1);
+    //                             }else{
+    //                                 btn.innerHTML = i+1;
+    //                                 btn.href="/home/"+ (i+1);
+    //                             }
+    //                             btn.classList.add("page");
+    //                             parent_btn.appendChild(btn);
+    //                         }
+    //                         let list_pages_btn = document.getElementsByClassName("page");
+    //                     list_pages_btn[this.id - 1].classList.add("selected_page");
+    //                     document.getElementById("home_link").className = ["router-link-exact-active"];
+    //                     this.select_articles()
+    //                     this.sort_article()
+    //                 })
+    //             })
+    //         } else {
+    //             console.log("else")
+    //             let parent_btn = document.getElementById("pages_choice")
+    //             let nbr_btn_page = Math.ceil(this.nbr_article/9)
+    //             for(let i=0; (this.id < nbr_btn_page)?i<=nbr_btn_page:i<nbr_btn_page; i++){
+    //                 let btn = document.createElement("a");
+    //                 if(i == nbr_btn_page){
+    //                     btn.innerHTML = '<i class="fa fa-angle-right">';
+    //                         btn.classList.add("next");
+    //                         btn.href="/home/"+ (parseInt(this.id)+1);
+    //                     }else{
+    //                         btn.innerHTML = i+1;
+    //                         btn.href="/home/"+ (i+1);
+    //                     }
+    //                     btn.classList.add("page");
+    //                     parent_btn.appendChild(btn);
+    //                 }
+    //                 let list_pages_btn = document.getElementsByClassName("page");
+    //                 list_pages_btn[this.id - 1].classList.add("selected_page");
+    //                 document.getElementById("home_link").className = ["router-link-exact-active"];
+    //                 this.select_articles()
+    //                 this.sort_article()
+    //         }
+    // })
+=======
       if (this.is_connected) {
 
         return Axios.post(config.domain + "account.getInfo",

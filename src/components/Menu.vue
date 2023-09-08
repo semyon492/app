@@ -43,22 +43,27 @@ export default {
         {
             link: '/',
             text: 'Feed',
-            img: 'https://bayirdan.github.io/facebook-clone/assets/images/png/mostRecent.png',
-        },
+            img: 'src/assets/images/mostRecent.png',
+        },       
         {
             link: '/profile',
             text: 'Profile',
-            img: 'https://bayirdan.github.io/facebook-clone/assets/images/pp.jpg',
+            img: 'src/assets/images/pp.jpg',
         },
+        {
+            link: '/',
+            text: 'Friends',
+            img: 'src/assets/images/friends.png',
+        },         
         {
             link: '/chat',
             text: 'Chat',
-            img: 'https://bayirdan.github.io/facebook-clone/assets/images/png/mostRecent.png',
+            img: 'src/assets/images/mostRecent.png',
         },
         {
             link: '/settings',
             text: 'Настройки',
-            img: 'https://bayirdan.github.io/facebook-clone/assets/images/png/mostRecent.png',
+            img: 'src/assets/images/mostRecent.png',
         },
 
         ]);
