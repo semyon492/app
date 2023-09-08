@@ -1,8 +1,8 @@
 <template>   
-  <Transition name="modalLang">
+  <Transition name="modal">
     <div v-if="show" class="modal-mask">
-      <div class="modal-dialog">
-        <div class="modal-content">
+      <div class="modal-container">
+        <!-- <div class="modal-content"> -->
             <div class="modal-header">
             <slot name="header">
                 <h5 class="modal-title">Modal title</h5>
@@ -21,7 +21,7 @@
                 <button type="button" class="btn btn-secondary" @click="$emit('close')">Close</button>
             </slot>
             </div>
-        </div>
+        <!-- </div> -->
 
       </div>
     </div>
@@ -53,5 +53,15 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   transition: opacity 0.3s ease;
+}
+
+.modal-container {
+  width: 300px;
+  margin: auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
 }
 </style>
