@@ -118,7 +118,7 @@ export default {
                 }, 3000);                
 
                 if(res.data.status == 1) {
-                  console.log(res.data.access_token);
+                  // console.log(res.data.access_token);
                   // console.log(res.data.data.access_token);
                   localStorage.setItem('token', res.data.access_token);
                     this.$router.push('/')
