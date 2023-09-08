@@ -11,10 +11,10 @@
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
          -->
             <li class="nav-item">
-                <router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">{{ $t('header.privacy') }}</router-link>
+                <router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">{{ $t('footer.privacy') }}</router-link>
             </li>
             <li class="nav-item">
-                <router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">{{ $t('header.terms') }}</router-link>
+                <router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">{{ $t('footer.terms') }}</router-link>
             </li>            
             <li class="nav-item">
                 <a href="#" class="nav-link px-2 text-muted"  @click="showModalLang = true">{{ $t('language.language_name') }}</a>
