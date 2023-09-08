@@ -619,6 +619,8 @@ ol, ul {
 .avatar-xl {height: 2rem;width: 2rem}
 .avatar-2xl {height: 2.5rem;width: 2.5rem}
 .avatar-3xl {height: 3.5rem;width: 3.5rem}
+.avatar-4xl {height: 5.5rem;width: 5.5rem}
+.avatar-5xl {height: 10.5rem;width: 10.5rem;}
 
 .avatar-group .avatar-s:not(:first-child),
 .avatar-group .avatar-m:not(:first-child),
