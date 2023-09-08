@@ -35,7 +35,7 @@
                 <option value="en">en</option>
                 <option value="ru">ru</option>
             </select>
-            <button type="submit" class="btn btn-secondary" @click="showModalLang = false">Сохранить</button>
+            <button type="submit" class="btn btn-secondary" @click="showModalLang = false">{{ $t('modal.save') }}</button>
         </form>
 
         <form>
@@ -44,11 +44,15 @@
       <option value="en">en</option>
       <option value="ru">ru</option>
     </select>
+
+    <button @click="setLang('ru')">RU</button>
+    <button @click="setLang('en')">EN</button>
+    
   </form>
     </template>
     <template #footer>
         
-        <button type="button" class="btn btn-secondary" @click="showModalLang = false">Close</button>
+        <button type="button" class="btn btn-secondary" @click="showModalLang = false">{{ $t('modal.close') }}</button>
     </template> 
   </Modal>
 </Teleport>
@@ -79,7 +83,11 @@ export default {
     methods: {
         selectLang(){
             localStorage.setItem('currLang', this.langset);
-        }
+        },
+        setLang(lang){
+            this.locale = lang;
+            localStorage.setItem('currLang',lang);
+        },
     },
 }
 </script>

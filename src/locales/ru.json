@@ -3,8 +3,12 @@
     "name": "Русский",
     "language_name": "Язык: Русский",
     "language": "Язык",
-    "Language_selection": "Выбор языка"
-  },   
+    "language_selection": "Выбор языка"
+  },
+  "modal": {
+    "close": "Закрыть",
+    "save": "Сохранить"
+  },
   "language_name": "Язык: Русский",
   "message": "Hello i18n !!",
   "prueba": "Test",
