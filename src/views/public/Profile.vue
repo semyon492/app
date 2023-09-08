@@ -346,4 +346,11 @@ ol, ul {
 }
 .mb-7 {margin-bottom: 5rem !important;}
 .min-vh-25 {min-height: 25vh !important;}
+.avatar-profile {
+    position: absolute;
+    bottom: 0;
+    -webkit-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
+}
 </style>

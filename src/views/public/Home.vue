@@ -561,23 +561,7 @@ export default {
 </script>
 
 <style>
-main {
-  width: 100%;
-  min-height: 74.6vh;
-}
-.title h1 {
-  font-size: 3rem;
-}
 
-ol, ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-#footer > div > a{
-  color: inherit;
-  text-decoration: inherit;
-}
 
 .avatar {
     position: relative;

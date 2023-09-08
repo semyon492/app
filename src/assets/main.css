@@ -23,6 +23,24 @@ img, picture, svg, video{
     max-width: 100%;
 }
 
+main {
+    width: 100%;
+    min-height: 74.6vh;
+  }
+  .title h1 {
+    font-size: 3rem;
+  }
+  
+  ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  #footer > div > a{
+    color: inherit;
+    text-decoration: inherit;
+  }
+
 svg:not(:root).svg-inline--fa{overflow:visible}
 .svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}
 .svg-inline--fa.fa-lg{vertical-align:-.225em}
