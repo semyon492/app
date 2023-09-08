@@ -130,6 +130,7 @@ export default {
 
       user_id: null,
       is_connected: false,
+      is_admin:false,
       show_fav: false,
       name: config.title,
       access_token : {
@@ -159,13 +160,6 @@ export default {
             } 
         })
     // console.log("Token : " + (this.is_connected == true))
-
-
-
-
-
-
-
     // return await this.init_articles().finally(
     //     () => {
     //         console.log("test : " + this.is_connected == false)
@@ -175,7 +169,6 @@ export default {
     //             () => {
     //                 console.log("trttt")
     //                 this.get_fav_articles().finally( () => {
-
     //                     let parent_btn = document.getElementById("pages_choice")
     //                     let nbr_btn_page = Math.ceil(this.nbr_article/9)
     //                     for(let i=0; (this.id < nbr_btn_page)?i<=nbr_btn_page:i<nbr_btn_page; i++){
@@ -191,12 +184,9 @@ export default {
     //                             btn.classList.add("page");
     //                             parent_btn.appendChild(btn);
     //                         }
-
     //                         let list_pages_btn = document.getElementsByClassName("page");
     //                     list_pages_btn[this.id - 1].classList.add("selected_page");
-
     //                     document.getElementById("home_link").className = ["router-link-exact-active"];
-
     //                     this.select_articles()
     //                     this.sort_article()
     //                 })
@@ -218,12 +208,9 @@ export default {
     //                     btn.classList.add("page");
     //                     parent_btn.appendChild(btn);
     //                 }
-
     //                 let list_pages_btn = document.getElementsByClassName("page");
     //                 list_pages_btn[this.id - 1].classList.add("selected_page");
-
     //                 document.getElementById("home_link").className = ["router-link-exact-active"];
-
     //                 this.select_articles()
     //                 this.sort_article()
     //         }
