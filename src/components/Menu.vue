@@ -6,7 +6,7 @@
                   <li v-for="(info, idx) in infoTiles" :key="idx" :to="info.link" class="nav-item d-flex align-items-center gap-2 px-3 py-2">
                     <router-link :to="info.link" class="nav-link d-flex align-items-center">
                         <div class="">
-                          <img :src="info.img" class="rounded-full w-9" :alt="info.text">
+                          <img :src="info.img" class="rounded-full img-3xl" :alt="info.text">
                         </div>
                         <div class="">
                           {{ info.text }}
@@ -78,3 +78,9 @@ export default {
     },    
 }
 </script>
+<style>
+.img-3xl {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+</style>

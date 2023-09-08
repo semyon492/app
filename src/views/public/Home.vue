@@ -583,15 +583,6 @@ ol, ul {
     position: relative;
     display: inline-block
 }
-.avatar .avatar-name {
-    background-color: var(--falcon-avatar-name-bg);
-    position: absolute;
-    text-align: center;
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-    display: block
-}
 .avatar .avatar-name>span {
     position: absolute;
     top: 50%;
@@ -599,19 +590,7 @@ ol, ul {
     -webkit-transform: translate3d(-50%, -50%, 0);
     transform: translate3d(-50%, -50%, 0)
 }
-.avatar .avatar-emoji {
-    height: 100%;
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center
-}
+
 .avatar .avatar-emoji>span {
     -webkit-transform: translateY(2%);
     -ms-transform: translateY(2%);
@@ -633,91 +612,12 @@ ol, ul {
     object-fit: cover
 }
 
-.avatar[class*=status-]:before {
-    content: "";
-    position: absolute;
-    border-radius: 100%;
-    z-index: 1
-}
-
 .avatar.status-online:before {
     background-color: var(--falcon-success)
 }
-
-.avatar.status-offline:before {
-    background-color: var(--falcon-secondary)
-}
-
-.avatar.status-away:before {
-    background-color: var(--falcon-warning)
-}
-
-.avatar.status-do-not-disturb:before {
-    background-color: var(--falcon-danger)
-}
-
-.avatar .avatar-button {
-    background-color: var(--falcon-avatar-button-bg) !important;
-    -webkit-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-    border: 1px solid var(--falcon-avatar-button-bg);
-    font-size: 12px
-}
-
-.avatar .avatar-button:hover,.avatar .avatar-button:focus {
-    background-color: var(--falcon-avatar-button-hover-bg) !important
-}
-
-.avatar:hover .overlay-icon {
-    opacity: 1
-}
-
-.avatar-s .avatar-name {
-    font-size: 0.4166666667rem
-}
-
-.avatar-s .avatar-emoji {
-    font-size: 1.25rem
-}
-.avatar-s .rounded-soft {
-    border-radius: .2083333333rem !important
-}
-
 .avatar-m {
     height: 1.5rem;
     width: 1.5rem
-}
-
-.avatar-m .avatar-name {
-    font-size: 0.5rem
-}
-
-.avatar-m .avatar-emoji {
-    font-size: 1.5rem
-}
-
-.avatar-m[class*=status-]:before {
-    border: 1px solid var(--falcon-avatar-status-border-color);
-    height: 9px;
-    width: 9px;
-    right: -1px;
-    bottom: -1px
-}
-
-.avatar-m .rounded-soft {
-    border-radius: .25rem !important
-}
-.avatar-l .avatar-name {
-    font-size: 0.5833333333rem
-}
-
-.avatar-l .avatar-emoji {
-    font-size: 1.75rem
-}
-
-.avatar-l .rounded-soft {
-    border-radius: .2916666667rem !important
 }
 
 .avatar-xl {
@@ -725,49 +625,9 @@ ol, ul {
     width: 2rem
 }
 
-.avatar-xl .avatar-name {
-    font-size: 0.6666666667rem
-}
-
-.avatar-xl .avatar-emoji {
-    font-size: 2rem
-}
-
-.avatar-xl[class*=status-]:before {
-    border: 2px solid var(--falcon-avatar-status-border-color);
-    height: .813rem;
-    width: .813rem;
-    right: -2px;
-    bottom: -2px
-}
-
-.avatar-xl .rounded-soft {
-    border-radius: .3333333333rem !important
-}
-
 .avatar-2xl {
     height: 2.5rem;
     width: 2.5rem
-}
-
-.avatar-2xl .avatar-name {
-    font-size: 0.8333333333rem
-}
-
-.avatar-2xl .avatar-emoji {
-    font-size: 2.5rem
-}
-
-.avatar-2xl[class*=status-]:before {
-    border: 2px solid var(--falcon-avatar-status-border-color);
-    height: 16px;
-    width: 16px;
-    right: -3px;
-    bottom: -3px
-}
-
-.avatar-2xl .rounded-soft {
-    border-radius: .4166666667rem !important
 }
 
 .avatar-3xl {
@@ -775,50 +635,11 @@ ol, ul {
     width: 3.5rem
 }
 
-.avatar-3xl .avatar-name {
-    font-size: 1.1666666667rem
-}
-
-.avatar-3xl .avatar-emoji {
-    font-size: 3.5rem
-}
-
-.avatar-3xl[class*=status-]:before {
-    border: 3px solid var(--falcon-avatar-status-border-color);
-    height: 18px;
-    width: 18px;
-    right: 0;
-    bottom: 0
-}
-
-.avatar-3xl .rounded-soft {
-    border-radius: .5833333333rem !important
-}
-.avatar-4xl .avatar-name {
-    font-size: 2.0416666667rem
-}
-
-.avatar-4xl .avatar-emoji {
-    font-size: 6.125rem
-}
-
-.avatar-4xl .rounded-soft {
-    border-radius: 1.0208333333rem !important
-}
-
-.avatar-5xl .avatar-name {
-    font-size: 3.5rem
-}
-
-.avatar-5xl .avatar-emoji {
-    font-size: 10.5rem
-}
-
-.avatar-5xl .rounded-soft {
-    border-radius: 1.75rem !important
-}
-
-.avatar-group .avatar-s:not(:first-child),.avatar-group .avatar-m:not(:first-child),.avatar-group .avatar-l:not(:first-child),.avatar-group .avatar-xl:not(:first-child),.avatar-group .avatar-2xl:not(:first-child) {
+.avatar-group .avatar-s:not(:first-child),
+.avatar-group .avatar-m:not(:first-child),
+.avatar-group .avatar-l:not(:first-child),
+.avatar-group .avatar-xl:not(:first-child),
+.avatar-group .avatar-2xl:not(:first-child) {
     margin-left: -0.5rem
 }
 
