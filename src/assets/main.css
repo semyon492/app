@@ -169,3 +169,9 @@ svg:not(:root).svg-inline--fa{overflow:visible}
 .svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:1;opacity:var(--fa-primary-opacity,1)}
 .svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}
 .fad.fa-inverse{color:#fff}
+
+
+.img-m {height: 1.5rem;width: 1.5rem}
+.img-xl {height: 2rem;width: 2rem}
+.img-xl {height: 2rem;width: 2rem}
+.img-3xl {height: 3.5rem;width: 3.5rem;}
