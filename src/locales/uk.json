@@ -1,0 +1,17 @@
+{
+  "auth.signin": "Увійти",
+  "auth.signup": "Зареєструватися",
+  "footer.author": "Всі права захищені",
+  "footer.home": "додому",
+  "footer.privacy": "Конфіденційність",
+  "footer.terms": "Терміни",
+  "header.home": "додому",
+  "header.logout": "Вийти",
+  "language.language": "Мова",
+  "language.language_name": "Мова: Українська",
+  "language.language_selection": "Оберіть мову",
+  "language.name": "Українська",
+  "modal.close": "Закрити",
+  "modal.save": "зберегти",
+  "language.beta": "Бетта-версія"
+}

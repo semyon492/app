@@ -20,7 +20,7 @@
                 <a href="#" class="nav-link px-2 text-muted"  @click="showModalLang = true">{{ $t('language.language_name') }}</a>
             </li>
         </ul>
-        <p class="text-center text-muted">©2023 {{ name }}. Все права защищены</p>
+        <p class="text-center text-muted">©2023 {{ name }}. {{ $t('footer.author') }}</p>
 
     </footer>
     </div>

@@ -1,0 +1,16 @@
+{
+  "auth.signin": "サインイン",
+  "auth.signup": "サインアップ",
+  "footer.author": "無断転載を禁じます",
+  "footer.home": "家",
+  "footer.privacy": "プライバシー",
+  "footer.terms": "条項",
+  "header.home": "家",
+  "header.logout": "ログアウト",
+  "language.language": "言語",
+  "language.language_name": "言語: 日本語",
+  "language.name": "日本語",
+  "modal.close": "近い",
+  "modal.save": "保存",
+  "language.beta": "ベタ版"
+}

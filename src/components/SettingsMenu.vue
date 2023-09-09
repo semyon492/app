@@ -7,36 +7,42 @@
 <script>
   export default {
     name: 'SettingsMenu',
+    setup() {
+        // use global scope
+        const { t, locale } = useI18n()
+        return { t, locale }
+    },
     data() {
       return {
         infoTiles : [], 
+        langset: 'en'
       }
     },
     async mounted() {
       this.infoTiles = ([
           {
             link: '/settings',
-            text: 'Account',
+            text: this.t('settings.account'),
           },
           {
             link: '/settings/password',
-            text: 'Password',
+            text: this.t('settings.password'),
           },
           {
             link: '/settings/privacy',
-            text: 'Privacy and safety',
+            text: this.t('settings.privacy'),
           },
           {
             link: '/settings/email',
-            text: 'Email notifications',
+            text: this.t('settings.email'),
           },
           {
             link: '/settings/notifications',
-            text: 'Web notifications',
+            text: this.t('settings.notifications'),
           },
           {
             link: '/settings/delete',
-            text: 'Delete account',
+            text: this.t('settings.delete'),
           },
 
         ]);

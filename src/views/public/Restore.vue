@@ -6,16 +6,16 @@
           <!-- Sign in START -->
           <div class="card card-body text-center p-4 p-sm-5">
             <!-- Title -->
-            <h1 class="mb-2">Восстановление</h1>
+            <h1 class="mb-2">{{ $t('auth.recovery') }}</h1>
             <p class="mb-0">
-              <span>Нет аккаунта? </span>
-              <router-link to="/register" class="">Зарегистрироваться</router-link>
+              <span>{{ $t('auth.no_account') }} </span>
+              <router-link to="/register" class="">{{ $t('auth.signup') }}</router-link>
           </p>
             <!-- Form START -->
             <form class="mt-sm-4" @submit.prevent="login">
               <!-- Email -->
               <div class="mb-3 input-group-lg">
-                <input type="email" name="email" id="email" v-model="user.email" class="form-control" placeholder="Введите адрес электронной почты" required>
+                <input type="email" name="email" id="email" v-model="user.email" class="form-control" :placeholder="$t('auth.set_email')" required>
               </div>
               <!-- New password -->
               <div class="mb-3 position-relative">
@@ -30,19 +30,19 @@
               </div>
                 <div class="mb-3">
                     <p>
-                        <span >Вернуться к </span>
-                        <router-link to="/login" class="">входу</router-link>
+                        <span >{{ $t('auth.back_to') }} </span>
+                        <router-link to="/login" class="">entrance</router-link>
                     </p>
                 </div>
               <!-- Button -->
               <div class="d-grid">
-                  <button type="submit" class="btn btn-lg btn-primary">Сбросить пароль</button>
+                  <button type="submit" class="btn btn-lg btn-primary">{{ $t('auth.reset_password') }}</button>
               </div>
               <!-- Copyright -->
               <p class="mb-0 mt-3">
                   <span>©2023 </span>
                   <router-link to="/">{{ name }}.</router-link>
-                  <span >Все права защищены</span>
+                  <span >{{ $t('footer.author') }}</span>
               </p>
             </form>
             <!-- Form END -->
@@ -56,45 +56,50 @@
   <script>
   import Axios from "axios";
   import config from "/config";
+  import { useI18n } from 'vue-i18n'
   
   export default {
-      name:'Restore',
-      data(){
-          return{
-            name:config.title,
-            user : {
-                email:'',
-                password:''
-            },
-            form_alert : false,
-            err_info: ''
-              
+    name:'Restore',
+    setup() {
+      // use global scope
+      const { t, locale } = useI18n()
+      return { t, locale }
+    },      
+    data(){
+      return{
+        name:config.title,
+        user : {
+          email:'',
+          password:''
+        },
+        form_alert : false,
+        err_info: ''          
+      }
+    },
+    methods: {
+      login(){
+        Axios.post(config.domain + "authorize", this.user)
+        .then(res => {
+          localStorage.setItem('token', res.data.access_token);
+          if(res.data.status == 7){
+              this.form_alert = true;
+              this.err_info = this.t('err.Incorrect_email_or_password_entered');
           }
-      },
-      methods: {
-          login(){
-              Axios.post(config.domain + "authorize", this.user)
-              .then(res => {
-                  localStorage.setItem('token', res.data.access_token);
-                  if(res.data.status == 7){
-                      this.form_alert = true;
-                      this.err_info = "Неверно введена почта или пароль";
-                  }
-                  if(res.data.status == 4) {
-                      this.form_alert = true;
-                      this.err_info = "Пользователь не найден";
-                  }
-                  if(res.data.status == 16) {
-                      this.form_alert = true;
-                      this.err_info = "Неизвестная ошибка";
-                  }
-  
-                  if(res.data.status == 1) {
-                      this.$router.push('/')
-                  }
-              })
+          if(res.data.status == 4) {
+              this.form_alert = true;
+              this.err_info = this.t('err.user_not_found');
           }
-      },
+          if(res.data.status == 16) {
+              this.form_alert = true;
+              this.err_info = this.t('err.unknown_error');
+          }
+
+          if(res.data.status == 1) {
+              this.$router.push('/')
+          }
+        })
+      }
+    },
   }
   </script>
   

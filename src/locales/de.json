@@ -1,0 +1,19 @@
+{
+  "auth.__i18n_ally_root__.signin": "anmelden",
+  "auth.signin": "anmelden",
+  "auth.signup": "Melden Sie sich an",
+  "auth.__i18n_ally_root__.signup": "Melden Sie sich an",
+  "footer.author": "Alle Rechte vorbehalten",
+  "footer.home": "Heim",
+  "footer.privacy": "Privatsphäre",
+  "footer.terms": "Bedingungen",
+  "header.home": "Heim",
+  "header.logout": "Ausloggen",
+  "language.language": "Sprache",
+  "language.language_name": "Sprache Deutsch",
+  "language.name": "Deutsch",
+  "modal.close": "Schließen",
+  "modal.save": "Speichern",
+  "language.language_selection": "Sprache auswählen",
+  "language.beta": "Betta-Version"
+}

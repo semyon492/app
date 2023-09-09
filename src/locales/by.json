@@ -1,0 +1,17 @@
+{
+  "auth.signin": "Sign in",
+  "auth.signup": "Sign up",
+  "footer.author": "All rights reserved",
+  "footer.home": "Home",
+  "footer.privacy": "Privacy",
+  "footer.terms": "Terms",
+  "header.home": "Home",
+  "header.logout": "Logout",
+  "language.language": "Language",
+  "language.language_name": "Language: BY",
+  "language.language_selection": "Select language",
+  "language.name": "Беларуская",
+  "modal.close": "Close",
+  "modal.save": "Save",
+  "language.beta": "Betta-version"
+}

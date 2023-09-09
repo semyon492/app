@@ -1,0 +1,19 @@
+{
+  "auth.__i18n_ally_root__.signin": "登入",
+  "auth.signin": "登入",
+  "auth.signup": "报名",
+  "auth.__i18n_ally_root__.signup": "报名",
+  "footer.author": "版权所有",
+  "footer.home": "家",
+  "footer.privacy": "隐私",
+  "footer.terms": "条款",
+  "header.home": "家",
+  "header.logout": "登出",
+  "language.language": "语言",
+  "language.language_name": "Language: 汉语",
+  "language.name": "汉语",
+  "modal.close": "关闭",
+  "modal.save": "节省",
+  "language.language_selection": "选择语言",
+  "language.beta": "Betta版本"
+}

@@ -43,25 +43,27 @@
 
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="#" @click="setLang('en')">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <img class="img-xl" alt="English" src="https://unpkg.com/language-icons/icons/en.svg">
-                        </div>
-                        <div>
-                            English
-                        </div>                        
-                    </div>                    
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="#" @click="setLang('ru')">
                     <div class="d-flex justify-content-between">
-                        <div>
+                        <div class="d-flex">
                             <img class="img-xl" alt="Русский" src="https://unpkg.com/language-icons/icons/ru.svg">
                         </div>
+                        <div>Русский</div>                        
+                    </div>
+                </a>
+            </li>
+            <li v-for="(lang, idx) in languages" :to="lang.name" :key="idx" class="nav-item">
+                <a class="nav-link" href="#" @click="setLang(lang.code)">
+                    <div class="d-flex justify-content-between">
                         <div>
-                            Русский
+                            <img class="img-xl" :alt="lang.name" :src="lang.img">
+                        </div>
+                        <div>
+                            {{ lang.name }}
+                            <!-- /adamdehaven/vue-custom-tooltip -->
+                            <Tooltip v-if="(lang.status == 'beta')" :label="t('language.beta')">
+                                <p class="text-danger">β</p>                            
+                            </Tooltip>
                         </div>                        
                     </div>
                 </a>
@@ -78,6 +80,8 @@
 
 <script>
 import config from "/config";
+import languages_list from "../plugins/languages";
+
 import imgMostRecent from '@/assets/images/mostRecent.png'
 import imgPp from '@/assets/images/pp.jpg'
 import imgFriends from '@/assets/images/friends.png'
@@ -85,11 +89,14 @@ import imgFriends from '@/assets/images/friends.png'
 import Modal from '@/components/Modal.vue'
 import { useI18n } from 'vue-i18n'
 
+import Tooltip from '../components/Tooltip.vue'
+
 export default {
     name:'Menu',
     props: ['user'],
     components: {
-        Modal
+        Modal,
+        Tooltip
     },    
     setup() {
         // use global scope
@@ -99,38 +106,40 @@ export default {
     data() {
         return {      
             infoTiles : [], 
+            languages : [], 
             name: config.title,      
             showModalLang: false,
             langset: 'en'
         }
     },
     async mounted() {
-      this.infoTiles = ([
-        {
-            link: '/',
-            text: this.t('leftbar.feed'),
-            img: imgMostRecent,
-        },       
-        {
-            link: '/profile',
-            text: this.t('leftbar.profile'),
-            img: imgPp,
-        },
-        {
-            link: '/',
-            text: this.t('leftbar.friends'),
-            img: imgFriends,
-        },         
-        {
-            link: '/chat',
-            text: this.t('leftbar.chat'),
-            img: imgMostRecent,
-        },
-        {
-            link: '/settings',
-            text: this.t('leftbar.settings'),
-            img: imgMostRecent,
-        },
+        this.languages = languages_list
+        this.infoTiles = ([
+            {
+                link: '/',
+                text: this.t('leftbar.feed'),
+                img: imgMostRecent,
+            },       
+            {
+                link: '/profile',
+                text: this.t('leftbar.profile'),
+                img: imgPp,
+            },
+            {
+                link: '/',
+                text: this.t('leftbar.friends'),
+                img: imgFriends,
+            },         
+            {
+                link: '/chat',
+                text: this.t('leftbar.chat'),
+                img: imgMostRecent,
+            },
+            {
+                link: '/settings',
+                text: this.t('leftbar.settings'),
+                img: imgMostRecent,
+            },
 
         ]);
     },  
@@ -146,6 +155,8 @@ export default {
 }
 </script>
 <style>
+.img-m {height: 1.5rem;width: 1.5rem}
+.img-xl {height: 2rem;width: 2rem}
 .img-xl {height: 2rem;width: 2rem}
 .img-3xl {height: 3.5rem;width: 3.5rem;}
 </style>

@@ -1,0 +1,19 @@
+{
+  "auth.__i18n_ally_root__.signin": "Iniciar sesión",
+  "auth.signin": "Iniciar sesión",
+  "auth.signup": "Inscribirse",
+  "auth.__i18n_ally_root__.signup": "Inscribirse",
+  "footer.author": "Reservados todos los derechos",
+  "footer.home": "Hogar",
+  "footer.privacy": "Privacidad",
+  "footer.terms": "Términos",
+  "header.home": "Hogar",
+  "header.logout": "Cerrar sesión",
+  "language.language": "Idioma",
+  "language.language_name": "Idioma: Español",
+  "language.name": "Español",
+  "modal.close": "Cerca",
+  "modal.save": "Ahorrar",
+  "language.language_selection": "Seleccione el idioma",
+  "language.beta": "Versión Betta"
+}
