@@ -68,5 +68,6 @@
   "settings.email": "Email",
   "settings.notifications": "Notifications",
   "settings.password": "Password",
-  "settings.privacy": "Privacy"
+  "settings.privacy": "Privacy",
+  "promo.desc": "helps you connect and share with the people in your life."
 }

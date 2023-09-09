@@ -65,5 +65,6 @@
   "settings.password": "Пароль",
   "settings.privacy": "Конфиденциальность и безопасность",
   "auth.enter_a_new_password": "Введите новый пароль",
-  "language.eng_name": "Russian"
+  "language.eng_name": "Russian",
+  "promo.desc": "помогает вам общаться и делиться с людьми в вашей жизни."
 }

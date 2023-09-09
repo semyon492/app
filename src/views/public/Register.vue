@@ -1,95 +1,92 @@
 <template>
-<div class="container">
-    <div class="row justify-content-center align-items-center vh-100 py-5">
-      <!-- Main content START -->
-      <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
-        <!-- Sign up START -->
-        <div class="card card-body rounded-3 p-4 p-sm-5">
-          <div class="text-center">
-            <!-- Title -->
-            <h1 class="mb-2">{{ $t('auth.signup') }}</h1>
-            <span class="d-block">
-                <span >{{ $t('auth.you_already_have_an_account') }} </span>
-                <router-link to="/login" class="">{{ $t('auth.signin') }}</router-link>
-            </span>
-          </div>
-          <!-- Form START -->
-          <form class="mt-4" @submit.prevent="register" autocomplete="off">
+<Auth>
+  <template #body>       
+    <div class="text-center">
+      <!-- Title -->
+      <h1 class="mb-2">{{ $t('auth.signup') }}</h1>
+      <span class="d-block">
+          <span >{{ $t('auth.you_already_have_an_account') }} </span>
+          <router-link to="/login" class="">{{ $t('auth.signin') }}</router-link>
+      </span>
+    </div>
+    <!-- Form START -->
+    <form class="mt-4" @submit.prevent="register" autocomplete="off">
 
-            <div class="mb-3 input-group">
-              <span class="input-group-text">{{ $t('auth.name_and_surname') }}</span>
-              <input type="text" aria-label="{{ $t('auth.first_name') }}" class="form-control" id="firstname" v-model="user.firstname" required>
-              <input type="text" aria-label="{{ $t('auth.last_name') }}" class="form-control" id="lastname" v-model="user.lastname" required>
-            </div>        
-            
-            <div class="mb-3 input-group">
-              <span class="input-group-text">{{ $t('auth.birthday') }}</span>
-              <input type="date" class="form-control" id="birthday" v-model="user.birthday" required>
-            </div>  
+      <div class="mb-3 input-group">
+        <span class="input-group-text">{{ $t('auth.name_and_surname') }}</span>
+        <input type="text" aria-label="{{ $t('auth.first_name') }}" class="form-control" id="firstname" v-model="user.firstname" required>
+        <input type="text" aria-label="{{ $t('auth.last_name') }}" class="form-control" id="lastname" v-model="user.lastname" required>
+      </div>        
+      
+      <div class="mb-3 input-group">
+        <span class="input-group-text">{{ $t('auth.birthday') }}</span>
+        <input type="date" class="form-control" id="birthday" v-model="user.birthday" required>
+      </div>  
 
-            <div class="form-check form-check-inline">
-              <label for="exampleSex" class="form-label">{{ $t('auth.gender') }}</label>
-            </div>            
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="sex" id="sex1" value="sex1" v-model="user.sex1" required>
-              <label class="form-check-label" for="sex1">{{ $t('auth.male') }}</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="sex" id="sex2" value="sex2" v-model="user.sex2" required>
-              <label class="form-check-label" for="sex2">{{ $t('auth.female') }}</label>
-            </div>
-
-            <!-- Email -->
-            <div class="mb-3 input-group-lg">
-              <input type="email" class="form-control" :placeholder="$t('auth.set_email')" name="email" id="email" v-model="user.email" required>
-              <div class="form-desc">{{ $t('auth.email_privacy') }}</div>
-            </div>
-            <!-- New password -->
-            <div class="mb-3  input-group-lg">
-              <input class="form-control fakepassword" :placeholder="$t('auth.enter_a_new_password')" type="password" name="password" id="password" v-model="user.password" required>
-              <!-- <span class="input-group-text p-0">
-                <i class="fakepasswordicon fa-solid fa-eye-slash cursor-pointer p-2 w-40px"></i>
-              </span> -->
-            </div>           
-            <!-- Confirm password -->
-            <div class="mb-3 input-group-lg">
-              <input class="form-control" type="password" :placeholder="$t('auth.confirm_your_password')" name="repassword" id="repassword" v-model="user.repassword" required>
-            </div>
-            <div class="d-flex mt-1">
-                <!-- Password message notification -->
-                <div class="alert alert-danger d-flex align-items-center" role="alert" v-if="form_alert" id="form_alert">
-                  <div>
-                    {{ err_info }}
-                  </div>
-                </div> 
-              </div>  
-            <!-- Button -->
-            <div class="d-grid">
-                <button type="submit" class="btn btn-lg btn-primary">{{ $t('auth.signup') }}</button>
-            </div>
-            <!-- Copyright -->
-            <p class="mb-0 mt-3 text-center">
-                <span>©2023 </span>
-                <router-link to="/">{{ name }}.</router-link>
-                <span>{{ $t('footer.author') }}</span>
-            </p>
-          </form>
-          <!-- Form END -->
-        </div>
-        <!-- Sign up END -->
+      <div class="form-check form-check-inline">
+        <label for="exampleSex" class="form-label">{{ $t('auth.gender') }}</label>
+      </div>            
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="sex" id="sex1" value="sex1" v-model="user.sex1" required>
+        <label class="form-check-label" for="sex1">{{ $t('auth.male') }}</label>
       </div>
-    </div> <!-- Row END -->
-  </div>    
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="sex" id="sex2" value="sex2" v-model="user.sex2" required>
+        <label class="form-check-label" for="sex2">{{ $t('auth.female') }}</label>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3 input-group-lg">
+        <input type="email" class="form-control" :placeholder="$t('auth.set_email')" name="email" id="email" v-model="user.email" required>
+        <div class="form-desc">{{ $t('auth.email_privacy') }}</div>
+      </div>
+      <!-- New password -->
+      <div class="mb-3  input-group-lg">
+        <input class="form-control fakepassword" :placeholder="$t('auth.enter_a_new_password')" type="password" name="password" id="password" v-model="user.password" required>
+        <!-- <span class="input-group-text p-0">
+          <i class="fakepasswordicon fa-solid fa-eye-slash cursor-pointer p-2 w-40px"></i>
+        </span> -->
+      </div>           
+      <!-- Confirm password -->
+      <div class="mb-3 input-group-lg">
+        <input class="form-control" type="password" :placeholder="$t('auth.confirm_your_password')" name="repassword" id="repassword" v-model="user.repassword" required>
+      </div>
+      <div class="d-flex mt-1">
+          <!-- Password message notification -->
+          <div class="alert alert-danger d-flex align-items-center" role="alert" v-if="form_alert" id="form_alert">
+            <div>
+              {{ err_info }}
+            </div>
+          </div> 
+        </div>  
+      <!-- Button -->
+      <div class="d-grid">
+          <button type="submit" class="btn btn-lg btn-primary">{{ $t('auth.signup') }}</button>
+      </div>
+      <!-- Copyright -->
+      <p class="mb-0 mt-3 text-center">
+          <span>©2023 </span>
+          <router-link to="/">{{ name }}.</router-link>
+          <span>{{ $t('footer.author') }}</span>
+      </p>
+    </form>
+  </template>
+</Auth>  
 </template>
 
 <script>
 import Axios from "axios";
 import config from "/config";
-  import { useI18n } from 'vue-i18n'
+
+import { useI18n } from 'vue-i18n'
+import Auth from '../../components/Auth.vue'
 
 export default {
   name:'Register',
-      setup() {
+  components: {
+    Auth
+  },
+  setup() {
     // use global scope
     const { t, locale } = useI18n()
     return { t, locale }
