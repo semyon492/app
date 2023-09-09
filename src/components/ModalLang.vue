@@ -42,10 +42,23 @@
 </template>
 
 <script>
-import languages_list from "../plugins/languages";
+// import languages_list from "../plugins/languages";
 import Modal from '@/components/Modal.vue'
 import { useI18n } from 'vue-i18n'
 import Tooltip from '../components/Tooltip.vue'
+
+//languages img
+import img_ab from '../assets/images/lang/ab.svg'
+import img_by from '../assets/images/lang/by.png'
+import img_de from '../assets/images/lang/de.svg'
+import img_en from '../assets/images/lang/en.svg'
+import img_es from '../assets/images/lang/es.svg'
+import img_fr from '../assets/images/lang/fr.svg'
+import img_ja from '../assets/images/lang/ja.svg'
+import img_ru from '../assets/images/lang/ru.svg'
+import img_uk from '../assets/images/lang/uk.svg'
+import img_zh from '../assets/images/lang/zh.svg'
+
 export default {
     name:'ModalLang',
     props: {
@@ -71,7 +84,79 @@ export default {
         }
     },
     async mounted() {
-        this.languages = languages_list    
+        this.languages = ([
+        {
+        code: 'de',
+        status: 'beta',
+        name: 'Deutsch',
+        eng_name: 'Deutsch',
+        img: img_de,
+    },
+    {
+        code: 'en',
+        status: 'stable',
+        name: 'English',
+        eng_name: 'English',
+        img: img_en,
+    },
+    {
+        code: 'es',
+        status: 'beta',
+        name: 'Español',
+        eng_name: 'Spanish',
+        img: img_es,
+    },
+    {
+        code: 'fr',
+        status: 'beta',
+        name: 'Français',
+        eng_name: 'French',
+        img: img_fr,
+
+    },
+    {
+        code: 'ru',
+        status: 'stable',
+        name: 'Русский',
+        eng_name: 'Russian',
+        img: img_ru,
+    },
+    {
+        code: 'zh',
+        status: 'beta',
+        name: '汉语',
+        eng_name: 'Chinese',
+        img: img_zh,
+    },
+    {
+        code: 'uk',
+        status: 'beta',
+        name: 'Українська',
+        eng_name: 'Ukrainian',
+        img: img_uk,
+    },
+    {
+        code: 'by',
+        status: 'beta',
+        name: 'Беларуская',
+        eng_name: 'Belarusian',
+        img: img_by,
+    },
+    {
+        code: 'ja',
+        status: 'beta',
+        name: '日本語',
+        eng_name: 'Japanese',
+        img: img_ja,
+    },
+    {
+        code: 'ab',
+        status: 'beta',
+        name: 'Аҧсшәа',
+        eng_name: 'Abkhazian',
+        img: img_ab,
+    },
+        ]);
     },
     methods: {
         selectLang(){

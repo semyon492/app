@@ -11,7 +11,7 @@
     <div class="col-md-7 align-self-end">
       <div class="position-relative overflow-hidden mt-4 pb-3 pt-4 mx-auto me-md-0" style="max-width: 632px;">
         <div class="ratio ratio-1x1"></div>
-        <img src="https://cube.webuildthemes.com/assets/images/app-1.png" class="rellax position-absolute top-0 start-0 zindex-2" data-rellax-speed="1.6" data-disable-parallax-down="md" alt="Phone" style="transform: translate3d(0px, 0px, 0px);">
+        <img :src="img" class="rellax position-absolute top-0 start-0 zindex-2" data-rellax-speed="1.6" data-disable-parallax-down="md" alt="Phone" style="transform: translate3d(0px, 0px, 0px);">
       </div>
     </div>
   </div>
@@ -19,14 +19,14 @@
 </template>
 <script>
 import config from "/config";
+import img_app from '../assets/images/app.png'
 
 export default {
     name:'Main',
     data() {
         return {
             name:config.title,
-            modal_name: 'modalLang2',
-            list: 'li',
+            img:img_app,
         }
     },
 }
