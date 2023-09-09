@@ -43,5 +43,6 @@
   "settings.notifications": "Notifications Web",
   "settings.password": "Mot de passe",
   "settings.privacy": "Confidentialité et sécurité",
-  "language.beta": "Version Betta"
+  "language.beta": "Version Betta",
+  "language.eng_name": "French"
 }

@@ -8,7 +8,7 @@
         hasPosition,
         hasSize,
         {
-          'vue-custom-tooltip': isActive && labelText,
+          'custom-tooltip': isActive && labelText,
           'is-sticky': isSticky,
           'has-multiline': isMultiline,
           'is-underlined': isUnderlined || isAbbreviation,
@@ -58,27 +58,29 @@
         isAbbreviation: this.abbreviation || false,
         hasPosition: this.position || 'is-top',
         hasSize: this.size || 'is-medium',
+        // $Tooltip: any   
+
       }
     },
     computed: {
       dynamicStyles() {
         return {
-          '--vue-custom-tooltip-color':
-            this.$vueCustomTooltip && this.$vueCustomTooltip.hasOwnProperty('color')
-              ? this.$vueCustomTooltip.color
-              : null,
-          '--vue-custom-tooltip-background':
-            this.$vueCustomTooltip && this.$vueCustomTooltip.hasOwnProperty('background')
-              ? this.$vueCustomTooltip.background
-              : null,
-          '--vue-custom-tooltip-border-radius':
-            this.$vueCustomTooltip && this.$vueCustomTooltip.hasOwnProperty('borderRadius')
-              ? this.$vueCustomTooltip.borderRadius
-              : null,
-          '--vue-custom-tooltip-font-weight':
-            this.$vueCustomTooltip && this.$vueCustomTooltip.hasOwnProperty('fontWeight')
-              ? this.$vueCustomTooltip.fontWeight
-              : null,
+          // '--custom-tooltip-color':
+          //   this.$Tooltip && this.$Tooltip.hasOwnProperty('color')
+          //     ? this.$Tooltip.color
+          //     : null,
+          // '--custom-tooltip-background':
+          //   this.$Tooltip && this.$Tooltip.hasOwnProperty('background')
+          //     ? this.$Tooltip.background
+          //     : null,
+          // '--custom-tooltip-border-radius':
+          //   this.$Tooltip && this.$Tooltip.hasOwnProperty('borderRadius')
+          //     ? this.$Tooltip.borderRadius
+          //     : null,
+          // '--custom-tooltip-font-weight':
+          //   this.$Tooltip && this.$Tooltip.hasOwnProperty('fontWeight')
+          //     ? this.$Tooltip.fontWeight
+          //     : null,
         }
       },
     },
@@ -137,129 +139,129 @@
   
   <style>
   /* Set defaults */
-  .vue-custom-tooltip {
-    --vue-custom-tooltip-color: #fff;
-    --vue-custom-tooltip-background: #000;
-    --vue-custom-tooltip-border-radius: 100px;
-    --vue-custom-tooltip-font-weight: 400;
+  .custom-tooltip {
+    --custom-tooltip-color: #fff;
+    --custom-tooltip-background: #000;
+    --custom-tooltip-border-radius: 100px;
+    --custom-tooltip-font-weight: 400;
   }
 
-.vue-custom-tooltip {
+.custom-tooltip {
   position: relative;
   display: inline-block;
   text-decoration-line: none !important;
 }
-.vue-custom-tooltip.is-top:before,
-.vue-custom-tooltip.is-top:after {
+.custom-tooltip.is-top:before,
+.custom-tooltip.is-top:after {
   top: auto;
   right: auto;
   bottom: calc(100% + 5px + 2px);
   left: 50%;
   transform: translateX(-50%);
 }
-.vue-custom-tooltip.is-top:before {
+.custom-tooltip.is-top:before {
   border-top: 5px solid #000;
-  border-top: 5px solid var(--vue-custom-tooltip-background, #000);
+  border-top: 5px solid var(--custom-tooltip-background, #000);
   border-right: 5px solid transparent;
   border-left: 5px solid transparent;
   bottom: calc(100% + 2px);
 }
-.vue-custom-tooltip.is-top.has-multiline.is-small:after {
+.custom-tooltip.is-top.has-multiline.is-small:after {
   width: 140px;
 }
-.vue-custom-tooltip.is-top.has-multiline.is-medium:after {
+.custom-tooltip.is-top.has-multiline.is-medium:after {
   width: 250px;
   padding: 0.6rem 1.25rem 0.65rem;
 }
-.vue-custom-tooltip.is-top.has-multiline.is-large:after {
+.custom-tooltip.is-top.has-multiline.is-large:after {
   width: 480px;
   padding: 0.6rem 1rem 0.65rem;
 }
-.vue-custom-tooltip.is-right:before,
-.vue-custom-tooltip.is-right:after {
+.custom-tooltip.is-right:before,
+.custom-tooltip.is-right:after {
   top: 50%;
   right: auto;
   bottom: auto;
   left: calc(100% + 5px + 2px);
   transform: translateY(-50%);
 }
-.vue-custom-tooltip.is-right:before {
+.custom-tooltip.is-right:before {
   border-top: 5px solid transparent;
   border-right: 5px solid #000;
-  border-right: 5px solid var(--vue-custom-tooltip-background, #000);
+  border-right: 5px solid var(--custom-tooltip-background, #000);
   border-bottom: 5px solid transparent;
   left: calc(100% + 2px);
 }
-.vue-custom-tooltip.is-right.has-multiline.is-small:after {
+.custom-tooltip.is-right.has-multiline.is-small:after {
   width: 140px;
 }
-.vue-custom-tooltip.is-right.has-multiline.is-medium:after {
+.custom-tooltip.is-right.has-multiline.is-medium:after {
   width: 250px;
   padding: 0.6rem 1.25rem 0.65rem;
 }
-.vue-custom-tooltip.is-right.has-multiline.is-large:after {
+.custom-tooltip.is-right.has-multiline.is-large:after {
   width: 480px;
   padding: 0.6rem 1rem 0.65rem;
 }
-.vue-custom-tooltip.is-bottom:before,
-.vue-custom-tooltip.is-bottom:after {
+.custom-tooltip.is-bottom:before,
+.custom-tooltip.is-bottom:after {
   top: calc(100% + 5px + 2px);
   right: auto;
   bottom: auto;
   left: 50%;
   transform: translateX(-50%);
 }
-.vue-custom-tooltip.is-bottom:before {
+.custom-tooltip.is-bottom:before {
   border-right: 5px solid transparent;
   border-bottom: 5px solid #000;
-  border-bottom: 5px solid var(--vue-custom-tooltip-background, #000);
+  border-bottom: 5px solid var(--custom-tooltip-background, #000);
   border-left: 5px solid transparent;
   top: calc(100% + 2px);
 }
-.vue-custom-tooltip.is-bottom.has-multiline.is-small:after {
+.custom-tooltip.is-bottom.has-multiline.is-small:after {
   width: 140px;
 }
-.vue-custom-tooltip.is-bottom.has-multiline.is-medium:after {
+.custom-tooltip.is-bottom.has-multiline.is-medium:after {
   width: 250px;
   padding: 0.6rem 1.25rem 0.65rem;
 }
-.vue-custom-tooltip.is-bottom.has-multiline.is-large:after {
+.custom-tooltip.is-bottom.has-multiline.is-large:after {
   width: 480px;
   padding: 0.6rem 1rem 0.65rem;
 }
-.vue-custom-tooltip.is-left:before,
-.vue-custom-tooltip.is-left:after {
+.custom-tooltip.is-left:before,
+.custom-tooltip.is-left:after {
   top: 50%;
   right: calc(100% + 5px + 2px);
   bottom: auto;
   left: auto;
   transform: translateY(-50%);
 }
-.vue-custom-tooltip.is-left:before {
+.custom-tooltip.is-left:before {
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
   border-left: 5px solid #000;
-  border-left: 5px solid var(--vue-custom-tooltip-background, #000);
+  border-left: 5px solid var(--custom-tooltip-background, #000);
   right: calc(100% + 2px);
 }
-.vue-custom-tooltip.is-left.has-multiline.is-small:after {
+.custom-tooltip.is-left.has-multiline.is-small:after {
   width: 140px;
 }
-.vue-custom-tooltip.is-left.has-multiline.is-medium:after {
+.custom-tooltip.is-left.has-multiline.is-medium:after {
   width: 250px;
   padding: 0.6rem 1.25rem 0.65rem;
 }
-.vue-custom-tooltip.is-left.has-multiline.is-large:after {
+.custom-tooltip.is-left.has-multiline.is-large:after {
   width: 480px;
   padding: 0.6rem 1rem 0.65rem;
 }
-.vue-custom-tooltip.is-underlined {
+.custom-tooltip.is-underlined {
   border-bottom: 1px dotted #000;
-  border-bottom: 1px dotted var(--vue-custom-tooltip-background, #000);
+  border-bottom: 1px dotted var(--custom-tooltip-background, #000);
   line-height: 1.2;
 }
-.vue-custom-tooltip:before,
-.vue-custom-tooltip:after {
+.custom-tooltip:before,
+.custom-tooltip:after {
   position: absolute;
   content: '';
   opacity: 0;
@@ -267,23 +269,23 @@
   pointer-events: none;
   transition: opacity 86ms ease-out, visibility 86ms ease-out;
 }
-.vue-custom-tooltip:before {
+.custom-tooltip:before {
   z-index: 889;
 }
-.vue-custom-tooltip:after {
+.custom-tooltip:after {
   content: attr(data-label);
   color: #fff;
-  color: var(--vue-custom-tooltip-color, #fff);
+  color: var(--custom-tooltip-color, #fff);
   background: #000;
-  background: var(--vue-custom-tooltip-background, #000);
+  background: var(--custom-tooltip-background, #000);
   width: auto;
   max-width: 100vw;
   padding: 0.35rem 0.75rem 0.45rem;
   border-radius: 100px;
-  border-radius: var(--vue-custom-tooltip-border-radius, 100px);
+  border-radius: var(--custom-tooltip-border-radius, 100px);
   font-size: 0.85rem !important;
   font-weight: 400;
-  font-weight: var(--vue-custom-tooltip-font-weight, 400);
+  font-weight: var(--custom-tooltip-font-weight, 400);
   line-height: 1.3;
   letter-spacing: normal !important;
   text-transform: none;
@@ -291,20 +293,20 @@
   z-index: 888;
   white-space: nowrap;
 }
-.vue-custom-tooltip:not([data-label='']):hover:before,
-.vue-custom-tooltip:not([data-label='']):hover:after {
+.custom-tooltip:not([data-label='']):hover:before,
+.custom-tooltip:not([data-label='']):hover:after {
   opacity: 1;
   visibility: visible;
 }
-:disabled .vue-custom-tooltip {
+:disabled .custom-tooltip {
   pointer-events: none;
 }
-.vue-custom-tooltip:not([data-label='']).is-sticky:before,
-.vue-custom-tooltip:not([data-label='']).is-sticky:after {
+.custom-tooltip:not([data-label='']).is-sticky:before,
+.custom-tooltip:not([data-label='']).is-sticky:after {
   opacity: 1;
   visibility: visible;
 }
-.vue-custom-tooltip.has-multiline:after {
+.custom-tooltip.has-multiline:after {
   display: block;
   padding: 0.5rem 0.75rem 0.65rem;
   text-align: center;

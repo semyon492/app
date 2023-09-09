@@ -64,5 +64,6 @@
   "settings.notifications": "Веб-уведомления",
   "settings.password": "Пароль",
   "settings.privacy": "Конфиденциальность и безопасность",
-  "auth.enter_a_new_password": "Введите новый пароль"
+  "auth.enter_a_new_password": "Введите новый пароль",
+  "language.eng_name": "Russian"
 }

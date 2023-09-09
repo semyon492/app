@@ -2,7 +2,6 @@
   <Transition :name="modalName">
     <div v-if="show" class="modal-mask">
       <div class="modal-container">
-        <!-- <div class="modal-content"> -->
             <div class="modal-header">
             <slot name="header">
                 <h5 class="modal-title">Modal title</h5>
@@ -21,8 +20,6 @@
                 <button type="button" class="btn btn-secondary" @click="$emit('close')">Close</button>
             </slot>
             </div>
-        <!-- </div> -->
-
       </div>
     </div>
   </Transition>

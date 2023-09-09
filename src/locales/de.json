@@ -15,5 +15,6 @@
   "modal.close": "Schließen",
   "modal.save": "Speichern",
   "language.language_selection": "Sprache auswählen",
-  "language.beta": "Betta-Version"
+  "language.beta": "Betta-Version",
+  "language.eng_name": "Deutsche"
 }

@@ -20,7 +20,7 @@
                 <div class="text-muted text-xs pl-1 mb-14">
                   <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">{{ $t('footer.privacy') }}</router-link>·
                   <router-link to="/privacy-and-terms" class="hover:underline cursor-pointer">{{ $t('footer.terms') }}</router-link>·
-                    <ModalLang />
+                    <ModalLang :modal_name="modal_name" :list="list" /> 
                   <a>{{ name }} © 2023</a>
                 </div>
               </div>
@@ -55,7 +55,9 @@ export default {
     data() {
         return {      
             infoTiles : [], 
-            name: config.title,      
+            name: config.title,
+            modal_name: 'modalLang1',
+            list: 'a',
         }
     },
     async mounted() {

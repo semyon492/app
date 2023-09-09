@@ -16,7 +16,7 @@
             <li class="nav-item">
                 <router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">{{ $t('footer.terms') }}</router-link>
             </li>            
-            <ModalLang :list="li" />
+            <ModalLang :modal_name="modal_name" :list="list" />
         </ul>
         <p class="text-center text-muted">©2023 {{ name }}. {{ $t('footer.author') }}</p>
 
@@ -27,7 +27,7 @@
 
 <script>
 import config from "/config";
-import { useI18n } from 'vue-i18n'
+// import { useI18n } from 'vue-i18n'
 
 import ModalLang from '../components/ModalLang.vue'
 
@@ -39,6 +39,8 @@ export default {
     data() {
         return {
             name:config.title,
+            modal_name: 'modalLang2',
+            list: 'li',
         }
     },
 }

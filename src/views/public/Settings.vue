@@ -190,7 +190,7 @@ import Menu from '@/components/Menu.vue'
 import Main from '@/components/Main.vue'
 
 export default {
-  name: 'Home',
+  name: 'Settings',
   components: {
     SettingsMenu,
     Menu,
