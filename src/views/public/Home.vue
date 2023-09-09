@@ -493,7 +493,7 @@ export default {
       this.is_connected = true;
       this.access_token = localStorage.getItem('token');
     }     
-    await Axios.post(config.domain + "account/getinfo", {
+    await Axios.post(process.env.VUE_DOMAIN_API + "account/getinfo", {
                 access_token: localStorage.getItem('token')
         })
         .then(res => {
