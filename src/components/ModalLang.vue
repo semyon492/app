@@ -1,20 +1,60 @@
 <template>
 
 <li class="nav-item" v-if="(list == 'li')">
-    <a href="#"  class="nav-link px-2 text-muted" @click="showModalLang = true">{{ $t('language.language_name') }}</a>
+    <a href="#"  class="nav-link px-2 text-muted" @click="showModal = true">{{ $t('language.language_name') }}</a>
 </li> 
 
-<a href="#" v-if="(list == 'a')" class="hover:underline cursor-pointer" @click="showModalLang = true">{{ $t('language.language_name') }}</a>
+<!-- <a href="#" v-if="(list == 'a')" class="text-black dark:text-white p-1" @click="showModalLang = true">{{ $t('language.language_name') }}</a> -->
+<a href="#" v-if="(list == 'a')" class="text-black dark:text-white p-1" @click="showModal = true">{{ $t('language.language_name') }}</a>
 
-<Teleport to="body">
+<!-- <Teleport to="body">
   <Modal :modalName="modal_name" :show="showModalLang" @close="showModalLang = false">
     <template #header>
       <h3>{{ $t('language.language_selection') }}</h3>
     </template>
     <template #body>
-        <ul class="nav flex-column">
-            <li v-for="(lang, idx) in languages" :to="lang.name" :key="idx" class="nav-item">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <div v-for="(lang, idx) in languages" :to="lang.name" :key="idx" class="">
                 <a class="nav-link" href="#" @click="setLang(lang.code)">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <img class="img-xl" :alt="lang.name" :src="lang.img">
+                        </div>
+                        <div>
+                            <Tooltip :label="lang.eng_name">
+                                {{ lang.name }}                          
+                            </Tooltip>
+                            
+                            <Tooltip v-if="(lang.status == 'beta')" :label="t('language.beta')">
+                                <p class="text-red-600 dark:text-red-500 p-2">β</p>                            
+                            </Tooltip>
+                        </div>                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </template>
+    <template #footer>        
+        <button type="button" class="btn btn-secondary" @click="showModalLang = false">{{ $t('modal.close') }}</button>
+    </template> 
+  </Modal>
+</Teleport>   -->
+
+
+<Teleport to="body">
+<Modal size="md" :show="showModal" @close="showModal = false">
+<!-- <template #header>
+    <div class="flex items-center text-lg"> {{ $t('language.language_selection') }} </div>
+    <button @click="showModal = false" aria-label="close" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+    </svg>
+    </button>
+</template> -->
+<template #body>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div v-for="(lang, idx) in languages" :to="lang.name" :key="idx" class="">
+                <a class="nav-link" href="#" @click="setLang(lang.code);showModal = false">
                     <div class="d-flex justify-content-between">
                         <div>
                             <img class="img-xl" :alt="lang.name" :src="lang.img">
@@ -26,24 +66,21 @@
                             
                             <!-- /adamdehaven/vue-custom-tooltip -->
                             <Tooltip v-if="(lang.status == 'beta')" :label="t('language.beta')">
-                                <p class="text-danger">β</p>                            
+                                <p class="text-red-600 dark:text-red-500 p-2">β</p>                            
                             </Tooltip>
                         </div>                        
                     </div>
                 </a>
-            </li>
-        </ul>
-    </template>
-    <template #footer>        
-        <button type="button" class="btn btn-secondary" @click="showModalLang = false">{{ $t('modal.close') }}</button>
-    </template> 
-  </Modal>
-</Teleport>  
+            </div>
+        </div>
+</template>
+</Modal>
+</Teleport> 
+
 </template>
 
 <script>
-// import languages_list from "../plugins/languages";
-import Modal from '@/components/Modal.vue'
+import Modal from '../ui/modal/Modal.vue'
 import { useI18n } from 'vue-i18n'
 import Tooltip from '../components/Tooltip.vue'
 
@@ -78,6 +115,7 @@ export default {
         return {      
             languages : [],     
             showModalLang: false,
+            showModal: false,
             langset: 'en',
             // modal_name: 'modalLang',
             link_type: this.list,

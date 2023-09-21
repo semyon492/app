@@ -1,5 +1,5 @@
 <template>
-    <div id="content1">
+    <div class="bg-gray-50 dark:bg-slate-800 dark:text-slate-100">
         <header>
             <Navigation :user="user"/>
         </header>
@@ -15,7 +15,7 @@ import Navigation from '@/components/Navigation.vue'
 import Footer from '@/components/Footer.vue'
 import Axios from "axios"
 import config from "/config"
-import "bootstrap/dist/css/bootstrap.min.css"
+// import "bootstrap/dist/css/bootstrap.min.css"
 
 export default{
     name:'PublicLayout',

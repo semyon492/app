@@ -1,28 +1,20 @@
 <template>
-    <div class="container">
-
-    <footer class="py-3 my-4 d-flex justify-content-between align-items-center">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item">
-                <router-link to="/" class="nav-link px-2 text-muted">{{ $t('footer.home') }}</router-link>
-            </li>
-        <!-- <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-         -->
-            <li class="nav-item">
-                <router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">{{ $t('footer.privacy') }}</router-link>
-            </li>
-            <li class="nav-item">
-                <router-link to="/privacy-and-terms" class="nav-link px-2 text-muted">{{ $t('footer.terms') }}</router-link>
-            </li>            
-            <ModalLang :modal_name="modal_name" :list="list" />
-        </ul>
-        <p class="text-center text-muted">©2023 {{ name }}. {{ $t('footer.author') }}</p>
-
+    <footer class="py-2 px-6 xl:max-w-6xl xl:mx-auto">
+        <div class="justify-between items-center block md:flex">
+            <div class="flex items-center justify-center mb-6 md:mb-0">
+                <div class="text-center md:text-left">
+                    <b>©2023 <router-link to="/" >{{ name }}</router-link>.</b>  {{ $t('footer.author') }}
+                    <router-link to="/privacy-and-terms" class="text-black dark:text-white p-1">{{ $t('footer.privacy') }}</router-link>
+                    <router-link to="/privacy-and-terms" class="text-black dark:text-white p-1">{{ $t('footer.terms') }}</router-link>
+                </div>
+            </div>
+            <div class="flex items-center justify-center">
+                <div class="md:py-2">
+                    <ModalLang :modal_name="modal_name" :list="list" />
+                </div>
+            </div>
+        </div>
     </footer>
-    </div>
-
 </template>
 
 <script>
@@ -40,7 +32,7 @@ export default {
         return {
             name:config.title,
             modal_name: 'modalLang2',
-            list: 'li',
+            list: 'a',
         }
     },
 }

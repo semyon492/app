@@ -3,68 +3,58 @@
     <Main />
   </main>
   <main v-if="(user.is_connected)">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col">
-          <Menu  :user="user"/>
-        </div>
-        <div class="col-10">
-          <div class="row">
-						<div class="col-md-3 col-xl-2">
-
-							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title mb-0">Profile Settings</h5>
-								</div>
-
-								<div class="list-group list-group-flush" role="tablist">
-                  <SettingsMenu />          
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-9 col-xl-10">
-							<div class="tab-content">
-								<div class="tab-pane fade show active" id="account" role="tabpanel">
-
-									<div class="card">
-										<div class="card-header">
-											<div class="card-actions float-end">
-												<a href="#" class="me-1">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw align-middle"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
-												</a>
-												<div class="d-inline-block dropdown show">
-													<a href="#" data-bs-toggle="dropdown" data-bs-display="static">
-														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-													</a>
-
-													<div class="dropdown-menu dropdown-menu-end">
-														<a class="dropdown-item" href="#">Action</a>
-														<a class="dropdown-item" href="#">Another action</a>
-														<a class="dropdown-item" href="#">Something else here</a>
-													</div>
-												</div>
-											</div>
-											<h5 class="card-title mb-0">Delete profile</h5>
-										</div>
-										<div class="card-body">
-											<form>
-												<button type="submit" class="btn btn-primary" disabled>Delete profile</button>
-											</form>
-
-										</div>
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
+    <div class="flex flex-wrap">
+      <div class="w-full max-w-full px-3 mt-6 shrink-0 md:w-2/12 md:flex-0 md:mt-0">
+        <Menu  :user="user"/>
+      </div>
+      <div class="w-full max-w-full px-3 shrink-0 md:w-10/12 md:flex-0">
+        <div class="flex flex-wrap">
+          <div class="w-full max-w-full px-3 mt-6 shrink-0 md:w-2/12 md:flex-0 md:mt-0">
+            <div class="bg-white dark:bg-slate-900 lg:rounded-2xl">
+              <div class="dark:bg-slate-900">
+                <div class="text-center flex-1 lg:text-left lg:pl-6 xl:text-center xl:pl-0">
+                  <b class="font-black">Profile Settings</b>
+                </div>
+              </div>
+              <div>
+                <SettingsMenu />          
+              </div>
+            </div>
+          </div>
+          <div class="w-full max-w-full px-3 shrink-0 md:w-10/12 md:flex-0">
+            <div class="bg-white dark:bg-slate-900 lg:rounded-2xl">
+              <div class="p-6">
+                <h5 class="text-2xl">{{ $t('settings.delete') }}</h5>
+              </div>
+              <div class="p-6">
+                <Button @click="showModal = true" >Delete profile</Button>
+                <Teleport to="body">
+                <Modal size="md" :show="showModal" @close="showModal = false">
+                <template #header>
+                  <div class="flex items-center text-lg"> Terms of Service </div>
+                  <button @click="showModal = false" aria-label="close" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                  </button>
+                </template>
+                <template #body>
+                  <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                  </p>
+                  <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                  </p>
+                </template>
+                </Modal>
+                </Teleport> 
+              </div>        
+            </div>
+          </div>
         </div>
       </div>
     </div>    
   </main>
-
-  <!-- <button class="change_view" @click="this.name = 'big_view'">Change</button> -->
 </template>
 
 <script>
@@ -74,17 +64,25 @@ import SettingsMenu from '@/components/SettingsMenu.vue'
 import Menu from '@/components/Menu.vue'
 import Main from '@/components/Main.vue'
 
+import Button from '@/ui/button/Button.vue'
+import Modal from '@/ui/modal/Modal.vue'
+
 export default {
   name: 'Home',
   components: {
     SettingsMenu,
     Menu,
-    Main
+    Main,
+    Button,
+    Modal
   },
   props: ['user'],
   data() {
     return {   
       name: config.title,
+      showModalLang: false,
+      showModal: false,
+      size: 'md',
     }
   },
   async mounted() { 

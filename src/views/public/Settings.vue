@@ -1,210 +1,112 @@
 <template>
-  <main v-if="(user.is_connected !== true)">
-    <Main />
-  </main>
-  <main v-if="(user.is_connected)">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col">
-          <Menu  :user="user"/>
-        </div>
-        <div class="col-10">
-          <div class="row">
-						<div class="col-md-3 col-xl-2">
-
-							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title mb-0">Profile Settings</h5>
-								</div>
-
-								<div class="list-group list-group-flush" role="tablist">
-                  <SettingsMenu />     
-								</div>
+	<main v-if="(user.is_connected !== true)">
+	  <Main />
+	</main>
+	<main v-if="(user.is_connected)">
+	  <div class="flex flex-wrap">
+		<div class="w-full max-w-full px-3 mt-6 shrink-0 md:w-2/12 md:flex-0 md:mt-0">
+		  <Menu  :user="user"/>
+		</div>
+		<div class="w-full max-w-full px-3 shrink-0 md:w-10/12 md:flex-0">
+		  <div class="flex flex-wrap">
+			<div class="w-full max-w-full px-3 mt-6 shrink-0 md:w-2/12 md:flex-0 md:mt-0">
+			  <div class="bg-white dark:bg-slate-900 lg:rounded-2xl">
+				<div class="dark:bg-slate-900">
+				  <div class="text-center flex-1 lg:text-left lg:pl-6 xl:text-center xl:pl-0">
+					<b class="font-black">Profile Settings</b>
+				  </div>
+				</div>
+				<div>
+				  <SettingsMenu />          
+				</div>
+			  </div>
+			</div>
+			<div class="w-full max-w-full px-3 shrink-0 md:w-10/12 md:flex-0">
+			  <div class="bg-white dark:bg-slate-900 lg:rounded-2xl">
+				<div class="p-6">
+				  <h5 class="text-2xl">{{ $t('settings.account') }}</h5>
+				</div>
+					<div class="flex-1 p-6">
+						<div class="mb-6 last:mb-0">
+							<label class="block font-bold mb-2">Avatar</label>
+							<div class="">
+								<div class="flex items-stretch justify-start relative">
+									<label class="inline-flex">
+										<a class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-blue-600 dark:border-blue-500 ring-blue-300 dark:ring-blue-700 bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 hover:border-blue-700 hover:dark:bg-blue-600 hover:dark:border-blue-600 py-2 px-3" disabled="false"><span class="inline-flex justify-center items-center w-6 h-6">
+											<svg viewBox="0 0 24 24" width="16" height="16" class="inline-block"><path fill="currentColor" d="M9,16V10H5L12,3L19,10H15V16H9M5,20V18H19V20H5Z"></path></svg>
+										</span>
+										<span class="px-2">Upload</span>
+									</a>
+									<input type="file" class="absolute top-0 left-0 w-full h-full opacity-0 outline-none cursor-pointer -z-1">
+								</label>
+								<!---->
 							</div>
 						</div>
-
-						<div class="col-md-9 col-xl-10">
-							<div class="tab-content">
-								<div class="tab-pane fade show active" id="account" role="tabpanel">
-
-									<div class="card">
-										<div class="card-header">
-											<div class="card-actions float-end">
-												<a href="#" class="me-1">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw align-middle"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
-												</a>
-												<div class="d-inline-block dropdown show">
-													<a href="#" data-bs-toggle="dropdown" data-bs-display="static">
-														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-													</a>
-
-													<div class="dropdown-menu dropdown-menu-end">
-														<a class="dropdown-item" href="#">Action</a>
-														<a class="dropdown-item" href="#">Another action</a>
-														<a class="dropdown-item" href="#">Something else here</a>
-													</div>
-												</div>
-											</div>
-											<h5 class="card-title mb-0">Public info</h5>
-										</div>
-										<div class="card-body">
-											<form>
-												<div class="row">
-													<div class="col-md-8">
-														<div class="mb-3">
-															<label for="inputUsername">Username</label>
-															<input type="text" class="form-control" id="inputUsername" placeholder="Username">
-														</div>
-														<div class="mb-3">
-															<label for="inputUsername">Biography</label>
-															<textarea rows="2" class="form-control" id="inputBio" placeholder="Tell something about yourself"></textarea>
-														</div>
-													</div>
-													<div class="col-md-4">
-														<div class="text-center">
-															<img alt="Chris Wood" src="https://spark.bootlab.io/img/avatars/avatar.jpg" class="rounded-circle img-responsive mt-2" width="128" height="128">
-															<div class="mt-2">
-																<span class="btn btn-primary"><i class="fas fa-upload"></i> Upload</span>
-															</div>
-															<small>For best results, use an image at least 128px by 128px in .jpg
-																format</small>
-														</div>
-													</div>
-												</div>
-
-												<button type="submit" class="btn btn-primary" disabled>Save changes</button>
-											</form>
-
-										</div>
-									</div>
-
-									<div class="card">
-										<div class="card-header">
-											<div class="card-actions float-end">
-												<a href="#" class="me-1">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw align-middle"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
-												</a>
-												<div class="d-inline-block dropdown show">
-													<a href="#" data-bs-toggle="dropdown" data-bs-display="static">
-														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-													</a>
-
-													<div class="dropdown-menu dropdown-menu-end">
-														<a class="dropdown-item" href="#">Action</a>
-														<a class="dropdown-item" href="#">Another action</a>
-														<a class="dropdown-item" href="#">Something else here</a>
-													</div>
-												</div>
-											</div>
-											<h5 class="card-title mb-0">Private info</h5>
-										</div>
-										<div class="card-body">
-											<form>
-												<div class="row">
-													<div class="mb-3 col-md-6">
-														<label for="inputFirstName">First name</label>
-														<input type="text" class="form-control" id="inputFirstName" placeholder="First name">
-													</div>
-													<div class="mb-3 col-md-6">
-														<label for="inputLastName">Last name</label>
-														<input type="text" class="form-control" id="inputLastName" placeholder="Last name">
-													</div>
-												</div>
-												<div class="mb-3">
-													<label for="inputEmail4">Email</label>
-													<input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-												</div>
-												<div class="mb-3">
-													<label for="inputAddress">Address</label>
-													<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-												</div>
-												<div class="mb-3">
-													<label for="inputAddress2">Address 2</label>
-													<input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-												</div>
-												<div class="row">
-													<div class="mb-3 col-md-6">
-														<label for="inputCity">City</label>
-														<input type="text" class="form-control" id="inputCity">
-													</div>
-													<div class="mb-3 col-md-4">
-														<label for="inputState">State</label>
-														<select id="inputState" class="form-control">
-															<option selected="">Choose...</option>
-															<option>...</option>
-														</select>
-													</div>
-													<div class="mb-3 col-md-2">
-														<label for="inputZip">Zip</label>
-														<input type="text" class="form-control" id="inputZip">
-													</div>
-												</div>
-												<button type="submit" class="btn btn-primary" disabled>Save changes</button>
-											</form>
-
-										</div>
-									</div>
-
-								</div>
-								<div class="tab-pane fade" id="password" role="tabpanel">
-									<div class="card">
-										<div class="card-body">
-											<h5 class="card-title">Password</h5>
-
-											<form>
-												<div class="mb-3">
-													<label for="inputPasswordCurrent">Current password</label>
-													<input type="password" class="form-control" id="inputPasswordCurrent">
-													<small><a href="#">Forgot your password?</a></small>
-												</div>
-												<div class="mb-3">
-													<label for="inputPasswordNew">New password</label>
-													<input type="password" class="form-control" id="inputPasswordNew" aria-autocomplete="list">
-												</div>
-												<div class="mb-3">
-													<label for="inputPasswordNew2">Verify password</label>
-													<input type="password" class="form-control" id="inputPasswordNew2">
-												</div>
-												<button type="submit" class="btn btn-primary" disabled>Save changes</button>
-											</form>
-
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+						<div class="text-xs text-gray-500 dark:text-slate-400 mt-1">Max 500kb</div>
 					</div>
-        </div>
-      </div>
-    </div>    
-  </main>
-
-  <!-- <button class="change_view" @click="this.name = 'big_view'">Change</button> -->
-</template>
-
-<script>
-import Axios from "axios";
-import config from "/config";
-import SettingsMenu from '@/components/SettingsMenu.vue'
-import Menu from '@/components/Menu.vue'
-import Main from '@/components/Main.vue'
-
-export default {
-  name: 'Settings',
-  components: {
-    SettingsMenu,
-    Menu,
-	Main
-  },  
-  props: ['user'],
-  data() {
-    return {
-      name: config.title,
-    }
-  },
-  async mounted() {
-  },
-  methods: {
-  },
-}
-</script>
+					<div class="mb-6 last:mb-0">
+						<label class="block font-bold mb-2">Name</label>
+						<div class="">
+							<div class="relative">
+								<input name="username" autocomplete="username" required="" type="text" class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10">
+								<span class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400">
+									<svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
+										<path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path>
+									</svg>
+								</span>
+							</div>
+						</div>
+						<div class="text-xs text-gray-500 dark:text-slate-400 mt-1">Required. Your name</div>
+					</div>
+					<div class="mb-6 last:mb-0">
+						<label class="block font-bold mb-2">E-mail</label>
+						<div class="">
+							<div class="relative">
+								<input name="email" autocomplete="email" required="" type="email" class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10">
+								<span class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400">
+									<svg viewBox="0 0 24 24" width="16" height="16" class="inline-block"><path fill="currentColor" d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M17,17H7V15H17M17,13H7V11H17M20,9H17V6H20"></path></svg>
+								</span>
+							</div>
+						</div>
+						<div class="text-xs text-gray-500 dark:text-slate-400 mt-1">Required. Your e-mail</div>
+					</div>
+				</div>      
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>    
+	</main>
+  </template>
+  
+  <script>
+  import Axios from "axios";
+  import config from "/config";
+  import SettingsMenu from '@/components/SettingsMenu.vue'
+  import Menu from '@/components/Menu.vue'
+  import Main from '@/components/Main.vue'
+  
+  import Button from '@/ui/button/Button.vue'
+  import Modal from '@/ui/modal/Modal.vue'
+  
+  export default {
+	name: 'Home',
+	components: {
+	  SettingsMenu,
+	  Menu,
+	  Main,
+	  Button,
+	  Modal
+	},
+	props: ['user'],
+	data() {
+	  return {   
+		name: config.title,
+	  }
+	},
+	async mounted() { 
+	},
+	methods: {
+	},
+  }
+  </script>

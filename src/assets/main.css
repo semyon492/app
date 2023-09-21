@@ -1,4 +1,6 @@
-/*@import url('https://fonts.cdnfonts.com/css/geometria');*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root{
     --first:black;
