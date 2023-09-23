@@ -171,6 +171,6 @@
   
   <script>
   export default {
-      name:'Rules',
+      name:'PageRules',
   }
   </script>

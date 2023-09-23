@@ -1,3 +1,4 @@
+<!-- eslint-disable no-mixed-spaces-and-tabs -->
 <template>
 	<main v-if="(user.is_connected !== true)">
 	  <Main />
@@ -76,9 +77,7 @@
   </template>
   
   <script>
-  import Axios from "axios";
   import config from "/config";
-  import SettingsMenu from '@/components/SettingsMenu.vue'
   import Menu from '@/components/Menu.vue'
   import Main from '@/components/Main.vue'
   
@@ -86,9 +85,8 @@
   import Modal from '@/ui/modal/Modal.vue'
   
   export default {
-	name: 'Home',
+	name: 'ProfilePage',
 	components: {
-	  SettingsMenu,
 	  Menu,
 	  Main,
 	  Button,
@@ -96,9 +94,9 @@
 	},
 	props: ['user'],
 	data() {
-	  return {   
-		name: config.title,
-	  }
+    return {   
+      name: config.title,
+    }
 	},
 	async mounted() { 
 	},

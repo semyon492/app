@@ -31,6 +31,7 @@ const routes = [
         name:'public',
         component: PublicLayout,
         children : [
+            {path:'',name:'home',component:Home, props:true},
             {path:'home/:id(\\d+)',name:'home',component:Home, props:true},
             {path:'article/:id(\\d+)',name:'article', component:Article, props:true},
             // {path:'/', redirect:'/home/1'},
@@ -44,12 +45,15 @@ const routes = [
             {path:'/settings/notifications',name:'notifications',component:SettingsNotifications, props:true},
             {path:'/profile',name:'profile',component:Profile, props:true},
             {path:'/chat',name:'chat',component:Chat, props:true},
+
+            {path:'/login',name:'login',component:Login, props:true},
+            {path:'/register',name:'register',component:Register, props:true},
+            {path:'/restore',name:'restore',component:Restore, props:true},
             // {path:'/:pathMatch(.*)*', redirect: '/home/1'}
         ]
     },
-    {path:'/login',name:'login',component:Login},
-    {path:'/register',name:'register',component:Register},
-    {path:'/restore',name:'restore',component:Restore},
+
+    // {path:'/restore',name:'restore',component:Restore},
     {
         path:'/admin',
         name:'admin',

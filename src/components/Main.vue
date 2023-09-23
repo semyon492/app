@@ -1,28 +1,42 @@
 <template>
-<div class="container pt-3 pt-sm-4 pt-xl-5">
-  <div class="row pt-md-2 pt-lg-5">
-    <div class="col-md-5 d-flex flex-column mt-md-4 pt-5 pb-3 pb-sm-4 py-md-5">
-      <h1 class="display-2 text-center text-md-start mb-4">{{ name }}</h1>
-      <p class="fs-lg text-center text-md-start pb-2 pb-md-3 mb-4 mb-lg-5">{{ name }} {{ $t('promo.desc') }}</p>
-      <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-md-start">
-        <router-link to="/register" class="btn btn-primary">{{ $t('auth.signup') }}</router-link>
-      </div>   
+<div class="min-h-screen">
+  <main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+    <div class="py-6 md:order-1 hidden md:block">
+      <picture>
+        <source type="image/avif" srcset="https://astroship.web3templates.com/_astro/hero.6fdd0dc6_Z2fxInz.avif 200w,https://astroship.web3templates.com/_astro/hero.6fdd0dc6_1quXLg.avif 400w,https://astroship.web3templates.com/_astro/hero.6fdd0dc6_Z1uQg5n.avif 600w" sizes="(max-width: 800px) 100vw, 620px">
+        <source type="image/webp" srcset="https://astroship.web3templates.com/_astro/hero.6fdd0dc6_Z1srnlO.webp 200w,https://astroship.web3templates.com/_astro/hero.6fdd0dc6_2dBjN1.webp 400w,https://astroship.web3templates.com/_astro/hero.6fdd0dc6_ZHJU3C.webp 600w" sizes="(max-width: 800px) 100vw, 620px">
+        <source type="image/png" srcset="https://astroship.web3templates.com/_astro/hero.6fdd0dc6_Z106W2i.png 200w,https://astroship.web3templates.com/_astro/hero.6fdd0dc6_Z21SOKH.png 400w,https://astroship.web3templates.com/_astro/hero.6fdd0dc6_1NsCdR.png 600w" sizes="(max-width: 800px) 100vw, 620px">
+        <img alt="Astronaut in the air" src="https://astroship.web3templates.com/_astro/hero.6fdd0dc6_1NsCdR.png" loading="eager" decoding="async" format="webp">
+      </picture>
     </div>
-    <div class="col-md-7 align-self-end">
-      <div class="position-relative overflow-hidden mt-4 pb-3 pt-4 mx-auto me-md-0" style="max-width: 632px;">
-        <div class="ratio ratio-1x1"></div>
-        <img :src="img" class="rellax position-absolute top-0 start-0 zindex-2" data-rellax-speed="1.6" data-disable-parallax-down="md" alt="Phone" style="transform: translate3d(0px, 0px, 0px);">
+    <div>
+      <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+        {{ name }}
+      </h1>
+      <p class="text-lg mt-4 text-slate-600 max-w-xl">
+        {{ name }} {{ $t('promo.desc') }}
+      </p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <router-link to="/register" rel="noopener" class="rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 px-5 py-2.5 bg-black text-white hover:bg-gray-800 border-2 border-transparent flex gap-1 items-center justify-center">
+          <svg viewBox="0 0 24 24" class="text-white w-5 h-5" astro-icon="bx:bxs-cloud-download"><path fill="currentColor" d="M18.944 11.112C18.507 7.67 15.56 5 12 5 9.244 5 6.85 6.61 5.757 9.149 3.609 9.792 2 11.82 2 14c0 2.657 2.089 4.815 4.708 4.971V19H17.99v-.003L18 19c2.206 0 4-1.794 4-4a4.008 4.008 0 0 0-3.056-3.888zM8 12h3V9h2v3h3l-4 5-4-5z"></path></svg>
+          {{ $t('auth.signup') }}
+        </router-link>
+        <router-link to="/login" rel="noopener" class="rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 px-5 py-2.5 bg-white border-2 border-black hover:bg-gray-100 text-black flex gap-1 items-center justify-center">
+          <svg viewBox="0 0 24 24" class="text-black w-4 h-4" astro-icon="bx:bxl-github"><path fill="currentColor" fill-rule="evenodd" d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z" clip-rule="evenodd"></path></svg>
+          {{ $t('auth.signin') }}
+        </router-link>
       </div>
     </div>
-  </div>
+  </main> 
 </div>  
+
 </template>
 <script>
 import config from "/config";
 import img_app from '../assets/images/app.png'
 
 export default {
-    name:'Main',
+    name:'MainPage',
     data() {
         return {
             name:config.title,

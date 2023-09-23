@@ -29,15 +29,15 @@ import imgFriends from '@/assets/images/friends.png'
 
 import { useI18n } from 'vue-i18n'
 
-import Tooltip from '../components/Tooltip.vue'
-import ModalLang from '../components/ModalLang.vue'
+// import Tooltip from '../components/Tooltip.vue'
+// import ModalLang from '../components/ModalLang.vue'
 
 export default {
-    name:'Menu',
+    name:'MainMenu',
     props: ['user'],
     components: {
-        ModalLang,
-        Tooltip
+        // ModalLang,
+        // Tooltip
     },    
     setup() {
         // use global scope

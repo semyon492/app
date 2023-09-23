@@ -69,5 +69,11 @@
   "settings.notifications": "Notifications",
   "settings.password": "Password",
   "settings.privacy": "Privacy",
-  "promo.desc": "helps you connect and share with the people in your life."
+  "promo.desc": "helps you connect and share with the people in your life.",
+  "auth.email": "Email",
+  "auth.password": "Password",
+  "auth.password_confirm": "Confirm password",
+  "auth.i_agree_to_the": "I agree to the",
+  "auth.privacy_policy": "privacy policy",
+  "auth.password_info": "Your password must be at least 6 characters long."
 }

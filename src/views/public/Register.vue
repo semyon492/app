@@ -1,77 +1,82 @@
 <template>
-<Auth>
-  <template #body>       
-    <div class="text-center">
-      <!-- Title -->
-      <h1 class="mb-2">{{ $t('auth.signup') }}</h1>
-      <span class="d-block">
-          <span >{{ $t('auth.you_already_have_an_account') }} </span>
-          <router-link to="/login" class="">{{ $t('auth.signin') }}</router-link>
-      </span>
-    </div>
-    <!-- Form START -->
-    <form class="mt-4" @submit.prevent="register" autocomplete="off">
+<div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
+  <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800" >
+    <div class="flex flex-col overflow-y-auto md:flex-row">
+      <div class="h-32 md:h-auto md:w-1/2">
+        <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="https://windmill-dashboard-react.vercel.app/static/media/create-account-office.41b2c6a1.jpeg" alt="Office">
+        <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="https://windmill-dashboard-react.vercel.app/static/media/create-account-office-dark.d34c7b50.jpeg" alt="Office">
+      </div>
+      <main class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+        <form class="w-full" @submit.prevent="register" autocomplete="off">
+          <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">{{ $t('auth.signup') }}</h1>
+          
+          <div class="mt-4">
+            <label class="block text-sm text-gray-700 dark:text-gray-400 mt-4">
+              <span>{{ $t('auth.first_name') }}</span>
+              <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 border-green-600 dark:bg-gray-700 focus:border-green-400 dark:focus:border-green-400 focus:shadow-outline-green dark:focus:shadow-outline-green mt-1" type="text" placeholder="Jane" v-model="user.firstname" required>
+            </label>    
+          </div>  
 
-      <div class="mb-3 input-group">
-        <span class="input-group-text">{{ $t('auth.name_and_surname') }}</span>
-        <input type="text" aria-label="{{ $t('auth.first_name') }}" class="form-control" id="firstname" v-model="user.firstname" required>
-        <input type="text" aria-label="{{ $t('auth.last_name') }}" class="form-control" id="lastname" v-model="user.lastname" required>
-      </div>        
-      
-      <div class="mb-3 input-group">
-        <span class="input-group-text">{{ $t('auth.birthday') }}</span>
-        <input type="date" class="form-control" id="birthday" v-model="user.birthday" required>
-      </div>  
+          <div class="mt-4">
+            <label class="block text-sm text-gray-700 dark:text-gray-400 mt-4">
+              <span>{{ $t('auth.last_name') }}</span>
+              <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 border-green-600 dark:bg-gray-700 focus:border-green-400 dark:focus:border-green-400 focus:shadow-outline-green dark:focus:shadow-outline-green mt-1" type="text" placeholder="Doe" v-model="user.lastname" required>
+            </label>    
+          </div>                
 
-      <div class="form-check form-check-inline">
-        <label for="exampleSex" class="form-label">{{ $t('auth.gender') }}</label>
-      </div>            
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="sex" id="sex1" value="sex1" v-model="user.sex1" required>
-        <label class="form-check-label" for="sex1">{{ $t('auth.male') }}</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="sex" id="sex2" value="sex2" v-model="user.sex2" required>
-        <label class="form-check-label" for="sex2">{{ $t('auth.female') }}</label>
-      </div>
+          <div class="mt-4">
+            <label class="block text-sm text-gray-700 dark:text-gray-400">
+              <span>{{ $t('auth.birthday') }}</span>
+              <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1" type="date" v-model="user.birthday" required>
+            </label>
+          </div>
 
-      <!-- Email -->
-      <div class="mb-3 input-group-lg">
-        <input type="email" class="form-control" :placeholder="$t('auth.set_email')" name="email" id="email" v-model="user.email" required>
-        <div class="form-desc">{{ $t('auth.email_privacy') }}</div>
-      </div>
-      <!-- New password -->
-      <div class="mb-3  input-group-lg">
-        <input class="form-control fakepassword" :placeholder="$t('auth.enter_a_new_password')" type="password" name="password" id="password" v-model="user.password" required>
-        <!-- <span class="input-group-text p-0">
-          <i class="fakepasswordicon fa-solid fa-eye-slash cursor-pointer p-2 w-40px"></i>
-        </span> -->
-      </div>           
-      <!-- Confirm password -->
-      <div class="mb-3 input-group-lg">
-        <input class="form-control" type="password" :placeholder="$t('auth.confirm_your_password')" name="repassword" id="repassword" v-model="user.repassword" required>
-      </div>
-      <div class="d-flex mt-1">
-          <!-- Password message notification -->
-          <div class="alert alert-danger d-flex align-items-center" role="alert" v-if="form_alert" id="form_alert">
-            <div>
-              {{ err_info }}
+          <div class="mt-4">
+            <label class="block text-sm text-gray-700 dark:text-gray-400">{{ $t('auth.gender') }}</label>
+            <div class="mt-2">
+              <label class="block text-sm text-gray-700 dark:text-gray-400 inline-flex items-center">
+                <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700" type="radio" name="sex" value="sex1" v-model="user.sex1" required>
+                <span class="ml-2">{{ $t('auth.male') }}</span>
+              </label>
+              <label class="block text-sm text-gray-700 dark:text-gray-400 inline-flex items-center ml-6">
+                <input class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700" type="radio" name="sex" value="sex2" v-model="user.sex2" required>
+                <span class="ml-2">{{ $t('auth.female') }}</span>
+              </label>
             </div>
-          </div> 
-        </div>  
-      <!-- Button -->
-      <div class="d-grid">
-          <button type="submit" class="btn btn-lg btn-primary">{{ $t('auth.signup') }}</button>
-      </div>
-      <!-- Copyright -->
-      <p class="mb-0 mt-3 text-center">
-          <span>©2023 </span>
-          <router-link to="/">{{ name }}.</router-link>
-          <span>{{ $t('footer.author') }}</span>
-      </p>
-    </form>
-  </template>
-</Auth>  
+          </div>
+
+          <label class="block text-sm text-gray-700 dark:text-gray-400">
+            <span>{{ $t('auth.email') }}</span>
+            <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1" type="email" placeholder="john@doe.com"  v-model="user.email" required>
+            <span class="text-xs">{{ $t('auth.email_privacy') }}</span>
+          </label>
+          <label class="block text-sm text-gray-700 dark:text-gray-400 mt-4">
+            <span>{{ $t('auth.password') }}</span>
+            <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1" type="password" placeholder="***************" v-model="user.password" required>
+            <span class="text-xs">{{ $t('auth.password_info') }}</span>
+          </label>
+          <label class="block text-sm text-gray-700 dark:text-gray-400 mt-4">
+            <span>{{ $t('auth.password_confirm') }}</span>
+            <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1" type="password" placeholder="***************" v-model="user.repassword" required>
+          </label>
+          <label class="block text-sm text-gray-700 dark:text-gray-400 inline-flex items-center mt-6">
+            <input class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700" type="checkbox">
+            <span class="ml-2">{{ $t('auth.i_agree_to_the') }} <span class="underline">{{ $t('auth.privacy_policy') }}</span></span>
+          </label>
+          <div v-if="form_alert">
+            {{ err_info }}
+          </div>    
+          <button type="submit" class="align-bottom inline-flex items-center justify-center cursor-pointer leading-5 transition-colors duration-150 font-medium focus:outline-none px-4 py-2 rounded-lg text-sm text-white bg-purple-600 border border-transparent active:bg-purple-600 hover:bg-purple-700 focus:shadow-outline-purple w-full mt-4">
+            {{ $t('auth.signup') }}
+          </button>
+          <p class="mt-4">
+            <router-link class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" to="/login">{{ $t('auth.you_already_have_an_account') }} {{ $t('auth.signin') }}</router-link>
+          </p>
+        </form>
+      </main>
+    </div>
+  </div>
+</div>
 </template>
 
 <script>
@@ -79,12 +84,12 @@ import Axios from "axios";
 import config from "/config";
 
 import { useI18n } from 'vue-i18n'
-import Auth from '../../components/Auth.vue'
+// import Auth from '../../components/Auth.vue'
 
 export default {
-  name:'Register',
+  name:'RegisterPage',
   components: {
-    Auth
+    // Auth
   },
   setup() {
     // use global scope

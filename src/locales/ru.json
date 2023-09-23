@@ -42,7 +42,7 @@
   "language.beta": "Бетта-версия",
   "language.language": "Язык",
   "language.language_name": "Язык: Русский",
-  "language.language_selection": "Выбор язык",
+  "language.language_selection": "Выбор языка",
   "language.name": "Русский",
   "leftbar.__i18n_ally_root__.chat": "Чат",
   "leftbar.__i18n_ally_root__.feed": "Кормить",
@@ -66,5 +66,11 @@
   "settings.privacy": "Конфиденциальность и безопасность",
   "auth.enter_a_new_password": "Введите новый пароль",
   "language.eng_name": "Russian",
-  "promo.desc": "помогает вам общаться и делиться с людьми в вашей жизни."
+  "promo.desc": "помогает вам общаться и делиться с людьми в вашей жизни.",
+  "auth.email": "Электронная почта",
+  "auth.password": "Пароль",
+  "auth.password_confirm": "Подтвердите пароль",
+  "auth.password_info": "Ваш пароль должен иметь длину не менее 6 символов.",
+  "auth.i_agree_to_the": "я согласен",
+  "auth.privacy_policy": "политика конфиденциальности"
 }
