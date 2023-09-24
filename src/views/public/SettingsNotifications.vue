@@ -38,8 +38,6 @@
   </template>
   
   <script>
-  import Axios from "axios";
-  import config from "/config";
   import SettingsMenu from '@/components/SettingsMenu.vue'
   import Menu from '@/components/Menu.vue'
   import Main from '@/components/Main.vue'
@@ -59,7 +57,6 @@
 	props: ['user'],
 	data() {
 	  return {   
-		name: config.title,
 	  }
 	},
 	async mounted() { 

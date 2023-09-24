@@ -30,12 +30,13 @@
 
 <script>
 import { ref } from "vue";
+
 import config from "/config";
 
 import NavBarMenu from "../ui/NavBarMenu.vue";
 
 export default {
-    name: 'Home',
+    name: 'NavigationPart',
     props: ['user'],
     components: {
         NavBarMenu,

@@ -14,7 +14,6 @@ import zh from '@/locales/zh.json'
 import uk from '@/locales/uk.json'
 import by from '@/locales/by.json'
 import ja from '@/locales/ja.json'
-import ab from '@/locales/ab.json'
 
 const i18n = createI18n({
   locale: localStorage.getItem('currLang') || 'en',
@@ -27,7 +26,6 @@ const i18n = createI18n({
     uk,
     by,
     ja,
-    ab,
     zh
   }
 })

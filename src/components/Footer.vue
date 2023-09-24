@@ -30,7 +30,7 @@ export default {
     },
     data() {
         return {
-            name:config.title,
+            name:import.meta.env.VITE_APP_NAME,
             modal_name: 'modalLang2',
             list: 'a',
         }

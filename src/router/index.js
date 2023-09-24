@@ -31,7 +31,7 @@ const routes = [
         name:'public',
         component: PublicLayout,
         children : [
-            {path:'',name:'home',component:Home, props:true},
+            // {path:'',name:'home',component:Home, props:true},
             {path:'home/:id(\\d+)',name:'home',component:Home, props:true},
             {path:'article/:id(\\d+)',name:'article', component:Article, props:true},
             // {path:'/', redirect:'/home/1'},

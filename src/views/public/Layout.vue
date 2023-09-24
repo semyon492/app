@@ -5,7 +5,7 @@
         </header>
         <RouterView :user="user"/>
         <footer>
-            <Footer/>
+            <Footer />
         </footer>
     </div>
 </template>
@@ -14,7 +14,6 @@
 import Navigation from '@/components/Navigation.vue'
 import Footer from '@/components/Footer.vue'
 import Axios from "axios"
-import config from "/config"
 // import "bootstrap/dist/css/bootstrap.min.css"
 
 export default{
@@ -32,38 +31,65 @@ export default{
                 is_admin: false,
                 access_token :  '',
             },
+			access_token: null,
         }
-  },    
+    },   
+	watch: {
+		async access_token(new_access_token) {
+			this.userCheck()
+		},
+		// async user(new_user) {
+		// 	console.warn(this.user);
+		// 	console.warn(new_user);
+		// }
+	}, 
     async mounted() {
-    this.user.is_connected = false;
-    if (!!localStorage.getItem('token')){
-      this.user.is_connected = true;
-      this.user.access_token = localStorage.getItem('token');
-    }     
-    await Axios.post(config.domain + "account/getinfo", {
-                access_token: localStorage.getItem('token')
-        })
-        .then(res => {
-            if(res.data.status !== 20 ){
-                this.user.firstname = res.data.data.firstname;
-                this.user.lastname = res.data.data.lastname;
-                if(res.data.roles == 'ROLE_ADMIN'){
-                    this.user.is_admin = true;
-                }                 
-            }else{
-              localStorage.removeItem('token')
-              this.user.is_connected = false;
-              this.user.is_admin = false;
-            }
+		this.userCheck()
+		// console.log(import.meta.env)
 
-        })
-  },
-  methods: {
-    logout(){
+		// console.log(process.env.VUE_DOMAIN_API)
+		// console.log(process.env)
+    },
+    methods: {
+		async userCheck(){
+			if (!!localStorage.getItem('token')){
+				this.user.is_connected = true;
+				this.user.access_token = localStorage.getItem('token');
+				this.access_token = localStorage.getItem('token');
+
+				await Axios.post(import.meta.env.VITE_DOMAIN_API + "account/getinfo", {
+							access_token: localStorage.getItem('token')
+				})
+				.then(res => {
+					if(res.data.status !== 20 ){
+						this.user.firstname = res.data.data.firstname;
+						this.user.lastname = res.data.data.lastname;
+						if(res.data.roles == 'ROLE_ADMIN'){
+							this.user.is_admin = true;
+						}                 
+					}else{
+						localStorage.removeItem('token')
+						this.user.is_connected = false;
+						this.user.is_admin = false;
+						this.access_token = null;
+					}
+
+				})				
+			} else{
+				this.user.is_connected = false;
+				this.user.is_admin = false;
+				this.access_token = null;
+			}    
+
+		},
+        logout(){
             localStorage.removeItem('token')
             this.user.is_connected = false;
             this.user.is_admin = false;
+            this.access_token = null;
+			// this.user.firstname = null;
+			// this.user.lastname = null;
         }
-  },
+    },
 }
 </script>

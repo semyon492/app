@@ -1,9 +1,19 @@
 <script>
+import Axios from "axios"
+import config from "/config"
+
+import ModalAuth from '../components/ModalAuth.vue'
+
 export default {
   name: 'NavBarMenu',
   props: ['user'],
+  components:{
+    ModalAuth
+  },
   data() {
     return {
+      access_token: null,
+
       show: false,
       showOnSvg: 'M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z',
       showOffSvg: 'M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z',
@@ -15,13 +25,55 @@ export default {
       menu1Off: 'text-sm border-b border-gray-100 lg:border lg:bg-white lg:absolute lg:top-full lg:left-0 lg:min-w-full lg:z-20 lg:rounded-lg lg:shadow-lg lg:dark:bg-slate-800 dark:border-slate-700 lg:hidden',
     }
   },  
+	watch: {
+		async access_token(new_access_token) {
+			this.userCheck()
+		},
+    user(new_user) {
+			// this.userCheck()
+      // console.warn(this.user);
+      // console.warn(new_user);
+		}
+
+	},   
+  async mounted() {
+    this.access_token = localStorage.getItem('token');
+  },  
   methods: {
-        logout() {
-            localStorage.removeItem('token')
-            this.user.is_connected = false;
-            this.user.is_admin = false;
-        }
-    }, 
+		async userCheck(){
+			if (!!localStorage.getItem('token')){
+				this.user.is_connected = true;
+				this.user.access_token = localStorage.getItem('token');
+				this.access_token = localStorage.getItem('token');
+			}     
+			await Axios.post(import.meta.env.VITE_DOMAIN_API + "account/getinfo", {
+						access_token: localStorage.getItem('token')
+			})
+			.then(res => {
+				if(res.data.status !== 20 ){
+					this.user.firstname = res.data.data.firstname;
+					this.user.lastname = res.data.data.lastname;
+					if(res.data.roles == 'ROLE_ADMIN'){
+						this.user.is_admin = true;
+					}                 
+				}else{
+					localStorage.removeItem('token')
+					this.user.is_connected = false;
+					this.user.is_admin = false;
+					this.access_token = null;
+				}
+
+			})
+		},    
+    logout() {
+        localStorage.removeItem('token')
+        localStorage.token = '';
+        localStorage.setItem('token', null);
+        this.user.is_connected = false;
+        this.user.is_admin = false;
+        this.access_token = null;
+    }
+  }, 
 };
 </script>
 
@@ -115,16 +167,17 @@ export default {
               <span class="px-2 transition-colors lg:hidden">{{ $t('header.logout') }}</span>
           </div>
       </router-link>   
-      <router-link  v-if="user.is_connected !== true" class="block lg:flex items-center relative cursor-pointer text-blue-600 dark:text-white dark:hover:text-slate-400 hover:text-black py-2 px-3 lg:w-16 lg:justify-center" to="/login">
+      <!-- <router-link  v-if="user.is_connected !== true" class="block lg:flex items-center relative cursor-pointer text-blue-600 dark:text-white dark:hover:text-slate-400 hover:text-black py-2 px-3 lg:w-16 lg:justify-center" to="/login">
           <div class="flex items-center">
               <span class="inline-flex justify-center items-center w-6 h-6 transition-colors">
-                  <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
-                    <path fill="currentColor" d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z"></path>
+                  <svg class="transition-colors"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
                   </svg>
               </span>
               <span class="px-2 transition-colors lg:hidden">{{ $t('auth.signin') }}</span>
           </div>
-      </router-link>          
+      </router-link> -->
+      <ModalAuth v-if="user.is_connected !== true" modal_name="modal_name" type="login" :user="user" />        
     </slot>
 
   </div>

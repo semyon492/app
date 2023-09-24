@@ -47,7 +47,7 @@ export default {
     data() {
         return {      
             infoTiles : [], 
-            name: config.title,
+            name: import.meta.env.VITE_APP_NAME,
             modal_name: 'modalLang1',
             list: 'a',
         }

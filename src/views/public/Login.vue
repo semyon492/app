@@ -11,11 +11,11 @@
           <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">{{ $t('auth.signin') }}</h1>
           <label class="block text-sm text-gray-700 dark:text-gray-400">
             <span>{{ $t('auth.email') }}</span>
-            <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1" type="email" placeholder="john@doe.com" v-model="user.email" required>
+            <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1" type="email" placeholder="john@doe.com" v-model="form_user.email" required>
           </label>
           <label class="block text-sm text-gray-700 dark:text-gray-400 mt-4">
             <span>{{ $t('auth.password') }}</span>
-            <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1" type="password" placeholder="***************" v-model="user.password" required>
+            <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1" type="password" placeholder="***************" v-model="form_user.password" required>
           </label>
           <div v-if="form_alert">
             {{ err_info }}
@@ -38,16 +38,14 @@
 
 <script>
 import Axios from "axios";
-import config from "/config";
 import { useI18n } from 'vue-i18n'
-
-// import Auth from '../../components/Auth.vue'
 
 export default {
   name:'LoginPage',
   components: {
 
   },
+  props: ['user'],
   setup() {
     // use global scope
     const { t, locale } = useI18n()
@@ -55,18 +53,18 @@ export default {
   },
   data(){
     return{
-      name:config.title,
-      user : {
+      form_user : {
         email:'',
         password:''
       },
+      access_token: null,
       form_alert : false,
       err_info: ''
     }
   },
   methods: {
     login(){
-      Axios.post(config.domain + "authorize", this.user)
+      Axios.post(import.meta.env.VITE_DOMAIN_API + "authorize", this.form_user)
       .then(res => {
         
         if(res.data.status == 7){
@@ -99,10 +97,10 @@ export default {
         }, 3000);                
 
         if(res.data.status == 1) {
-          // console.log(res.data.access_token);
-          // console.log(res.data.data.access_token);
           localStorage.setItem('token', res.data.access_token);
-            this.$router.push('/')
+          this.user.is_connected = true;
+          
+          this.$router.push('/')
         }
       })
     }

@@ -50,7 +50,6 @@ import { useI18n } from 'vue-i18n'
 import Tooltip from '../components/Tooltip.vue'
 
 //languages img
-import img_ab from '../assets/images/lang/ab.svg'
 import img_by from '../assets/images/lang/by.png'
 import img_de from '../assets/images/lang/de.svg'
 import img_en from '../assets/images/lang/en.svg'
@@ -151,13 +150,6 @@ export default {
         name: '日本語',
         eng_name: 'Japanese',
         img: img_ja,
-    },
-    {
-        code: 'ab',
-        status: 'beta',
-        name: 'Аҧсшәа',
-        eng_name: 'Abkhazian',
-        img: img_ab,
     },
         ]);
     },

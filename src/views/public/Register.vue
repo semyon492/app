@@ -81,8 +81,6 @@
 
 <script>
 import Axios from "axios";
-import config from "/config";
-
 import { useI18n } from 'vue-i18n'
 // import Auth from '../../components/Auth.vue'
 
@@ -98,7 +96,7 @@ export default {
   },  
   data() {
     return {
-      name:config.title,
+      name:import.meta.env.VITE_APP_NAME,
       user:{
         firstname: '',
         lastname: '',
@@ -108,7 +106,8 @@ export default {
         email: '',
         password:'',
         repassword:''
-      }
+      },
+      form_alert: false
     }
   },
   methods: {

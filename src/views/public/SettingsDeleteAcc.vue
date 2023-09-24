@@ -79,7 +79,6 @@ export default {
   props: ['user'],
   data() {
     return {   
-      name: config.title,
       showModalLang: false,
       showModal: false,
       size: 'md',

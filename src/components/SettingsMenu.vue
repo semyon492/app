@@ -10,7 +10,9 @@
               <path fill="currentColor" d="M21,16H3V4H21M21,2H3C1.89,2 1,2.89 1,4V16A2,2 0 0,0 3,18H10V20H8V22H16V20H14V18H21A2,2 0 0,0 23,16V4C23,2.89 22.1,2 21,2Z"></path>
             </svg>
           </span>
-          <span class="grow text-ellipsis line-clamp-1 pr-12 p2">{{ info.text }}</span>
+          <Tooltip :label="info.text">
+            <span class="grow text-ellipsis line-clamp-1 pr-12 p2">{{ info.text }}</span>                          
+          </Tooltip> 
         </router-link>        
       </li>
     </ul>
@@ -18,6 +20,7 @@
   
 <script>
 import { useI18n } from 'vue-i18n'
+import Tooltip from '../components/Tooltip.vue'
 
   export default {
     name: 'SettingsMenu',
@@ -26,6 +29,9 @@ import { useI18n } from 'vue-i18n'
         const { t, locale } = useI18n()
         return { t, locale }
     },
+    components: {  
+        Tooltip
+    },     
     data() {
       return {
         infoTiles : [], 
