@@ -1,25 +1,25 @@
-<template>   
+<template>
   <Transition :name="modalName">
     <div v-if="show" class="modal-mask">
       <div class="modal-container">
-            <div class="modal-header">
-            <slot name="header">
-                <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="btn-close" @click="$emit('close')"></button>
-            </slot>
-            </div>
+        <div class="modal-header">
+          <slot name="header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="btn-close" @click="$emit('close')"></button>
+          </slot>
+        </div>
 
-            <div class="modal-body">
-            <slot name="body">
-                <p>Modal body text goes here.</p>
-            </slot>
-            </div>
+        <div class="modal-body">
+          <slot name="body">
+            <p>Modal body text goes here.</p>
+          </slot>
+        </div>
 
-            <div class="modal-footer">
-            <slot name="footer">
-                <button type="button" class="btn btn-secondary" @click="$emit('close')">Close</button>
-            </slot>
-            </div>
+        <div class="modal-footer">
+          <slot name="footer">
+            <button type="button" class="btn btn-secondary" @click="$emit('close')">Close</button>
+          </slot>
+        </div>
       </div>
     </div>
   </Transition>
@@ -27,17 +27,17 @@
 
 <script>
 export default {
-    name:'Modal',
-    props: {
-        show: Boolean,
-        modalName: String
-    },
-    data() {
-        return {
-            open: false,
-            // modalName: 'modal'
-        }
-    },   
+  name: 'Modal',
+  props: {
+    show: Boolean,
+    modalName: String
+  },
+  data() {
+    return {
+      open: false,
+      // modalName: 'modal'
+    }
+  },
 }
 </script>
 

@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 import Axios from "axios";
 
 import Home from '@/views/public/Home.vue'
@@ -25,69 +25,69 @@ import Edit from '@/views/admin/Edit.vue'
 
 const routes = [
     {
-        path:'/',
-        name:'public',
+        path: '/',
+        name: 'public',
         component: PublicLayout,
-        children : [
+        children: [
             // {path:'',name:'home',component:Home, props:true},
-            {path:'home/:id(\\d+)',name:'home',component:Home, props:true},
-            {path:'article/:id(\\d+)',name:'article', component:Article, props:true},
+            {path: 'home/:id(\\d+)', name: 'home', component: Home, props: true},
+            {path: 'article/:id(\\d+)', name: 'article', component: Article, props: true},
             // {path:'/', redirect:'/home/1'},
-            {path:'/',name:'home',component:Home, props:true},
-            {path:'/privacy-and-terms',name:'rules',component:Rules, props:true},
-            {path:'/settings',name:'settings',component:Settings, props:true},
-            {path:'/settings/delete',name:'delete',component:SettingsDeleteAcc, props:true},
-            {path:'/settings/password',name:'password',component:SettingsPassword, props:true},
-            {path:'/settings/privacy',name:'privacy',component:SettingsPrivacy, props:true},
-            {path:'/settings/email',name:'email',component:SettingsEmail, props:true},
-            {path:'/settings/notifications',name:'notifications',component:SettingsNotifications, props:true},
-            {path:'/profile',name:'profile',component:Profile, props:true},
-            {path:'/chat',name:'chat',component:Chat, props:true},
+            {path: '/', name: 'home', component: Home, props: true},
+            {path: '/privacy-and-terms', name: 'rules', component: Rules, props: true},
+            {path: '/settings', name: 'settings', component: Settings, props: true},
+            {path: '/settings/delete', name: 'delete', component: SettingsDeleteAcc, props: true},
+            {path: '/settings/password', name: 'password', component: SettingsPassword, props: true},
+            {path: '/settings/privacy', name: 'privacy', component: SettingsPrivacy, props: true},
+            {path: '/settings/email', name: 'email', component: SettingsEmail, props: true},
+            {path: '/settings/notifications', name: 'notifications', component: SettingsNotifications, props: true},
+            {path: '/profile', name: 'profile', component: Profile, props: true},
+            {path: '/chat', name: 'chat', component: Chat, props: true},
 
-            {path:'/login',name:'login',component:Login, props:true},
-            {path:'/register',name:'register',component:Register, props:true},
-            {path:'/restore',name:'restore',component:Restore, props:true},
+            {path: '/login', name: 'login', component: Login, props: true},
+            {path: '/register', name: 'register', component: Register, props: true},
+            {path: '/restore', name: 'restore', component: Restore, props: true},
             // {path:'/:pathMatch(.*)*', redirect: '/home/1'}
         ]
     },
 
     // {path:'/restore',name:'restore',component:Restore},
     {
-        path:'/admin',
-        name:'admin',
-        component:AdminLayout,
-        children:[
-            {path:'post', name:'post', component:Post},
-            {path:'list', name:'list', component:List},
-            {path:'edit/:id(\\d+)',name:'edit',component:Edit, props:true}
+        path: '/admin',
+        name: 'admin',
+        component: AdminLayout,
+        children: [
+            {path: 'post', name: 'post', component: Post},
+            {path: 'list', name: 'list', component: List},
+            {path: 'edit/:id(\\d+)', name: 'edit', component: Edit, props: true}
         ]
     }
 ]
 
 const router = createRouter({
-    history : createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes,
     linkActiveClass: 'active',
-    linkExactActiveClass: 'exact-active',    
+    linkExactActiveClass: 'exact-active',
 })
 
-router.beforeEach( async (to, from, next) => {
-    if(to.matched[0].name == "admin"){
+router.beforeEach(async (to, from, next) => {
+    if (to.matched[0].name === "admin") {
         // console.log("JESUISEXECUTE")
         await Axios.post(import.meta.env.VITE_DOMAIN_API + "me",
-        localStorage.getItem('token'), 
-        {
-            headers: {
-                'content-type': 'text/json',
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
-            }
-        }).then(res => res.data)
-        .then(data => {
-            console.log(data.roles)
-            if(!data.roles.includes('ROLE_ADMIN')){
-                router.push('/')
-            }
-        })
+            localStorage.getItem('token'),
+            {
+                headers: {
+                    'content-type': 'text/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            }).then(res => res.data)
+            .then(data => {
+                console.log(data.roles)
+                if (!data.roles.includes('ROLE_ADMIN')) {
+                    router.push('/')
+                }
+            })
     }
     next();
 })
