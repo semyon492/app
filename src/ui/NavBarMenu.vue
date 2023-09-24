@@ -1,6 +1,5 @@
 <script>
 import Axios from "axios"
-import config from "/config"
 
 import ModalAuth from '../components/ModalAuth.vue'
 
@@ -141,20 +140,7 @@ export default {
             </div>
             <!---->
           </router-link>
-          <hr class="hidden lg:block lg:my-0.5 dark:border-slate-700 border-t border-gray-100">
-          <router-link @click="logout" to="/" class="block lg:flex items-center relative cursor-pointer text-blue-600 dark:text-white dark:hover:text-slate-400 hover:text-black py-2 px-3">
-            <div class="flex items-center">
-              <!---->
-              <span class="inline-flex justify-center items-center w-6 h-6 transition-colors">
-                <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
-                  <path fill="currentColor" d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z"></path>
-                </svg>
-              </span>
-              <span class="px-2 transition-colors">{{ $t('header.logout') }}</span>
-              <!---->
-            </div>
-            <!---->
-          </router-link>
+          <!-- <hr class="hidden lg:block lg:my-0.5 dark:border-slate-700 border-t border-gray-100"> -->
         </div>
       </div>
       <router-link v-if="user.is_connected" @click="logout" class="block lg:flex items-center relative cursor-pointer text-blue-600 dark:text-white dark:hover:text-slate-400 hover:text-black py-2 px-3 lg:w-16 lg:justify-center" to="/">
@@ -167,16 +153,6 @@ export default {
               <span class="px-2 transition-colors lg:hidden">{{ $t('header.logout') }}</span>
           </div>
       </router-link>   
-      <!-- <router-link  v-if="user.is_connected !== true" class="block lg:flex items-center relative cursor-pointer text-blue-600 dark:text-white dark:hover:text-slate-400 hover:text-black py-2 px-3 lg:w-16 lg:justify-center" to="/login">
-          <div class="flex items-center">
-              <span class="inline-flex justify-center items-center w-6 h-6 transition-colors">
-                  <svg class="transition-colors"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
-                  </svg>
-              </span>
-              <span class="px-2 transition-colors lg:hidden">{{ $t('auth.signin') }}</span>
-          </div>
-      </router-link> -->
       <ModalAuth v-if="user.is_connected !== true" modal_name="modal_name" type="login" :user="user" />        
     </slot>
 

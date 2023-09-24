@@ -39,9 +39,6 @@
 
 </template>
 <script>
-import config from "/config";
-// import img_app from '../assets/images/app.png'
-
 export default {
     name:'MainPage',
     data() {

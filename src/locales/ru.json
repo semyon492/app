@@ -72,5 +72,7 @@
   "auth.password_confirm": "Подтвердите пароль",
   "auth.password_info": "Ваш пароль должен иметь длину не менее 6 символов.",
   "auth.i_agree_to_the": "я согласен",
-  "auth.privacy_policy": "политика конфиденциальности"
+  "auth.privacy_policy": "политика конфиденциальности",
+  "auth.set_pass": "Введите пароль",
+  "err.unknown_error": "Неизвестная ошибка"
 }

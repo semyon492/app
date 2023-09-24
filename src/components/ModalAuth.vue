@@ -106,7 +106,6 @@
 <script>
 import Modal from '../ui/modal/Modal.vue'
 import { useI18n } from 'vue-i18n'
-import config from "/config"
 import Axios from "axios";
 
 export default {
@@ -173,7 +172,7 @@ export default {
     },
     methods: {
         login(){
-            Axios.post(config.domain + "authorize", this.form_user)
+            Axios.post(import.meta.env.VITE_DOMAIN_API + "authorize", this.form_user)
             .then(res => {
         
                 if(res.data.status == 7){
@@ -216,7 +215,7 @@ export default {
             })
         },
         register(){
-            Axios.post(config.domain + "account/register", this.form_add_user)
+            Axios.post(import.meta.env.VITE_DOMAIN_API + "account/register", this.form_add_user)
             .then(res => {
                 if(res.data.status == 4){
                     this.form_alert = true;

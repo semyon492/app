@@ -18,9 +18,6 @@
 </template>
 
 <script>
-import config from "/config";
-// import { useI18n } from 'vue-i18n'
-
 import ModalLang from '../components/ModalLang.vue'
 
 export default {

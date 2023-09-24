@@ -31,8 +31,6 @@
 <script>
 import { ref } from "vue";
 
-import config from "/config";
-
 import NavBarMenu from "../ui/NavBarMenu.vue";
 
 export default {
@@ -43,7 +41,7 @@ export default {
   }, 
     data() {
         return {
-            name: config.title,
+            name: import.meta.env.VITE_APP_NAME,
             isMenuNavBarActive: ref(false),
         }
     },
@@ -57,7 +55,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

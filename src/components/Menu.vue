@@ -21,8 +21,6 @@
 </template>
 
 <script>
-import config from "/config";
-
 import imgMostRecent from '@/assets/images/mostRecent.png'
 import imgPp from '@/assets/images/pp.jpg'
 import imgFriends from '@/assets/images/friends.png'
@@ -47,7 +45,6 @@ export default {
     data() {
         return {      
             infoTiles : [], 
-            name: import.meta.env.VITE_APP_NAME,
             modal_name: 'modalLang1',
             list: 'a',
         }
