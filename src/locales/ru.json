@@ -74,5 +74,7 @@
   "auth.i_agree_to_the": "я согласен",
   "auth.privacy_policy": "политика конфиденциальности",
   "auth.set_pass": "Введите пароль",
-  "err.unknown_error": "Неизвестная ошибка"
+  "err.unknown_error": "Неизвестная ошибка",
+  "settings.delete_account": "Удалить аккаунт",
+  "settings.delete_your_account": "Удалить свой аккаунт"
 }

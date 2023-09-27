@@ -3,16 +3,10 @@
     <main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
       <div class="py-6 md:order-1 hidden md:block">
         <picture>
-          <source type="image/avif"
-                  srcset="https://astroship.web3templates.com/_astro/hero.6fdd0dc6_Z2fxInz.avif 200w,https://astroship.web3templates.com/_astro/hero.6fdd0dc6_1quXLg.avif 400w,https://astroship.web3templates.com/_astro/hero.6fdd0dc6_Z1uQg5n.avif 600w"
-                  sizes="(max-width: 800px) 100vw, 620px">
           <source type="image/webp"
-                  srcset="https://astroship.web3templates.com/_astro/hero.6fdd0dc6_Z1srnlO.webp 200w,https://astroship.web3templates.com/_astro/hero.6fdd0dc6_2dBjN1.webp 400w,https://astroship.web3templates.com/_astro/hero.6fdd0dc6_ZHJU3C.webp 600w"
-                  sizes="(max-width: 800px) 100vw, 620px">
-          <source type="image/png"
-                  srcset="https://astroship.web3templates.com/_astro/hero.6fdd0dc6_Z106W2i.png 200w,https://astroship.web3templates.com/_astro/hero.6fdd0dc6_Z21SOKH.png 400w,https://astroship.web3templates.com/_astro/hero.6fdd0dc6_1NsCdR.png 600w"
-                  sizes="(max-width: 800px) 100vw, 620px">
-          <img alt="Astronaut in the air" src="https://astroship.web3templates.com/_astro/hero.6fdd0dc6_1NsCdR.png"
+                  :srcset="HeroImgWebp1 + ' 200w,' + HeroImgWebp2 + ' 400w,' + HeroImgWebp3 + ' 600w'"
+                  sizes="(max-width: 800px) 100vw, 620px">          
+          <img alt="Astronaut in the air" :src="HeroImgWebp"
                loading="eager" decoding="async" format="webp">
         </picture>
       </div>
@@ -50,11 +44,19 @@
 
 </template>
 <script>
+import HeroImgWebp from "../assets/images/hero.webp";
+import HeroImgWebp1 from "../assets/images/hero.1.webp";
+import HeroImgWebp2 from "../assets/images/hero.2.webp";
+import HeroImgWebp3 from "../assets/images/hero.3.webp";
 export default {
   name: 'MainPage',
   data() {
     return {
       name: import.meta.env.VITE_APP_NAME,
+      HeroImgWebp:HeroImgWebp,
+      HeroImgWebp1:HeroImgWebp1,
+      HeroImgWebp2:HeroImgWebp2,
+      HeroImgWebp3:HeroImgWebp3,
     }
   },
 }

@@ -24,10 +24,10 @@
           <div class="w-full max-w-full px-3 shrink-0 md:w-10/12 md:flex-0">
             <div class="bg-white dark:bg-slate-900 lg:rounded-2xl">
               <div class="p-6">
-                <h5 class="text-2xl">{{ $t('settings.delete') }}</h5>
+                <h5 class="text-2xl">{{ $t('settings.delete_account') }}</h5>
               </div>
               <div class="p-6">
-                <Button @click="showModal = true">Delete profile</Button>
+                <Button @click="showModal = true" variant="red">{{ $t('settings.delete_your_account') }}</Button>
                 <Teleport to="body">
                   <Modal size="md" :show="showModal" @close="showModal = false">
                     <template #header>

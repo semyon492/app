@@ -1,6 +1,6 @@
 <template>
-  <button :class="cx()" :type="button" :disabled="disabled" :variant="variant">
-    <slot>
+  <button :class="cx()" :type="button" :disabled="disabled" :variant="variant" >
+    <slot >
       <span>{{ label || '&nbsp;' }}</span>
     </slot>
   </button>
@@ -32,20 +32,41 @@ export default {
     },
   },
   methods: {
-    cx() {
-      if (this.variant == 'info') {
-        return 'btn btn-primary'
+    cx(){
+      if (this.class == null) {
+          this.class_name = ''
+      } else {
+          this.class_name = this.class
+      }
+      if (this.variant == 'alternative') {
+          return this.class_name + ' font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 hover:bg-gray-100 hover:text-blue-700 dark:hover:text-white dark:hover:bg-gray-700 text-sm px-4 py-2'
       }
 
-      if (this.variant == 'secondary') {
-        return 'btn btn-secondary'
+      if (this.variant == 'dark') {
+          return this.class_name + ' text-white bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg dark:bg-gray-800 dark:focus:ring-gray-700 dark:border-gray-700 hover:bg-gray-900 dark:hover:bg-gray-700 text-sm px-4 py-2'
       }
-
-
+      if (this.variant == 'light') {
+          return this.class_name + ' text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 font-medium rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:focus:ring-gray-700 hover:bg-gray-100 dark:hover:border-gray-600 text-sm px-4 py-2'
+      }
+      if (this.variant == 'green') {
+          return this.class_name + ' focus:outline-none text-white bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg dark:bg-green-600 dark:focus:ring-green-800 hover:bg-green-800 dark:hover:bg-green-700 text-sm px-4 py-2'
+      }
+      if (this.variant == 'red') {
+          return this.class_name + ' focus:outline-none text-white bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg dark:bg-red-600 dark:focus:ring-red-900 hover:bg-red-800 dark:hover:bg-red-700 text-sm px-4 py-2'
+      }                                    
+      if (this.variant == 'yellow') {
+          return this.class_name + ' focus:outline-none text-white bg-yellow-400 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg dark:focus:ring-yellow-900 hover:bg-yellow-500 text-sm px-4 py-2'
+      }
+      if (this.variant == 'purple') {
+          return this.class_name + ' focus:outline-none text-white bg-purple-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg dark:bg-purple-600 dark:focus:ring-purple-900 hover:bg-purple-800 dark:hover:bg-purple-700 text-sm px-4 py-2'
+      }                        
+      if (this.variant == 'pink') {
+          return this.class_name + ' focus:outline-none text-white bg-pink-700 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg dark:bg-pink-600 dark:focus:ring-pink-900 hover:bg-pink-800 dark:hover:bg-pink-700 text-sm px-4 py-2'
+      }                        
       if (this.variant == 'default' || this.variant == null) {
-        return 'btn btn-primary'
+          return this.class_name + ' btn-default'
       }
-    },
+    },  
   },
   computed: {
     // disabled() {
@@ -56,72 +77,9 @@ export default {
 };
 </script>
 
-<style>
-.p-button {
-  display: inline-flex;
-  cursor: pointer;
-  user-select: none;
-  align-items: center;
-  vertical-align: bottom;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
+<style lang="scss" scoped>
+.btn-default{
+  @apply px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-600 rounded-md hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500
 }
 
-.p-button-label {
-  flex: 1 1 auto;
-}
-
-.p-button-icon-right {
-  order: 1;
-}
-
-.p-button:disabled {
-  cursor: default;
-}
-
-.p-button-icon-only {
-  justify-content: center;
-}
-
-.p-button-icon-only .p-button-label {
-  visibility: hidden;
-  width: 0;
-  flex: 0 0 auto;
-}
-
-.p-button-vertical {
-  flex-direction: column;
-}
-
-.p-button-icon-bottom {
-  order: 2;
-}
-
-.p-buttonset .p-button {
-  margin: 0;
-}
-
-.p-buttonset .p-button:not(:last-child), .p-buttonset .p-button:not(:last-child):hover {
-  border-right: 0 none;
-}
-
-.p-buttonset .p-button:not(:first-of-type):not(:last-of-type) {
-  border-radius: 0;
-}
-
-.p-buttonset .p-button:first-of-type {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.p-buttonset .p-button:last-of-type {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.p-buttonset .p-button:focus {
-  position: relative;
-  z-index: 1;
-}
 </style>
