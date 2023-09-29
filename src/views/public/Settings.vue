@@ -33,14 +33,15 @@
                     <div class="flex items-stretch justify-start relative">
                       <label class="inline-flex">
                         <a class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-blue-600 dark:border-blue-500 ring-blue-300 dark:ring-blue-700 bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 hover:border-blue-700 hover:dark:bg-blue-600 hover:dark:border-blue-600 py-2 px-3"
-                           disabled="false"><span class="inline-flex justify-center items-center w-6 h-6">
-											<svg viewBox="0 0 24 24" width="16" height="16" class="inline-block"><path fill="currentColor"
-                                                                                                 d="M9,16V10H5L12,3L19,10H15V16H9M5,20V18H19V20H5Z"></path></svg>
-										</span>
+                           disabled="false">
+                          <span class="inline-flex justify-center items-center w-6 h-6">
+                          <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
+                            <path fill="currentColor" d="M9,16V10H5L12,3L19,10H15V16H9M5,20V18H19V20H5Z"></path>
+                          </svg>
+										      </span>
                           <span class="px-2">Upload</span>
                         </a>
-                        <input type="file"
-                               class="absolute top-0 left-0 w-full h-full opacity-0 outline-none cursor-pointer -z-1">
+                        <input type="file" class="absolute top-0 left-0 w-full h-full opacity-0 outline-none cursor-pointer -z-1">
                       </label>
                       <!---->
                     </div>
@@ -53,8 +54,7 @@
                     <div class="relative">
                       <input name="username" autocomplete="username" required="" type="text"
                              class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10">
-                      <span
-                          class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400">
+                      <span class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400">
 									<svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
 										<path fill="currentColor"
                           d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path>

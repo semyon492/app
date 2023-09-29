@@ -21,9 +21,7 @@
               </svg>
               </span>
             <span class="px-2 transition-colors">{{ name }}</span>
-            <!---->
           </div>
-          <!---->
         </router-link>
         <!-- <div class="flex text-blue-600 hover:text-black my-2 mx-3 items-center cursor-pointer dark:text-white dark:hover:text-slate-400">
             <div class="relative">

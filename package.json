@@ -1,7 +1,16 @@
 {
-  "name": "sura",
-  "version": "0.0.1",
+  "name": "@sura/sura",
+  "version": "0.0.2",
   "private": true,
+  "author": "Semen Alekseev (semyon492@yandex.ru)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suralabs/app.git"
+},
+"bugs": {
+  "url": "https://github.com/suralabs/app/issues"
+},
   "scripts": {
     "dev": "vite",
     "build": "vite build",

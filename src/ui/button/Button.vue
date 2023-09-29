@@ -52,7 +52,7 @@ export default {
           return this.class_name + ' focus:outline-none text-white bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg dark:bg-green-600 dark:focus:ring-green-800 hover:bg-green-800 dark:hover:bg-green-700 text-sm px-4 py-2'
       }
       if (this.variant == 'red') {
-          return this.class_name + ' focus:outline-none text-white bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg dark:bg-red-600 dark:focus:ring-red-900 hover:bg-red-800 dark:hover:bg-red-700 text-sm px-4 py-2'
+          return this.class_name + ' btn-red focus:ring-4 focus:ring-red-300d ark:bg-red-600 dark:focus:ring-red-900 hover:bg-red-800 dark:hover:bg-red-700 '
       }                                    
       if (this.variant == 'yellow') {
           return this.class_name + ' focus:outline-none text-white bg-yellow-400 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg dark:focus:ring-yellow-900 hover:bg-yellow-500 text-sm px-4 py-2'
@@ -64,7 +64,7 @@ export default {
           return this.class_name + ' focus:outline-none text-white bg-pink-700 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg dark:bg-pink-600 dark:focus:ring-pink-900 hover:bg-pink-800 dark:hover:bg-pink-700 text-sm px-4 py-2'
       }                        
       if (this.variant == 'default' || this.variant == null) {
-          return this.class_name + ' btn-default'
+          return this.class_name + ' btn-default hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500'
       }
     },  
   },
@@ -79,7 +79,10 @@ export default {
 
 <style lang="scss" scoped>
 .btn-default{
-  @apply px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-600 rounded-md hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500
+  @apply px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-600 rounded-md 
+}
+.btn-red{
+  @apply focus:outline-none text-white bg-red-700 font-medium rounded-lg text-sm px-4 py-2
 }
 
 </style>

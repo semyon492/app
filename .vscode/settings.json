@@ -4,6 +4,10 @@
     ],
     "i18n-ally.keystyle": "flat",
     "cSpell.words": [
-        "axios"
+        "axios",
+        "intlify",
+        "tailwindcss",
+        "unplugin",
+        "vuex"
     ]
 }

@@ -38,17 +38,9 @@ export default {
     async access_token(new_access_token) {
       await this.userCheck()
     },
-    // async user(new_user) {
-    // 	console.warn(this.user);
-    // 	console.warn(new_user);
-    // }
   },
   async mounted() {
     await this.userCheck()
-    // console.log(import.meta.env)
-
-    // console.log(process.env.VUE_DOMAIN_API)
-    // console.log(process.env)
   },
   methods: {
     async userCheck() {
