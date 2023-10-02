@@ -79,5 +79,6 @@
   "settings.delete_your_account": "Удалить свой аккаунт",
   "header.light_dark": "Светлый темный",
   "feed.add_video": "Видео",
-  "feed.add_photo": "Фото"
+  "feed.add_photo": "Фото",
+  "auth.recover_password": "Восстановить пароль"
 }

@@ -11,7 +11,7 @@
                alt="Office">
         </div>
         <main class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-          <form v-if="restore_status == false" class="w-full" @submit.prevent="restore">
+          <form v-if="restore_status == false && $route.query.hash == null" class="w-full" @submit.prevent="restore">
             <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">Forgot password</h1>
             <label class="block text-sm text-gray-700 dark:text-gray-400">
               <span>Email</span>
@@ -23,11 +23,30 @@
               {{ $t('auth.recover_password') }}
             </button>               
           </form>
-          <div v-if="restore_status == true" class="w-full">
+          <div v-if="restore_status == true && $route.query.hash == null" class="w-full">
             <div class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
               На ваш электронный ящик
               были высланы инструкции по восстановлению пароля.</div>
           </div>
+          <form v-if="$route.query.hash != null" class="w-full" @submit.prevent="change_pass">
+            <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">Forgot password</h1>
+
+            <label class="block text-sm text-gray-700 dark:text-gray-400">
+              <span>{{ $t('auth.password') }}</span>
+              <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
+                  type="password" placeholder="********" v-model="user.password" >
+            </label>
+            <label class="block text-sm text-gray-700 dark:text-gray-400">
+              <span>{{ $t('auth.password_confirm') }}</span>
+              <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
+                  type="password" placeholder="********" v-model="user.repassword" >
+            </label>            
+
+
+            <div class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
+              hash {{ $route.query.hash }}
+            </div>
+          </form>
         </main>
       </div>
     </div>
@@ -77,8 +96,33 @@ export default {
 
           }
         })
+    },
+    change_pass(){
+      this.user.hash = this.$route.query.hash
+      Axios.post(import.meta.env.VITE_DOMAIN_API + "account/reset_password", this.user)
+        .then(res => {
+          if (res.data.status == 4) {
+            // this.form_alert = true;
+            // this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
+          }
+          if (res.data.status == 5) {
+            // this.form_alert = true;
+            // this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
+          }
+          if (res.data.status == 20) {
+            // this.form_alert = true;
+            // this.err_info = this.t('err.unknown_error');
+          }
+
+          if (res.data.status == 1) {
+            // console.log(res.data.data.access_token);
+            localStorage.setItem('token', res.data.data.access_token);
+            this.$router.push('/')
+            // this.restore_status = true
+
+          }
+        })
     }
-    
   },
 }
 </script>
