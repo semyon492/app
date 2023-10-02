@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     restore() {
-      Axios.post(config.domain + "account/restore", this.user)
+      Axios.post(import.meta.env.VITE_DOMAIN_API + "account/restore", this.user)
         .then(res => {
           if (res.data.status == 4) {
             // this.form_alert = true;
