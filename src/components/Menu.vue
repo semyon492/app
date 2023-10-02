@@ -1,15 +1,14 @@
 <template>
-  <div class="absolute">
-    <div class="bg-myGray-100 h-screen px-2 py-4 flex-col justify-between hidden xl:flex fixed w-80">
-      <div id="left-bar-top" class="w-full">
+    <div class="flex-col justify-between ">
+      <div class="w-full">
         <ul class="">
           <li v-for="(info, idx) in infoTiles" :key="idx" :to="info.link"
               class="">
-            <router-link :to="info.link" class="flex cursor-pointer py-3 text-blue-600 hover:text-black dark:text-white dark:text-slate-300 dark:hover:text-white">
-              <div class="">
+            <router-link :to="info.link" class="flex content-center cursor-pointer py-3 text-blue-600 hover:text-black dark:text-white dark:text-slate-300 dark:hover:text-white">
+              <div class="m-2">
                 <img :src="info.img" class="rounded-circle img-xl" :alt="info.text">
               </div>
-              <div class="">
+              <div class="m-2">
                 {{ info.text }}
               </div>
             </router-link>
@@ -18,7 +17,6 @@
 
       </div>
     </div>
-  </div>
 </template>
 
 <script>

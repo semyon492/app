@@ -1,7 +1,6 @@
 {
   "name": "@sura/sura",
   "version": "0.0.2",
-  "private": true,
   "author": "Semen Alekseev (semyon492@yandex.ru)",
   "license": "MIT",
   "repository": {

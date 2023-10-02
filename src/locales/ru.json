@@ -76,5 +76,6 @@
   "auth.set_pass": "Введите пароль",
   "err.unknown_error": "Неизвестная ошибка",
   "settings.delete_account": "Удалить аккаунт",
-  "settings.delete_your_account": "Удалить свой аккаунт"
+  "settings.delete_your_account": "Удалить свой аккаунт",
+  "header.light_dark": "Светлый темный"
 }

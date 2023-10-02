@@ -28,6 +28,7 @@
                 <input placeholder="Search (ctrl+k)" type="text" class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border-0 bg-transparent">
             </div>
         </div> -->
+
       </div>
       <NavBarMenu :user="user"/>
     </div>

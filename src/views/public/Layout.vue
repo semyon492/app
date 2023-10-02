@@ -41,6 +41,16 @@ export default {
   },
   async mounted() {
     await this.userCheck()
+
+    // if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    //   localStorage.theme = 'dark'
+    //   // localStorage.setItem('theme', 'dark');
+    //   document.documentElement.classList.add('dark')      
+    // } else {      
+    //   document.documentElement.classList.remove('dark')
+    //   localStorage.theme = 'light'
+    //   // localStorage.setItem('theme', 'light');
+    // }
   },
   methods: {
     async userCheck() {

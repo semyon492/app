@@ -3,6 +3,7 @@
         "src/locales"
     ],
     "i18n-ally.keystyle": "flat",
+    "cSpell.language": "en,ru",
     "cSpell.words": [
         "axios",
         "intlify",

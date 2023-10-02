@@ -22,11 +22,10 @@
                 <div>
                   <img class="img-xl" :alt="lang.name" :src="lang.img">
                 </div>
-                <div>
+                <div class="dark:text-gray-200">
                   <Tooltip :label="lang.eng_name">
                     {{ lang.name }}
                   </Tooltip>
-                  <!-- /adamdehaven/vue-custom-tooltip -->
                   <Tooltip v-if="(lang.status == 'beta')" :label="t('language.beta')">
                     <p class="text-red-600 dark:text-red-500 p-2">β</p>
                   </Tooltip>

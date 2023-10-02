@@ -81,5 +81,6 @@
   "yunyuyuan-blog": "- yunyuyuan blog",
   "rapigram": "Rapigram",
   "settings.delete_account": "Delete account",
-  "settings.delete_your_account": "Delete your account"
+  "settings.delete_your_account": "Delete your account",
+  "header.light_dark": "Light/Dark"
 }

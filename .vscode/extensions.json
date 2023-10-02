@@ -2,6 +2,9 @@
     "recommendations": [
         "formulahendry.auto-rename-tag",
         "lokalise.i18n-ally",
-        "streetsidesoftware.code-spell-checker"
+        "streetsidesoftware.code-spell-checker",
+        "vue.volar",
+        "streetsidesoftware.code-spell-checker-russian",
+        "christian-kohler.npm-intellisense"
     ]
 }
