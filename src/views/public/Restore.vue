@@ -38,6 +38,7 @@
 
 <script>
 import Auth from '../../components/Auth.vue'
+import Axios from "axios";
 
 export default {
   name: 'RestorePage',
