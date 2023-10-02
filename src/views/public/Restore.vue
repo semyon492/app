@@ -9,7 +9,7 @@
           <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block"
                src="https://windmill-dashboard-react.vercel.app/static/media/forgot-password-office-dark.6db046dc.jpeg"
                alt="Office">
-               <button type="button" @click="restore_status != restore_status"
+               <button type="button" @click="restore_status != restore_status;console.log(restore_status)"
               class="align-bottom inline-flex items-center justify-center cursor-pointer leading-5 transition-colors duration-150 font-medium focus:outline-none px-4 py-2 rounded-lg text-sm text-white bg-purple-600 border border-transparent active:bg-purple-600 hover:bg-purple-700 focus:shadow-outline-purple w-full mt-4">
               test
             </button>  
