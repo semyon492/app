@@ -10,5 +10,6 @@
         "tailwindcss",
         "unplugin",
         "vuex"
-    ]
+    ],
+    "i18n-ally.sourceLanguage": "ru"
 }

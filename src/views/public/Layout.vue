@@ -54,6 +54,10 @@ export default {
   },
   methods: {
     async userCheck() {
+      if(localStorage.getItem('token') == null){
+        localStorage.removeItem('token')
+      }
+
       if (!!localStorage.getItem('token')) {
         this.user.is_connected = true;
         this.user.access_token = localStorage.getItem('token');
