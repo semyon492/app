@@ -9,10 +9,6 @@
           <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block"
                src="https://windmill-dashboard-react.vercel.app/static/media/forgot-password-office-dark.6db046dc.jpeg"
                alt="Office">
-               <button type="button" @click="restore_status != restore_status;console.log(restore_status)"
-              class="align-bottom inline-flex items-center justify-center cursor-pointer leading-5 transition-colors duration-150 font-medium focus:outline-none px-4 py-2 rounded-lg text-sm text-white bg-purple-600 border border-transparent active:bg-purple-600 hover:bg-purple-700 focus:shadow-outline-purple w-full mt-4">
-              test
-            </button>  
         </div>
         <main class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
           <form v-if="restore_status == false" class="w-full" @submit.prevent="restore">
@@ -28,7 +24,9 @@
             </button>               
           </form>
           <div v-if="restore_status == true" class="w-full">
-            <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">Forgot password</h1>
+            <div class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
+              На ваш электронный ящик
+              были высланы инструкции по восстановлению пароля.</div>
           </div>
         </main>
       </div>
@@ -50,6 +48,9 @@ export default {
     return {
       restore_status: false,
     }
+  },
+  mounted() {
+    this.restore_status = false
   },
   methods: {
     restore() {
