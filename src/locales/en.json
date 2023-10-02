@@ -82,5 +82,8 @@
   "rapigram": "Rapigram",
   "settings.delete_account": "Delete account",
   "settings.delete_your_account": "Delete your account",
-  "header.light_dark": "Light/Dark"
+  "header.light_dark": "Light/Dark",
+  "feed.add_video": "Video",
+  "feed.add_photo": "Photo",
+  "auth.recover_password": "Recover password"
 }

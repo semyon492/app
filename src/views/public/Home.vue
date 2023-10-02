@@ -20,11 +20,11 @@
                 <div class=" mt-3 flex items-center justify-between gap-x-2 border-t dark:border-t-[#3a3a3a] border-t-[#bbb9b9] py-1 text-[15px]  ">
                   <button class="flex items-center justify-center w-full gap-x-2 dark:text-[#b0b3b8] text-[#65676b] hover:bg-[#F2F2F2] font-semibold py-2 transition-20 dark:hover:bg-[#4E4F50] rounded-lg ">
                     <Icon type="video" />
-                    Video
+                    {{ $t('feed.add_video') }}
                   </button>
                   <button class="flex items-center justify-center w-full gap-x-2 dark:text-[#b0b3b8] text-[#65676b] hover:bg-[#F2F2F2] font-semibold py-2 transition-20 dark:hover:bg-[#4E4F50] rounded-lg">
                     <Icon type="photo" />
-                    Photo
+                    {{ $t('feed.add_photo') }}
                   </button>
                 </div>
               </div>

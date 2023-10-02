@@ -2,8 +2,7 @@
     <div class="flex-col justify-between ">
       <div class="w-full">
         <ul class="">
-          <li v-for="(info, idx) in infoTiles" :key="idx" :to="info.link"
-              class="">
+          <li v-for="(info, idx) in infoTiles" :key="idx" class="">
             <router-link :to="info.link" class="flex content-center cursor-pointer py-3 text-blue-600 hover:text-black dark:text-white dark:text-slate-300 dark:hover:text-white">
               <div class="m-2">
                 <img :src="info.img" class="rounded-circle img-xl" :alt="info.text">

@@ -9,11 +9,6 @@
     --littles_text:#061e37;
 }
 
-*{
-    margin: 0;
-    box-sizing: border-box;
-}
-
 *::before, *::after{
     box-sizing: border-box;
 }

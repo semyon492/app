@@ -140,26 +140,26 @@ export default {
   methods: {
     register() {
       Axios.post(config.domain + "account/register", this.user)
-          .then(res => {
-            if (res.data.status == 4) {
-              this.form_alert = true;
-              this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
-            }
-            if (res.data.status == 5) {
-              this.form_alert = true;
-              this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
-            }
-            if (res.data.status == 20) {
-              this.form_alert = true;
-              this.err_info = this.t('err.unknown_error');
-            }
+        .then(res => {
+          if (res.data.status == 4) {
+            this.form_alert = true;
+            this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
+          }
+          if (res.data.status == 5) {
+            this.form_alert = true;
+            this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
+          }
+          if (res.data.status == 20) {
+            this.form_alert = true;
+            this.err_info = this.t('err.unknown_error');
+          }
 
-            if (res.data.status == 1) {
-              console.log(res.data.data.access_token);
-              localStorage.setItem('token', res.data.data.access_token);
-              this.$router.push('/')
-            }
-          })
+          if (res.data.status == 1) {
+            console.log(res.data.data.access_token);
+            localStorage.setItem('token', res.data.data.access_token);
+            this.$router.push('/')
+          }
+        })
     }
   },
 }
