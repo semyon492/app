@@ -41,6 +41,9 @@
               <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
                   type="password" placeholder="********" v-model="user.repassword" >
             </label>            
+            <div v-if="form_alert">
+              {{ err_info }}
+            </div>
             <button type="submit"
               class="align-bottom inline-flex items-center justify-center cursor-pointer leading-5 transition-colors duration-150 font-medium focus:outline-none px-4 py-2 rounded-lg text-sm text-white bg-purple-600 border border-transparent active:bg-purple-600 hover:bg-purple-700 focus:shadow-outline-purple w-full mt-4">
               {{ $t('auth.save_password') }}
@@ -55,6 +58,7 @@
 <script>
 import Auth from '../../components/Auth.vue'
 import Axios from "axios";
+import {useI18n} from 'vue-i18n'
 
 export default {
   name: 'RestorePage',
@@ -62,6 +66,11 @@ export default {
     Auth
   },
   props: ['user'],
+  setup() {
+    // use global scope
+    const {t, locale} = useI18n()
+    return {t, locale}
+  },
   data() {
     return {
       restore_status: false,
@@ -100,25 +109,18 @@ export default {
       this.user.hash = this.$route.query.hash
       Axios.post(import.meta.env.VITE_DOMAIN_API + "account/reset_password", this.user)
         .then(res => {
-          if (res.data.status == 4) {
-            // this.form_alert = true;
-            // this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
+          if (res.data.status == 9) {
+            this.$router.push('/restore')
           }
           if (res.data.status == 5) {
-            // this.form_alert = true;
-            // this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
+            this.form_alert = true;
+            this.err_info = this.t('auth.the_pass_was_entered_incorrectly');
           }
-          if (res.data.status == 20) {
-            // this.form_alert = true;
-            // this.err_info = this.t('err.unknown_error');
-          }
-
           if (res.data.status == 1) {
             // console.log(res.data.data.access_token);
-            localStorage.setItem('token', res.data.data.access_token);
+            localStorage.setItem('token', res.data.access_token);
             this.$router.push('/')
             // this.restore_status = true
-
           }
         })
     }

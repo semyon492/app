@@ -86,5 +86,6 @@
   "feed.add_video": "Video",
   "feed.add_photo": "Photo",
   "auth.recover_password": "Recover password",
-  "auth.save_password": "Save password"
+  "auth.save_password": "Save password",
+  "auth.the_pass_was_entered_incorrectly": "The password was entered incorectly"
 }
