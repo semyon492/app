@@ -80,5 +80,6 @@
   "header.light_dark": "Светлый темный",
   "feed.add_video": "Видео",
   "feed.add_photo": "Фото",
-  "auth.recover_password": "Восстановить пароль"
+  "auth.recover_password": "Восстановить пароль",
+  "auth.save_password": "Сохраните пароль"
 }

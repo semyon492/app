@@ -85,5 +85,6 @@
   "header.light_dark": "Light/Dark",
   "feed.add_video": "Video",
   "feed.add_photo": "Photo",
-  "auth.recover_password": "Recover password"
+  "auth.recover_password": "Recover password",
+  "auth.save_password": "Save password"
 }

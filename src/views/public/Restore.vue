@@ -41,11 +41,10 @@
               <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
                   type="password" placeholder="********" v-model="user.repassword" >
             </label>            
-
-
-            <div class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
-              hash {{ $route.query.hash }}
-            </div>
+            <button type="submit"
+              class="align-bottom inline-flex items-center justify-center cursor-pointer leading-5 transition-colors duration-150 font-medium focus:outline-none px-4 py-2 rounded-lg text-sm text-white bg-purple-600 border border-transparent active:bg-purple-600 hover:bg-purple-700 focus:shadow-outline-purple w-full mt-4">
+              {{ $t('auth.save_password') }}
+            </button>  
           </form>
         </main>
       </div>
