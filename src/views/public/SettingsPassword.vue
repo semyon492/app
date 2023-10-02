@@ -52,6 +52,9 @@
                         <span class="text-xs">{{ $t('settings.required_new_password_one_more_time') }}</span>
                   </label>                    
                 </div>
+                <div v-if="form_alert">
+                  {{ err_info }}
+                </div>
                 <div class="mb-6 last:mb-0">
                   <Button type="submit" variant="purple">{{ $t('settings.change_password') }}</Button>
                 </div>                
@@ -83,7 +86,10 @@ export default {
   },
   props: ['user'],
   data() {
-    return {}
+    return {
+      form_alert: false,
+      err_info: null,
+    }
   },
   async mounted() {
   },
@@ -91,23 +97,17 @@ export default {
     change_pass() {
       Axios.post(config.domain + "account/change_pass", this.user)
         .then(res => {
-          if (res.data.status == 4) {
+          if (res.data.status == 8) {
             this.form_alert = true;
-            this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
+            this.err_info = this.t('settings.user_not_found');
           }
           if (res.data.status == 5) {
             this.form_alert = true;
-            this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
+            this.err_info = this.t('settings.the_pass_was_entered_incorrectly');
           }
-          if (res.data.status == 20) {
-            this.form_alert = true;
-            this.err_info = this.t('err.unknown_error');
-          }
-
           if (res.data.status == 1) {
-            // console.log(res.data.data.access_token);
             localStorage.setItem('token', res.data.access_token);
-            this.$router.push('/')
+            this.$router.push('/settings/password')
           }
         })
     }    
