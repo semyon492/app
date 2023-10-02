@@ -1,5 +1,5 @@
 <template>
-  <button :class="cx()" :type="button" :disabled="disabled" :variant="variant" >
+  <button :class="cx()" :type="type" :disabled="disabled" :variant="variant" >
     <slot >
       <span>{{ label || '&nbsp;' }}</span>
     </slot>
@@ -14,7 +14,7 @@ export default {
       type: String,
       default: null
     },
-    button: {
+    type: {
       type: String,
       default: 'button'
     },

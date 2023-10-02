@@ -87,5 +87,14 @@
   "feed.add_photo": "Photo",
   "auth.recover_password": "Recover password",
   "auth.save_password": "Save password",
-  "auth.the_pass_was_entered_incorrectly": "The password was entered incorectly"
+  "auth.the_pass_was_entered_incorrectly": "The password was entered incorectly",
+  "settings.current_password": "Current password",
+  "required_your_current_password": "Required. Your current password",
+  "settings.required_your_current_password": "Required. Your current password",
+  "settings.new_password": "New password",
+  "settings.required_new_password": "Required. New password",
+  "settings.confirm_password": "Confirm password",
+  "settings.required_new_password_one_more_time": "Required. New password one more time",
+  "settings.change_password": "Сhange password",
+  "settings.profile_settings": "Profile Settings"
 }

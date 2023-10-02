@@ -81,5 +81,13 @@
   "feed.add_video": "Видео",
   "feed.add_photo": "Фото",
   "auth.recover_password": "Восстановить пароль",
-  "auth.save_password": "Сохраните пароль"
+  "auth.save_password": "Сохраните пароль",
+  "settings.change_password": "Сменить пароль",
+  "settings.confirm_password": "Подтвердите пароль",
+  "settings.current_password": "Текущий пароль",
+  "settings.new_password": "Новый пароль",
+  "settings.profile_settings": "Настройки профиля",
+  "settings.required_new_password": "Необходимый. \nНовый пароль",
+  "settings.required_new_password_one_more_time": "Необходимый. \nНовый пароль еще раз",
+  "settings.required_your_current_password": "Необходимый. \nваш текущий пароль"
 }
