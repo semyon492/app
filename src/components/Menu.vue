@@ -60,7 +60,7 @@ export default {
         img: imgPp,
       },
       {
-        link: '/',
+        link: '/friends',
         text: this.t('leftbar.friends'),
         img: imgFriends,
       },

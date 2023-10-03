@@ -42,7 +42,7 @@ import {ref} from "vue";
 import NavBarMenu from "../ui/NavBarMenu.vue";
 
 export default {
-  name: 'NavigationPart',
+  name: 'Navigation',
   props: ['user'],
   components: {
     NavBarMenu,

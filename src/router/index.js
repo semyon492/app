@@ -9,7 +9,11 @@ import SettingsEmail from '@/views/public/SettingsEmail.vue'
 import SettingsNotifications from '@/views/public/SettingsNotifications.vue'
 
 import SettingsDeleteAcc from '@/views/public/SettingsDeleteAcc.vue'
+
 import Profile from '@/views/public/Profile.vue'
+import EditProfile from '@/views/public/EditProfile.vue'
+
+import Friends from '@/views/public/Friends.vue'
 import Chat from '@/views/public/Chat.vue'
 import Login from '@/views/public/Login.vue'
 import Article from '@/views/public/ArticleHome.vue'
@@ -42,6 +46,8 @@ const routes = [
             {path: '/settings/email', name: 'email', component: SettingsEmail, props: true},
             {path: '/settings/notifications', name: 'notifications', component: SettingsNotifications, props: true},
             {path: '/profile', name: 'profile', component: Profile, props: true},
+            {path: '/edit', name: 'edit_profile', component: EditProfile, props: true},
+            {path: '/friends', name: 'friends', component: Friends, props: true},
             {path: '/chat', name: 'chat', component: Chat, props: true},
 
             {path: '/login', name: 'login', component: Login, props: true},

@@ -13,7 +13,7 @@
             <div>
               <div class="flex justify-center">
                 <div class="text-[32px] font-bold md:flex items-center gap-x-1 ">
-                  <div class="text-center flex items-center justify-center ">Семен</div>
+                  <div class="text-center flex items-center justify-center ">{{ user.firstname }} {{ user.lastname }}</div>
                   <div class="ml-1.5 font-normal text-xl md:text-[28px] flex-shrink-0 ">Hello world!</div>
                 </div>
               </div>
@@ -24,10 +24,10 @@
               </div>
             </div>
             <div class="flex mt-4 sm:mt-0 flex-shrink-0 ">
-              <button class="flex gap-x-1 items-center font-semibold px-3 py-2 bg-[#D8DADF]/50 hover:bg-[#D8DADF] dark:bg-[#4E4F50]/50 dark:hover:bg-[#4E4F50] transition-20 rounded-md ">
+              <router-link to="/edit" class="flex gap-x-1 items-center font-semibold px-3 py-2 bg-[#D8DADF]/50 hover:bg-[#D8DADF] dark:bg-[#4E4F50]/50 dark:hover:bg-[#4E4F50] transition-20 rounded-md ">
                 <Icon type="edit"/>
                 Edit profile
-              </button>
+              </router-link>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@
             <div class="flex items-center gap-x-2 ">
               <img src="http://res.cloudinary.com/dcwekkkez/image/upload/v1696220970/qvufhaedruigxznlvvs0.jpg" alt="userImage" class="object-cover w-10 h-10 rounded-full shrink-0 ">
               <div class=" dark:bg-[#4E4F50]/70 dark:hover:bg-[#4E4F50] rounded-full px-4 py-[9px] w-[90%] flex justify-start dark:text-[#b0b3b8] font-medium transition-20 h-10 cursor-pointer text-[#65676b] bg-[#E4E6E9]/60 hover:bg-[#E4E6E9]  ">
-                <div class="mr-2 overflow-hidden  text-overflow-ellipsis">What's on your mind, Семен?</div>
+                <div class="mr-2 overflow-hidden  text-overflow-ellipsis">What's on your mind, {{ user.firstname }}?</div>
               </div>
             </div>
             <div class=" mt-3 flex items-center justify-between gap-x-2 border-t dark:border-t-[#3a3a3a] border-t-[#bbb9b9] py-1 text-[15px]  ">

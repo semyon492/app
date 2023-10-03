@@ -139,7 +139,7 @@ export default {
   },
   methods: {
     register() {
-      Axios.post(config.domain + "account/register", this.user)
+      Axios.post(import.meta.env.VITE_DOMAIN_API + "account/register", this.user)
         .then(res => {
           if (res.data.status == 4) {
             this.form_alert = true;

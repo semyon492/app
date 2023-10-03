@@ -3,30 +3,12 @@
     <Main/>
   </main>
   <main v-if="(user.is_connected)">
-    <div class="flex flex-wrap">
-      <div class="w-full max-w-full px-3 mt-6 shrink-0 md:w-2/12 md:flex-0 md:mt-0">
-        <Menu :user="user"/>
-      </div>
-      <div class="w-full max-w-full px-3 shrink-0 md:w-10/12 md:flex-0">
-        <div class="flex flex-wrap">
-          <div class="w-full max-w-full px-3 mt-6 shrink-0 md:w-2/12 md:flex-0 md:mt-0">
-            <div class="bg-white dark:bg-slate-900 lg:rounded-2xl">
-              <div class="dark:bg-slate-900">
-                <div class="text-center flex-1 lg:text-left lg:pl-6 xl:text-center xl:pl-0">
-                  <b class="font-black">{{ $t('settings.profile_settings') }}</b>
-                </div>
-              </div>
-              <div>
-                <SettingsMenu/>
-              </div>
-            </div>
-          </div>
-          <div class="w-full max-w-full px-3 shrink-0 md:w-10/12 md:flex-0">
-            <div class="bg-white dark:bg-slate-900 lg:rounded-2xl">
+    <SettingsCard>
+      <div class="bg-white dark:bg-slate-900 lg:rounded-2xl">
               <div class="p-6">
                 <h5 class="text-2xl">{{ $t('settings.password') }}</h5>
               </div>
-              <div class="flex-1 p-6" @submit.prevent="change_pass">
+              <form class="flex-1 p-6" @submit.prevent="change_pass">
                 <div class="mt-4">
                   <label class="block text-sm text-gray-700 dark:text-gray-400">
                     <span>{{ $t('settings.current_password') }}</span>
@@ -58,18 +40,17 @@
                 <div class="mb-6 last:mb-0">
                   <Button type="submit" variant="purple">{{ $t('settings.change_password') }}</Button>
                 </div>                
-              </div>
+              </form>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </SettingsCard>
   </main>
 </template>
 
 <script>
+import Axios from "axios";
+import {useI18n} from 'vue-i18n'
 import SettingsMenu from '@/components/SettingsMenu.vue'
-import Menu from '@/components/Menu.vue'
+import SettingsCard from '@/ui/SettingsCard.vue'
 import Main from '@/components/Main.vue'
 
 import Button from '@/ui/button/Button.vue'
@@ -79,10 +60,15 @@ export default {
   name: 'Home',
   components: {
     SettingsMenu,
-    Menu,
+    SettingsCard,
     Main,
     Button,
     Modal
+  },
+  setup() {
+    // use global scope
+    const {t, locale} = useI18n()
+    return {t, locale}
   },
   props: ['user'],
   data() {
@@ -92,10 +78,11 @@ export default {
     }
   },
   async mounted() {
+    this.user.access_token = localStorage.getItem('token')
   },
   methods: {
     change_pass() {
-      Axios.post(config.domain + "account/change_pass", this.user)
+      Axios.post(import.meta.env.VITE_DOMAIN_API + "account/change_pass", this.user)
         .then(res => {
           if (res.data.status == 8) {
             this.form_alert = true;
@@ -104,6 +91,10 @@ export default {
           if (res.data.status == 5) {
             this.form_alert = true;
             this.err_info = this.t('settings.the_pass_was_entered_incorrectly');
+          }
+          if (res.data.status == 9) {
+            this.form_alert = true;
+            this.err_info = this.t('settings.not_valid');
           }
           if (res.data.status == 1) {
             localStorage.setItem('token', res.data.access_token);

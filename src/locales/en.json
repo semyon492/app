@@ -94,5 +94,6 @@
   "settings.change_password": "Сhange password",
   "settings.profile_settings": "Profile Settings",
   "settings.the_pass_was_entered_incorrectly": "The password was entered incorectly",
-  "settings.user_not_found": "User not found"
+  "settings.user_not_found": "User not found",
+  "settings.not_valid": "Not valid"
 }
