@@ -95,5 +95,9 @@
   "settings.profile_settings": "Profile Settings",
   "settings.the_pass_was_entered_incorrectly": "The password was entered incorectly",
   "settings.user_not_found": "User not found",
-  "settings.not_valid": "Not valid"
+  "settings.not_valid": "Not valid",
+  "settings.change_name": "Change name",
+  "settings.lastname": "Lastname",
+  "settings.firstname": "Firstname",
+  "settings.the_name_entered_incorrectly": "The name entered incorrectly"
 }

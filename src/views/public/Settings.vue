@@ -6,20 +6,20 @@
     <SettingsCard>
       <div class="bg-white dark:bg-slate-900 lg:rounded-2xl">
         <div class="p-6">
-          <h5 class="text-2xl">Имя</h5>
+          <h5 class="text-2xl">{{ $t('settings.firstname') }}</h5>
         </div>
 
         <form class="flex-1 p-6" @submit.prevent="change_name">
           <div class="mt-4">
             <label class="block text-sm text-gray-700 dark:text-gray-400">
-              <span>Имя</span>
+              <span>{{ $t('settings.firstname') }}</span>
               <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
                   type="text" :placeholder="user.firstname" v-model="user.firstname" >
             </label>
           </div> 
           <div class="mt-4">
             <label class="block text-sm text-gray-700 dark:text-gray-400">
-              <span>Фамилия</span>
+              <span>{{ $t('settings.lastname') }}</span>
               <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
                   type="text" :placeholder="user.lastname" v-model="user.lastname" >
             </label>
@@ -76,8 +76,9 @@
                         class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10">
                 <span
                     class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400">
-            <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block"><path fill="currentColor"
-                                                                                        d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M17,17H7V15H17M17,13H7V11H17M20,9H17V6H20"></path></svg>
+            <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
+              <path fill="currentColor" d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M17,17H7V15H17M17,13H7V11H17M20,9H17V6H20"></path>
+            </svg>
           </span>
               </div>
             </div>
@@ -114,7 +115,25 @@ export default {
   },
   methods: {
     change_name(){
-
+      Axios.post(import.meta.env.VITE_DOMAIN_API + "account/change_name", this.user)
+        .then(res => {
+          if (res.data.status == 8) {
+            this.form_alert = true;
+            this.err_info = this.t('settings.user_not_found');
+          }
+          if (res.data.status == 5) {
+            this.form_alert = true;
+            this.err_info = this.t('settings.the_name_entered_incorrectly');
+          }
+          if (res.data.status == 9) {
+            this.form_alert = true;
+            this.err_info = this.t('settings.not_valid');
+          }
+          if (res.data.status == 1) {
+            // localStorage.setItem('token', res.data.access_token);
+            // this.$router.push('/settings/password')
+          }
+        })
     }
   },
 }

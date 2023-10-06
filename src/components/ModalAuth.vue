@@ -207,69 +207,71 @@ export default {
   methods: {
     login() {
       Axios.post(import.meta.env.VITE_DOMAIN_API + "authorize", this.form_user)
-          .then(res => {
+        .then(res => {
+          if (res.data.status == 7) {
+            this.form_alert = true;
+            this.err_info = this.t('err.Incorrect_email_or_password_entered');
+          }
+          if (res.data.status == 9) {
+            this.form_alert = true;
+            this.err_info = this.t('err.Incorrect_email_or_password_entered');
+          }
+          if (res.data.status == 5) {
+            this.form_alert = true;
+            this.err_info = this.t('err.Incorrect_email_or_password_entered');
+          }
+          if (res.data.status == 4) {
+            this.form_alert = true;
+            this.err_info = this.t('err.user_not_found');
+          }
+          if (res.data.status == 8) {
+            this.form_alert = true;
+            this.err_info = this.t('err.user_not_found');
+          }
+          if (res.data.status == 16) {
+            this.form_alert = true;
+            this.err_info = this.t('err.unknown_error');
+          }
+          setTimeout(() => {
+            this.form_alert = false;
+            this.err_info = "";
+          }, 3000);
 
-            if (res.data.status == 7) {
-              this.form_alert = true;
-              this.err_info = this.t('err.Incorrect_email_or_password_entered');
-            }
-            if (res.data.status == 9) {
-              this.form_alert = true;
-              this.err_info = this.t('err.Incorrect_email_or_password_entered');
-            }
-            if (res.data.status == 5) {
-              this.form_alert = true;
-              this.err_info = this.t('err.Incorrect_email_or_password_entered');
-            }
-            if (res.data.status == 4) {
-              this.form_alert = true;
-              this.err_info = this.t('err.user_not_found');
-            }
-            if (res.data.status == 8) {
-              this.form_alert = true;
-              this.err_info = this.t('err.user_not_found');
-            }
-            if (res.data.status == 16) {
-              this.form_alert = true;
-              this.err_info = this.t('err.unknown_error');
-            }
-            setTimeout(() => {
-              this.form_alert = false;
-              this.err_info = "";
-            }, 3000);
+          if (res.data.status == 1) {
+            // console.log(res.data.access_token);
+            // console.log(res.data.data.access_token);
+            localStorage.setItem('token', res.data.access_token);
+            this.user.is_connected = true;
 
-            if (res.data.status == 1) {
-              // console.log(res.data.access_token);
-              // console.log(res.data.data.access_token);
-              localStorage.setItem('token', res.data.access_token);
-              this.user.is_connected = true;
-
-              //   this.$router.push('/')
-            }
-          })
+            //   this.$router.push('/')
+          }
+        })
     },
     register() {
       Axios.post(import.meta.env.VITE_DOMAIN_API + "account/register", this.form_add_user)
-          .then(res => {
-            if (res.data.status == 4) {
-              this.form_alert = true;
-              this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
-            }
-            if (res.data.status == 5) {
-              this.form_alert = true;
-              this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
-            }
-            if (res.data.status == 20) {
-              this.form_alert = true;
-              this.err_info = this.t('err.unknown_error');
-            }
+        .then(res => {
+          if (res.data.status == 4) {
+            this.form_alert = true;
+            this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
+          }
+          if (res.data.status == 5) {
+            this.form_alert = true;
+            this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
+          }
+          if (res.data.status == 20) {
+            this.form_alert = true;
+            this.err_info = this.t('err.unknown_error');
+          }
 
-            if (res.data.status == 1) {
-              console.log(res.data.data.access_token);
-              localStorage.setItem('token', res.data.data.access_token);
-              this.$router.push('/')
-            }
-          })
+          if (res.data.status == 1) {
+            // console.log(res.data.data.access_token);
+            localStorage.setItem('token', res.data.data.access_token);
+            this.$router.push('/')
+          }
+        })
+    },
+    toReset() {
+      this.$router.push('/restore')
     }
   },
 }
