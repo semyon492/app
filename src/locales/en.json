@@ -99,5 +99,9 @@
   "settings.change_name": "Change name",
   "settings.lastname": "Lastname",
   "settings.firstname": "Firstname",
-  "settings.the_name_entered_incorrectly": "The name entered incorrectly"
+  "settings.the_name_entered_incorrectly": "The name entered incorrectly",
+  "settings.Name": "Name",
+  "settings.Avatar": "Avatar",
+  "settings.submit": "Submit",
+  "settings.file": "File"
 }

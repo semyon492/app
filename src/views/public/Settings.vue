@@ -6,9 +6,8 @@
     <SettingsCard>
       <div class="bg-white dark:bg-slate-900 lg:rounded-2xl">
         <div class="p-6">
-          <h5 class="text-2xl">{{ $t('settings.firstname') }}</h5>
+          <h5 class="text-2xl">{{ $t('settings.Name') }}</h5>
         </div>
-
         <form class="flex-1 p-6" @submit.prevent="change_name">
           <div class="mt-4">
             <label class="block text-sm text-gray-700 dark:text-gray-400">
@@ -26,11 +25,22 @@
           </div> 
           <Button type="submit" class="mt-4" variant="purple">{{ $t('settings.change_name') }}</Button>
         </form>
-
+        <div class="p-6">
+          <h5 class="text-2xl">{{ $t('settings.Avatar') }}</h5>
+        </div>
+        <div class="flex-1 p-6" @submit.prevent="change_name">
+          <div class="mt-4">
+            <label class="block text-sm text-gray-700 dark:text-gray-400">
+              <span>{{ $t('settings.file') }}</span>
+              <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
+                  type="file" id="file" ref="file" v-on:change="handleFileUpload()" >
+            </label>
+          </div> 
+          <Button v-on:click="submitFile()" class="mt-4" variant="purple">{{ $t('settings.submit') }}</Button>
+        </div>        
         <div class="p-6">
           <h5 class="text-2xl">{{ $t('settings.account') }}</h5>
         </div>
-
         <div class="flex-1 p-6">
           <div class="mb-6 last:mb-0">
             <label class="block font-bold mb-2">Avatar</label>
