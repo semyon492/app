@@ -119,7 +119,9 @@ export default {
   },
   props: ['user'],
   data() {
-    return {}
+    return {
+      file: ''
+    }
   },
   async mounted() {
   },
@@ -144,7 +146,26 @@ export default {
             // this.$router.push('/settings/password')
           }
         })
-    }
+    },
+    handleFileUpload(){
+      this.file = this.$refs.file.files[0];
+    },
+    submitFile(){
+      let formData = new FormData();
+      formData.append('file', this.file);
+      axios.post( import.meta.env.VITE_DOMAIN_API + 'account/avatar', formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+      ).then(function(){
+        console.log('SUCCESS!!');
+      })
+      .catch(function(){
+        console.log('FAILURE!!');
+      });
+    },    
   },
 }
 </script>
