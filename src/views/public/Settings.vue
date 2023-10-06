@@ -107,6 +107,7 @@ import Main from '@/components/Main.vue'
 
 import Button from '@/ui/button/Button.vue'
 import Modal from '@/ui/modal/Modal.vue'
+import Axios from "axios";
 
 export default {
   name: 'Home',
@@ -115,7 +116,8 @@ export default {
     SettingsCard,
     Main,
     Button,
-    Modal
+    Modal,
+    Axios
   },
   props: ['user'],
   data() {
