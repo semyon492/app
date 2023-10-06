@@ -153,7 +153,7 @@ export default {
     submitFile(){
       let formData = new FormData();
       formData.append('file', this.file);
-      axios.post( import.meta.env.VITE_DOMAIN_API + 'account/avatar', formData,
+      axios.post( import.meta.env.VITE_DOMAIN_API + 'account/change_avatar', formData,
         {
           headers: {
             'Content-Type': 'multipart/form-data'
