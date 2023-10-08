@@ -8,7 +8,7 @@
       <div class="pt-[50px] md:pt-[75px] md:px-[15%] w-full dark:bg-[#242426] bg-white overflow-x-hidden ">
         <img src="https://res.cloudinary.com/dcwekkkez/image/upload/v1656421547/bavmjvxcucadotx45jtk.jpg" alt="bg" class="w-full h-[30vh] sm:h-[40vh] md:h-[54vh] object-cover rounded-b-lg ">
         <div class="flex flex-col sm:flex-row mx-10 sm:items-start gap-x-4 border-b-[1px] dark:border-b-white/10 border-b-black/10 items-center ">
-          <img src="http://res.cloudinary.com/dcwekkkez/image/upload/v1696220970/qvufhaedruigxznlvvs0.jpg" alt="avatar" class="w-[170px] h-[170px] rounded-full object-cover translate-y-[-32px] shrink-0  dark:border-white border-4 border-black/50 ">
+          <img :src="profile.photo" alt="avatar" class="w-[170px] h-[170px] rounded-full object-cover translate-y-[-32px] shrink-0  dark:border-white border-4 border-black/50 ">
           <div class="flex flex-col sm:flex-row w-full justify-between items-center sm:items-end pt-4 translate-y-[-32px] sm:translate-y-[0] ">
             <div>
               <div class="flex justify-center">
@@ -81,7 +81,7 @@
             <div>
               <div class="dark:bg-[#242526] bg-white mb-5 pt-3 rounded-lg px-2 md:px-4 shadow-post ">
             <div class="flex items-center gap-x-2 ">
-              <img src="http://res.cloudinary.com/dcwekkkez/image/upload/v1696220970/qvufhaedruigxznlvvs0.jpg" alt="userImage" class="object-cover w-10 h-10 rounded-full shrink-0 ">
+              <img :src="profile.photo_50" alt="userImage" class="object-cover w-10 h-10 rounded-full shrink-0 ">
               <div class=" dark:bg-[#4E4F50]/70 dark:hover:bg-[#4E4F50] rounded-full px-4 py-[9px] w-[90%] flex justify-start dark:text-[#b0b3b8] font-medium transition-20 h-10 cursor-pointer text-[#65676b] bg-[#E4E6E9]/60 hover:bg-[#E4E6E9]  ">
                 <div class="mr-2 overflow-hidden  text-overflow-ellipsis">What's on your mind, {{ user.firstname }}?</div>
               </div>
@@ -119,9 +119,28 @@ export default {
   },
   props: ['user'],
   data() {
-    return {}
+    return {
+      profile: null
+    }
   },
   async mounted() {
+    await Axios.post(import.meta.env.VITE_DOMAIN_API + "users/profile", {
+      id: this.user.id
+    })
+    .then(res => {
+      if (res.data.status == 1) {
+        this.profile.first_name = res.data.data.first_name;
+        this.profile.last_name = res.data.data.last_name;
+
+        this.profile.photo = res.data.data.photo;
+        this.profile.photo_50 = res.data.data.photo_50;
+        this.profile.photo_100 = res.data.data.photo_100;
+
+      } else {
+        // this.user.is_connected = false;
+      }
+    })
+
   },
   methods: {},
 }
