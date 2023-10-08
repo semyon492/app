@@ -110,6 +110,7 @@
 <script>
 import Main from '@/components/Main.vue'
 import Icon from '@/ui/Icon.vue'
+import Axios from "axios";
 
 export default {
   name: 'ProfilePage',
