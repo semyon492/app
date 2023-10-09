@@ -8,19 +8,17 @@
       <div class="pt-[50px] md:pt-[75px] md:px-[15%] w-full dark:bg-[#242426] bg-white overflow-x-hidden ">
         <img src="https://res.cloudinary.com/dcwekkkez/image/upload/v1656421547/bavmjvxcucadotx45jtk.jpg" alt="bg" class="w-full h-[30vh] sm:h-[40vh] md:h-[54vh] object-cover rounded-b-lg ">
         <div class="flex flex-col sm:flex-row mx-10 sm:items-start gap-x-4 border-b-[1px] dark:border-b-white/10 border-b-black/10 items-center ">
-          <img :src="profile.photo" alt="avatar" class="w-[170px] h-[170px] rounded-full object-cover translate-y-[-32px] shrink-0  dark:border-white border-4 border-black/50 ">
+          <img :src="profile.photo_100" alt="avatar" class="w-[170px] h-[170px] rounded-full object-cover translate-y-[-32px] shrink-0  dark:border-white border-4 border-black/50 ">
           <div class="flex flex-col sm:flex-row w-full justify-between items-center sm:items-end pt-4 translate-y-[-32px] sm:translate-y-[0] ">
             <div>
               <div class="flex justify-center">
                 <div class="text-[32px] font-bold md:flex items-center gap-x-1 ">
-                  <div class="text-center flex items-center justify-center ">{{ user.firstname }} {{ user.lastname }}</div>
+                  <div class="text-center flex items-center justify-center ">{{ profile.first_name }} {{ profile.last_name }}</div>
                   <div class="ml-1.5 font-normal text-xl md:text-[28px] flex-shrink-0 ">Hello world!</div>
                 </div>
               </div>
               <div class="dark:text-[#b0b3b8] font-semibold text-[17px] flex gap-x-1.5 items-center text-[#65676b] justify-center sm:justify-start">
-                <span class="cursor-pointer flex-shrink-0 ">2 following</span>
-                <Icon type="dot"/>
-                <span class="cursor-pointer flex-shrink-0 ">0 follower</span>
+                <span class="cursor-pointer flex-shrink-0 ">2 friends</span>
               </div>
             </div>
             <div class="flex mt-4 sm:mt-0 flex-shrink-0 ">
@@ -33,9 +31,12 @@
         </div>
         <div class="flex mx-0 sm:mx-10 ">
           <ul class="flex items-center justify-between w-full px-16 py-1 gap-x-10 ">
-            <li class="li-profile active ">Posts</li>
-            <li class="li-profile false ">Following</li>
-            <li class="li-profile false ">Follower</li>
+            <li class="li-profile active ">
+              <router-link :to="'/id' + id" class="text-black dark:text-white p-1">Posts</router-link>
+            </li>
+            <li class="li-profile false ">
+              <router-link :to="'/friends/' + id" class="text-black dark:text-white p-1">Friends</router-link>
+            </li>
           </ul>
         </div>
       </div>
@@ -68,7 +69,7 @@
               <div class="mt-4">
                 <div class="bg-white dark:bg-[#242526] p-4 rounded-lg shadow-post">
                   <div class="flex justify-start items-center">
-                    <div class="text-2xl font-extrabold dark:text-[#e4e6eb] ">Photo</div>
+                    <router-link :to="'/albums/' + id" class="text-2xl font-extrabold dark:text-[#e4e6eb] ">Photo</router-link>
                   </div>
                   <div class="grid grid-cols-3 grid-rows-0 rounded-lg gap-1 mt-3 ">
                     <div class="text-center my-3 col-span-3 ">No image found!</div>
@@ -118,31 +119,49 @@ export default {
     Main,
     Icon,
   },
-  props: ['user'],
+  props: ['user','id'],
   data() {
     return {
-      profile: null
+      profile: {
+        first_name:'',
+        last_name:'',
+        photo:'',
+      },
+      user_data: this.user
     }
   },
   async mounted() {
-    await Axios.post(import.meta.env.VITE_DOMAIN_API + "users/profile", {
-      id: this.user.id
-    })
-    .then(res => {
-      if (res.data.status == 1) {
-        this.profile.first_name = res.data.data.first_name;
-        this.profile.last_name = res.data.data.last_name;
-
-        this.profile.photo = res.data.data.photo;
-        this.profile.photo_50 = res.data.data.photo_50;
-        this.profile.photo_100 = res.data.data.photo_100;
-
-      } else {
-        // this.user.is_connected = false;
-      }
-    })
-
+    await this.get_profile()
   },
-  methods: {},
+
+  methods: {
+    async get_profile(){
+      if(this.user.id == 0){
+        await Axios.post(import.meta.env.VITE_DOMAIN_API + "account/getinfo", {
+          access_token: localStorage.getItem('token')
+        })
+        .then(res => {
+          this.user.firstname = res.data.data.firstname;
+          this.user.lastname = res.data.data.lastname;
+          this.user.id = res.data.data.user_id;
+        })
+      }
+      await Axios.post(import.meta.env.VITE_DOMAIN_API + "users/profile", {
+        access_token: localStorage.getItem('token'),        
+        id: this.id,
+      })
+      .then(res => {
+        if (res.data.status == 1) {
+          this.profile.id = res.data.data.id;
+          this.profile.first_name = res.data.data.first_name;
+          this.profile.last_name = res.data.data.last_name;
+          this.profile.photo = res.data.data.photo;        
+          this.profile.photo_50 = res.data.data.photo_50;
+          this.profile.photo_100 = res.data.data.photo_100;
+        } else {
+        }
+      })
+    }
+  },
 }
 </script>

@@ -8,12 +8,12 @@
       <div class="pt-[50px] md:pt-[75px] md:px-[15%] w-full dark:bg-[#242426] bg-white overflow-x-hidden ">
         <img src="https://res.cloudinary.com/dcwekkkez/image/upload/v1656421547/bavmjvxcucadotx45jtk.jpg" alt="bg" class="w-full h-[30vh] sm:h-[40vh] md:h-[54vh] object-cover rounded-b-lg ">
         <div class="flex flex-col sm:flex-row mx-10 sm:items-start gap-x-4 border-b-[1px] dark:border-b-white/10 border-b-black/10 items-center ">
-          <img :src="user.photo_50" alt="avatar" class="w-[170px] h-[170px] rounded-full object-cover translate-y-[-32px] shrink-0  dark:border-white border-4 border-black/50 ">
+          <img :src="profile.photo_50" alt="avatar" class="w-[170px] h-[170px] rounded-full object-cover translate-y-[-32px] shrink-0  dark:border-white border-4 border-black/50 ">
           <div class="flex flex-col sm:flex-row w-full justify-between items-center sm:items-end pt-4 translate-y-[-32px] sm:translate-y-[0] ">
             <div>
               <div class="flex justify-center">
                 <div class="text-[32px] font-bold md:flex items-center gap-x-1 ">
-                  <div class="text-center flex items-center justify-center ">{{ user.firstname }} {{ user.lastname }}</div>
+                  <div class="text-center flex items-center justify-center ">{{ profile.first_name }} {{ profile.last_name }}</div>
                   <div class="ml-1.5 font-normal text-xl md:text-[28px] flex-shrink-0 ">Hello world!</div>
                 </div>
               </div>
@@ -42,43 +42,16 @@
       </div>
       <div class="mx-4 sm:mx-[5%] md:mx-[15%] px-1 sm:px-10 mt-4 ">
         <div class="bg-white w-full dark:bg-[#242526] p-4 rounded-lg shadow-post ">
-          <div class="text-2xl font-extrabold dark:text-[#e4e6eb] ">Friends</div>
-          <div class="md:grid grid-cols-2 my-4 gap-1 ">
+          <div class="text-2xl font-extrabold dark:text-[#e4e6eb] ">Фото </div>
+          <div class="md:grid grid-cols-2 my-4 gap-1 " v-for="(item, index) in albums">
             <div class="col-span-1 flex items-center gap-x-3 px-4 py-5 ">
-              <img :src="demo_ava" alt="" 
+              <img :rc="item.cover" :alt="item.name" 
               class="w-10 sm:w-16 md:w-20 h-10 sm:h-16 md:h-20 rounded-md object-cover cursor-pointer ">
               <div class="">
-                <div class="text-[14px] sm:text-[17px]  font-semibold cursor-pointer ">Flower</div>
+                <div class="text-[14px] sm:text-[17px]  font-semibold cursor-pointer ">{{ item.name }}</div>
                 <div class="text-[12px] sm:text-[14px] dark:text-[#b0b3b8]  ">Super Idol :v</div>
               </div>
-              <button class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base ">Unfollow</button>
-            </div>
-            <div class="col-span-1 flex items-center gap-x-3 px-4 py-5 ">
-              <img :src="demo_ava" alt="" 
-              class="w-10 sm:w-16 md:w-20 h-10 sm:h-16 md:h-20 rounded-md object-cover cursor-pointer ">
-              <div class="">
-                <div class="text-[14px] sm:text-[17px]  font-semibold cursor-pointer ">random</div>
-                <div class="text-[12px] sm:text-[14px] dark:text-[#b0b3b8]  "></div>
-              </div>
-              <button class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base ">Unfollow</button>
-            </div>
-            <div class="col-span-1 flex items-center gap-x-3 px-4 py-5 ">
-              <img :src="demo_ava" alt="" 
-              class="w-10 sm:w-16 md:w-20 h-10 sm:h-16 md:h-20 rounded-md object-cover cursor-pointer ">
-              <div class="">
-                <div class="text-[14px] sm:text-[17px]  font-semibold cursor-pointer ">Chang</div>
-                <div class="text-[12px] sm:text-[14px] dark:text-[#b0b3b8]  "></div>
-              </div>
-              <button class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base ">Unfollow</button>
-            </div>
-            <div class="col-span-1 flex items-center gap-x-3 px-4 py-5 ">
-              <img :src="demo_ava" alt="" 
-              class="w-10 sm:w-16 md:w-20 h-10 sm:h-16 md:h-20 rounded-md object-cover cursor-pointer ">
-              <div class="">
-                <div class="text-[14px] sm:text-[17px]  font-semibold cursor-pointer ">Admin</div>
-                <div class="text-[12px] sm:text-[14px] dark:text-[#b0b3b8]  ">Tranquility of mind</div>
-              </div>
-              <button class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base ">Unfollow</button>
+              <button class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base ">n/a</button>
             </div>
           </div>
         </div>
@@ -98,18 +71,26 @@ export default {
     Main,
     Icon,
   },
-  props: ['user', 'id'],
+  props: ['user','id'],
   data() {
     return {
-      demo_ava: 'https://api.rapigram.ru/images/no_ava.gif',
+      albums: [],
       profile: {
         first_name:'',
         last_name:'',
         photo:'',
-      },       
+      },      
     }
   },
   async mounted() {
+    if(this.user.id == 0){
+      await Axios.post(import.meta.env.VITE_DOMAIN_API + "account/getinfo", {
+        access_token: localStorage.getItem('token')
+      })
+      .then(res => {
+        this.user.id = res.data.data.user_id;
+      })
+    }   
     await Axios.post(import.meta.env.VITE_DOMAIN_API + "users/profile", {
       access_token: localStorage.getItem('token'),        
       id: this.id,
@@ -124,7 +105,19 @@ export default {
         this.profile.photo_100 = res.data.data.photo_100;
       } else {
       }
-    })      
+    })    
+    await Axios.post(import.meta.env.VITE_DOMAIN_API + "albums/all", {
+      access_token: localStorage.getItem('token'),        
+      id: this.user.id,
+    })
+    .then(res => {
+      if (res.data.status == 1) {
+        this.albums = res.data.data.albums;
+      } else {
+        // this.user.is_connected = false;
+      }
+    })
+
   },
   methods: {},
 }

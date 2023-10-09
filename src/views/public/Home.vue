@@ -12,7 +12,7 @@
             <div class="">
               <div class="dark:bg-[#242526] bg-white mb-5 pt-3 rounded-lg px-2 md:px-4 shadow-post ">
                 <div class="flex items-center gap-x-2 ">
-                  <img src="https://raw.githubusercontent.com/Laosing/cute-cat-avatars/master/assets/img/award.png" alt="userImage" class="object-cover w-10 h-10 rounded-full shrink-0 ">
+                  <img :src="user.photo_50" alt="userImage" class="object-cover w-10 h-10 rounded-full shrink-0 ">
                   <div class=" dark:bg-[#4E4F50]/70 dark:hover:bg-[#4E4F50] rounded-full px-4 py-[9px] w-[90%] flex justify-start dark:text-[#b0b3b8] font-medium transition-20 h-10 cursor-pointer text-[#65676b] bg-[#E4E6E9]/60 hover:bg-[#E4E6E9] ">
                     <div class="mr-2 overflow-hidden  text-overflow-ellipsis">What's on your mind, {{ user.firstname }}?</div>
                   </div>
@@ -34,7 +34,7 @@
               <div class="posts">
                 <div class="dark:bg-[#242526] bg-white mb-5 pt-3 pb-2.5 md:pb-3 rounded-lg shadow-post ">
                   <div class="flex items-center pl-2 pr-3 sm:px-3 md:px-4">
-                    <img src="http://res.cloudinary.com/dcwekkkez/image/upload/v1656135268/oaf2aq4uxyat9d66ih3r.jpg" alt="avatar" class="w-10 h-10 rounded-full object-cover cursor-pointer ">
+                    <img :src="demo_ava" alt="avatar" class="w-10 h-10 rounded-full object-cover cursor-pointer ">
                     <div class="ml-2 font-bold ">
                       <div class="flex items-center gap-x-1 cursor-pointer ">
                         Admin
@@ -67,7 +67,7 @@
                     </button>
                   </div>
                   <div class="flex gap-x-1.5 px-2 sm:px-3 md:px-4 py-1 items-center ">
-                    <img src="https://raw.githubusercontent.com/Laosing/cute-cat-avatars/master/assets/img/award.png" alt="user_avatar" class="w-8 sm:w-9 h-8 sm:h-9 object-cover shrink-0 rounded-full ">
+                    <img :src="user.photo_50" alt="user_avatar" class="w-8 sm:w-9 h-8 sm:h-9 object-cover shrink-0 rounded-full ">
                     <form class="flex px-2 rounded-full bg-[#F0F2F5] w-full mt-1 items-center dark:bg-[#3A3B3C]  ">
                       <input type="text" class="px-2 py-1 sm:py-1.5 border-none focus:ring-0 bg-inherit rounded-full w-full font-medium dark:placeholder:text-[#b0b3b8] " placeholder="Write a comment..." value="">
                       <label>
@@ -92,7 +92,7 @@
               </div>
               <div class="flex items-center  py-1.5 ">
                 <div class="flex items-center gap-x-1.5 " role="button">
-                  <img src="http://res.cloudinary.com/dcwekkkez/image/upload/v1650713458/uzfbahyxne9d93jozqgc.jpg" alt="avatar" class="w-9 h-9 object-cover rounded-full  ">
+                  <img :src="demo_ava" alt="avatar" class="w-9 h-9 object-cover rounded-full  ">
                   <div bis_skin_checked="1">
                     <div class="font-semibold text-sm flex items-center gap-x-0.5 ">
                       <span>Flower</span>
@@ -136,7 +136,9 @@ export default {
   },
   props: ['user'],
   data() {
-    return {}
+    return {
+      demo_ava: 'https://api.rapigram.ru/images/no_ava.gif'
+    }
   },
   async mounted() {
   },

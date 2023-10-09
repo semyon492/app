@@ -58,6 +58,7 @@ export default {
         if (res.data.status !== 20) {
           this.user.firstname = res.data.data.firstname;
           this.user.lastname = res.data.data.lastname;
+          this.user.id = res.data.data.user_id;
           if (res.data.roles === 'ROLE_ADMIN') {
             this.user.is_admin = true;
           }
@@ -102,7 +103,7 @@ export default {
       <svg fill="currentColor" viewBox="0 0 24 24" width="1em" height="1em" class=""><path d="M8.99 23H7.93c-1.354 0-2.471 0-3.355-.119-.928-.125-1.747-.396-2.403-1.053-.656-.656-.928-1.475-1.053-2.403C1 18.541 1 17.425 1 16.07v-4.3c0-1.738-.002-2.947.528-4.006.53-1.06 1.497-1.784 2.888-2.826L6.65 3.263c1.114-.835 2.02-1.515 2.815-1.977C10.294.803 11.092.5 12 .5c.908 0 1.707.303 2.537.786.795.462 1.7 1.142 2.815 1.977l2.232 1.675c1.391 1.042 2.359 1.766 2.888 2.826.53 1.059.53 2.268.528 4.006v4.3c0 1.355 0 2.471-.119 3.355-.124.928-.396 1.747-1.052 2.403-.657.657-1.476.928-2.404 1.053-.884.119-2 .119-3.354.119H8.99zM7.8 4.9l-2 1.5C4.15 7.638 3.61 8.074 3.317 8.658 3.025 9.242 3 9.937 3 12v4c0 1.442.002 2.424.101 3.159.095.706.262 1.033.485 1.255.223.223.55.39 1.256.485.734.099 1.716.1 3.158.1V14.5a2.5 2.5 0 0 1 2.5-2.5h3a2.5 2.5 0 0 1 2.5 2.5V21c1.443 0 2.424-.002 3.159-.101.706-.095 1.033-.262 1.255-.485.223-.222.39-.55.485-1.256.099-.734.101-1.716.101-3.158v-4c0-2.063-.025-2.758-.317-3.342-.291-.584-.832-1.02-2.483-2.258l-2-1.5c-1.174-.881-1.987-1.489-2.67-1.886C12.87 2.63 12.425 2.5 12 2.5c-.425 0-.87.13-1.53.514-.682.397-1.495 1.005-2.67 1.886zM14 21v-6.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V21h4z"></path></svg>
     </div>      
   </router-link>
-  <router-link to="/friends"  v-if="user.is_connected" class="md:hidden flex text-blue-600 hover:text-black my-2 mx-3 items-center cursor-pointer dark:text-white dark:hover:text-slate-400">
+  <router-link :to="'/friends/' + user.id"  v-if="user.is_connected" class="md:hidden flex text-blue-600 hover:text-black my-2 mx-3 items-center cursor-pointer dark:text-white dark:hover:text-slate-400">
     <div class="flex flex-col justify-items-center justify-center content-center items-center px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border-0 bg-transparent">
       <svg fill="currentColor" viewBox="0 0 24 24" width="1em" height="1em" class=""><path d="M8 2.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zM5.5 7a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0zm-.25 6A4.75 4.75 0 0 0 .5 17.75 3.25 3.25 0 0 0 3.75 21h8.5a3.25 3.25 0 0 0 3.25-3.25A4.75 4.75 0 0 0 10.75 13h-5.5zM2.5 17.75A2.75 2.75 0 0 1 5.25 15h5.5a2.75 2.75 0 0 1 2.75 2.75c0 .69-.56 1.25-1.25 1.25h-8.5c-.69 0-1.25-.56-1.25-1.25zM14 9.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0zM17.5 8a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm0 6.5a1 1 0 1 0 0 2h2.3a1.7 1.7 0 0 1 1.7 1.7.8.8 0 0 1-.8.8h-3.2a1 1 0 1 0 0 2h3.2a2.8 2.8 0 0 0 2.8-2.8 3.7 3.7 0 0 0-3.7-3.7h-2.3z"></path></svg>
     </div>      
@@ -142,8 +143,8 @@ export default {
              @click="menu1 = !menu1">
           <div class="w-6 h-6 mr-3 inline-flex">
             <img
-              src="https://avatars.dicebear.com/api/avataaars/example.svg?options[top][]=shortHair&amp;options[accessoriesChance]=93"
-              alt="John Doe" class="rounded-full block h-auto w-full max-w-full bg-gray-100 dark:bg-slate-800">
+              :src="user.photo_50"
+              :alt="user.firstname" class="rounded-full block h-auto w-full max-w-full bg-gray-100 dark:bg-slate-800">
           </div>
           <span class="px-2 transition-colors">{{ user.firstname }}</span>
           <span class="inline-flex justify-center items-center w-6 h-6 hidden lg:inline-flex transition-colors">
@@ -153,7 +154,7 @@ export default {
           </span>
         </div>
         <div :class="menu1 ? menu1On : menu1Off" @click="menu1 = !menu1">
-          <router-link to="/profile"
+          <router-link :to="'/id' + user.id"
             class="block lg:flex items-center relative cursor-pointer text-blue-600 dark:text-white dark:hover:text-slate-400 hover:text-black py-2 px-3">
             <div class="flex items-center">
               <span class="inline-flex justify-center items-center w-6 h-6 transition-colors">

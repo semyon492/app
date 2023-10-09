@@ -25,8 +25,10 @@ export default {
   data() {
     return {
       user: {
+        id: 0,
         firstname: '',
         lastname: '',
+        photo: '',
         is_connected: false,
         is_admin: false,
         access_token: '',
@@ -41,16 +43,6 @@ export default {
   },
   async mounted() {
     await this.userCheck()
-
-    // if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    //   localStorage.theme = 'dark'
-    //   // localStorage.setItem('theme', 'dark');
-    //   document.documentElement.classList.add('dark')      
-    // } else {      
-    //   document.documentElement.classList.remove('dark')
-    //   localStorage.theme = 'light'
-    //   // localStorage.setItem('theme', 'light');
-    // }
   },
   methods: {
     async userCheck() {
@@ -69,6 +61,8 @@ export default {
           if (res.data.status !== 20) {
             this.user.firstname = res.data.data.firstname;
             this.user.lastname = res.data.data.lastname;
+            this.user.id = res.data.data.user_id;
+            this.user.photo_50 = res.data.data.photo_50;
             if (res.data.roles == 'ROLE_ADMIN') {
               this.user.is_admin = true;
             }

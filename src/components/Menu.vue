@@ -23,6 +23,7 @@ import imgMostRecent from '@/assets/images/mostRecent.png'
 import imgPp from '@/assets/images/pp.jpg'
 import imgFriends from '@/assets/images/friends.png'
 
+import Axios from "axios";
 import {useI18n} from 'vue-i18n'
 
 // import Tooltip from '../components/Tooltip.vue'
@@ -48,6 +49,16 @@ export default {
     }
   },
   async mounted() {
+    if(this.user.id == 0){
+      await Axios.post(import.meta.env.VITE_DOMAIN_API + "account/getinfo", {
+        access_token: localStorage.getItem('token')
+      })
+      .then(res => {
+        this.user.firstname = res.data.data.firstname;
+        this.user.lastname = res.data.data.lastname;
+        this.user.id = res.data.data.user_id;
+      })
+    }
     this.infoTiles = ([
       {
         link: '/',
@@ -55,12 +66,12 @@ export default {
         img: imgMostRecent,
       },
       {
-        link: '/profile',
+        link: '/id' + this.user.id,
         text: this.t('leftbar.profile'),
-        img: imgPp,
+        img: this.user.photo_50,
       },
       {
-        link: '/friends',
+        link: '/friends/' + this.user.id,
         text: this.t('leftbar.friends'),
         img: imgFriends,
       },
