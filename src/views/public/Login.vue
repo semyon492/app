@@ -52,8 +52,8 @@
 import Axios from "axios";
 import {useI18n} from 'vue-i18n'
 
-import imgSignIn from "../assets/images/login.jpeg";
-import imgSignInDark from "../assets/images/login-dark.jpeg";
+import imgSignIn from "@/assets/images/login.jpeg";
+import imgSignInDark from "@/assets/images/login-dark.jpeg";
 
 export default {
   name: 'LoginPage',
@@ -72,7 +72,9 @@ export default {
       },
       access_token: null,
       form_alert: false,
-      err_info: ''
+      err_info: '',
+      imgSignIn:imgSignIn,
+      imgSignInDark:imgSignInDark
     }
   },
   methods: {

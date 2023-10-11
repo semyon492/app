@@ -57,13 +57,12 @@
 import Axios from "axios";
 import {useI18n} from 'vue-i18n'
 
-import imgForgot from "../assets/images/forgot-password.jpeg";
-import imgForgotDark from "../assets/images/forgot-password-dark.jpeg";
+import imgForgot from "@/assets/images/forgot-password.jpeg";
+import imgForgotDark from "@/assets/images/forgot-password-dark.jpeg";
 
 export default {
   name: 'RestorePage',
   components: {
-    Auth
   },
   props: ['user'],
   setup() {
@@ -74,6 +73,8 @@ export default {
   data() {
     return {
       restore_status: false,
+      imgForgot:imgForgot,
+      imgForgotDark:imgForgotDark
     }
   },
   mounted() {

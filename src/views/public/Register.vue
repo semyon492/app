@@ -108,8 +108,8 @@
 import Axios from "axios";
 import {useI18n} from 'vue-i18n'
 
-import imgSignUp from "../assets/images/create-account.jpeg";
-import imgSignUpDark from "../assets/images/create-account-dark.jpeg";
+import imgSignUp from "@/assets/images/create-account.jpeg";
+import imgSignUpDark from "@/assets/images/create-account-dark.jpeg";
 
 export default {
   name: 'RegisterPage',
@@ -134,7 +134,9 @@ export default {
         password: '',
         re_password: ''
       },
-      form_alert: false
+      form_alert: false,
+      imgSignUp:imgSignUp,
+      imgSignUpDark:imgSignUpDark
     }
   },
   methods: {
