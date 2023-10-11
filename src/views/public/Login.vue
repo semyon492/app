@@ -4,10 +4,9 @@
       <div class="flex flex-col overflow-y-auto md:flex-row">
         <div class="h-32 md:h-auto md:w-1/2">
           <img aria-hidden="true" class="object-cover w-full h-full dark:hidden"
-               src="https://windmill-dashboard-react.vercel.app/static/media/login-office.72742c2e.jpeg" alt="Office">
+               :src="imgSignIn" alt="Office">
           <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block"
-               src="https://windmill-dashboard-react.vercel.app/static/media/login-office-dark.cb4a995f.jpeg"
-               alt="Office">
+               :src="imgSignInDark" alt="Office">
         </div>
         <main class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
           <form class="w-full" @submit.prevent="login">
@@ -52,6 +51,9 @@
 <script>
 import Axios from "axios";
 import {useI18n} from 'vue-i18n'
+
+import imgSignIn from "../assets/images/login.jpeg";
+import imgSignInDark from "../assets/images/login-dark.jpeg";
 
 export default {
   name: 'LoginPage',

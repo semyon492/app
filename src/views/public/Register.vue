@@ -4,11 +4,9 @@
       <div class="flex flex-col overflow-y-auto md:flex-row">
         <div class="h-32 md:h-auto md:w-1/2">
           <img aria-hidden="true" class="object-cover w-full h-full dark:hidden"
-               src="https://windmill-dashboard-react.vercel.app/static/media/create-account-office.41b2c6a1.jpeg"
-               alt="Office">
+               :src="imgSignUp" alt="Office">
           <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block"
-               src="https://windmill-dashboard-react.vercel.app/static/media/create-account-office-dark.d34c7b50.jpeg"
-               alt="Office">
+               :src="imgSignUpDark" alt="Office">
         </div>
         <main class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
           <form class="w-full" @submit.prevent="register" autocomplete="off">
@@ -109,7 +107,9 @@
 <script>
 import Axios from "axios";
 import {useI18n} from 'vue-i18n'
-// import Auth from '../../components/Auth.vue'
+
+import imgSignUp from "../assets/images/create-account.jpeg";
+import imgSignUpDark from "../assets/images/create-account-dark.jpeg";
 
 export default {
   name: 'RegisterPage',

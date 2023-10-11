@@ -4,11 +4,9 @@
       <div class="flex flex-col overflow-y-auto md:flex-row">
         <div class="h-32 md:h-auto md:w-1/2">
           <img aria-hidden="true" class="object-cover w-full h-full dark:hidden"
-               src="https://windmill-dashboard-react.vercel.app/static/media/forgot-password-office.ac5c499b.jpeg"
-               alt="Office">
+               :src="imgForgot" alt="Office">
           <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block"
-               src="https://windmill-dashboard-react.vercel.app/static/media/forgot-password-office-dark.6db046dc.jpeg"
-               alt="Office">
+               :src="imgForgot" alt="Office">
         </div>
         <main class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
           <form v-if="restore_status == false && $route.query.hash == null" class="w-full" @submit.prevent="restore">
@@ -39,7 +37,7 @@
             <label class="block text-sm text-gray-700 dark:text-gray-400">
               <span>{{ $t('auth.password_confirm') }}</span>
               <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
-                  type="password" placeholder="********" v-model="user.repassword" >
+                  type="password" placeholder="********" v-model="user.re_password" >
             </label>            
             <div v-if="form_alert">
               {{ err_info }}
@@ -56,9 +54,11 @@
 </template>
 
 <script>
-import Auth from '../../components/Auth.vue'
 import Axios from "axios";
 import {useI18n} from 'vue-i18n'
+
+import imgForgot from "../assets/images/forgot-password.jpeg";
+import imgForgotDark from "../assets/images/forgot-password-dark.jpeg";
 
 export default {
   name: 'RestorePage',
