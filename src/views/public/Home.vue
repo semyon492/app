@@ -14,7 +14,7 @@
                 <div class="flex items-center gap-x-2 ">
                   <img :src="user.photo_50" alt="userImage" class="object-cover w-10 h-10 rounded-full shrink-0 ">
                   <div class=" dark:bg-[#4E4F50]/70 dark:hover:bg-[#4E4F50] rounded-full px-4 py-[9px] w-[90%] flex justify-start dark:text-[#b0b3b8] font-medium transition-20 h-10 cursor-pointer text-[#65676b] bg-[#E4E6E9]/60 hover:bg-[#E4E6E9] ">
-                    <div class="mr-2 overflow-hidden  text-overflow-ellipsis">What's on your mind, {{ user.firstname }}?</div>
+                    <div class="mr-2 overflow-hidden  text-overflow-ellipsis">What's on your mind, {{ user.first_name }}?</div>
                   </div>
                 </div>
                 <div class=" mt-3 flex items-center justify-between gap-x-2 border-t dark:border-t-[#3a3a3a] border-t-[#bbb9b9] py-1 text-[15px]  ">

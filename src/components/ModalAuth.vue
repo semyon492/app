@@ -54,7 +54,7 @@
               <span>{{ $t('auth.first_name') }}</span>
               <input
                   class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 border-green-600 dark:bg-gray-700 focus:border-green-400 dark:focus:border-green-400 focus:shadow-outline-green dark:focus:shadow-outline-green mt-1"
-                  type="text" placeholder="Jane" v-model="form_add_user.firstname" required>
+                  type="text" placeholder="Jane" v-model="form_add_user.first_name" required>
             </label>
           </div>
           <div class="mt-4">
@@ -62,7 +62,7 @@
               <span>{{ $t('auth.last_name') }}</span>
               <input
                   class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 border-green-600 dark:bg-gray-700 focus:border-green-400 dark:focus:border-green-400 focus:shadow-outline-green dark:focus:shadow-outline-green mt-1"
-                  type="text" placeholder="Doe" v-model="form_add_user.lastname" required>
+                  type="text" placeholder="Doe" v-model="form_add_user.last_name" required>
             </label>
           </div>
           <div class="mt-4">
@@ -168,8 +168,8 @@ export default {
         password: ''
       },
       form_add_user: {
-        firstname: '',
-        lastname: '',
+        first_name: '',
+        last_name: '',
         birthday: '',
         sex1: '',
         sex2: '',

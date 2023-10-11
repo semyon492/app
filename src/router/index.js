@@ -12,8 +12,8 @@ import SettingsDeleteAcc from '@/views/public/SettingsDeleteAcc.vue'
 
 import Profile from '@/views/public/Profile.vue'
 import EditProfile from '@/views/public/EditProfile.vue'
-
 import Friends from '@/views/public/Friends.vue'
+import Search from '@/views/public/Search.vue'
 import Albums from '@/views/public/Albums.vue'
 import Chat from '@/views/public/Chat.vue'
 import Login from '@/views/public/Login.vue'
@@ -51,6 +51,14 @@ const routes = [
             {path: '/friends/:id(\\d+)', name: 'friends', component: Friends, props: true},
             {path: '/albums/:id(\\d+)', name: 'albums', component: Albums, props: true},
             {path: '/chat', name: 'chat', component: Chat, props: true},
+
+            // {path: '/search/:id(\\d+)/:page(\\d+)/:query', name: 'search', component: Search, props: true},
+            // {path: '/search/:id(\\d+)/:query', name: 'search', component: Search, props: true},
+            // {path: '/search/:page(\\d+)/:query', name: 'search', component: Search, props: true},
+            {path: '/search/:query', name: 'search_query', component: Search, props: true},
+            // {path: '/search/:name', name: 'search', component: Search, props: true},
+
+            {path: '/search/', name: 'search', component: Search, props: true},
 
             {path: '/login', name: 'login', component: Login, props: true},
             {path: '/register', name: 'register', component: Register, props: true},

@@ -56,8 +56,8 @@ export default {
       })
       .then(res => {
         if (res.data.status !== 20) {
-          this.user.firstname = res.data.data.firstname;
-          this.user.lastname = res.data.data.lastname;
+          this.user.first_name = res.data.data.first_name;
+          this.user.last_name = res.data.data.last_name;
           this.user.id = res.data.data.user_id;
           if (res.data.roles === 'ROLE_ADMIN') {
             this.user.is_admin = true;
@@ -137,6 +137,20 @@ export default {
   </div>
   <div :class="show ? showOnList : showOffList">
     <slot name="menu">
+      <router-link
+        class="block lg:flex items-center relative cursor-pointer text-blue-600 dark:text-white dark:hover:text-slate-400 hover:text-black py-2 px-3 lg:w-16 lg:justify-center"
+        to="/search/">
+        <div class="flex items-center">
+          <span class="inline-flex justify-center items-center w-6 h-6 transition-colors">
+            <svg class="inline-block"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  
+              <path stroke="none" d="M0 0h24v24H0z"/>  
+              <circle cx="10" cy="10" r="7" />  
+              <line x1="21" y1="21" x2="15" y2="15" />
+            </svg>            
+          </span>
+          <span class="px-2 transition-colors lg:hidden">{{ $t('header.logout') }}</span>
+        </div>
+      </router-link>
       <div v-if="user.is_connected"
            class="block lg:flex items-center relative cursor-pointer text-blue-600 dark:text-white dark:hover:text-slate-400 hover:text-black lg:py-2 lg:px-3">
         <div class="flex items-center bg-gray-100 dark:bg-slate-800 lg:bg-transparent lg:dark:bg-transparent p-3 lg:p-0"
@@ -144,9 +158,9 @@ export default {
           <div class="w-6 h-6 mr-3 inline-flex">
             <img
               :src="user.photo_50"
-              :alt="user.firstname" class="rounded-full block h-auto w-full max-w-full bg-gray-100 dark:bg-slate-800">
+              :alt="user.first_name" class="rounded-full block h-auto w-full max-w-full bg-gray-100 dark:bg-slate-800">
           </div>
-          <span class="px-2 transition-colors">{{ user.firstname }}</span>
+          <span class="px-2 transition-colors">{{ user.first_name }}</span>
           <span class="inline-flex justify-center items-center w-6 h-6 hidden lg:inline-flex transition-colors">
             <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
               <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>

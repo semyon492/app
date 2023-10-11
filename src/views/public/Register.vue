@@ -19,7 +19,7 @@
                 <span>{{ $t('auth.first_name') }}</span>
                 <input
                     class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 border-green-600 dark:bg-gray-700 focus:border-green-400 dark:focus:border-green-400 focus:shadow-outline-green dark:focus:shadow-outline-green mt-1"
-                    type="text" placeholder="Jane" v-model="user.firstname" required>
+                    type="text" placeholder="Jane" v-model="user.first_name" required>
               </label>
             </div>
 
@@ -28,7 +28,7 @@
                 <span>{{ $t('auth.last_name') }}</span>
                 <input
                     class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 border-green-600 dark:bg-gray-700 focus:border-green-400 dark:focus:border-green-400 focus:shadow-outline-green dark:focus:shadow-outline-green mt-1"
-                    type="text" placeholder="Doe" v-model="user.lastname" required>
+                    type="text" placeholder="Doe" v-model="user.last_name" required>
               </label>
             </div>
 
@@ -125,8 +125,8 @@ export default {
     return {
       name: import.meta.env.VITE_APP_NAME,
       user: {
-        firstname: '',
-        lastname: '',
+        first_name: '',
+        last_name: '',
         birthday: '',
         sex1: '',
         sex2: '',
@@ -147,7 +147,7 @@ export default {
           }
           if (res.data.status == 5) {
             this.form_alert = true;
-            this.err_info = this.t('auth.the_mail_was_entered_incorrectly');
+            this.err_info = this.t('auth.the_password_was_entered_incorrectly');
           }
           if (res.data.status == 20) {
             this.form_alert = true;

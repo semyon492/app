@@ -13,7 +13,7 @@
             <div>
               <div class="flex justify-center">
                 <div class="text-[32px] font-bold md:flex items-center gap-x-1 ">
-                  <div class="text-center flex items-center justify-center ">{{ user.firstname }} {{ user.lastname }}</div>
+                  <div class="text-center flex items-center justify-center ">{{ user.first_name }} {{ user.last_name }}</div>
                   <div class="ml-1.5 font-normal text-xl md:text-[28px] flex-shrink-0 ">Hello world!</div>
                 </div>
               </div>

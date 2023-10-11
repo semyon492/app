@@ -97,11 +97,12 @@
   "settings.user_not_found": "User not found",
   "settings.not_valid": "Not valid",
   "settings.change_name": "Change name",
-  "settings.lastname": "Lastname",
-  "settings.firstname": "Firstname",
+  "settings.last_name": "Last name",
+  "settings.first_name": "First name",
   "settings.the_name_entered_incorrectly": "The name entered incorrectly",
   "settings.Name": "Name",
   "settings.Avatar": "Avatar",
   "settings.submit": "Submit",
-  "settings.file": "File"
+  "settings.file": "File",
+  "auth.the_password_was_entered_incorrectly": "The password was entered incorrectly"
 }

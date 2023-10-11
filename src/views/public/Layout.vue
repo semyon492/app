@@ -26,8 +26,8 @@ export default {
     return {
       user: {
         id: 0,
-        firstname: '',
-        lastname: '',
+        first_name: '',
+        last_name: '',
         photo: '',
         is_connected: false,
         is_admin: false,
@@ -59,8 +59,8 @@ export default {
         })
         .then(res => {
           if (res.data.status !== 20) {
-            this.user.firstname = res.data.data.firstname;
-            this.user.lastname = res.data.data.lastname;
+            this.user.first_name = res.data.data.first_name;
+            this.user.last_name = res.data.data.last_name;
             this.user.id = res.data.data.user_id;
             this.user.photo_50 = res.data.data.photo_50;
             if (res.data.roles == 'ROLE_ADMIN') {
@@ -84,8 +84,8 @@ export default {
       this.user.is_connected = false;
       this.user.is_admin = false;
       this.access_token = null;
-      // this.user.firstname = null;
-      // this.user.lastname = null;
+      // this.user.first_name = null;
+      // this.user.last_name = null;
     }
   },
 }

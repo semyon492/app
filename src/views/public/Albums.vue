@@ -45,7 +45,7 @@
           <div class="text-2xl font-extrabold dark:text-[#e4e6eb] ">Фото </div>
           <div class="md:grid grid-cols-2 my-4 gap-1 " v-for="(item, index) in albums">
             <div class="col-span-1 flex items-center gap-x-3 px-4 py-5 ">
-              <img :rc="item.cover" :alt="item.name" 
+              <img :src="item.cover" :alt="item.name" 
               class="w-10 sm:w-16 md:w-20 h-10 sm:h-16 md:h-20 rounded-md object-cover cursor-pointer ">
               <div class="">
                 <div class="text-[14px] sm:text-[17px]  font-semibold cursor-pointer ">{{ item.name }}</div>

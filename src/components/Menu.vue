@@ -54,8 +54,8 @@ export default {
         access_token: localStorage.getItem('token')
       })
       .then(res => {
-        this.user.firstname = res.data.data.firstname;
-        this.user.lastname = res.data.data.lastname;
+        this.user.first_name = res.data.data.first_name;
+        this.user.last_name = res.data.data.last_name;
         this.user.id = res.data.data.user_id;
       })
     }

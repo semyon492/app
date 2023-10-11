@@ -89,5 +89,6 @@
   "settings.profile_settings": "Настройки профиля",
   "settings.required_new_password": "Необходимый. \nНовый пароль",
   "settings.required_new_password_one_more_time": "Необходимый. \nНовый пароль еще раз",
-  "settings.required_your_current_password": "Необходимый. \nваш текущий пароль"
+  "settings.required_your_current_password": "Необходимый. \nваш текущий пароль",
+  "auth.the_password_was_entered_incorrectly": "Пароль был введен неверно"
 }
