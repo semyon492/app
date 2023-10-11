@@ -77,7 +77,7 @@
               <span>{{ $t('auth.password_confirm') }}</span>
               <input
                   class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
-                  type="password" placeholder="***************" v-model="user.repassword" required>
+                  type="password" placeholder="***************" v-model="user.re_password" required>
             </label>
             <label class="block text-sm text-gray-700 dark:text-gray-400 inline-flex items-center mt-6">
               <input
@@ -132,7 +132,7 @@ export default {
         sex2: '',
         email: '',
         password: '',
-        repassword: ''
+        re_password: ''
       },
       form_alert: false
     }
