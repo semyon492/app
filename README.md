@@ -16,6 +16,12 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 npm install
 ```
 
+### Copy config
+
+```bash
+$ cp .env .env.local
+```
+
 ### Compile and Hot-Reload for Development
 
 ```sh
