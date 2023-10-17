@@ -6,7 +6,6 @@
   <main v-if="(user.is_connected)">
     <div class="min-h-screen w-[98.5vw] overflow-x-hidden pb-7 ">
       <div class="pt-[50px] md:pt-[75px] md:px-[15%] w-full dark:bg-[#242426] bg-white overflow-x-hidden ">
-        <img src="https://res.cloudinary.com/dcwekkkez/image/upload/v1656421547/bavmjvxcucadotx45jtk.jpg" alt="bg" class="w-full h-[30vh] sm:h-[40vh] md:h-[54vh] object-cover rounded-b-lg ">
         <div class="flex flex-col sm:flex-row mx-10 sm:items-start gap-x-4 border-b-[1px] dark:border-b-white/10 border-b-black/10 items-center ">
           <img :src="profile.photo_100" alt="avatar" class="w-[170px] h-[170px] rounded-full object-cover translate-y-[-32px] shrink-0  dark:border-white border-4 border-black/50 ">
           <div class="flex flex-col sm:flex-row w-full justify-between items-center sm:items-end pt-4 translate-y-[-32px] sm:translate-y-[0] ">
@@ -14,17 +13,16 @@
               <div class="flex justify-center">
                 <div class="text-[32px] font-bold md:flex items-center gap-x-1 ">
                   <div class="text-center flex items-center justify-center ">{{ profile.first_name }} {{ profile.last_name }}</div>
-                  <div class="ml-1.5 font-normal text-xl md:text-[28px] flex-shrink-0 ">Hello world!</div>
                 </div>
               </div>
               <div class="dark:text-[#b0b3b8] font-semibold text-[17px] flex gap-x-1.5 items-center text-[#65676b] justify-center sm:justify-start">
-                <span class="cursor-pointer flex-shrink-0 ">2 friends</span>
+                <span class="cursor-pointer flex-shrink-0 ">{{ $t('profile.followers') }}: 2</span>
               </div>
             </div>
-            <div class="flex mt-4 sm:mt-0 flex-shrink-0 ">
+            <div class="flex mt-4 sm:mt-0 flex-shrink-0 " v-if="profile.owner">
               <router-link to="/edit" class="flex gap-x-1 items-center font-semibold px-3 py-2 bg-[#D8DADF]/50 hover:bg-[#D8DADF] dark:bg-[#4E4F50]/50 dark:hover:bg-[#4E4F50] transition-20 rounded-md ">
                 <Icon type="edit"/>
-                Edit profile
+                {{ $t('profile.edit_profile') }}
               </router-link>
             </div>
           </div>
@@ -32,10 +30,10 @@
         <div class="flex mx-0 sm:mx-10 ">
           <ul class="flex items-center justify-between w-full px-16 py-1 gap-x-10 ">
             <li class="li-profile active ">
-              <router-link :to="'/id' + id" class="text-black dark:text-white p-1">Posts</router-link>
+              <router-link :to="'/id' + id" class="text-black dark:text-white p-1">{{ $t('profile.posts') }}</router-link>
             </li>
             <li class="li-profile false ">
-              <router-link :to="'/friends/' + id" class="text-black dark:text-white p-1">Friends</router-link>
+              <router-link :to="'/friends/' + id" class="text-black dark:text-white p-1">{{ $t('profile.friends') }}</router-link>
             </li>
           </ul>
         </div>
@@ -44,10 +42,10 @@
         <div class="w-full sm:grid grid-cols-5 gap-x-4 ">
           <div class="col-span-2">
             <div class="mb-4 ">
-              <div class="bg-white dark:bg-[#242526] p-4 rounded-lg shadow-post ">
-                <div class="text-2xl font-extrabold dark:text-[#e4e6eb] ">Intro</div>
+              <div v-if="edit == false" class="bg-white dark:bg-[#242526] p-4 rounded-lg shadow-post ">
+                <div class="text-2xl font-extrabold dark:text-[#e4e6eb] ">{{ $t('profile.intro') }}</div>
                 <div class="text-center mt-4 px-[20%] text-[15px] flex items-center justify-center gap-x-1 false ">
-                  This user is very nice but don't leave any trace! 
+                  {{ profile.bio }}
                   <div class="hidden">
                     <div style="fill: rgb(106, 117, 131); height: 25px; width: 25px;">
                       <svg viewBox="0 0 32 32">
@@ -64,15 +62,25 @@
                     </div>
                   </div>
                 </div>
-                <button class="mt-3 py-2 w-full bg-[#afb1b5]/30 hover:bg-[#afb1b5]/50 dark:bg-[#4E4F50]/50 dark:hover:bg-[#4E4F50] transition-20 rounded-md font-semibold ">Edit bio</button>
+                <button v-if="profile.owner" @click="edit = true" class="mt-3 py-2 w-full bg-[#afb1b5]/30 hover:bg-[#afb1b5]/50 dark:bg-[#4E4F50]/50 dark:hover:bg-[#4E4F50] transition-20 rounded-md font-semibold ">{{ $t('profile.edit_bio') }}</button>
+              </div>
+              <div v-if="edit == true" class="bg-white dark:bg-[#242526] p-4 rounded-lg shadow-post ">
+                <div class="text-2xl font-extrabold dark:text-[#e4e6eb] ">{{ $t('profile.intro') }}</div>
+                <form class="flex items-center flex-col " @submit.prevent="bio">
+                  <input type="text" class="bg-inherit border-[1px] rounded-full px-4 py-2 w-[70%] my-3 " :placeholder="profile.bio" v-model="form_edit_bio.bio">
+                  <div class="flex gap-x-1.5 ">
+                    <button class="bg-[#4E4F50]/20 dark:bg-[#4E4F50]/50 hover:text-white rounded-lg hover:bg-[#4E4F50] transition-50 w-[80px] py-1 " type="submit">{{ $t('profile.save') }}</button>
+                    <button class=" w-[80px] bg-red-300 hover:text-white dark:bg-red-800 rounded-lg hover:bg-red-600 transition-50 " @click="edit = false" type="reset">{{ $t('profile.cancel') }}</button>
+                  </div>
+                </form>
               </div>
               <div class="mt-4">
                 <div class="bg-white dark:bg-[#242526] p-4 rounded-lg shadow-post">
                   <div class="flex justify-start items-center">
-                    <router-link :to="'/albums/' + id" class="text-2xl font-extrabold dark:text-[#e4e6eb] ">Photo</router-link>
+                    <router-link :to="'/albums/' + id" class="text-2xl font-extrabold dark:text-[#e4e6eb] ">{{ $t('profile.photo') }}</router-link>
                   </div>
                   <div class="grid grid-cols-3 grid-rows-0 rounded-lg gap-1 mt-3 ">
-                    <div class="text-center my-3 col-span-3 ">No image found!</div>
+                    <div class="text-center my-3 col-span-3 ">{{ $t('profile.no_image_found') }}</div>
                   </div>
                 </div>
               </div>
@@ -80,26 +88,9 @@
           </div>
           <div class="col-span-3 ">
             <div>
-              <div class="dark:bg-[#242526] bg-white mb-5 pt-3 rounded-lg px-2 md:px-4 shadow-post ">
-            <div class="flex items-center gap-x-2 ">
-              <img :src="profile.photo_50" alt="userImage" class="object-cover w-10 h-10 rounded-full shrink-0 ">
-              <div class=" dark:bg-[#4E4F50]/70 dark:hover:bg-[#4E4F50] rounded-full px-4 py-[9px] w-[90%] flex justify-start dark:text-[#b0b3b8] font-medium transition-20 h-10 cursor-pointer text-[#65676b] bg-[#E4E6E9]/60 hover:bg-[#E4E6E9]  ">
-                <div class="mr-2 overflow-hidden  text-overflow-ellipsis">What's on your mind, {{ user.first_name }}?</div>
-              </div>
-            </div>
-            <div class=" mt-3 flex items-center justify-between gap-x-2 border-t dark:border-t-[#3a3a3a] border-t-[#bbb9b9] py-1 text-[15px]  ">
-              <button class="flex items-center justify-center w-full gap-x-2 dark:text-[#b0b3b8] text-[#65676b] hover:bg-[#F2F2F2] font-semibold py-2 transition-20 dark:hover:bg-[#4E4F50] rounded-lg ">
-                <Icon type="video" />
-                  Video
-              </button>
-              <button class="flex items-center justify-center w-full gap-x-2 dark:text-[#b0b3b8] text-[#65676b] hover:bg-[#F2F2F2] font-semibold py-2 transition-20 dark:hover:bg-[#4E4F50] rounded-lg">
-                <Icon type="photo" />
-                  Photo
-              </button>
-            </div>
-              </div>
+              <ModalWall modal_name="modal_name" type="login" :user="user"/>
               <div class="mb-4"></div>
-              <div class="text-center w-full text-4xl dark:bg-[#242526] py-5 rounded-lg ">No post found</div>
+              <div class="text-center w-full text-4xl dark:bg-[#242526] py-5 rounded-lg ">{{ $t('profile.no_post_found') }}</div>
             </div>
           </div>
         </div>
@@ -113,21 +104,28 @@ import Main from '@/components/Main.vue'
 import Icon from '@/ui/Icon.vue'
 import Axios from "axios";
 
+import ModalWall from '@/components/ModalWall.vue'
+
 export default {
   name: 'ProfilePage',
   components: {
     Main,
     Icon,
+    ModalWall,
   },
   props: ['user','id'],
   data() {
     return {
       profile: {
-        first_name:'',
-        last_name:'',
-        photo:'',
+        first_name: '',
+        last_name: '',
+        owner: false,
       },
-      user_data: this.user
+      user_data: this.user,
+      edit: false,
+      form_edit_bio: {
+        bio: ''
+      },      
     }
   },
   async mounted() {
@@ -158,9 +156,25 @@ export default {
           this.profile.photo = res.data.data.photo;        
           this.profile.photo_50 = res.data.data.photo_50;
           this.profile.photo_100 = res.data.data.photo_100;
+          this.profile.owner = res.data.data.owner;
+          this.profile.bio = res.data.data.bio;
         } else {
         }
       })
+    },
+    async bio(){
+      Axios.post(import.meta.env.VITE_DOMAIN_API + "account/change_bio", {
+        access_token: localStorage.getItem('token'),
+        bio: this.form_edit_bio.bio
+      })
+      .then(res => {
+        if (res.data.status == 1) {
+          this.profile.bio = this.form_edit_bio.bio;
+          this.edit = false;
+        }else{
+          this.edit = false;
+        }
+      })      
     }
   },
 }

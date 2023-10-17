@@ -104,5 +104,18 @@
   "settings.Avatar": "Avatar",
   "settings.submit": "Submit",
   "settings.file": "File",
-  "auth.the_password_was_entered_incorrectly": "The password was entered incorrectly"
+  "auth.the_password_was_entered_incorrectly": "The password was entered incorrectly",
+  "profile.intro": "Intro",
+  "profile.photo": "Photo",
+  "profile.no_post_found": "No post found!",
+  "profile.no_image_found": "No image found!",
+  "profile.edit_bio": "Edit bio",
+  "profile.cancel": "Cancel",
+  "profile.save": "Save",
+  "profile.posts": "Posts",
+  "profile.friends": "Friends",
+  "profile.video": "Video",
+  "profile.followers": "followers",
+  "profile.edit_profile": "Edit profile",
+  "wall.create_post": "Create post"
 }
