@@ -15,54 +15,116 @@
               <label class="block text-sm text-gray-700 dark:text-gray-400 flex justify-evenly" >
                 <span>Кто видит основную информацию моей страницы</span>
                 <select class="text-sm dark:text-gray-300 focus:outline-none focus:border-purple-400 dark:border-gray-600 dark:bg-gray-700 focus:shadow-outline-purple dark:focus:shadow-outline-gray dark:focus:border-gray-600 form-select leading-5 ">
-                  <option>public</option>
-                  <option>friends</option>
+                  <option>Доступно всем</option>
+                  <option>Друзья</option>
                 </select>
               </label>
-            </div> 
-            Как показывать 
-            мою дату рождения
-
-            Кто видит мои
- фотографии
-
-Кто видит
-список моих групп
-
+            </div>
+            <div class="mt-4">
+              <label class="block text-sm text-gray-700 dark:text-gray-400 flex justify-evenly" >
+                <span>Как показывать мою дату рождения</span>
+                <select class="text-sm dark:text-gray-300 focus:outline-none focus:border-purple-400 dark:border-gray-600 dark:bg-gray-700 focus:shadow-outline-purple dark:focus:shadow-outline-gray dark:focus:border-gray-600 form-select leading-5 ">
+                  <option>Доступно всем</option>
+                  <option>Друзья</option>
+                </select>
+              </label>
+            </div>
+            <div class="mt-4">
+              <label class="block text-sm text-gray-700 dark:text-gray-400 flex justify-evenly" >
+                <span>Кто видит мои фотографии</span>
+                <select class="text-sm dark:text-gray-300 focus:outline-none focus:border-purple-400 dark:border-gray-600 dark:bg-gray-700 focus:shadow-outline-purple dark:focus:shadow-outline-gray dark:focus:border-gray-600 form-select leading-5 ">
+                  <option>Доступно всем</option>
+                  <option>Друзья</option>
+                </select>
+              </label>
+            </div>           
+            <div class="mt-4">
+              <label class="block text-sm text-gray-700 dark:text-gray-400 flex justify-evenly" >
+                <span>Кто видит список моих групп</span>
+                <select class="text-sm dark:text-gray-300 focus:outline-none focus:border-purple-400 dark:border-gray-600 dark:bg-gray-700 focus:shadow-outline-purple dark:focus:shadow-outline-gray dark:focus:border-gray-600 form-select leading-5 ">
+                  <option>Доступно всем</option>
+                  <option>Друзья</option>
+                </select>
+              </label>
+            </div>
 
 <h5 class="text-2xl">Записи на странице</h5>
-Кто видит чужие записи
-на моей странице
-
-Кто может оставлять записи
-на моей странице
-
-Кто видит
-комментарии к записям
-
-Кто может
-комментировать мои записи
+            <div class="mt-4">
+              <label class="block text-sm text-gray-700 dark:text-gray-400 flex justify-evenly" >
+                <span>Кто видит чужие записи на моей странице</span>
+                <select class="text-sm dark:text-gray-300 focus:outline-none focus:border-purple-400 dark:border-gray-600 dark:bg-gray-700 focus:shadow-outline-purple dark:focus:shadow-outline-gray dark:focus:border-gray-600 form-select leading-5 ">
+                  <option>Доступно всем</option>
+                  <option>Друзья</option>
+                </select>
+              </label>
+            </div>
+            <div class="mt-4">
+              <label class="block text-sm text-gray-700 dark:text-gray-400 flex justify-evenly" >
+                <span>Кто может оставлять записи на моей странице</span>
+                <select class="text-sm dark:text-gray-300 focus:outline-none focus:border-purple-400 dark:border-gray-600 dark:bg-gray-700 focus:shadow-outline-purple dark:focus:shadow-outline-gray dark:focus:border-gray-600 form-select leading-5 ">
+                  <option>Доступно всем</option>
+                  <option>Друзья</option>
+                </select>
+              </label>
+            </div>
+            <div class="mt-4">
+              <label class="block text-sm text-gray-700 dark:text-gray-400 flex justify-evenly" >
+                <span>Кто видит комментарии к записям</span>
+                <select class="text-sm dark:text-gray-300 focus:outline-none focus:border-purple-400 dark:border-gray-600 dark:bg-gray-700 focus:shadow-outline-purple dark:focus:shadow-outline-gray dark:focus:border-gray-600 form-select leading-5 ">
+                  <option>Доступно всем</option>
+                  <option>Друзья</option>
+                </select>
+              </label>
+            </div>
+            <div class="mt-4">
+              <label class="block text-sm text-gray-700 dark:text-gray-400 flex justify-evenly" >
+                <span>Кто может комментировать мои записи</span>
+                <select class="text-sm dark:text-gray-300 focus:outline-none focus:border-purple-400 dark:border-gray-600 dark:bg-gray-700 focus:shadow-outline-purple dark:focus:shadow-outline-gray dark:focus:border-gray-600 form-select leading-5 ">
+                  <option>Доступно всем</option>
+                  <option>Друзья</option>
+                </select>
+              </label>
+            </div>
 <h5 class="text-2xl">Связь со мной</h5>
-
-
-Кто может
-писать мне личные сообщения
-
-Кто может
-приглашать меня в сообщества
-
-Кто может отправлять мне приглашение в чат
+            <div class="mt-4">
+              <label class="block text-sm text-gray-700 dark:text-gray-400 flex justify-evenly" >
+                <span>Кто может писать мне личные сообщения</span>
+                <select class="text-sm dark:text-gray-300 focus:outline-none focus:border-purple-400 dark:border-gray-600 dark:bg-gray-700 focus:shadow-outline-purple dark:focus:shadow-outline-gray dark:focus:border-gray-600 form-select leading-5 ">
+                  <option>Доступно всем</option>
+                  <option>Друзья</option>
+                </select>
+              </label>
+            </div>
+            <div class="mt-4">
+              <label class="block text-sm text-gray-700 dark:text-gray-400 flex justify-evenly" >
+                <span>Кто может приглашать меня в сообщества</span>
+                <select class="text-sm dark:text-gray-300 focus:outline-none focus:border-purple-400 dark:border-gray-600 dark:bg-gray-700 focus:shadow-outline-purple dark:focus:shadow-outline-gray dark:focus:border-gray-600 form-select leading-5 ">
+                  <option>Доступно всем</option>
+                  <option>Друзья</option>
+                </select>
+              </label>
+            </div>
+            <div class="mt-4">
+              <label class="block text-sm text-gray-700 dark:text-gray-400 flex justify-evenly" >
+                <span>Кто может отправлять мне приглашение в чат</span>
+                <select class="text-sm dark:text-gray-300 focus:outline-none focus:border-purple-400 dark:border-gray-600 dark:bg-gray-700 focus:shadow-outline-purple dark:focus:shadow-outline-gray dark:focus:border-gray-600 form-select leading-5 ">
+                  <option>Доступно всем</option>
+                  <option>Друзья</option>
+                </select>
+              </label>
+            </div>
 
 <h5 class="text-2xl">Прочее</h5>
-
-Кому в интернете
-видна моя страница
-
-
-
+<div class="mt-4">
+              <label class="block text-sm text-gray-700 dark:text-gray-400 flex justify-evenly" >
+                <span>Кому в интернете видна моя страница</span>
+                <select class="text-sm dark:text-gray-300 focus:outline-none focus:border-purple-400 dark:border-gray-600 dark:bg-gray-700 focus:shadow-outline-purple dark:focus:shadow-outline-gray dark:focus:border-gray-600 form-select leading-5 ">
+                  <option>Доступно всем</option>
+                  <option>Друзья</option>
+                </select>
+              </label>
+            </div>
           </form>
-
-
         </div>
       </div>      
     </SettingsCard>
@@ -76,6 +138,7 @@ import Main from '@/components/Main.vue'
 
 import Button from '@/ui/button/Button.vue'
 import Modal from '@/ui/modal/Modal.vue'
+import Icon from '@/ui/Icon.vue'
 
 export default {
   name: 'Home',
@@ -84,7 +147,8 @@ export default {
     SettingsCard,
     Main,
     Button,
-    Modal
+    Modal,
+    Icon
   },
   props: ['user'],
   data() {
