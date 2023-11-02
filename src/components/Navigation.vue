@@ -37,8 +37,6 @@
 </template>
 
 <script>
-import {ref} from "vue";
-
 import NavBarMenu from "../ui/NavBarMenu.vue";
 
 export default {
@@ -50,17 +48,7 @@ export default {
   data() {
     return {
       name: import.meta.env.VITE_APP_NAME,
-      isMenuNavBarActive: ref(false),
     }
   },
-  async mounted() {
-  },
-  methods: {
-    logout() {
-      localStorage.removeItem('token')
-      this.user.is_connected = false;
-      this.user.is_admin = false;
-    }
-  }
 }
 </script>

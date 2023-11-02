@@ -30,7 +30,7 @@
                 <div class="w-full h-full items-start flex">
                   <div class="Ko-nghi-ra-ten flex items-center ">
                     <div class="MuiAvatar-root MuiAvatar-circular w-10 h-10 bg-white border-[1px] border-[#8eabb4]  css-3i9vrz">
-                      <img alt="avatar" src="http://res.cloudinary.com/dcwekkkez/image/upload/v1650713458/uzfbahyxne9d93jozqgc.jpg" class="MuiAvatar-img css-1hy9t21">
+                      <img alt="avatar" :src="demo_ava" class="MuiAvatar-img css-1hy9t21">
                     </div>
                     <div class="pl-3 w-full pr-[20%] hidden md:flex flex-col ">
                       <strong class="hidden md:flex flex-grow  ">Flower</strong>
@@ -45,7 +45,7 @@
                 <div class="w-full h-full items-start flex">
                   <div class="Ko-nghi-ra-ten flex items-center ">
                     <div class="MuiAvatar-root MuiAvatar-circular w-10 h-10 bg-white border-[1px] border-[#8eabb4]  css-3i9vrz">
-                      <img alt="avatar" src="http://res.cloudinary.com/dcwekkkez/image/upload/v1656135268/oaf2aq4uxyat9d66ih3r.jpg" class="MuiAvatar-img css-1hy9t21">
+                      <img alt="avatar" :src="demo_ava" class="MuiAvatar-img css-1hy9t21">
                     </div>
                     <div class="pl-3 w-full pr-[20%] hidden md:flex flex-col ">
                       <strong class="hidden md:flex flex-grow  ">Admin</strong>
@@ -64,7 +64,7 @@
             <div class="relative">
               <div class="h-10">
                 <div class="MuiAvatar-root MuiAvatar-circular w-10 h-10 mr-1 border rounded-full cursor-pointer dark:border-white  css-3i9vrz">
-                  <img alt="avatar" src="http://res.cloudinary.com/dcwekkkez/image/upload/v1650713458/uzfbahyxne9d93jozqgc.jpg" class="MuiAvatar-img css-1hy9t21">
+                  <img alt="avatar" :src="demo_ava" class="MuiAvatar-img css-1hy9t21">
                 </div>
               </div>
             </div>
@@ -132,7 +132,9 @@ export default {
   },
   props: ['user'],
   data() {
-    return {}
+    return {
+      demo_ava: 'https://api.rapigram.ru/images/no_ava.gif',
+    }
   },
   async mounted() {
   },

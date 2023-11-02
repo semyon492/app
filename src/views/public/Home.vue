@@ -6,72 +6,16 @@
     <div class="">
         <div class="grid grid-cols-11 md:gap-x-12 px-3 sm:px-7 md:px-10 relative ">
           <div class="col-span-11 md:col-span-3 relative order-1 ">
-            <Menu :user="user"/>
+            <MainMenu />
           </div>
           <div class="col-span-11 md:col-span-5 shrink-0 order-3 md:order-2 ">
-            <div class="">
-              <div class="dark:bg-[#242526] bg-white mb-5 pt-3 rounded-lg px-2 md:px-4 shadow-post ">
-                <div class="flex items-center gap-x-2 ">
-                  <img :src="user.photo_50" alt="userImage" class="object-cover w-10 h-10 rounded-full shrink-0 ">
-                  <div class=" dark:bg-[#4E4F50]/70 dark:hover:bg-[#4E4F50] rounded-full px-4 py-[9px] w-[90%] flex justify-start dark:text-[#b0b3b8] font-medium transition-20 h-10 cursor-pointer text-[#65676b] bg-[#E4E6E9]/60 hover:bg-[#E4E6E9] ">
-                    <div class="mr-2 overflow-hidden  text-overflow-ellipsis">What's on your mind, {{ user.first_name }}?</div>
-                  </div>
-                </div>
+            <div>
+              <ModalWall modal_name="modal_wall" :user="user" :profile_id="user.id"/>
+              <div class="w-full text-center text-xl font-semibold pt-[20vh] flex-col " v-if="wall_num == 0">
+                <div>{{ $t('profile.no_post_found') }}</div>
               </div>
-              <div class="w-full text-center text-xl font-semibold pt-[20vh] flex-col ">
-                <div>You don't post anything and don't follow anyone.<br>Let's do something! :3</div>
-              </div>
-              <div class="posts">
-                <div class="dark:bg-[#242526] bg-white mb-5 pt-3 pb-2.5 md:pb-3 rounded-lg shadow-post ">
-                  <div class="flex items-center pl-2 pr-3 sm:px-3 md:px-4">
-                    <img :src="demo_ava" alt="avatar" class="w-10 h-10 rounded-full object-cover cursor-pointer ">
-                    <div class="ml-2 font-bold ">
-                      <div class="flex items-center gap-x-1 cursor-pointer ">
-                        Admin
-                        <Icon type="verify" />
-                      </div>
-                      <div class="font-[400] text-[13px] dark:text-[#B0B3B8] flex items-center gap-x-1 ">2 months ago</div>
-                    </div>
-                  </div>
-                  <div class="content mt-[11px] px-4  text-[17px]">
-                    So, it's more than 1 year ~~
-                    Thanks all of u for dropping by my page.
-                    Hope you allways get better in ur career.
-                  </div>
-                  <div class="mt-3 flex items-center justify-center px-2 cursor-pointer ">
-                    <img src="http://res.cloudinary.com/dcwekkkez/image/upload/v1692024811/ugkuaw576ecshvd0v8ie.jpg" alt="img_content" class="w-full h-auto max-h-[300px] sm:max-h-[350px] object-contain bg-[#F0F2F5] dark:bg-[#18191A]">
-                  </div>
-                  <div class="px-4 py-[10px] flex gap-x-[6px] items-center text-[15px] ">
-                    <Icon type="like" class="text-[18px] text-[#65676b] dark:text-[#afb0b1]"/>
-                    <span class="like-count">2 likes</span>
-                    <span class="text-[14px] ml-auto text-[#65676b] dark:text-[#afb0b1] ">2 comments</span>
-                  </div>
-                  <div class="mx-[12px] mt-2 py-1 flex items-center justify-between border-y dark:border-y-[#3E4042] border-y-[#CED0D4] px-[6px]  ">
-                    <button class=" py-[6px] px-2 flex items-center justify-center gap-x-1 w-full rounded-sm hover:bg-[#e0e0e0] text-[#6A7583] dark:hover:bg-[#3A3B3C] font-semibold text-[15px] dark:text-[#b0b3b8] transition-50 cursor-pointer ">
-                      <Icon type="like" class="text-xl translate-y-[1px] "/>
-                      Like
-                    </button>
-                    <button class="py-[6px] px-2 flex items-center justify-center gap-x-1 w-full rounded-sm hover:bg-[#e0e0e0] text-[#6A7583] dark:hover:bg-[#3A3B3C] font-semibold text-[15px] dark:text-[#b0b3b8] transition-50 cursor-pointer ">
-                      <Icon type="comment" />
-                      Comment
-                    </button>
-                  </div>
-                  <div class="flex gap-x-1.5 px-2 sm:px-3 md:px-4 py-1 items-center ">
-                    <img :src="user.photo_50" alt="user_avatar" class="w-8 sm:w-9 h-8 sm:h-9 object-cover shrink-0 rounded-full ">
-                    <form class="flex px-2 rounded-full bg-[#F0F2F5] w-full mt-1 items-center dark:bg-[#3A3B3C]  ">
-                      <input type="text" class="px-2 py-1 sm:py-1.5 border-none focus:ring-0 bg-inherit rounded-full w-full font-medium dark:placeholder:text-[#b0b3b8] " placeholder="Write a comment..." value="">
-                      <label>
-                        <Icon type="file_photo" />
-                        <input type="file" accept="image/*" name="avatar" hidden="">
-                      </label>
-                      <button type="submit" disabled="">
-                        <Icon type="send" />
-                      </button>
-                    </form>
-                  </div>
-                  <div class="transition-50 flex items-start justify-start w-full px-20 group "></div>
-                </div>
-              </div>
+              <div class="mb-4"></div>
+              <Walls :user="user" :walls="walls" @remove="remove"/>
             </div>
           </div>
           <div class="col-span-11 md:col-span-3 relative order-2 md:order-3 ">
@@ -99,40 +43,61 @@
           </div>
         </div>
     </div>
-
-
   </main>
 </template>
 
 <script>
-import SettingsMenu from '@/components/SettingsMenu.vue'
-import Menu from '@/components/Menu.vue'
+import Axios from "axios";
+import MainMenu from '@/components/Menu.vue'
 import Main from '@/components/Main.vue'
 
 import Button from '@/ui/button/Button.vue'
-import Modal from '@/ui/modal/Modal.vue'
 
 import Icon from '@/ui/Icon.vue'
+import ModalWall from '@/components/ModalWall.vue'
+import Walls from '@/components/Walls.vue'
 
 export default {
   name: 'Home',
   components: {
-    SettingsMenu,
-    Menu,
+    MainMenu,
     Main,
     Button,
-    Modal,
-    Icon
+    Icon,
+    ModalWall,
+    Walls
   },
   props: ['user'],
   data() {
     return {
-      demo_ava: 'https://api.rapigram.ru/images/no_ava.gif'
+      demo_ava: 'https://api.rapigram.ru/images/no_ava.gif',
+      wall_num: 0,
+      walls: []
     }
   },
   async mounted() {
+    await this.get_feed()
   },
-  methods: {},
+  methods: {
+    async get_feed(){
+      await Axios.post(import.meta.env.VITE_DOMAIN_API + "feed/all", {
+        access_token: localStorage.getItem('token'),        
+        page: 1,
+      })
+      .then(res => {
+        if (res.data.status == 1) {
+          this.walls = res.data.data.walls;
+          // this.wall_num = res.data.data.wall_num;
+        } else {
+        }
+      })
+    },    
+    remove(index){
+      //update walls
+      // this.walls.splice(this.index);
+      // console.log(index)
+    }
+  },
 }
 </script>
 <style scoped>

@@ -42,23 +42,31 @@
           </div>
         </div>
         <div class="grid-cols-2 my-4 gap-1" v-for="(item, index) in results">
-          <router-link :to="'/id' + item.id" class="col-span-1 flex items-center gap-x-3 px-4 py-5">
-            <img :src="item.photo_50" alt="" class="w-10 sm:w-16 md:w-20 h-10 sm:h-16 md:h-20 rounded-md object-cover cursor-pointer">
+          <div class="col-span-1 flex items-center gap-x-3 px-4 py-5">
+            <router-link :to="'/id' + item.id" >
+              <img :src="item.photo_50" alt="" class="w-10 sm:w-16 md:w-20 h-10 sm:h-16 md:h-20 rounded-md object-cover cursor-pointer" />
+            </router-link>
             <div class="">
-              <div class="text-[14px] sm:text-[17px] font-semibold cursor-pointer">{{ item.first_name }}</div>
-              <div class="text-[12px] sm:text-[14px] dark:text-[#b0b3b8]">Super Idol :v</div>
+              <router-link :to="'/id' + item.id" >
+                <div class="text-[14px] sm:text-[17px] font-semibold cursor-pointer">
+                  {{ item.first_name }} {{ item.last_name }}
+                </div>
+                </router-link>
+              <!-- <div class="text-[12px] sm:text-[14px] dark:text-[#b0b3b8]">Super Idol :v</div> -->
+              <button v-if="item.id != user.id" class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base">Write message</button>
             </div>
-            <button class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base">Unfollow</button>
-          </router-link>
+            <button v-if="item.id != user.id" @click="add_friend(item.id)" class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base">Add friend</button>
+          </div>
         </div>       
       </div>
     </div>
- 
   </div>
 </div>
 </template>
 
 <script>
+import { fetchAllSearch } from "@/api/search"
+import { addFriend } from "@/api/friends"
 import Button from '@/ui/button/Button.vue'
 import Axios from "axios";
 
@@ -83,31 +91,24 @@ export default {
   },  
   async mounted() {
     this.check_query()
-    await Axios.post(import.meta.env.VITE_DOMAIN_API + "search", {
-      access_token: localStorage.getItem('token'),        
-      query: this.query_variable,
-    })
-    .then(res => {
-      if (res.data.status == 1) {
-        this.results = res.data.data.results;
-      } else {
-        // this.user.is_connected = false;
-      }
-    })    
   },
   methods: { 
     change_query(){    
-      Axios.post(import.meta.env.VITE_DOMAIN_API + "search", {
-        access_token: localStorage.getItem('token'),        
+      fetchAllSearch({
         query: this.query_variable,
-      })
-      .then(res => {
-        if (res.data.status == 1) {
-          this.results = res.data.data.results;
+      }).then((res) => {
+        if (res.status == 1) {
+          this.results = res.data.results;
+
+          if (this.query_variable == null) {
+            this.$router.push('/search/')
+          }else{
+            this.$router.push('/search/' + this.query_variable)
+          }
         } else {
           // this.user.is_connected = false;
         }
-      }) 
+      })
       
       if (this.query_variable == null) {
         this.$router.push('/search/')
@@ -119,7 +120,36 @@ export default {
       if (this.query !== null) {
         this.query_variable = this.query
       }
-    }
+      fetchAllSearch({
+        query: this.query_variable,
+      }).then((res) => {
+        if (res.status == 1) {
+        this.results = res.data.results;
+      } else {
+        // this.user.is_connected = false;
+      }
+    })
+    },
+    add_friend(id){
+      addFriend({
+        user: id,
+      }).then((res) => {
+        if (res.status == 1) {
+          // this.results = res.data.results;
+          this.$notify({
+            group: "foo",
+            title: "Уведомление",
+            text: "Заявка отправлена"
+          }, 2000) // 2s
+        } else {
+          this.$notify({
+            group: "foo",
+            title: "Ошибка",
+            text: ""
+          }, 2000) // 2s
+        } 
+      })    
+    },
   },
 }
 </script>

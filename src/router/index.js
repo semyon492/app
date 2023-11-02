@@ -12,7 +12,10 @@ import SettingsDeleteAcc from '@/views/public/SettingsDeleteAcc.vue'
 
 import Profile from '@/views/public/Profile.vue'
 import EditProfile from '@/views/public/EditProfile.vue'
-import Friends from '@/views/public/Friends.vue'
+import Friends from '@/views/public/friends/Friends.vue'
+import FriendsOnline from '@/views/public/friends/FriendsOnline.vue'
+import FriendsRequests from '@/views/public/friends/FriendsRequests.vue'
+
 import Search from '@/views/public/Search.vue'
 import Albums from '@/views/public/Albums.vue'
 import Chat from '@/views/public/Chat.vue'
@@ -49,6 +52,9 @@ const routes = [
             {path: '/id:id(\\d+)', name: 'profile', component: Profile, props: true},
             {path: '/edit', name: 'edit_profile', component: EditProfile, props: true},
             {path: '/friends/:id(\\d+)', name: 'friends', component: Friends, props: true},
+            {path: '/friends/online/:id(\\d+)', name: 'friendsOnline', component: FriendsOnline, props: true},
+            {path: '/friends/requests/:id(\\d+)', name: 'FriendsRequests', component: FriendsRequests, props: true},
+
             {path: '/albums/:id(\\d+)', name: 'albums', component: Albums, props: true},
             {path: '/chat', name: 'chat', component: Chat, props: true},
 

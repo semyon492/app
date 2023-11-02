@@ -6,8 +6,12 @@
     "cSpell.language": "en,ru",
     "cSpell.words": [
         "axios",
+        "getinfo",
         "intlify",
+        "langset",
+        "notiwind",
         "tailwindcss",
+        "typograf",
         "unplugin",
         "vuex"
     ],

@@ -7,11 +7,6 @@ export default {
   components: {
     SettingsMenu,
   },
-  data() {
-    return {}
-  },
-  async mounted() {
-  },
 };
 </script>
 

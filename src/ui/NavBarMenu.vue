@@ -1,102 +1,3 @@
-<script>
-import Axios from "axios"
-
-import ModalAuth from '../components/ModalAuth.vue'
-
-export default {
-  name: 'NavBarMenu',
-  props: ['user'],
-  components: {
-    ModalAuth
-  },
-  data() {
-    return {
-      access_token: null,
-
-      show: false,
-      showOnSvg: 'M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z',
-      showOffSvg: 'M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z',
-      showOnList: 'max-h-screen-menu overflow-y-auto lg:overflow-visible absolute w-screen top-14 left-0 bg-gray-50 shadow-lg lg:w-auto lg:flex lg:static lg:shadow-none dark:bg-slate-800 block',
-      showOffList: 'max-h-screen-menu overflow-y-auto lg:overflow-visible absolute w-screen top-14 left-0 bg-gray-50 shadow-lg lg:w-auto lg:flex lg:static lg:shadow-none dark:bg-slate-800 hidden',
-
-      menu1: false,
-      menu1On: 'text-sm border-b border-gray-100 lg:border lg:bg-white lg:absolute lg:top-full lg:left-0 lg:min-w-full lg:z-20 lg:rounded-lg lg:shadow-lg lg:dark:bg-slate-800 dark:border-slate-700',
-      menu1Off: 'text-sm border-b border-gray-100 lg:border lg:bg-white lg:absolute lg:top-full lg:left-0 lg:min-w-full lg:z-20 lg:rounded-lg lg:shadow-lg lg:dark:bg-slate-800 dark:border-slate-700 lg:hidden',
-    }
-  },
-  watch: {
-    async access_token(new_access_token) {
-      await this.userCheck()
-    },
-    user(new_user) {
-      // this.userCheck()
-      // console.warn(this.user);
-      // console.warn(new_user);
-    }
-
-  },
-  async mounted() {
-    this.access_token = localStorage.getItem('token');
-
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }    
-  },
-  methods: {
-    async userCheck() {
-      if (!!localStorage.getItem('token')) {
-        this.user.is_connected = true;
-        this.user.access_token = localStorage.getItem('token');
-        this.access_token = localStorage.getItem('token');
-      }
-      await Axios.post(import.meta.env.VITE_DOMAIN_API + "account/getinfo", {
-        access_token: localStorage.getItem('token')
-      })
-      .then(res => {
-        if (res.data.status !== 20) {
-          this.user.first_name = res.data.data.first_name;
-          this.user.last_name = res.data.data.last_name;
-          this.user.id = res.data.data.user_id;
-          if (res.data.roles === 'ROLE_ADMIN') {
-            this.user.is_admin = true;
-          }
-        } else {
-          localStorage.removeItem('token')
-          this.user.is_connected = false;
-          this.user.is_admin = false;
-          this.access_token = null;
-        }
-      })
-    },
-    logout() {
-      localStorage.removeItem('token')
-      localStorage.token = '';
-      localStorage.setItem('token', null);
-      this.user.is_connected = false;
-      this.user.is_admin = false;
-      this.access_token = null;
-    },
-    theme(){
-      if (localStorage.theme === 'dark') {
-        document.documentElement.classList.remove('dark')
-        localStorage.theme = 'light'      
-        // localStorage.setItem('theme', 'light');    
-      } else {      
-        localStorage.theme = 'dark'
-        document.documentElement.classList.add('dark')   
-
-      }
-
-        // localStorage.setItem('theme', 'dark');
-        // localStorage.setItem('theme', 'light');    
-    },    
-  },
-
-};
-</script>
-
 <template>
   <router-link to="/"  v-if="user.is_connected" class="md:hidden flex text-blue-600 hover:text-black my-2 mx-3 items-center cursor-pointer dark:text-white dark:hover:text-slate-400">
     <div class="flex flex-col justify-items-center justify-center content-center items-center px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border-0 bg-transparent">
@@ -236,6 +137,99 @@ export default {
     </slot>
   </div>
 </template>
+
+<script>
+// import {authRefreshToken} from "@/api/user"
+import ModalAuth from '../components/ModalAuth.vue'
+
+export default {
+  name: 'NavBarMenu',
+  props: ['user'],
+  components: {
+    ModalAuth
+  },
+  data() {
+    return {
+      access_token: null,
+
+      show: false,
+      showOnSvg: 'M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z',
+      showOffSvg: 'M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z',
+      showOnList: 'max-h-screen-menu overflow-y-auto lg:overflow-visible absolute w-screen top-14 left-0 bg-gray-50 shadow-lg lg:w-auto lg:flex lg:static lg:shadow-none dark:bg-slate-800 block',
+      showOffList: 'max-h-screen-menu overflow-y-auto lg:overflow-visible absolute w-screen top-14 left-0 bg-gray-50 shadow-lg lg:w-auto lg:flex lg:static lg:shadow-none dark:bg-slate-800 hidden',
+
+      menu1: false,
+      menu1On: 'text-sm border-b border-gray-100 lg:border lg:bg-white lg:absolute lg:top-full lg:left-0 lg:min-w-full lg:z-20 lg:rounded-lg lg:shadow-lg lg:dark:bg-slate-800 dark:border-slate-700',
+      menu1Off: 'text-sm border-b border-gray-100 lg:border lg:bg-white lg:absolute lg:top-full lg:left-0 lg:min-w-full lg:z-20 lg:rounded-lg lg:shadow-lg lg:dark:bg-slate-800 dark:border-slate-700 lg:hidden',
+    }
+  },
+  watch: {
+    async access_token(new_access_token) {
+      await this.userCheck()
+    },
+  },
+  async mounted() {
+    this.access_token = localStorage.getItem('token');
+
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }    
+  },
+  methods: {
+    async userCheck() {
+      if (!!localStorage.getItem('token')) {
+        this.user.is_connected = true;
+        this.user.access_token = localStorage.getItem('token');
+        this.access_token = localStorage.getItem('token');
+      }
+      // authRefreshToken({}).then((res) => {
+      //   if (res.status !== 20) {
+      //     this.user.first_name = res.data.first_name;
+      //     this.user.last_name = res.data.last_name;
+      //     this.user.id = res.data.id;
+      //     this.user.photo_50 = res.data.photo_50;
+      //     if (res.roles == 'ROLE_ADMIN') {
+      //       this.user.is_admin = true;
+      //     }
+      //   } else {
+      //     localStorage.removeItem('token')
+      //     this.user.is_connected = false;
+      //     this.user.is_admin = false;
+      //     this.access_token = null;
+      //   }
+      // })
+    },
+    logout() {
+      localStorage.removeItem('token')
+      // localStorage.token = '';
+      // localStorage.setItem('token', null);
+      this.user.is_connected = false;
+      this.user.is_admin = false;
+      this.access_token = null;
+      this.user.first_name = null;
+      this.user.last_name = null;
+      this.user.id = null;
+    },
+    theme(){
+      if (localStorage.theme === 'dark') {
+        document.documentElement.classList.remove('dark')
+        localStorage.theme = 'light'      
+        // localStorage.setItem('theme', 'light');    
+      } else {      
+        localStorage.theme = 'dark'
+        document.documentElement.classList.add('dark')   
+
+      }
+
+        // localStorage.setItem('theme', 'dark');
+        // localStorage.setItem('theme', 'light');    
+    },    
+  },
+
+};
+</script>
 
 <style>
 .max-h-screen-menu {

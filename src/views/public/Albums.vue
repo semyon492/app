@@ -61,6 +61,7 @@
 </template>
 
 <script>
+import {authRefreshToken} from "@/api/user"
 import Main from '@/components/Main.vue'
 import Icon from '@/ui/Icon.vue'
 import Axios from 'axios'
@@ -84,12 +85,11 @@ export default {
   },
   async mounted() {
     if(this.user.id == 0){
-      await Axios.post(import.meta.env.VITE_DOMAIN_API + "account/getinfo", {
-        access_token: localStorage.getItem('token')
-      })
-      .then(res => {
-        this.user.id = res.data.data.user_id;
-      })
+      // authRefreshToken({}).then((res) => {
+      //   this.user.first_name = res.data.first_name;
+      //   this.user.last_name = res.data.last_name;
+      //   this.user.id = res.data.id;
+      // })
     }   
     await Axios.post(import.meta.env.VITE_DOMAIN_API + "users/profile", {
       access_token: localStorage.getItem('token'),        
