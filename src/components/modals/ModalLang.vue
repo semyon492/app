@@ -40,20 +40,20 @@
 </template>
 
 <script>
-import Modal from '../ui/modal/Modal.vue'
+import Modal from '@/ui/modal/Modal.vue'
 import {useI18n} from 'vue-i18n'
-import Tooltip from '../components/Tooltip.vue'
+import Tooltip from '@/ui/Tooltip.vue'
 
 //languages img
-import img_by from '../assets/images/lang/by.png'
-import img_de from '../assets/images/lang/de.svg'
-import img_en from '../assets/images/lang/en.svg'
-import img_es from '../assets/images/lang/es.svg'
-import img_fr from '../assets/images/lang/fr.svg'
-import img_ja from '../assets/images/lang/ja.svg'
-import img_ru from '../assets/images/lang/ru.svg'
-import img_uk from '../assets/images/lang/uk.svg'
-import img_zh from '../assets/images/lang/zh.svg'
+import img_by from '@/assets/images/lang/by.png'
+import img_de from '@/assets/images/lang/de.svg'
+import img_en from '@/assets/images/lang/en.svg'
+import img_es from '@/assets/images/lang/es.svg'
+import img_fr from '@/assets/images/lang/fr.svg'
+import img_ja from '@/assets/images/lang/ja.svg'
+import img_ru from '@/assets/images/lang/ru.svg'
+import img_uk from '@/assets/images/lang/uk.svg'
+import img_zh from '@/assets/images/lang/zh.svg'
 
 export default {
   name: 'ModalLang',

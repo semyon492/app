@@ -48,13 +48,13 @@
 
 <script>
 import Axios from "axios";
-import MainMenu from '@/components/Menu.vue'
+import MainMenu from '@/components/head/Menu.vue'
 import Main from '@/components/Main.vue'
 
 import Button from '@/ui/button/Button.vue'
 
 import Icon from '@/ui/Icon.vue'
-import ModalWall from '@/components/ModalWall.vue'
+import ModalWall from '@/components/modals/ModalWall.vue'
 import Walls from '@/components/Walls.vue'
 
 export default {

@@ -140,7 +140,7 @@
 
 <script>
 // import {authRefreshToken} from "@/api/user"
-import ModalAuth from '../components/ModalAuth.vue'
+import ModalAuth from '@/components/modals/ModalAuth.vue'
 
 export default {
   name: 'NavBarMenu',

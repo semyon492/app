@@ -1,5 +1,5 @@
 <script>
-import SettingsMenu from '@/components/SettingsMenu.vue'
+import SettingsMenu from './SettingsMenu.vue'
 
 export default {
   name: 'Navbar',

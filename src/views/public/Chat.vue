@@ -114,8 +114,6 @@
 </template>
 
 <script>
-import SettingsMenu from '@/components/SettingsMenu.vue'
-import Menu from '@/components/Menu.vue'
 import Main from '@/components/Main.vue'
 
 import Button from '@/ui/button/Button.vue'
@@ -124,8 +122,6 @@ import Modal from '@/ui/modal/Modal.vue'
 export default {
   name: 'Home',
   components: {
-    SettingsMenu,
-    Menu,
     Main,
     Button,
     Modal

@@ -61,7 +61,7 @@ export default {
       authRefreshToken({
         access_token: localStorage.getItem('token')
       }).then((res_f) => {
-        console.log(res_f)
+        // console.log(res_f)
         this.profile.id = res_f.data.id;
         this.profile.first_name = res_f.data.first_name;
         this.profile.last_name = res_f.data.last_name;        

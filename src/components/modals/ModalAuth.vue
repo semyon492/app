@@ -139,7 +139,7 @@
 
 <script>
 import {authRefreshToken} from "@/api/user"
-import Modal from '../ui/modal/Modal.vue'
+import Modal from '@/ui/modal/Modal.vue'
 import {useI18n} from 'vue-i18n'
 import Axios from "axios";
 

@@ -1,14 +1,15 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import Axios from "axios";
+
+import PublicLayout from '@/components/Layout.vue'
 
 import Home from '@/views/public/Home.vue'
-import Settings from '@/views/public/Settings.vue'
-import SettingsPassword from '@/views/public/SettingsPassword.vue'
-import SettingsPrivacy from '@/views/public/SettingsPrivacy.vue'
-import SettingsEmail from '@/views/public/SettingsEmail.vue'
-import SettingsNotifications from '@/views/public/SettingsNotifications.vue'
 
-import SettingsDeleteAcc from '@/views/public/SettingsDeleteAcc.vue'
+import Settings from '@/views/public/settings/Settings.vue'
+import SettingsPassword from '@/views/public/settings/SettingsPassword.vue'
+import SettingsPrivacy from '@/views/public/settings/SettingsPrivacy.vue'
+import SettingsEmail from '@/views/public/settings/SettingsEmail.vue'
+import SettingsNotifications from '@/views/public/settings/SettingsNotifications.vue'
+import SettingsDeleteAcc from '@/views/public/settings/SettingsDeleteAcc.vue'
 
 import Profile from '@/views/public/Profile.vue'
 import EditProfile from '@/views/public/EditProfile.vue'
@@ -24,7 +25,7 @@ import Article from '@/views/public/ArticleHome.vue'
 import Register from '@/views/public/Register.vue'
 import Restore from '@/views/public/Restore.vue'
 import Rules from '@/views/public/Rules.vue'
-import PublicLayout from '@/views/public/Layout.vue'
+
 
 import AdminLayout from '@/views/admin/Layout.vue'
 import Post from '@/views/admin/Post.vue'
@@ -94,23 +95,23 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-    if (to.matched[0].name === "admin") {
-        // console.log("JESUISEXECUTE")
-        await Axios.post(import.meta.env.VITE_DOMAIN_API + "me",
-            localStorage.getItem('token'),
-            {
-                headers: {
-                    'content-type': 'text/json',
-                    'Authorization': 'Bearer ' + localStorage.getItem('token')
-                }
-            }).then(res => res.data)
-            .then(data => {
-                console.log(data.roles)
-                if (!data.roles.includes('ROLE_ADMIN')) {
-                    router.push('/')
-                }
-            })
-    }
+    // if (to.matched[0].name === "admin") {
+    //     // console.log("JESUISEXECUTE")
+    //     await Axios.post(import.meta.env.VITE_DOMAIN_API + "me",
+    //         localStorage.getItem('token'),
+    //         {
+    //             headers: {
+    //                 'content-type': 'text/json',
+    //                 'Authorization': 'Bearer ' + localStorage.getItem('token')
+    //             }
+    //         }).then(res => res.data)
+    //         .then(data => {
+    //             console.log(data.roles)
+    //             if (!data.roles.includes('ROLE_ADMIN')) {
+    //                 router.push('/')
+    //             }
+    //         })
+    // }
     next();
 })
 

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import ModalLang from '../components/ModalLang.vue'
+import ModalLang from '../components/modals/ModalLang.vue'
 
 export default {
     name:'Footer',

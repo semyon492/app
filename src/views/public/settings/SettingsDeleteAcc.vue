@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import SettingsMenu from '@/components/SettingsMenu.vue'
-import SettingsCard from '@/ui/SettingsCard.vue'
+import SettingsMenu from '@/components/settings/SettingsMenu.vue'
+import SettingsCard from '@/components/settings/SettingsCard.vue'
 import Main from '@/components/Main.vue'
 
 import Button from '@/ui/button/Button.vue'

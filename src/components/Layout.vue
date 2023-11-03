@@ -51,7 +51,7 @@
 
 <script>
 import {authRefreshToken} from "@/api/user"
-import Navigation from '@/components/Navigation.vue'
+import Navigation from '@/components/head/Navigation.vue'
 import Footer from '@/components/Footer.vue'
 
 export default {

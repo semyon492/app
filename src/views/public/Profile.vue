@@ -51,6 +51,16 @@
                   </div>
                 </div>
               </div>
+              <div class="mt-4">
+                <div class="bg-white dark:bg-[#242526] p-4 rounded-lg shadow-post">
+                  <div class="flex justify-start items-center">
+                    <router-link :to="'/friends/' + id" class="text-2xl font-extrabold dark:text-[#e4e6eb] ">{{ $t('profile.friends') }}</router-link>
+                  </div>
+                  <div class="grid grid-cols-3 grid-rows-0 rounded-lg gap-1 mt-3 ">
+                    <div class="text-center my-3 col-span-3 ">{{ $t('profile.no_image_found') }}</div>
+                  </div>
+                </div>
+              </div>              
             </div>
           </div>
           <div class="col-span-3 ">
@@ -75,7 +85,7 @@ import Main from '@/components/Main.vue'
 import Icon from '@/ui/Icon.vue'
 import Axios from "axios";
 
-import ModalWall from '@/components/ModalWall.vue'
+import ModalWall from '@/components/modals/ModalWall.vue'
 import Walls from '@/components/Walls.vue'
 
 import Jumbotron from '@/components/profile/Jumbotron.vue'

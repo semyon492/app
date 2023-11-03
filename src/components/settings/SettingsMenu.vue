@@ -20,7 +20,7 @@
 
 <script>
 import {useI18n} from 'vue-i18n'
-import Tooltip from '../components/Tooltip.vue'
+import Tooltip from '@/ui/Tooltip.vue'
 
 export default {
   name: 'SettingsMenu',

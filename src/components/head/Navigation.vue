@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import NavBarMenu from "../ui/NavBarMenu.vue";
+import NavBarMenu from "./NavBarMenu.vue";
 
 export default {
   name: 'Navigation',
