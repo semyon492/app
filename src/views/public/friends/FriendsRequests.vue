@@ -6,7 +6,7 @@
   <main v-if="(user.is_connected)">
     <div class="min-h-screen w-[98.5vw] overflow-x-hidden pb-7 ">
       <Jumbotron :profile="profile" :id="id" />
-      <FriendsCard :profile="profile" :id="id" :friends="friends" />
+      <FriendsCard :profile="profile" :id="id" :friends="friends" :user="user"/>
     </div>
   </main>
 </template>

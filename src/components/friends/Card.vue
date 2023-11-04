@@ -41,7 +41,7 @@ import Button from '@/ui/button/Button.vue'
 import Menu from '@/components/friends/Menu.vue'
 
 export default {
-    props: ['profile', 'id', 'friends'],
+    props: ['profile', 'id', 'friends', 'user'],
     components: {
         Button,
         Menu

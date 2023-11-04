@@ -138,7 +138,7 @@
 </template>
 
 <script>
-import {authRefreshToken} from "@/api/user"
+import {authRefreshToken, authorize} from "@/api/user"
 import Modal from '@/ui/modal/Modal.vue'
 import {useI18n} from 'vue-i18n'
 import Axios from "axios";
@@ -203,29 +203,30 @@ export default {
   },
   methods: {
     login() {
-      Axios.post(import.meta.env.VITE_DOMAIN_API + "authorize", this.form_user)
-      .then(res => {
-        if (res.data.status == 7) {
+      authorize(
+        this.form_user
+      ).then((res) => {
+        if (res.status == 7) {
           this.form_alert = true;
           this.err_info = this.t('err.Incorrect_email_or_password_entered');
         }
-        if (res.data.status == 9) {
+        if (res.status == 9) {
           this.form_alert = true;
           this.err_info = this.t('err.Incorrect_email_or_password_entered');
         }
-        if (res.data.status == 5) {
+        if (res.status == 5) {
           this.form_alert = true;
           this.err_info = this.t('err.Incorrect_email_or_password_entered');
         }
-        if (res.data.status == 4) {
+        if (res.status == 4) {
           this.form_alert = true;
           this.err_info = this.t('err.user_not_found');
         }
-        if (res.data.status == 8) {
+        if (res.status == 8) {
           this.form_alert = true;
           this.err_info = this.t('err.user_not_found');
         }
-        if (res.data.status == 16) {
+        if (res.status == 16) {
           this.form_alert = true;
           this.err_info = this.t('err.unknown_error');
         }
@@ -234,65 +235,28 @@ export default {
           this.err_info = "";
         }, 3000);
 
-        if (res.data.status == 1) {
-          localStorage.setItem('token', res.data.access_token);
-          this.access_token = res.data.access_token
+        if (res.status == 1) {
+          localStorage.setItem('token', res.access_token);
+          this.access_token = res.access_token
           this.user.is_connected = true;
 
-          // console.log(res.data.access_token)
-
-          // authRefreshToken({
-          //   access_token: res.data.access_token,
-          // }).then((res) => {
-          //   console.log(res)
-          //   if (res.status !== 20) {
-          //     this.user.id = res.data.id;
-          //     this.user.first_name = res.data.first_name;
-          //     this.user.last_name = res.data.last_name;          
-          //     this.user.photo_50 = res.data.photo_50;
-          //     this.user.photo = res.data.photo_50;
-          //     if (res.roles == 'ROLE_ADMIN') {
-          //       this.user.is_admin = true;
-          //     }            
-          //   }
-          // }) 
-
-          Axios.post(import.meta.env.VITE_DOMAIN_API + "account/getinfo", {
+          authRefreshToken({
             access_token: this.access_token,
-          })
-          .then(res2 => {
-            // console.log(res2.data)
-            if (res2.data.status !== 20) {
-              this.user.id = res2.data.data.id;
-              this.user.first_name = res2.data.data.first_name;
-              this.user.last_name = res2.data.data.last_name;          
-              this.user.photo_50 = res2.data.data.photo_50;
-              this.user.photo = res2.data.data.photo_50;
-              if (res2.data.roles == 'ROLE_ADMIN') {
+          }).then((res2) => {
+            if (res2.status !== 20) {
+              this.user.id = res2.data.id;
+              this.user.first_name = res2.data.first_name;
+              this.user.last_name = res2.data.last_name;          
+              this.user.photo_50 = res2.data.photo_50;
+              this.user.photo = res2.data.photo_50;
+              if (res2.roles == 'ROLE_ADMIN') {
                 this.user.is_admin = true;
               }            
             }
           }) 
+          // this.$router.push('/')
         }
       }) 
-      // console.log(this.access_token)
-
-      // Axios.post(import.meta.env.VITE_DOMAIN_API + "account/getinfo", {
-      //   access_token: this.access_token,
-      // })
-      // .then(res => {
-      //   console.log(res)
-      //   if (res.data.status !== 20) {
-      //     this.user.id = res.data.data.id;
-      //     this.user.first_name = res.data.data.first_name;
-      //     this.user.last_name = res.data.data.last_name;          
-      //     this.user.photo_50 = res.data.data.photo_50;
-      //     this.user.photo = res.data.data.photo_50;
-      //     if (res.data.roles == 'ROLE_ADMIN') {
-      //       this.user.is_admin = true;
-      //     }            
-      //   }
-      // }) 
     },
     register() {
       Axios.post(import.meta.env.VITE_DOMAIN_API + "account/register", this.form_add_user)

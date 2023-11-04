@@ -27,7 +27,8 @@ import Restore from '@/views/public/Restore.vue'
 import Rules from '@/views/public/Rules.vue'
 
 
-import AdminLayout from '@/views/admin/Layout.vue'
+import AdminLayout from '@/components/admin/Layout.vue'
+import HomeAdmin from '@/views/admin/Home.vue'
 import Post from '@/views/admin/Post.vue'
 import List from '@/views/admin/List.vue'
 import Edit from '@/views/admin/Edit.vue'
@@ -39,10 +40,11 @@ const routes = [
         component: PublicLayout,
         children: [
             // {path:'',name:'home',component:Home, props:true},
-            {path: 'home/:id(\\d+)', name: 'home', component: Home, props: true},
+            {path: 'home/:id(\\d+)', name: 'home3', component: Home, props: true},
             {path: 'article/:id(\\d+)', name: 'article', component: Article, props: true},
             // {path:'/', redirect:'/home/1'},
-            {path: '/', name: 'home', component: Home, props: true},
+            {path: '', name: 'home', component: Home, props: true},
+            {path: '/', name: 'home2', component: Home, props: true},
             {path: '/privacy-and-terms', name: 'rules', component: Rules, props: true},
             {path: '/settings', name: 'settings', component: Settings, props: true},
             {path: '/settings/delete', name: 'delete', component: SettingsDeleteAcc, props: true},
@@ -80,6 +82,7 @@ const routes = [
         name: 'admin',
         component: AdminLayout,
         children: [
+            {path: '', name: 'home_admin', component: HomeAdmin, props: true},
             {path: 'post', name: 'post', component: Post},
             {path: 'list', name: 'list', component: List},
             {path: 'edit/:id(\\d+)', name: 'edit', component: Edit, props: true}
