@@ -26,6 +26,8 @@ import Register from '@/views/public/Register.vue'
 import Restore from '@/views/public/Restore.vue'
 import Rules from '@/views/public/Rules.vue'
 
+import NotFound from '@/views/public/NotFound.vue'
+
 
 import AdminLayout from '@/components/admin/Layout.vue'
 import HomeAdmin from '@/views/admin/Home.vue'
@@ -35,9 +37,17 @@ import Edit from '@/views/admin/Edit.vue'
 
 const routes = [
     {
+        meta: {
+          title: 'Tables'
+        },
+        path: '/tables',
+        name: 'tables',
+        component: () => import('@/components/Layout.vue')
+    },
+    {
         path: '/',
         name: 'public',
-        component: PublicLayout,
+        component: () => import('@/components/Layout.vue'),
         children: [
             // {path:'',name:'home',component:Home, props:true},
             {path: 'home/:id(\\d+)', name: 'home3', component: Home, props: true},
@@ -73,8 +83,10 @@ const routes = [
             {path: '/register', name: 'register', component: Register, props: true},
             {path: '/restore', name: 'restore', component: Restore, props: true},
             // {path:'/:pathMatch(.*)*', redirect: '/home/1'}
+            { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
         ]
     },
+
 
     // {path:'/restore',name:'restore',component:Restore},
     {
@@ -95,6 +107,9 @@ const router = createRouter({
     routes,
     linkActiveClass: 'active',
     linkExactActiveClass: 'exact-active',
+    scrollBehavior(to, from, savedPosition) {
+        return savedPosition || { top: 0 }
+    }
 })
 
 router.beforeEach(async (to, from, next) => {
