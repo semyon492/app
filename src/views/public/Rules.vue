@@ -239,7 +239,15 @@ export default {
     return{
       siteName: import.meta.env.VITE_APP_NAME
     }
-  }
+  },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+          document.title = to.meta.title || 'Rules';
+      }
+    },
+  },
 }
 </script>
 <style>

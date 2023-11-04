@@ -116,6 +116,14 @@ export default {
       },      
     }
   },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+          document.title = to.meta.title || 'Profile';
+      }
+    },
+  },
   async mounted() {
     await this.get_profile()
   },

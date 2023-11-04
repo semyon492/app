@@ -75,6 +75,14 @@ export default {
       walls: []
     }
   },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+          document.title = to.meta.title || 'Feed';
+      }
+    },
+  },
   async mounted() {
     await this.get_feed()
   },

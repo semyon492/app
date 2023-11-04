@@ -77,6 +77,14 @@ export default {
       err_info: null,
     }
   },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+          document.title = to.meta.title || 'Settings';
+      }
+    },
+  },
   async mounted() {
     this.user.access_token = localStorage.getItem('token')
   },

@@ -84,10 +84,17 @@ export default {
     }
   },
   watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+          document.title = to.meta.title || 'Search';
+      },      
+    },
     // whenever question changes, this function will run
     query_variable(newQuery, oldQuery) {
       this.change_query()
-    }
+    },
+
   },  
   async mounted() {
     this.check_query()

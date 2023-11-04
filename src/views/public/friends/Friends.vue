@@ -38,6 +38,14 @@ export default {
       friends: null,      
     }
   },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+          document.title = to.meta.title || 'Friends';
+      }
+    },
+  },
   async mounted() {
     fetchProfile({
         id: this.id

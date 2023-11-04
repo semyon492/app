@@ -78,6 +78,14 @@ export default {
       imgSignInDark:imgSignInDark
     }
   },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+          document.title = to.meta.title || 'Login';
+      }
+    },
+  },
   methods: {
     login() {
       authorize(

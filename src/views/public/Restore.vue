@@ -77,6 +77,14 @@ export default {
       imgForgotDark:imgForgotDark
     }
   },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+          document.title = to.meta.title || 'Restore';
+      }
+    },
+  },
   mounted() {
     this.restore_status = false
   },

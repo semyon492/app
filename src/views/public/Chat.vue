@@ -132,6 +132,14 @@ export default {
       demo_ava: 'https://api.rapigram.ru/images/no_ava.gif',
     }
   },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+          document.title = to.meta.title || 'Chat';
+      }
+    },
+  },
   async mounted() {
   },
   methods: {},

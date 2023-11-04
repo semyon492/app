@@ -83,6 +83,14 @@ export default {
       },      
     }
   },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+          document.title = to.meta.title || 'Albums';
+      }
+    },
+  },
   async mounted() {
     if(this.user.id == 0){
       // authRefreshToken({}).then((res) => {

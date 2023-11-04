@@ -139,6 +139,14 @@ export default {
       imgSignUpDark:imgSignUpDark
     }
   },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+          document.title = to.meta.title || 'Register';
+      }
+    },
+  },
   methods: {
     register() {
       Axios.post(import.meta.env.VITE_DOMAIN_API + "account/register", this.user)

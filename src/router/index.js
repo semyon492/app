@@ -37,19 +37,12 @@ import Edit from '@/views/admin/Edit.vue'
 
 const routes = [
     {
-        meta: {
-          title: 'Tables'
-        },
-        path: '/tables',
-        name: 'tables',
-        component: () => import('@/components/Layout.vue')
-    },
-    {
         path: '/',
         name: 'public',
         component: () => import('@/components/Layout.vue'),
         children: [
-            // {path:'',name:'home',component:Home, props:true},
+            { path: '/:afterUser(.*)', component: Settings },
+            
             {path: 'home/:id(\\d+)', name: 'home3', component: Home, props: true},
             {path: 'article/:id(\\d+)', name: 'article', component: Article, props: true},
             // {path:'/', redirect:'/home/1'},
@@ -63,6 +56,9 @@ const routes = [
             {path: '/settings/email', name: 'email', component: SettingsEmail, props: true},
             {path: '/settings/notifications', name: 'notifications', component: SettingsNotifications, props: true},
             {path: '/id:id(\\d+)', name: 'profile', component: Profile, props: true},
+
+            
+
             {path: '/edit', name: 'edit_profile', component: EditProfile, props: true},
             {path: '/friends/:id(\\d+)', name: 'friends', component: Friends, props: true},
             {path: '/friends/online/:id(\\d+)', name: 'friendsOnline', component: FriendsOnline, props: true},

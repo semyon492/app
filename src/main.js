@@ -12,3 +12,11 @@ createApp(App)
 .use(router)
 .use(i18n)
 .mount('#app')
+
+const DEFAULT_TITLE = import.meta.env.VITE_APP_NAME;
+
+router.afterEach((to) => {
+    document.title = to.meta?.title
+      ? `${to.meta.title} — ${DEFAULT_TITLE}`
+      : DEFAULT_TITLE
+  })
