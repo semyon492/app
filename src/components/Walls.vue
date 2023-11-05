@@ -41,7 +41,7 @@
           Comment
         </button>
       </div>
-      <div class="flex gap-x-1.5 px-2 sm:px-3 md:px-4 py-1 items-center ">
+      <div v-if="user.is_connected" class="flex gap-x-1.5 px-2 sm:px-3 md:px-4 py-1 items-center ">
         <img :src="user.photo_50" alt="user_avatar" class="w-8 sm:w-9 h-8 sm:h-9 object-cover shrink-0 rounded-full ">
         <form class="flex px-2 rounded-full bg-[#F0F2F5] w-full mt-1 items-center dark:bg-[#3A3B3C]  ">
           <input type="text" class="px-2 py-1 sm:py-1.5 border-none focus:ring-0 bg-inherit rounded-full w-full font-medium dark:placeholder:text-[#b0b3b8] " placeholder="Write a comment..." value="">

@@ -1,6 +1,6 @@
 <template>
   <main v-if="(user.is_connected !== true)">
-    <Main/>
+    <NotFound/>
   </main>
   <main v-if="(user.is_connected)">
     <SettingsCard>
@@ -69,7 +69,7 @@
 <script>
 import SettingsMenu from '@/components/settings/SettingsMenu.vue'
 import SettingsCard from '@/components/settings/SettingsCard.vue'
-import Main from '@/components/Main.vue'
+import NotFound from '@/components/NotFound.vue'
 
 import Button from '@/ui/button/Button.vue'
 import Modal from '@/ui/modal/Modal.vue'
@@ -80,7 +80,7 @@ export default {
   components: {
     SettingsMenu,
     SettingsCard,
-    Main,
+    NotFound,
     Button,
     Modal
   },

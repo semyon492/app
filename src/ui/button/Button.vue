@@ -12,7 +12,7 @@ export default {
   props: {
     class: {
       type: String,
-      default: null
+      default: ' '
     },
     type: {
       type: String,
@@ -41,12 +41,11 @@ export default {
       if (this.variant == 'alternative') {
           return this.class_name + ' font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 hover:bg-gray-100 hover:text-blue-700 dark:hover:text-white dark:hover:bg-gray-700 text-sm px-4 py-2'
       }
-
       if (this.variant == 'dark') {
-          return this.class_name + ' text-white bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg dark:bg-gray-800 dark:focus:ring-gray-700 dark:border-gray-700 hover:bg-gray-900 dark:hover:bg-gray-700 text-sm px-4 py-2'
+          return this.class_name + ' rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 px-5 py-2.5 bg-black text-white hover:bg-gray-800 border-2 border-transparent flex gap-1 items-center justify-center'
       }
       if (this.variant == 'light') {
-          return this.class_name + ' text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 font-medium rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:focus:ring-gray-700 hover:bg-gray-100 dark:hover:border-gray-600 text-sm px-4 py-2'
+          return this.class_name + ' rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 px-5 py-2.5 bg-white border-2 border-black hover:bg-gray-100 text-black flex gap-1 items-center justify-center'
       }
       if (this.variant == 'green') {
           return this.class_name + ' focus:outline-none text-white bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg dark:bg-green-600 dark:focus:ring-green-800 hover:bg-green-800 dark:hover:bg-green-700 text-sm px-4 py-2'

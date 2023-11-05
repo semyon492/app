@@ -1,6 +1,6 @@
 <template>
   <main v-if="(user.is_connected !== true)">
-    <Main/>
+    <NotFound/>
   </main>
   <main v-if="(user.is_connected)">
     <div class="mx-4 sm:mx-[5%] md:mx-[15%] px-1 sm:px-10 mt-4 ">
@@ -33,7 +33,7 @@
 
 <script>
 
-import Main from '@/components/Main.vue'
+import NotFound from '@/components/NotFound.vue'
 
 import Button from '@/ui/button/Button.vue'
 import Modal from '@/ui/modal/Modal.vue'
@@ -41,7 +41,7 @@ import Modal from '@/ui/modal/Modal.vue'
 export default {
   name: 'Edit',
   components: {
-    Main,
+    NotFound,
     Button,
     Modal
   },

@@ -25,8 +25,7 @@ import Register from '@/views/public/Register.vue'
 import Restore from '@/views/public/Restore.vue'
 import Rules from '@/views/public/Rules.vue'
 
-import NotFound from '@/views/public/NotFound.vue'
-
+import NotFound from '@/components/NotFound.vue'
 
 import AdminLayout from '@/components/admin/Layout.vue'
 import HomeAdmin from '@/views/admin/Home.vue'
@@ -53,9 +52,7 @@ const routes = [
             {path: '/settings/privacy', name: 'privacy', component: SettingsPrivacy, props: true},
             {path: '/settings/email', name: 'email', component: SettingsEmail, props: true},
             {path: '/settings/notifications', name: 'notifications', component: SettingsNotifications, props: true},
-            {path: '/id:id(\\d+)', name: 'profile', component: Profile, props: true},
-
-            
+            {path: '/id:id(\\d+)', name: 'profile', component: Profile, props: true},           
 
             {path: '/edit', name: 'edit_profile', component: EditProfile, props: true},
             {path: '/friends/:id(\\d+)', name: 'friends', component: Friends, props: true},

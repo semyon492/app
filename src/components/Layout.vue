@@ -62,6 +62,10 @@ export default {
   },
   data() {
     return {
+      loop_count: {
+        type: Number,
+        default: 0
+      },
       user: {
         id: 0,
         first_name: '',
@@ -71,18 +75,19 @@ export default {
         is_admin: false,
         access_token: '',
       },
-      access_token: null,
+      access_token: null,      
     }
   },
   watch: {
     async access_token(new_access_token, old_access_token ) {
       // console.log(old_access_token)
-      if(old_access_token !== null )
+      // if(old_access_token !== null )
         await this.userCheck()
     },
   },
   async mounted() {
     await this.userCheck()
+    this.loop(0);
   },
   methods: {
     async userCheck() {
@@ -129,7 +134,21 @@ export default {
       this.user.first_name = null;
       this.user.last_name = null;
       this.user.id = null;
-    }
+    },
+    loop(count){
+      // count = this.loop_count
+      // count++;
+      // this.loop_count = 
+      count++;
+        
+        // this.access_token = localStorage.getItem('token');
+        // setTimeout(this.loop(count), 3000);
+        setTimeout(() => {
+          console.log(count);
+          this.access_token = localStorage.getItem('token');
+          return this.loop(count)
+        }, 5000);
+    },
   },
 }
 </script>

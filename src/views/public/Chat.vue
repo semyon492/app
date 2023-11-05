@@ -1,6 +1,6 @@
 <template>
   <main v-if="(user.is_connected !== true)">
-    <Main/>
+    <NotFound/>
   </main>
   <main v-if="(user.is_connected)">
     <div class="w-full h-full grid grid-cols-4 ">
@@ -114,7 +114,7 @@
 </template>
 
 <script>
-import Main from '@/components/Main.vue'
+import NotFound from '@/components/NotFound.vue'
 
 import Button from '@/ui/button/Button.vue'
 import Modal from '@/ui/modal/Modal.vue'
@@ -122,7 +122,7 @@ import Modal from '@/ui/modal/Modal.vue'
 export default {
   name: 'Home',
   components: {
-    Main,
+    NotFound,
     Button,
     Modal
   },
