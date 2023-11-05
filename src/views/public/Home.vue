@@ -83,8 +83,13 @@ export default {
       }
     },
   },
-  async mounted() {
-    await this.get_feed()
+  async mounted() {    
+    if(!this.user.is_connected){
+      document.title = import.meta.env.VITE_APP_NAME
+    }else{
+      document.title = 'Feed | ' + import.meta.env.VITE_APP_NAME
+      await this.get_feed()
+    }
   },
   methods: {
     async get_feed(){

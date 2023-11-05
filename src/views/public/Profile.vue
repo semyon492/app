@@ -1,8 +1,5 @@
 <template>
-  <main v-if="(user.is_connected !== true)">
-    <Main/>
-  </main>
-  <main v-if="(user.is_connected)">
+  <main >
     <div class="min-h-screen w-[98.5vw] overflow-x-hidden pb-7 ">
       <Jumbotron :profile="profile" :id="id" />
       <div class="mx-4 sm:mx-[5%] md:mx-[15%] px-1 sm:px-10 mt-4 ">
@@ -66,7 +63,7 @@
           </div>
           <div class="col-span-3 ">
             <div>
-              <ModalWall modal_name="modal_wall" :user="user" :profile_id="profile.id"/>
+              <ModalWall v-if="user.is_connected" modal_name="modal_wall" :user="user" :profile_id="profile.id"/>
               <div class="w-full text-center text-xl font-semibold pt-[20vh] flex-col " v-if="wall_num == 0">
                 <div>{{ $t('profile.no_post_found') }}</div>
               </div>
@@ -81,7 +78,7 @@
 </template>
 
 <script>
-import { fetchProfile, authRefreshToken } from "@/api/user"
+import { fetchProfile } from "@/api/user"
 import Main from '@/components/Main.vue'
 import Icon from '@/ui/Icon.vue'
 import Axios from "axios";
@@ -104,7 +101,7 @@ export default {
   data() {
     return {
       profile: {
-        first_name: '',
+        first_name: 'Profile',
         last_name: '',
         owner: false,
       },
@@ -152,6 +149,8 @@ export default {
           this.profile.walls = res.data.walls;
           this.walls = res.data.walls;
           this.wall_num = res.data.wall_num;
+
+          document.title = this.profile.first_name + ' ' + this.profile.last_name
         } else {
         }
       })

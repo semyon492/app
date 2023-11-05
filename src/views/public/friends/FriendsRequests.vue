@@ -1,7 +1,7 @@
 <!-- eslint-disable no-mixed-spaces-and-tabs -->
 <template>
   <main v-if="(user.is_connected !== true)">
-    <Main/>
+    <NotFound/>
   </main>
   <main v-if="(user.is_connected)">
     <div class="min-h-screen w-[98.5vw] overflow-x-hidden pb-7 ">
@@ -14,7 +14,7 @@
 <script>
 import { fetchProfile } from "@/api/user"
 import { fetchFriendsRequests } from "@/api/friends"
-import Main from '@/components/Main.vue'
+import NotFound from '@/components/NotFound.vue'
 import Icon from '@/ui/Icon.vue'
 
 import Jumbotron from '@/components/profile/Jumbotron.vue'
@@ -23,7 +23,7 @@ import FriendsCard from '@/components/friends/Card.vue'
 export default {
   name: 'Friends',
   components: {
-    Main,
+    NotFound,
     Icon,
     Jumbotron,
     FriendsCard

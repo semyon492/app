@@ -1,6 +1,6 @@
 <template>
   <main v-if="(user.is_connected !== true)">
-    <Main/>
+    <NotFound/>
   </main>
   <main v-if="(user.is_connected)">
   <div>
@@ -30,13 +30,13 @@
 
 <script>
 import Icon from '@/ui/Icon.vue'
-import Main from '@/components/Main.vue'
+import NotFound from '@/components/NotFound.vue'
 import Menu from '@/components/admin/Menu.vue'
 
 export default {
   name: 'HomeAdmin',
   components: {
-    Main,
+    NotFound,
     Icon,
     Menu,
   },

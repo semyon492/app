@@ -119,9 +119,8 @@
           <span class="px-2 transition-colors lg:hidden">{{ $t('header.light_dark') }}</span>
         </div>
       </div>      
-      <router-link v-if="user.is_connected" @click="logout"
-        class="block lg:flex items-center relative cursor-pointer text-blue-600 dark:text-white dark:hover:text-slate-400 hover:text-black py-2 px-3 lg:w-16 lg:justify-center"
-        to="/">
+      <div v-if="user.is_connected" @click="logout"
+        class="block lg:flex items-center relative cursor-pointer text-blue-600 dark:text-white dark:hover:text-slate-400 hover:text-black py-2 px-3 lg:w-16 lg:justify-center">
         <div class="flex items-center">
           <span class="inline-flex justify-center items-center w-6 h-6 transition-colors">
             <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
@@ -131,7 +130,7 @@
           </span>
           <span class="px-2 transition-colors lg:hidden">{{ $t('header.logout') }}</span>
         </div>
-      </router-link>
+      </div>
       <ModalAuth v-if="user.is_connected !== true" modal_name="modal_name" type="login" :user="user"/>
 
     </slot>
@@ -221,10 +220,7 @@ export default {
         localStorage.theme = 'dark'
         document.documentElement.classList.add('dark')   
 
-      }
-
-        // localStorage.setItem('theme', 'dark');
-        // localStorage.setItem('theme', 'light');    
+      } 
     },    
   },
 
