@@ -88,7 +88,7 @@ export default {
   },
   async mounted() {
     await this.userCheck()
-    this.loop(0);
+    this.loop(0); 
   },
   methods: {
     async userCheck() {
@@ -148,8 +148,8 @@ export default {
           // console.log(count);
           
           let token = localStorage.getItem('token')
-          this.access_token = token;
-          console.log(token + " |old " + this.access_token);
+          this.access_token = token; 
+          console.log(token + " |old " + this.access_token); 
           return this.loop(count)
         }, 5000);
     },
