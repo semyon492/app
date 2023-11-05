@@ -81,7 +81,7 @@ export default {
   watch: {
     async access_token(new_access_token, old_access_token ) {
       // console.log(old_access_token)
-      if(old_access_token !== null )
+      // if(old_access_token !== null )
         await this.userCheck()
     },
   },
