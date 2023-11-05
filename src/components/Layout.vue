@@ -81,7 +81,7 @@ export default {
   watch: {
     async access_token(new_access_token, old_access_token ) {
       // console.log(old_access_token)
-      if(old_access_token !== null )
+      // if(old_access_token !== null )
         await this.userCheck()
     },
   },
@@ -144,8 +144,11 @@ export default {
         // this.access_token = localStorage.getItem('token');
         // setTimeout(this.loop(count), 3000);
         setTimeout(() => {
-          console.log(count);
-          this.access_token = localStorage.getItem('token');
+          // console.log(count);
+          
+          let token = localStorage.getItem('token')
+          this.access_token = token;
+          console.log(token);
           return this.loop(count)
         }, 5000);
     },
