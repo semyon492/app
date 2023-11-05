@@ -29,7 +29,8 @@
                     </div>
                   </div>
                 </div>
-                <button v-if="profile.owner" @click="edit = true" class="mt-3 py-2 w-full bg-[#afb1b5]/30 hover:bg-[#afb1b5]/50 dark:bg-[#4E4F50]/50 dark:hover:bg-[#4E4F50] transition-20 rounded-md font-semibold ">{{ $t('profile.edit_bio') }}</button>
+                <button v-if="profile.owner && user.is_connected" @click="edit = true" class="mt-3 py-2 w-full bg-[#afb1b5]/30 hover:bg-[#afb1b5]/50 dark:bg-[#4E4F50]/50 dark:hover:bg-[#4E4F50] transition-20 rounded-md font-semibold ">{{ $t('profile.edit_bio') }}</button>
+              
               </div>
               <div v-if="edit == true" class="bg-white dark:bg-[#242526] p-4 rounded-lg shadow-post ">
                 <div class="text-2xl font-extrabold dark:text-[#e4e6eb] ">{{ $t('profile.intro') }}</div>

@@ -21,7 +21,6 @@ import Search from '@/views/public/Search.vue'
 import Albums from '@/views/public/Albums.vue'
 import Chat from '@/views/public/Chat.vue'
 import Login from '@/views/public/Login.vue'
-import Article from '@/views/public/ArticleHome.vue'
 import Register from '@/views/public/Register.vue'
 import Restore from '@/views/public/Restore.vue'
 import Rules from '@/views/public/Rules.vue'
@@ -44,7 +43,6 @@ const routes = [
             { path: '/:afterUser(.*)', component: Settings },
             
             {path: 'home/:id(\\d+)', name: 'home3', component: Home, props: true},
-            {path: 'article/:id(\\d+)', name: 'article', component: Article, props: true},
             // {path:'/', redirect:'/home/1'},
             {path: '', name: 'home', component: Home, props: true},
             {path: '/', name: 'home2', component: Home, props: true},
@@ -110,7 +108,6 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
     // if (to.matched[0].name === "admin") {
-    //     // console.log("JESUISEXECUTE")
     //     await Axios.post(import.meta.env.VITE_DOMAIN_API + "me",
     //         localStorage.getItem('token'),
     //         {
