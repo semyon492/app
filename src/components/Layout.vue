@@ -62,10 +62,6 @@ export default {
   },
   data() {
     return {
-      loop_count: {
-        type: Number,
-        default: 0
-      },
       user: {
         id: 0,
         first_name: '',
@@ -134,23 +130,6 @@ export default {
       this.user.first_name = null;
       this.user.last_name = null;
       this.user.id = null;
-    },
-    loop(count){
-      // count = this.loop_count
-      // count++;
-      // this.loop_count = 
-      count++;
-        
-        // this.access_token = localStorage.getItem('token');
-        // setTimeout(this.loop(count), 3000);
-        setTimeout(() => {
-          // console.log(count);
-          
-          let token = localStorage.getItem('token')
-          // this.access_token = token;
-          console.log(token + " |old " + this.access_token);
-          return this.loop(count)
-        }, 5000);
     },
   },
 }
