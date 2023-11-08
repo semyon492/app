@@ -60,6 +60,19 @@
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
       d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
   </svg>
+  <svg v-if="(type == 'chat')" :class="class" :width="size" :height="size" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+  </svg>
+  <svg v-if="(type == 'news')" :class="class" :width="size" :height="size" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+  </svg>
+  <svg v-if="(type == 'user')" :class="class" :width="size" :height="size" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24">
+    <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"></path>
+  </svg>
+  <svg v-if="(type == 'password')" :class="class" :width="size" :height="size" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="text-primary dark:text-white group-focus-within:text-white" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17 8V7c0-2.757-2.243-5-5-5S7 4.243 7 7v3H6c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-8c0-1.103-.897-2-2-2H9V7c0-1.654 1.346-3 3-3s3 1.346 3 3v1h2zm1 4 .002 8H6v-8h12z"></path>
+  </svg>
+
 </template>
 
 <script>

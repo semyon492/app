@@ -16,18 +16,8 @@
       <template #body>
         <form v-if="type == 'login'" class="w-full" @submit.prevent="login">
           <!-- <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">{{ $t('auth.signin') }}</h1> -->
-          <label class="block text-sm text-gray-700 dark:text-gray-400">
-            <span>{{ $t('auth.email') }}</span>
-            <input
-                class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
-                type="email" placeholder="john@doe.com" v-model="form_user.email" required>
-          </label>
-          <label class="block text-sm text-gray-700 dark:text-gray-400 mt-4">
-            <span>{{ $t('auth.password') }}</span>
-            <input
-                class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
-                type="password" placeholder="***************" v-model="form_user.password" required>
-          </label>
+          <Input v-model:modelValue="form_user.email" type="email" placeholder="john@doe.com" icon="user" />
+          <Input v-model:modelValue="form_user.password" type="password" placeholder="***************" icon="password" />
           <div v-if="form_alert">
             {{ err_info }}
           </div>
@@ -138,16 +128,20 @@
 </template>
 
 <script>
+import Icon from '@/ui/Icon.vue'
+import Input from '@/ui/Input.vue'
 import {authRefreshToken, authorize} from "@/api/user"
 import Modal from '@/ui/modal/Modal.vue'
 import {useI18n} from 'vue-i18n'
 import Axios from "axios";
 
 export default {
-  name: 'ModalLang',
+  name: 'ModalAuth',
   props: ['user', 'modal_name', 'type'],
   components: {
     Modal,
+    Icon,
+    Input,
   },
   setup() {
     // use global scope
@@ -160,6 +154,8 @@ export default {
       showModal: false,
       link_type: this.list,
       name: import.meta.env.VITE_APP_NAME,
+      user_email: '',
+      user_password: '',
       form_user: {
         email: '',
         password: ''

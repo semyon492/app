@@ -10,7 +10,7 @@
                     </div>
                     </div>
                     <div class="dark:text-[#b0b3b8] font-semibold text-[17px] flex gap-x-1.5 items-center text-[#65676b] justify-center sm:justify-start">
-                        <span class="cursor-pointer flex-shrink-0 ">{{ $t('profile.followers') }}: 2</span>
+                        <!-- <span class="cursor-pointer flex-shrink-0 ">{{ $t('profile.followers') }}: 2</span> -->
                     </div>
                 </div>
                 <div class="flex mt-4 sm:mt-0 flex-shrink-0 " v-if="profile.owner">

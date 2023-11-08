@@ -25,9 +25,9 @@
                     </div>
                     </router-link>
                   <!-- <div class="text-[12px] sm:text-[14px] dark:text-[#b0b3b8]">Super Idol :v</div> -->
-                  <button v-if="item.id != user.id" class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base">Write message</button>
+                  <Button v-if="item.id != user.id" class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base">Write message</Button>
                 </div>
-                <button v-if="item.id != user.id" @click="add_friend(item.id)" class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base">Add friend</button>
+                <Button v-if="item.id != user.id" @click="add_friend(item.id)" class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base">Add friend</Button>
               </div>
             </div>       
           </div>

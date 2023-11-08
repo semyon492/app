@@ -2,13 +2,14 @@
     <div class="flex-col justify-between ">
       <div class="w-full">
         <ul class="">
-          <li v-for="(info, idx) in infoTiles" :key="idx" class="">
-            <router-link :to="info.link" class="flex content-center cursor-pointer py-3 text-blue-600 hover:text-black dark:text-white dark:text-slate-300 dark:hover:text-white">
+          <li v-for="(item, idx) in menu_list" :key="idx" class="">
+            <router-link :to="item.link" class="flex content-center cursor-pointer py-3 text-blue-600 hover:text-black dark:text-white dark:text-slate-300 dark:hover:text-white">
               <div class="m-2">
-                <img :src="info.img" class="rounded-circle img-xl" :alt="info.text">
+                <img v-if="item.img_type == 'file'" :src="item.img" class="rounded-circle img-xl" :alt="item.text">
+                <Icon v-if="item.img_type == 'svg'" :type="item.img" size="24" />
               </div>
               <div class="m-2">
-                {{ info.text }}
+                {{ item.text }}
               </div>
             </router-link>
           </li>
@@ -19,6 +20,7 @@
 </template>
 
 <script>
+import Icon from '@/ui/Icon.vue'
 import {authRefreshToken} from "@/api/user"
 import imgMostRecent from '@/assets/images/mostRecent.png'
 import imgFriends from '@/assets/images/friends.png'
@@ -36,10 +38,11 @@ export default {
   components: {
     // ModalLang,
     // Tooltip
+    Icon,
   },
   data() {
     return {
-      infoTiles: [],
+      menu_list: [],
       modal_name: 'modalLang1',
       list: 'a',
       profile: {
@@ -66,31 +69,36 @@ export default {
         this.profile.first_name = res_f.data.first_name;
         this.profile.last_name = res_f.data.last_name;        
         this.profile.photo_50 = res_f.data.photo_50;      
-        this.infoTiles = ([
+        this.menu_list = ([
         {
           link: '/',
           text: this.t('leftbar.feed'),
-          img: imgMostRecent,
+          img: 'news',
+          img_type: 'svg',
         },
         {
           link: '/id' + res_f.data.id,
           text: this.t('leftbar.profile'),
           img: res_f.data.photo_50,
+          img_type: 'file',
         },
         {
           link: '/friends/' + res_f.data.id,
           text: this.t('leftbar.friends'),
-          img: imgFriends,
+          img: 'friends',
+          img_type: 'svg',
         },
         {
           link: '/chat',
           text: this.t('leftbar.chat'),
-          img: imgMostRecent,
+          img: 'chat',
+          img_type: 'svg',
         },
         {
           link: '/settings',
           text: this.t('leftbar.settings'),
-          img: imgMostRecent,
+          img: 'settings',
+          img_type: 'svg',
         },
         ]);      
     })

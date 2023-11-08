@@ -29,9 +29,6 @@ import NotFound from '@/components/NotFound.vue'
 
 import AdminLayout from '@/components/admin/Layout.vue'
 import HomeAdmin from '@/views/admin/Home.vue'
-import Post from '@/views/admin/Post.vue'
-import List from '@/views/admin/List.vue'
-import Edit from '@/views/admin/Edit.vue'
 
 const routes = [
     {
@@ -86,9 +83,6 @@ const routes = [
         component: AdminLayout,
         children: [
             {path: '', name: 'home_admin', component: HomeAdmin, props: true},
-            {path: 'post', name: 'post', component: Post},
-            {path: 'list', name: 'list', component: List},
-            {path: 'edit/:id(\\d+)', name: 'edit', component: Edit, props: true}
         ]
     }
 ]

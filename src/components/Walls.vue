@@ -17,7 +17,7 @@
           </ul>
         </div> -->
         <WallMenu :walls="walls" :wall_id="wall.id" />
-        <button @click="$emit('remove', index)">delete</button>
+        <!-- <button @click="$emit('remove', index)">delete</button> -->
         <!-- <button @click="walls.splice(index, 1)">delete</button> -->
       </div>
       <div class="content mt-[11px] px-4  text-[17px]">

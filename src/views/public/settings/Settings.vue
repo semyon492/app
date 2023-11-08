@@ -9,21 +9,9 @@
           <h5 class="text-2xl">{{ $t('settings.Name') }}</h5>
         </div>
         <form class="flex-1 p-6" @submit.prevent="change_name">
-          <div class="mt-4">
-            <label class="block text-sm text-gray-700 dark:text-gray-400">
-              <span>{{ $t('settings.first_name') }}</span>
-              <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
-                  type="text" :placeholder="user.first_name" v-model="user.first_name" >
-            </label>
-          </div> 
-          <div class="mt-4">
-            <label class="block text-sm text-gray-700 dark:text-gray-400">
-              <span>{{ $t('settings.last_name') }}</span>
-              <input class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
-                  type="text" :placeholder="user.last_name" v-model="user.last_name" >
-            </label>
-          </div> 
-          <Button type="submit" class="mt-4" variant="purple">{{ $t('settings.change_name') }}</Button>
+          <Input v-model:modelValue="user.first_name" type="text" :label="$t('settings.first_name')" />
+          <Input v-model:modelValue="user.last_name" type="text" :label="$t('settings.last_name')" />
+          <Button type="submit" class="mt-4">{{ $t('settings.change_name') }}</Button>
         </form>
         <div class="p-6">
           <h5 class="text-2xl">{{ $t('settings.Avatar') }}</h5>
@@ -36,7 +24,7 @@
                   type="file" id="file" ref="file" v-on:change="handleFileUpload()" >
             </label>
           </div> 
-          <Button v-on:click="submitFile()" class="mt-4" variant="purple">{{ $t('settings.submit') }}</Button>
+          <Button v-on:click="submitFile()" type="submit" class="mt-4" >{{ $t('settings.submit') }}</Button>
         </div>        
       </div>
     </SettingsCard>
@@ -44,6 +32,7 @@
 </template>
 
 <script>
+import Input from '@/ui/Input.vue'
 import SettingsMenu from '@/components/settings/SettingsMenu.vue'
 import SettingsCard from '@/components/settings/SettingsCard.vue'
 import NotFound from '@/components/NotFound.vue'
@@ -60,7 +49,8 @@ export default {
     NotFound,
     Button,
     Modal,
-    Axios
+    Axios,
+    Input,
   },
   props: ['user'],
   data() {
