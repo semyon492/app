@@ -42,7 +42,7 @@ import Modal from '@/ui/modal/Modal.vue'
 import Axios from "axios";
 
 export default {
-  name: 'Home',
+  name: 'settings',
   components: {
     SettingsMenu,
     SettingsCard,

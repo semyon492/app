@@ -17,5 +17,11 @@
         "vuex"
     ],
     "i18n-ally.sourceLanguage": "en",
-    "i18n-ally.preferredDelimiter": "_"
+    "i18n-ally.preferredDelimiter": "_",
+    "workbench.editor.autoLockGroups": {
+        "jsProfileVisualizer.cpuprofile.table": true
+    },
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true
 }

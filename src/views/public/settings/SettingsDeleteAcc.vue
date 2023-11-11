@@ -45,7 +45,7 @@ import Button from '@/ui/button/Button.vue'
 import Modal from '@/ui/modal/Modal.vue'
 
 export default {
-  name: 'Home',
+  name: 'delete',
   components: {
     SettingsMenu,
     SettingsCard,

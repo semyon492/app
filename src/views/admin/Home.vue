@@ -45,29 +45,32 @@ export default {
     return {
       menu: [
       {
-          link: '/',
+          link: 'users',
           name: 'Users',
           img: 'friends',
           count: 200,
         },
         {
-          link: '/',
+          link: 'groups',
           name: 'Groups',
           img: 'friends',
           count: 100,
         },
         {
-          link: '/',
+          link: 'settings',
           name: 'Settings',
+          img: 'settings',
+          count: '',
+        },
+        {
+          link: 'tests',
+          name: 'Tests',
           img: 'settings',
           count: '',
         },
 
       ],
     }
-  },
-  async mounted() {
-
   },
 }
 </script>

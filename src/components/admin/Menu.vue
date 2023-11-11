@@ -18,7 +18,10 @@
         <div class="justify-between items-center flex">
             <div class="flex items-center justify-center">
             <div>
-                <h3 class="text-lg leading-tight text-gray-500 dark:text-slate-400">{{ item.name }}</h3>
+                <router-link :to="'admin/' + item.link">
+                    <h3 class="text-lg leading-tight text-gray-500 dark:text-slate-400">{{ item.name }}</h3>
+                </router-link>
+                
                 <h1 class="text-3xl leading-tight font-semibold">{{ item.count }}</h1>
             </div>
             </div>

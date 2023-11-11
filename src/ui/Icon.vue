@@ -69,10 +69,15 @@
   <svg v-if="(type == 'user')" :class="class" :width="size" :height="size" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24">
     <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"></path>
   </svg>
-  <svg v-if="(type == 'password')" :class="class" :width="size" :height="size" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="text-primary dark:text-white group-focus-within:text-white" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <svg v-if="(type == 'password')" :class="class" :width="size" :height="size" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
     <path d="M17 8V7c0-2.757-2.243-5-5-5S7 4.243 7 7v3H6c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-8c0-1.103-.897-2-2-2H9V7c0-1.654 1.346-3 3-3s3 1.346 3 3v1h2zm1 4 .002 8H6v-8h12z"></path>
   </svg>
-
+  <svg v-if="(type == 'info')" :class="class" :width="size" :height="size" viewBox="0 0 40 40">
+    <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM21.6667 28.3333H18.3334V25H21.6667V28.3333ZM21.6667 21.6666H18.3334V11.6666H21.6667V21.6666Z" />
+  </svg>
+  <!-- <svg v-if="(type == 'warning')" :class="class" :width="size" :height="size" viewBox="0 0 40 40">
+    <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM21.6667 28.3333H18.3334V25H21.6667V28.3333ZM21.6667 21.6666H18.3334V11.6666H21.6667V21.6666Z"/>
+  </svg> -->
 </template>
 
 <script>

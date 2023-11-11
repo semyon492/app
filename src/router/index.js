@@ -1,7 +1,5 @@
 import {createRouter, createWebHistory} from 'vue-router'
 
-import PublicLayout from '@/components/Layout.vue'
-
 import Home from '@/views/public/Home.vue'
 
 import Settings from '@/views/public/settings/Settings.vue'
@@ -27,8 +25,11 @@ import Rules from '@/views/public/Rules.vue'
 
 import NotFound from '@/components/NotFound.vue'
 
-import AdminLayout from '@/components/admin/Layout.vue'
 import HomeAdmin from '@/views/admin/Home.vue'
+import AdminTests from '@/views/admin/Tests.vue'
+import AdminSettings from '@/views/admin/Settings.vue'
+import AdminUsers from '@/views/admin/Settings.vue'
+import AdminGroups from '@/views/admin/Settings.vue'
 
 const routes = [
     {
@@ -36,55 +37,62 @@ const routes = [
         name: 'public',
         component: () => import('@/components/Layout.vue'),
         children: [
-            { path: '/:afterUser(.*)', component: Settings },
+            { path: ':afterUser(.*)', component: Settings },
             
             {path: 'home/:id(\\d+)', name: 'home3', component: Home, props: true},
             // {path:'/', redirect:'/home/1'},
             {path: '', name: 'home', component: Home, props: true},
-            {path: '/', name: 'home2', component: Home, props: true},
-            {path: '/privacy-and-terms', name: 'rules', component: Rules, props: true},
-            {path: '/settings', name: 'settings', component: Settings, props: true},
-            {path: '/settings/delete', name: 'delete', component: SettingsDeleteAcc, props: true},
-            {path: '/settings/password', name: 'password', component: SettingsPassword, props: true},
-            {path: '/settings/privacy', name: 'privacy', component: SettingsPrivacy, props: true},
-            {path: '/settings/email', name: 'email', component: SettingsEmail, props: true},
-            {path: '/settings/notifications', name: 'notifications', component: SettingsNotifications, props: true},
-            {path: '/id:id(\\d+)', name: 'profile', component: Profile, props: true},           
+            // {path: '/', name: 'home2', component: Home, props: true},
+            {path: 'privacy-and-terms', name: 'rules', component: Rules, props: true},
+            {path: 'settings', name: 'settings', component: Settings, props: true},
+            {path: 'settings/delete', name: 'delete', component: SettingsDeleteAcc, props: true},
+            {path: 'settings/password', name: 'password', component: SettingsPassword, props: true},
+            {path: 'settings/privacy', name: 'privacy', component: SettingsPrivacy, props: true},
+            {path: 'settings/email', name: 'email', component: SettingsEmail, props: true},
+            {path: 'settings/notifications', name: 'notifications', component: SettingsNotifications, props: true},
+            {path: 'id:id(\\d+)', name: 'profile', component: Profile, props: true},           
 
-            {path: '/edit', name: 'edit_profile', component: EditProfile, props: true},
-            {path: '/friends/:id(\\d+)', name: 'friends', component: Friends, props: true},
-            {path: '/friends/online/:id(\\d+)', name: 'friendsOnline', component: FriendsOnline, props: true},
-            {path: '/friends/requests/:id(\\d+)', name: 'FriendsRequests', component: FriendsRequests, props: true},
+            {path: 'edit', name: 'edit_profile', component: EditProfile, props: true},
+            {path: 'friends/:id(\\d+)', name: 'friends', component: Friends, props: true},
+            {path: 'friends/online/:id(\\d+)', name: 'friendsOnline', component: FriendsOnline, props: true},
+            {path: 'friends/requests/:id(\\d+)', name: 'FriendsRequests', component: FriendsRequests, props: true},
 
-            {path: '/albums/:id(\\d+)', name: 'albums', component: Albums, props: true},
-            {path: '/chat', name: 'chat', component: Chat, props: true},
+            {path: 'albums/:id(\\d+)', name: 'albums', component: Albums, props: true},
+            {path: 'chat', name: 'chat', component: Chat, props: true},
 
             // {path: '/search/:id(\\d+)/:page(\\d+)/:query', name: 'search', component: Search, props: true},
             // {path: '/search/:id(\\d+)/:query', name: 'search', component: Search, props: true},
             // {path: '/search/:page(\\d+)/:query', name: 'search', component: Search, props: true},
-            {path: '/search/:query', name: 'search_query', component: Search, props: true},
+            {path: 'search/:query', name: 'search_query', component: Search, props: true},
             // {path: '/search/:name', name: 'search', component: Search, props: true},
 
-            {path: '/search/', name: 'search', component: Search, props: true},
+            {path: 'search/', name: 'search', component: Search, props: true},
 
-            {path: '/login', name: 'login', component: Login, props: true},
-            {path: '/register', name: 'register', component: Register, props: true},
-            {path: '/restore', name: 'restore', component: Restore, props: true},
+            {path: 'login', name: 'login', component: Login, props: true},
+            {path: 'register', name: 'register', component: Register, props: true},
+            {path: 'restore', name: 'restore', component: Restore, props: true},
             // {path:'/:pathMatch(.*)*', redirect: '/home/1'}
-            { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
+            { path: ':pathMatch(.*)*', name: 'NotFound', component: NotFound },
         ]
     },
 
-
-    // {path:'/restore',name:'restore',component:Restore},
     {
         path: '/admin',
         name: 'admin',
-        component: AdminLayout,
+        component: () => import('@/components/admin/Layout.vue'),
         children: [
-            {path: '', name: 'home_admin', component: HomeAdmin, props: true},
+            {path: '', name: 'admin_home', component: HomeAdmin, props: true},
+            // {path: '/', name: 'admin_home2', component: HomeAdmin, props: true},
+            // {path: '/admin', name: 'admin_home3', component: HomeAdmin, props: true},
+            {path: 'admin', name: 'admin_home3', component: HomeAdmin, props: true},
+            {path: 'settings', name: 'admin_settings', component: AdminSettings, props: true},
+            {path: 'tests', name: 'admin_tests', component: AdminTests, props: true},
+            {path: 'users', name: 'admin_users', component: AdminUsers, props: true},
+            {path: 'groups', name: 'admin_groups', component: AdminGroups, props: true},
+
+            { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
         ]
-    }
+    },
 ]
 
 const router = createRouter({
