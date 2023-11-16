@@ -21,8 +21,8 @@ export default {
     remove() {
         this.show = false
         //   // this.$router.push('/restore')
-        let example1 = this.walls
-        this.walls = example1.splice(this.wall_id, 1)
+        // let example1 = this.walls
+        // this.walls = example1.splice(this.wall_id, 1)
     }
   },
 }

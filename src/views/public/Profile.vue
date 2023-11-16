@@ -79,8 +79,6 @@
 
 <script>
 import { fetchProfile } from "@/api/user"
-import Main from '@/components/Main.vue'
-import Icon from '@/ui/Icon.vue'
 import Axios from "axios";
 
 import ModalWall from '@/components/modals/ModalWall.vue'
@@ -91,8 +89,6 @@ import Jumbotron from '@/components/profile/Jumbotron.vue'
 export default {
   name: 'ProfilePage',
   components: {
-    Main,
-    Icon,
     ModalWall,
     Walls,
     Jumbotron,

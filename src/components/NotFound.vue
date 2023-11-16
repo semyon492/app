@@ -27,7 +27,8 @@ export default {
   watch: {
     $route: {
       immediate: true,
-      handler(to, from) {
+      // to, from
+      handler(to) {
           document.title = to.meta.title || 'Not found';
       }
     },

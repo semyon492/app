@@ -131,23 +131,13 @@
 </template>
 
 <script>
-import SettingsMenu from '@/components/settings/SettingsMenu.vue'
 import SettingsCard from '@/components/settings/SettingsCard.vue'
 import NotFound from '@/components/NotFound.vue'
 
-import Button from '@/ui/button/Button.vue'
-import Modal from '@/ui/modal/Modal.vue'
-import Icon from '@/ui/Icon.vue'
-
 export default {
-  name: 'Home',
   components: {
-    SettingsMenu,
     SettingsCard,
     NotFound,
-    Button,
-    Modal,
-    Icon
   },
   props: ['user'],
   data() {

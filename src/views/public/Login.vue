@@ -54,7 +54,6 @@
 <script>
 import NotFound from '@/components/NotFound.vue'
 import {authRefreshToken, authorize} from "@/api/user"
-import Axios from "axios";
 import {useI18n} from 'vue-i18n'
 
 import imgSignIn from "@/assets/images/login.jpeg";

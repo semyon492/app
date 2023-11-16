@@ -2,7 +2,6 @@
 import SettingsMenu from './SettingsMenu.vue'
 
 export default {
-  name: 'Navbar',
   props: {},
   components: {
     SettingsMenu,

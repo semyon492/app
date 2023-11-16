@@ -46,7 +46,6 @@
 
 <script>
 import Modal from '@/ui/modal/Modal.vue'
-import Icon from '@/ui/Icon.vue'
 import {useI18n} from 'vue-i18n'
 import Axios from "axios";
 
@@ -59,7 +58,6 @@ export default {
   },
   components: {
     Modal,
-    Icon,
   },
   setup() {
     // use global scope

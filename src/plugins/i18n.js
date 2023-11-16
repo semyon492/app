@@ -1,6 +1,6 @@
 import {createI18n} from 'vue-i18n'
 // import messages from '@intlify/vite-plugin-vue-i18n/messages'
-import messages from '@intlify/unplugin-vue-i18n/messages'
+// import messages from '@intlify/unplugin-vue-i18n/messages'
 
 if (localStorage.getItem('currLang') == null) {
     localStorage.setItem('currLang', 'en');

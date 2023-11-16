@@ -15,16 +15,13 @@
 import { fetchProfile } from "@/api/user"
 import { fetchFriendsRequests } from "@/api/friends"
 import NotFound from '@/components/NotFound.vue'
-import Icon from '@/ui/Icon.vue'
 
 import Jumbotron from '@/components/profile/Jumbotron.vue'
 import FriendsCard from '@/components/friends/Card.vue'
 
 export default {
-  name: 'Friends',
   components: {
     NotFound,
-    Icon,
     Jumbotron,
     FriendsCard
   },

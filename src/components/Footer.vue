@@ -21,7 +21,6 @@
 import ModalLang from '../components/modals/ModalLang.vue'
 
 export default {
-    name:'Footer',
     components: {
         ModalLang
     },

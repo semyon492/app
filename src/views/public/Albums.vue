@@ -61,7 +61,6 @@
 </template>
 
 <script>
-import {authRefreshToken} from "@/api/user"
 import Main from '@/components/Main.vue'
 import Icon from '@/ui/Icon.vue'
 import Axios from 'axios'

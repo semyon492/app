@@ -1,6 +1,6 @@
 <template>
   <div class="posts">
-    <div v-for="(wall, index) in walls" :key="wall.id" class="dark:bg-[#242526] bg-white mb-5 pt-3 pb-2.5 md:pb-3 rounded-lg shadow-post " >
+    <div v-for="(wall) in walls" :key="wall.id" class="dark:bg-[#242526] bg-white mb-5 pt-3 pb-2.5 md:pb-3 rounded-lg shadow-post " >
       <div class="flex items-center pl-2 pr-3 sm:px-3 md:px-4">
         <img :src="wall.user_photo" alt="avatar" class="w-10 h-10 rounded-full object-cover cursor-pointer ">
         <div class="ml-2 font-bold ">
@@ -64,7 +64,6 @@ import Icon from '@/ui/Icon.vue'
 import WallMenu from '@/components/WallMenu.vue'
 
 export default {
-  name: 'Walls',
   components: {
     Icon,
     WallMenu,

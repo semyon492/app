@@ -43,14 +43,12 @@
 </template>
 
 <script>
-import Icon from '@/ui/Icon.vue'
 import NotFound from '@/components/NotFound.vue'
 
 export default {
   name: 'admin_tests',
   components: {
     NotFound,
-    Icon,
   },
   props: ['user'],
 }

@@ -22,7 +22,6 @@
 
 <script>
 export default {
-  name: 'Tooltip',
   props: {
     label: String,
     active: {

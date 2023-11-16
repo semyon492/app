@@ -1,6 +1,5 @@
 <script>
 export default {
-  name: 'Navbar',
   props: {
     class: {
       type: String,

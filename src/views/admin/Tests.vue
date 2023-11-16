@@ -48,7 +48,6 @@
 </template>
 
 <script>
-import Icon from '@/ui/Icon.vue'
 import Button from '@/ui/button/Button.vue'
 import NotFound from '@/components/NotFound.vue'
 
@@ -58,7 +57,6 @@ export default {
   name: 'admin_tests',
   components: {
     NotFound,
-    Icon,
     Button,
   },
   props: ['user'],

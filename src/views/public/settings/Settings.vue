@@ -38,18 +38,13 @@ import SettingsCard from '@/components/settings/SettingsCard.vue'
 import NotFound from '@/components/NotFound.vue'
 
 import Button from '@/ui/button/Button.vue'
-import Modal from '@/ui/modal/Modal.vue'
 import Axios from "axios";
 
 export default {
-  name: 'settings',
-  components: {
-    SettingsMenu,
-    SettingsCard,
+ components: {
+   SettingsCard,
     NotFound,
     Button,
-    Modal,
-    Axios,
     Input,
   },
   props: ['user'],

@@ -71,13 +71,11 @@ import Input from '@/ui/Input.vue'
 import { fetchAllSearch } from "@/api/search"
 import { addFriend } from "@/api/friends"
 import Button from '@/ui/button/Button.vue'
-import Axios from "axios";
 
 export default {
   name: 'Home',
   components: {
     Button,
-    Axios,
     Input
   },
   props: ['user', 'query'],

@@ -27,7 +27,6 @@
 
 <script>
 export default {
-  name: 'Modal',
   props: {
     show: Boolean,
     modalName: String

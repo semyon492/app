@@ -128,7 +128,6 @@
 </template>
 
 <script>
-import Icon from '@/ui/Icon.vue'
 import Input from '@/ui/Input.vue'
 import {authRefreshToken, authorize} from "@/api/user"
 import Modal from '@/ui/modal/Modal.vue'
@@ -140,7 +139,6 @@ export default {
   props: ['user', 'modal_name', 'type'],
   components: {
     Modal,
-    Icon,
     Input,
   },
   setup() {

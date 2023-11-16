@@ -21,7 +21,6 @@ import Jumbotron from '@/components/profile/Jumbotron.vue'
 import FriendsCard from '@/components/friends/Card.vue'
 
 export default {
-  name: 'Friends',
   components: {
     Main,
     Icon,

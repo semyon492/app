@@ -116,15 +116,11 @@
 <script>
 import NotFound from '@/components/NotFound.vue'
 
-import Button from '@/ui/button/Button.vue'
-import Modal from '@/ui/modal/Modal.vue'
-
 export default {
   name: 'Home',
   components: {
     NotFound,
-    Button,
-    Modal
+
   },
   props: ['user'],
   data() {
