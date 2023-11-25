@@ -9,9 +9,9 @@
           <h5 class="text-2xl">{{ $t('settings.Name') }}</h5>
         </div>
         <form class="flex-1 p-6" @submit.prevent="change_name">
-          <Input v-model:modelValue="user.first_name" type="text" :label="$t('settings.first_name')" />
-          <Input v-model:modelValue="user.last_name" type="text" :label="$t('settings.last_name')" />
-          <Button type="submit" class="mt-4">{{ $t('settings.change_name') }}</Button>
+          <v-input v-model:modelValue="user.first_name" type="text" :label="$t('settings.first_name')" />
+          <v-input v-model:modelValue="user.last_name" type="text" :label="$t('settings.last_name')" />
+          <v-button type="submit" class="mt-4">{{ $t('settings.change_name') }}</v-button>
         </form>
         <div class="p-6">
           <h5 class="text-2xl">{{ $t('settings.Avatar') }}</h5>
@@ -24,7 +24,7 @@
                   type="file" id="file" ref="file" v-on:change="handleFileUpload()" >
             </label>
           </div> 
-          <Button v-on:click="submitFile()" type="submit" class="mt-4" >{{ $t('settings.submit') }}</Button>
+          <v-button v-on:click="submitFile()" type="submit" class="mt-4" >{{ $t('settings.submit') }}</v-button>
         </div>        
       </div>
     </SettingsCard>
@@ -32,20 +32,16 @@
 </template>
 
 <script>
-import Input from '@/ui/Input.vue'
 import SettingsMenu from '@/components/settings/SettingsMenu.vue'
 import SettingsCard from '@/components/settings/SettingsCard.vue'
 import NotFound from '@/components/NotFound.vue'
 
-import Button from '@/ui/button/Button.vue'
 import Axios from "axios";
 
 export default {
  components: {
    SettingsCard,
     NotFound,
-    Button,
-    Input,
   },
   props: ['user'],
   data() {

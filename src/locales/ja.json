@@ -15,5 +15,7 @@
   "language.beta": "ベタ版",
   "language.eng_name": "Japanese",
   "promo.desc": "あなたの人生の中で人々とつながり、共有するのに役立ちます。",
-  "profile.save": "保存"
+  "profile.save": "保存",
+  "header.light_dark": "ライト/ダーク",
+  "language.language_selection": "言語を選択する"
 }

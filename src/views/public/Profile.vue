@@ -82,7 +82,7 @@ import { fetchProfile } from "@/api/user"
 import Axios from "axios";
 
 import ModalWall from '@/components/modals/ModalWall.vue'
-import Walls from '@/components/Walls.vue'
+import Walls from '@/components/walls/Walls.vue'
 
 import Jumbotron from '@/components/profile/Jumbotron.vue'
 

@@ -19,16 +19,20 @@
         </p>
         <div class="mt-6 flex flex-col sm:flex-row gap-3">
           <router-link to="/register">
-            <Button variant="dark">
-              <Icon type="signup" size="24" />
-              {{ $t('auth.signup') }}
-            </Button>
+            <v-button color="dark" pill>
+              <template #prefix>
+                <v-icon name="signup" size="24" />
+              </template>               
+              {{ $t('auth.signup') }}             
+            </v-button>
           </router-link>
           <router-link to="/login">
-            <Button variant="light">
-              <Icon type="login" size="24" />
-              {{ $t('auth.signin') }}
-            </Button>
+            <v-button color="alternative" pill>
+              <template #prefix>
+                <v-icon name="login" size="24" />
+              </template>               
+              {{ $t('auth.signin') }}            
+            </v-button>            
           </router-link>
         </div>
       </div>
@@ -37,19 +41,12 @@
 
 </template>
 <script>
-import Icon from '@/ui/Icon.vue'
-import Button from '@/ui/button/Button.vue'
-
 import HeroImgWebp from "../assets/images/hero.webp";
 import HeroImgWebp1 from "../assets/images/hero.1.webp";
 import HeroImgWebp2 from "../assets/images/hero.2.webp";
 import HeroImgWebp3 from "../assets/images/hero.3.webp";
 export default {
   name: 'MainPage',
-  components: {
-    Icon,
-    Button,
-  },
   data() {
     return {
       name: import.meta.env.VITE_APP_NAME,

@@ -12,49 +12,56 @@
     </div>
   </button>
   <Teleport to="body">
-    <Modal size="md" :show="showModal" :title="title" @close="showModal = false">
+    <v-modal size="md" :show="showModal" :title="title" @onDismissed="dismissed">
       <template #body>
         <form v-if="type == 'login'" class="w-full" @submit.prevent="login">
           <!-- <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">{{ $t('auth.signin') }}</h1> -->
-          <Input v-model:modelValue="form_user.email" type="email" placeholder="john@doe.com" icon="user" />
-          <Input v-model:modelValue="form_user.password" type="password" placeholder="***************" icon="password" />
+          <!-- <Input v-model:modelValue="form_user.email" type="email" placeholder="john@doe.com" icon="user" /> -->
+          <!-- <Input v-model:modelValue="form_user.password" type="password" placeholder="***************" icon="password" /> -->
+
+          <v-input label="Email" v-model:modelValue="form_user.email" type="email" placeholder="john@doe.com" required/>
+          <v-input label="Password" v-model:modelValue="form_user.password" type="password" placeholder="***************" required/>
           <div v-if="form_alert">
             {{ err_info }}
           </div>
-          <button
-              class="align-bottom inline-flex items-center justify-center cursor-pointer leading-5 transition-colors duration-150 font-medium focus:outline-none px-4 py-2 rounded-lg text-sm text-white bg-purple-600 border border-transparent active:bg-purple-600 hover:bg-purple-700 focus:shadow-outline-purple w-full mt-4"
-              type="submit">
+          <!-- <v-button pill type="submit" class="mt-4">
             {{ $t('auth.signin') }}
-          </button>
+          </v-button> -->
           <p class="mt-4">
-            <router-link class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" to="/restore">
+            <router-link class="text-sm font-medium text-slate-600 dark:text-gray-200 hover:underline" to="/restore">
               {{ $t('auth.forgot_your_password') }}
             </router-link>
           </p>
           <p class="mt-1">
             <a @click="type = 'register'"
-               class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
+               class="text-sm font-medium text-slate-600 dark:text-gray-200 hover:underline"
                href="#">{{ $t('auth.signup') }}</a>
           </p>
         </form>
-        <form v-if="type == 'register'" class="w-full" @submit.prevent="login">
+        <form v-if="type == 'register'" class="w-full" @submit.prevent="register">
           <!-- <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">{{ $t('auth.signup') }}</h1> -->
-          <div class="mt-4">
+          <!-- <div class="mt-4">
             <label class="block text-sm text-gray-700 dark:text-gray-400 mt-4">
               <span>{{ $t('auth.first_name') }}</span>
               <input
                   class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 border-green-600 dark:bg-gray-700 focus:border-green-400 dark:focus:border-green-400 focus:shadow-outline-green dark:focus:shadow-outline-green mt-1"
                   type="text" placeholder="Jane" v-model="form_add_user.first_name" required>
             </label>
-          </div>
-          <div class="mt-4">
+          </div> -->
+
+          <v-input :label="$t('auth.first_name')" v-model:modelValue="form_add_user.first_nam" type="text" placeholder="Jane"/>
+
+          <!-- <div class="mt-4">
             <label class="block text-sm text-gray-700 dark:text-gray-400 mt-4">
               <span>{{ $t('auth.last_name') }}</span>
               <input
                   class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 border-green-600 dark:bg-gray-700 focus:border-green-400 dark:focus:border-green-400 focus:shadow-outline-green dark:focus:shadow-outline-green mt-1"
                   type="text" placeholder="Doe" v-model="form_add_user.last_name" required>
             </label>
-          </div>
+          </div> -->
+
+          <v-input :label="$t('auth.last_name')" v-model:modelValue="form_add_user.last_name" type="text" placeholder="Doe"/>
+
           <div class="mt-4">
             <label class="block text-sm text-gray-700 dark:text-gray-400">
               <span>{{ $t('auth.birthday') }}</span>
@@ -63,6 +70,7 @@
                   type="date" v-model="form_add_user.birthday" required>
             </label>
           </div>
+
           <div class="mt-4">
             <label class="block text-sm text-gray-700 dark:text-gray-400">{{ $t('auth.gender') }}</label>
             <div class="mt-2">
@@ -80,14 +88,17 @@
               </label>
             </div>
           </div>
-          <label class="block text-sm text-gray-700 dark:text-gray-400">
+          <!-- <label class="block text-sm text-gray-700 dark:text-gray-400">
             <span>{{ $t('auth.email') }}</span>
             <input
                 class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
                 type="email" placeholder="john@doe.com" v-model="form_add_user.email" required>
             <span class="text-xs">{{ $t('auth.email_privacy') }}</span>
-          </label>
-          <label class="block text-sm text-gray-700 dark:text-gray-400 mt-4">
+          </label> -->
+
+          <v-input :label="$t('auth.email')" v-model:modelValue="form_add_user.email" type="email" placeholder="john@doe.com"/>
+
+          <!-- <label class="block text-sm text-gray-700 dark:text-gray-400 mt-4">
             <span>{{ $t('auth.password') }}</span>
             <input
                 class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
@@ -99,48 +110,47 @@
             <input
                 class="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
                 type="password" placeholder="***************" v-model="form_add_user.repassword" required>
-          </label>
+          </label> -->
+
+          <v-input :label="$t('auth.password')" v-model:modelValue="form_add_user.password" type="password" placeholder="***************"/>
+          <v-input :label="$t('auth.password_confirm')" v-model:modelValue="form_add_user.repassword" type="password" placeholder="***************"/>
+
           <label class="block text-sm text-gray-700 dark:text-gray-400 inline-flex items-center mt-6">
             <input
                 class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700"
                 type="checkbox">
-            <span class="ml-2">{{ $t('auth.i_agree_to_the') }} <span class="underline">{{
-                $t('auth.privacy_policy')
-              }}</span></span>
+            <span class="ml-2">{{ $t('auth.i_agree_to_the') }} <span class="underline">{{$t('auth.privacy_policy')}}</span></span>
           </label>
           <div v-if="form_alert">
             {{ err_info }}
           </div>
-          <button type="submit"
-                  class="align-bottom inline-flex items-center justify-center cursor-pointer leading-5 transition-colors duration-150 font-medium focus:outline-none px-4 py-2 rounded-lg text-sm text-white bg-purple-600 border border-transparent active:bg-purple-600 hover:bg-purple-700 focus:shadow-outline-purple w-full mt-4">
-            {{ $t('auth.signup') }}
-          </button>
+          <!-- <v-button pill type="submit" class="mt-2">{{ $t('auth.signup') }}</v-button> -->
           <p class="mt-4">
-            <a @click="type = 'login'" class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
+            <a @click="type = 'login'" class="text-sm font-medium text-slate-600 dark:text-gray-200 hover:underline"
                href="#">{{ $t('auth.you_already_have_an_account') }} {{ $t('auth.signin') }}</a>
           </p>
         </form>
-
       </template>
-    </Modal>
-  </Teleport>
+      <template #footer>
+        <div class="flex justify-between">
+          <v-button v-if="type == 'login'" @click="login" pill>{{ $t('auth.signin') }}</v-button>
+          <v-button v-if="type == 'register'" @click="register" pill>{{ $t('auth.signup') }}</v-button>
+          <v-button @click="dismissed" pill>{{ $t('modal.close') }}</v-button>
+        </div>
+      </template>
+    </v-modal>
+  </Teleport> 
 
 </template>
 
 <script>
-import Input from '@/ui/Input.vue'
 import {authRefreshToken, authorize} from "@/api/user"
-import Modal from '@/ui/modal/Modal.vue'
 import {useI18n} from 'vue-i18n'
 import Axios from "axios";
 
 export default {
   name: 'ModalAuth',
   props: ['user', 'modal_name', 'type'],
-  components: {
-    Modal,
-    Input,
-  },
   setup() {
     // use global scope
     const {t, locale} = useI18n()
@@ -277,7 +287,10 @@ export default {
     },
     toReset() {
       this.$router.push('/restore')
-    }
+    },
+    dismissed(){
+      this.showModal = false
+    },
   },
 }
 </script>

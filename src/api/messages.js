@@ -1,4 +1,4 @@
-import {fetchGet, fetchPost} from './http';
+import {fetchPost} from './http';
 
 let base = import.meta.env.VITE_DOMAIN_API
 let access_token = localStorage.getItem('token') ?? ''

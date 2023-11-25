@@ -45,5 +45,6 @@
   "settings.privacy": "Confidentialité et sécurité",
   "language.beta": "Version Betta",
   "language.eng_name": "French",
-  "promo.desc": "vous aide à vous connecter et à partager avec les personnes de votre vie."
+  "promo.desc": "vous aide à vous connecter et à partager avec les personnes de votre vie.",
+  "header.light_dark": "Clair/Obscur"
 }

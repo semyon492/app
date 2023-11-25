@@ -34,11 +34,11 @@
           <div class="bg-white dark:bg-slate-900 lg:rounded-2xl">
             <div class="p-6">
               <h5 class="text-2xl">Name</h5>
-              <Button @click="info" type="button" class="mt-4">Info</Button>
-              <Button @click="warning" type="button" class="mt-4">Warning</Button>
+              <v-button @click="info" type="button" class="mt-4">Info</v-button>
+              <v-button @click="warning" type="button" class="mt-4">Warning</v-button>
             </div>
             <div class="p-6">
-              <Button @click="add_test" type="button" class="mt-4">Send notify to me</Button>
+              <v-button @click="add_test" type="button" class="mt-4">Send notify to me</v-button>
             </div>
           </div>
         </div>
@@ -48,7 +48,6 @@
 </template>
 
 <script>
-import Button from '@/ui/button/Button.vue'
 import NotFound from '@/components/NotFound.vue'
 
 import { addNotify } from "@/api/notify"
@@ -57,7 +56,6 @@ export default {
   name: 'admin_tests',
   components: {
     NotFound,
-    Button,
   },
   props: ['user'],
   methods: {

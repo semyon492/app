@@ -15,7 +15,6 @@
 import { fetchProfile } from "@/api/user"
 import { fetchFriendsOnline } from "@/api/friends"
 import Main from '@/components/Main.vue'
-import Icon from '@/ui/Icon.vue'
 
 import Jumbotron from '@/components/profile/Jumbotron.vue'
 import FriendsCard from '@/components/friends/Card.vue'
@@ -23,7 +22,6 @@ import FriendsCard from '@/components/friends/Card.vue'
 export default {
   components: {
     Main,
-    Icon,
     Jumbotron,
     FriendsCard
   },

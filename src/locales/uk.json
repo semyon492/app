@@ -16,5 +16,6 @@
   "language.beta": "Бетта-версія",
   "language.eng_name": "Ukrainian",
   "promo.desc": "допомагає вам спілкуватися та ділитися з людьми у вашому житті.",
-  "err.Incorrect_email_or_password_entered": "Введено неправильну адресу електронної пошти або пароль"
+  "err.Incorrect_email_or_password_entered": "Введено неправильну адресу електронної пошти або пароль",
+  "header.light_dark": "Світлий/темний"
 }

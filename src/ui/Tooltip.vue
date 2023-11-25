@@ -76,6 +76,7 @@ export default {
         //   this.$Tooltip && this.$Tooltip.hasOwnProperty('borderRadius')
         //     ? this.$Tooltip.borderRadius
         //     : null,
+        
         // '--custom-tooltip-font-weight':
         //   this.$Tooltip && this.$Tooltip.hasOwnProperty('fontWeight')
         //     ? this.$Tooltip.fontWeight
@@ -136,7 +137,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* Set defaults */
 .custom-tooltip {
   --custom-tooltip-color: #fff;

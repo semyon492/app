@@ -52,7 +52,7 @@ import MainMenu from '@/components/head/Menu.vue'
 import Main from '@/components/Main.vue'
 
 import ModalWall from '@/components/modals/ModalWall.vue'
-import Walls from '@/components/Walls.vue'
+import Walls from '@/components/walls/Walls.vue'
 
 export default {
   name: 'Home',

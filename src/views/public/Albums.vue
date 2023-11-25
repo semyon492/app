@@ -23,7 +23,7 @@
             </div>
             <div class="flex mt-4 sm:mt-0 flex-shrink-0 ">
               <button class="flex gap-x-1 items-center font-semibold px-3 py-2 bg-[#D8DADF]/50 hover:bg-[#D8DADF] dark:bg-[#4E4F50]/50 dark:hover:bg-[#4E4F50] transition-20 rounded-md ">
-                <Icon type="edit"/>
+                <v-icon name="edit"/>
                 Edit profile
               </button>
             </div>
@@ -62,14 +62,12 @@
 
 <script>
 import Main from '@/components/Main.vue'
-import Icon from '@/ui/Icon.vue'
 import Axios from 'axios'
 
 export default {
   name: 'Friends',
   components: {
     Main,
-    Icon,
   },
   props: ['user','id'],
   data() {

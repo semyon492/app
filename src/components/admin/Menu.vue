@@ -10,7 +10,7 @@
             <div class="flex items-center justify-center">
             <button class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-gray-100 dark:border-slate-800 ring-gray-200 dark:ring-gray-500 bg-gray-100 text-black dark:bg-slate-800 dark:text-white hover:bg-gray-200 hover:dark:bg-slate-700 p-1" type="button" icon-w="w-4" icon-h="h-4">
                 <span class="inline-flex justify-center items-center w-6 h-6">
-                    <Icon type="settings" class="inline-block" :size="16" />
+                    <v-icon name="settings" class="inline-block" :size="16" />
                 </span>
             </button>
             </div>
@@ -27,7 +27,7 @@
             </div>
             <div class="flex items-center justify-center">
             <span class="inline-flex justify-center items-center  h-16 text-blue-500">
-                <Icon :type="item.img" class="inline-block" :size="48" />
+                <v-icon :name="item.img" class="inline-block" :size="48" />
             </span>
             </div>
         </div>
@@ -35,12 +35,7 @@
     </div>
 </template>
 <script>
-import Icon from '@/ui/Icon.vue'
-
 export default {
-    components: {
-    Icon,
-  },
-    props: ['menu'],
+  props: ['menu'],
 }
 </script>

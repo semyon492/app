@@ -6,7 +6,7 @@
             <router-link :to="item.link" class="flex content-center cursor-pointer py-3 text-blue-600 hover:text-black dark:text-white dark:text-slate-300 dark:hover:text-white">
               <div class="m-2">
                 <img v-if="item.img_type == 'file'" :src="item.img" class="rounded-circle img-xl" :alt="item.text">
-                <Icon v-if="item.img_type == 'svg'" :type="item.img" size="24" />
+                <v-icon v-if="item.img_type == 'svg'" :name="item.img" size="24" />
               </div>
               <div class="m-2">
                 {{ item.text }}
@@ -20,11 +20,7 @@
 </template>
 
 <script>
-import Icon from '@/ui/Icon.vue'
 import {authRefreshToken} from "@/api/user"
-import imgMostRecent from '@/assets/images/mostRecent.png'
-import imgFriends from '@/assets/images/friends.png'
-
 // import Axios from "axios";
 import {useI18n} from 'vue-i18n'
 
@@ -35,11 +31,6 @@ export default {
     const {t, locale} = useI18n()
     return {t, locale}
   },  
-  components: {
-    // ModalLang,
-    // Tooltip
-    Icon,
-  },
   data() {
     return {
       menu_list: [],

@@ -8,7 +8,7 @@
     </div>
   </div>
   <Teleport to="body">
-    <Modal size="md" :show="showModal" :title="title" @close="showModal = false">
+    <v-modal size="md" :show="showModal" :title="title" @onDismissed="dismissed">
       <template #body>
         <form class="w-full" @submit.prevent="new_wall">
           <div class="flex gap-x-2 py-4 items-center  ">
@@ -39,13 +39,11 @@
           <button class="w-full py-1.5 text-center rounded-[4px] font-semibold my-3 bg-[#3982E4] text-white " type="submit">Post</button>
         </form>
       </template>
-    </Modal>
+    </v-modal>
   </Teleport>
-
 </template>
 
 <script>
-import Modal from '@/ui/modal/Modal.vue'
 import {useI18n} from 'vue-i18n'
 import Axios from "axios";
 
@@ -55,9 +53,6 @@ export default {
     user: null,
     modal_name: String,
     profile_id: null,
-  },
-  components: {
-    Modal,
   },
   setup() {
     // use global scope
@@ -136,6 +131,9 @@ export default {
         }, 2000) // 2s
         }
       })
+    },
+    dismissed(){
+      this.showModal = false
     },
   },
 }

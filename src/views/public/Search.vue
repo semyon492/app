@@ -38,9 +38,8 @@
               <!-- <input placeholder="query" 
                 v-model="query_variable"
                 type="text" class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800"> -->
-                <Input v-model:modelValue="query_variable" type="text" placeholder="query" icon="user" />
-            </div>
-            
+                <v-input v-model:modelValue="query_variable" type="text" placeholder="query" icon="user" />
+            </div>            
           </div>
         </div>
         <div class="grid-cols-2 my-4 gap-1" v-for="(item, index) in results">
@@ -55,9 +54,9 @@
                 </div>
                 </router-link>
               <!-- <div class="text-[12px] sm:text-[14px] dark:text-[#b0b3b8]">Super Idol :v</div> -->
-              <Button v-if="item.id != user.id && user.is_connected" class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base">Write message</Button>
+              <v-button v-if="item.id != user.id && user.is_connected" class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base">Write message</v-button>
             </div>
-            <Button v-if="item.id != user.id && user.is_connected" @click="add_friend(item.id)" class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base">Add friend</Button>
+            <v-button v-if="item.id != user.id && user.is_connected" @click="add_friend(item.id)" class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base">Add friend</v-button>
           </div>
         </div>       
       </div>
@@ -67,17 +66,10 @@
 </template>
 
 <script>
-import Input from '@/ui/Input.vue'
 import { fetchAllSearch } from "@/api/search"
 import { addFriend } from "@/api/friends"
-import Button from '@/ui/button/Button.vue'
 
 export default {
-  name: 'Home',
-  components: {
-    Button,
-    Input
-  },
   props: ['user', 'query'],
   data() {
     return {
