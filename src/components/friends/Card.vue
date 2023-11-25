@@ -14,21 +14,7 @@
                 <h5 class="text-2xl">Результаты поиска</h5>
             </div>
             <div class="grid-cols-2 my-4 gap-1" v-for="(item, index) in friends">
-              <div class="col-span-1 flex items-center gap-x-3 px-4 py-5">
-                <router-link :to="'/id' + item.id" >
-                  <img :src="item.photo_50" alt="" class="w-10 sm:w-16 md:w-20 h-10 sm:h-16 md:h-20 rounded-md object-cover cursor-pointer" />
-                </router-link>
-                <div class="">
-                  <router-link :to="'/id' + item.id" >
-                    <div class="text-[14px] sm:text-[17px] font-semibold cursor-pointer">
-                      {{ item.first_name }} {{ item.last_name }}
-                    </div>
-                    </router-link>
-                  <!-- <div class="text-[12px] sm:text-[14px] dark:text-[#b0b3b8]">Super Idol :v</div> -->
-                  <v-button size="xs" v-if="item.id != user.id" class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base">Write message</v-button>
-                </div>
-                <v-button size="xs" v-if="item.id != user.id" @click="add_friend(item.id)" class="px-3 sm:px-4 py-1 md:py-2 ml-auto hover:bg-[#3C4D63] bg-[#3C4D63]/50 transition-20 text-white rounded-md text-[14px] sm:text-base">Add friend</v-button>
-              </div>
+              <Friend :item="item" :user="user" :friend="true"/>
             </div>       
           </div>
         </div>
@@ -38,11 +24,13 @@
 
 <script>
 import Menu from '@/components/friends/Menu.vue'
+import Friend from '@/components/friends/Item.vue'
 
 export default {
-    props: ['profile', 'id', 'friends', 'user'],
-    components: {
-        Menu
-    },
+  props: ['profile', 'id', 'friends', 'user'],
+  components: {
+      Menu,
+      Friend,
+  },
 }
 </script>

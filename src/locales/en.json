@@ -117,5 +117,6 @@
   "profile.video": "Video",
   "profile.followers": "followers",
   "profile.edit_profile": "Edit profile",
-  "wall.create_post": "Create post"
+  "wall.create_post": "Create post",
+  "profile.no_friends_found": "No friends found"
 }

@@ -15,7 +15,7 @@
                 <div>{{ $t('profile.no_post_found') }}</div>
               </div>
               <div class="mb-4"></div>
-              <Walls :user="user" :walls="walls" @remove="remove"/>
+              <Walls :user="user" :walls="walls"/>
             </div>
           </div>
           <div class="col-span-11 md:col-span-3 relative order-2 md:order-3 ">

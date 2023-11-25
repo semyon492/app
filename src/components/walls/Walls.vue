@@ -14,12 +14,5 @@ export default {
   components: {
     WallItem,
   },
-  data() {
-    return {
-      posts: []
-    }
-  },
-  methods: {
-  },
 }
 </script>

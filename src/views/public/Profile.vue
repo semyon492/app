@@ -44,7 +44,25 @@
                   <div class="flex justify-start items-center">
                     <router-link :to="'/albums/' + id" class="text-2xl font-extrabold dark:text-[#e4e6eb] ">{{ $t('profile.photo') }}</router-link>
                   </div>
-                  <div class="grid grid-cols-3 grid-rows-0 rounded-lg gap-1 mt-3 ">
+                  <div class="grid grid-cols-2 gap-2 p-3" v-if="profile.albums">
+							<div>
+								<a href="#" class="p-1.5 flex flex-shrink-0 items-center justify-center">
+									<v-avatar initials="JD" size="xl"></v-avatar>
+								</a>
+								<div class="text-center truncate -mx-1">
+									<a href="#" class="text-blue-800 text-sm hover:underline font-medium">1</a>
+								</div>
+							</div>
+							<div>
+								<a href="#" class="p-1.5 flex flex-shrink-0 items-center justify-center">
+									<v-avatar initials="JD" size="xl"></v-avatar>
+								</a>
+								<div class="text-center truncate -mx-1">
+									<a href="#" class="text-blue-800 text-sm hover:underline font-medium">2</a>
+								</div>
+							</div>
+						      </div>                  
+                  <div v-if="!profile.albums" class="grid grid-cols-3 grid-rows-0 rounded-lg gap-1 mt-3 ">
                     <div class="text-center my-3 col-span-3 ">{{ $t('profile.no_image_found') }}</div>
                   </div>
                 </div>
@@ -54,8 +72,20 @@
                   <div class="flex justify-start items-center">
                     <router-link :to="'/friends/' + id" class="text-2xl font-extrabold dark:text-[#e4e6eb] ">{{ $t('profile.friends') }}</router-link>
                   </div>
-                  <div class="grid grid-cols-3 grid-rows-0 rounded-lg gap-1 mt-3 ">
-                    <div class="text-center my-3 col-span-3 ">{{ $t('profile.no_image_found') }}</div>
+                  <div v-if="profile.friends" class="grid grid-cols-3 gap-3 p-3" v-for="(item, index) in profile.friends">
+                    <div>
+                      <a href="#" class="p-1.5 flex flex-shrink-0 items-center justify-center">
+                        <v-avatar :img="item.ava" rounded></v-avatar>
+                      </a>
+                      <div class="text-center truncate -mx-1">
+                        <router-link :to="'/id' + item.user_id" class="text-blue-800 text-sm hover:underline font-medium">
+                          {{ item.name }}
+                        </router-link>
+                      </div>
+                    </div>
+                  </div>
+                  <div v-if="!profile.friends" class="grid grid-cols-3 grid-rows-0 rounded-lg gap-1 mt-3 ">
+                    <div class="text-center my-3 col-span-3 ">{{ $t('profile.no_friends_found') }}</div>
                   </div>
                 </div>
               </div>              
@@ -107,31 +137,31 @@ export default {
       edit: false,
       form_edit_bio: {
         bio: ''
-      },      
+      },
+      routeName: null,     
     }
   },
+  // computed: {
+  //   currentRouteName() {
+  //       return this.$route.name;
+  //   }
+  // },  
   watch: {
     $route: {
       immediate: true,
       handler(to, from) {
-          document.title = to.meta.title || 'Profile';
+          this.get_profile_id(to.params.id)
+        document.title = to.meta.title || 'Profile';
       }
     },
   },
   async mounted() {
-    await this.get_profile()
+    await this.get_profile_id(this.id)
   },
   methods: {
-    async get_profile(){
-      if(this.user.id == 0){
-        // authRefreshToken({}).then((res) => {
-        //   this.user.first_name = res.data.first_name;
-        //   this.user.last_name = res.data.last_name;
-        //   this.user.id = res.data.id;
-        // })
-      }    
+    async get_profile_id(user_id){
       fetchProfile({
-        id: this.id
+        id: user_id
       }).then((res) => {
         if (res.status == 1) {
           this.profile.id = res.data.id;
@@ -143,6 +173,8 @@ export default {
           this.profile.owner = res.data.owner;
           this.profile.bio = res.data.bio;
           this.profile.walls = res.data.walls;
+          this.profile.friends = res.data.friends;
+          this.profile.albums = res.data.albums;
           this.walls = res.data.walls;
           this.wall_num = res.data.wall_num;
 
@@ -150,7 +182,7 @@ export default {
         } else {
         }
       })
-    },
+    },    
     async bio(){
       Axios.post(import.meta.env.VITE_DOMAIN_API + "account/change_bio", {
         access_token: localStorage.getItem('token'),
@@ -169,6 +201,9 @@ export default {
       //update walls
       // this.walls.splice(this.index);
       // console.log(index)
+    },
+    currentRouteName() {
+        return this.$route.name;
     }
   },
 }

@@ -1,11 +1,13 @@
 <template>
     <div v-if="show" class="dark:bg-[#242526] bg-white mb-5 pt-3 pb-2.5 md:pb-3 rounded-lg shadow-post">
       <div class="flex items-center pl-2 pr-3 sm:px-3 md:px-4">
-        <img :src="wall.user_photo" alt="avatar" class="w-10 h-10 rounded-full object-cover cursor-pointer ">
+        <router-link :to="'/id' + wall.author">
+          <img :src="wall.user_photo" alt="avatar" class="w-10 h-10 rounded-full object-cover cursor-pointer ">
+        </router-link>
         <div class="ml-2 font-bold ">
-          <div class="flex items-center gap-x-1 cursor-pointer ">
+          <router-link :to="'/id' + wall.author" class="flex items-center gap-x-1 cursor-pointer ">
             {{ wall.user_name }} {{ wall.user_last_name }}
-          </div>
+          </router-link>
           <div class="font-[400] text-[13px] dark:text-[#B0B3B8] flex items-center gap-x-1 ">2 months ago</div>
         </div>
         <!-- <div class="ml-auto text-[25px] transition-50 cursor-pointer font-bold w-[35px] h-[35px] rounded-full hover:bg-[#F2F2F2] dark:hover:bg-[#3A3B3C] flex flex-row items-center justify-center group relative ">
@@ -15,18 +17,13 @@
             <li class="mt-1 px-3 py-1 bg-[#F0F2F5] border-[#3A3B3C]/40 text-[#333]/60 hover:border-[#3A3B3C]/60 hover:text-[#333]/80 dark:bg-[#3A3B3C] rounded-md border dark:text-[#e4e6eb]/60 transition-50 dark:hover:text-[#e4e6eb] dark:border-[#3A3B3C] dark:hover:border-[#e4e6eb]/60">Delete</li>
           </ul>
         </div> -->
-        <!-- <WallMenu :wall="wals" :wall_id="wall.id" /> -->
-
         <div class="ml-auto text-[25px] transition-50 cursor-pointer font-bold w-[35px] h-[35px] rounded-full hover:bg-[#F2F2F2] dark:hover:bg-[#3A3B3C] flex flex-row items-center justify-center group relative ">
           <div class="translate-y-[-6px] z-[100] " @click="showMenu = !showMenu">...</div>
           <ul class="text-base absolute top-[110%] text-center flex flex-col" v-if="showMenu" >
-              <li @click="showMenu = false" class="px-3 py-1 bg-[#F0F2F5] border-[#3A3B3C]/40 text-[#333]/60 hover:border-[#3A3B3C]/60 hover:text-[#333]/80 dark:bg-[#3A3B3C] rounded-md border dark:text-[#e4e6eb]/60 transition-50 dark:hover:text-[#e4e6eb] dark:border-[#3A3B3C] dark:hover:border-[#e4e6eb]/60 ">Edit</li>
-              <li @click="deleteItem" class="mt-1 px-3 py-1 bg-[#F0F2F5] border-[#3A3B3C]/40 text-[#333]/60 hover:border-[#3A3B3C]/60 hover:text-[#333]/80 dark:bg-[#3A3B3C] rounded-md border dark:text-[#e4e6eb]/60 transition-50 dark:hover:text-[#e4e6eb] dark:border-[#3A3B3C] dark:hover:border-[#e4e6eb]/60">Delete</li>
+              <!-- <li @click="showMenu = false" class="px-3 py-1 bg-[#F0F2F5] border-[#3A3B3C]/40 text-[#333]/60 hover:border-[#3A3B3C]/60 hover:text-[#333]/80 dark:bg-[#3A3B3C] rounded-md border dark:text-[#e4e6eb]/60 transition-50 dark:hover:text-[#e4e6eb] dark:border-[#3A3B3C] dark:hover:border-[#e4e6eb]/60 ">Edit</li> -->
+              <li @click="deleteItem(wall.id)" class="mt-1 px-3 py-1 bg-[#F0F2F5] border-[#3A3B3C]/40 text-[#333]/60 hover:border-[#3A3B3C]/60 hover:text-[#333]/80 dark:bg-[#3A3B3C] rounded-md border dark:text-[#e4e6eb]/60 transition-50 dark:hover:text-[#e4e6eb] dark:border-[#3A3B3C] dark:hover:border-[#e4e6eb]/60">Delete</li>
           </ul>
         </div>
-
-        <!-- <button @click="$emit('remove', index)">delete</button> -->
-        <!-- <button @click="walls.splice(index, 1)">delete</button> -->
       </div>
       <div class="content mt-[11px] px-4  text-[17px]">
         {{  wall.content }}
@@ -44,12 +41,12 @@
           <v-icon name="like" class="text-xl translate-y-[1px] "/>
           Like
         </button>
-        <button class="py-[6px] px-2 flex items-center justify-center gap-x-1 w-full rounded-sm hover:bg-[#e0e0e0] text-[#6A7583] dark:hover:bg-[#3A3B3C] font-semibold text-[15px] dark:text-[#b0b3b8] transition-50 cursor-pointer ">
+        <button @click="showComments = !showComments" class="py-[6px] px-2 flex items-center justify-center gap-x-1 w-full rounded-sm hover:bg-[#e0e0e0] text-[#6A7583] dark:hover:bg-[#3A3B3C] font-semibold text-[15px] dark:text-[#b0b3b8] transition-50 cursor-pointer ">
           <v-icon name="comment" />
           Comment
         </button>
       </div>
-      <div v-if="user.is_connected" class="flex gap-x-1.5 px-2 sm:px-3 md:px-4 py-1 items-center ">
+      <div v-if="user.is_connected && showComments" class="flex gap-x-1.5 px-2 sm:px-3 md:px-4 py-1 items-center ">
         <img :src="user.photo_50" alt="user_avatar" class="w-8 sm:w-9 h-8 sm:h-9 object-cover shrink-0 rounded-full ">
         <form class="flex px-2 rounded-full bg-[#F0F2F5] w-full mt-1 items-center dark:bg-[#3A3B3C]  ">
           <input type="text" class="px-2 py-1 sm:py-1.5 border-none focus:ring-0 bg-inherit rounded-full w-full font-medium dark:placeholder:text-[#b0b3b8] " placeholder="Write a comment..." value="">
@@ -67,34 +64,54 @@
 </template>
 
 <script>
-import WallMenu from '@/components/walls/WallMenu.vue'
 import { Notification } from 'vancedvue';
+import { removeWall } from "@/api/walls"
 
 export default {
-  components: {
-    WallMenu,
-  },
-
   props: ['user','wall'],
   data() {
     return {
       show: true,
       showMenu: false,
+      showComments: false,
 
     }
   },
   methods: {
-    deleteItem: function () {
+    deleteItem: function (id) {
       this.showMenu = false,
-      this.show = false
-      Notification.notify({
-        title: 'Уведомление',
-        content: 'Запись удалена',
-        duration: 2000,
-      }).then(() => {
-        // resolve after dismissed
-        console.log('dismissed');
-      });
+      removeWall({
+        wall_id: id
+      }).then((res) => {
+        if (res.status == 1) {
+          // this.profile.id = res.data.id;
+          this.show = false
+          Notification.notify({
+            title: 'Уведомление',
+            content: 'Запись удалена',
+            duration: 2000,
+          }).then(() => {
+            // resolve after dismissed
+          });
+        } 
+        if (res.status == 16) {
+          Notification.notify({
+            title: 'Уведомление',
+            content: 'Ошибка',
+            duration: 2000,
+          });
+        }
+        if (res.status == 20) {
+          Notification.notify({
+            title: 'Уведомление',
+            content: 'Неизвестная ошибка',
+            duration: 2000,
+          });
+        }        
+      })
+
+
+
 
     }
   },
