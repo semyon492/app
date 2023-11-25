@@ -3,12 +3,8 @@ import Notifications from 'notiwind'
 import * as VancedVue from 'vancedvue'
 import App from './App.vue'
 import router from './router'
-
 import './assets/main.css'
-
-console.log(VancedVue)
 // import 'vancedvue/src/index.css'
-
 import i18n from "./plugins/i18n.js";
 
 createApp(App)

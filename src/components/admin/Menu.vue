@@ -18,7 +18,8 @@
         <div class="justify-between items-center flex">
             <div class="flex items-center justify-center">
             <div>
-                <router-link :to="'admin/' + item.link">
+              <v-toltip label="Default">Default</v-toltip>
+                <router-link :to="item.link">
                     <h3 class="text-lg leading-tight text-gray-500 dark:text-slate-400">{{ item.name }}</h3>
                 </router-link>
                 
