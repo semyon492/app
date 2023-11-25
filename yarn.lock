@@ -1789,10 +1789,10 @@ util-deprecate@^1.0.2:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
 
-vancedvue@^1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/vancedvue/-/vancedvue-1.0.10.tgz#78aa4b20498f240f74e96c721875073d12772dbc"
-  integrity sha512-odVq6xSkANXY+umMts7A+5nz/SqAR9ZOUa8SKeEOBP72eA5JjIFop/44+cLgsrhmoRMFL4MOffBsqd9HO15+Rg==
+vancedvue@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/vancedvue/-/vancedvue-1.0.12.tgz#a9190fd7bef97eaa7261721ebeef63ec5788ba8d"
+  integrity sha512-5S4CAfM+Ay5Zqd0HdeqHTqCKsTNPo7WRkogys6BfpVB/pt1+iIVVhcSJUzUgXid3hgefueHBlNJSQx4VyKbjlg==
 
 vite@^3.1.8:
   version "3.2.7"
