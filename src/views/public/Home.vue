@@ -11,7 +11,7 @@
           <div class="col-span-11 md:col-span-5 shrink-0 order-3 md:order-2 ">
             <div>
               <ModalWall modal_name="modal_wall" :user="user" :profile_id="user.id"/>
-              <div class="w-full text-center text-xl font-semibold pt-[20vh] flex-col " v-if="wall_num == 0">
+              <div class="w-full text-center text-xl font-semibold pt-[20vh] flex-col " v-if="!walls">
                 <div>{{ $t('profile.no_post_found') }}</div>
               </div>
               <div class="mb-4"></div>
@@ -81,6 +81,7 @@ export default {
   async mounted() {    
     if(!this.user.is_connected){
       document.title = import.meta.env.VITE_APP_NAME
+      await this.get_feed()
     }else{
       document.title = 'Feed | ' + import.meta.env.VITE_APP_NAME
       await this.get_feed()

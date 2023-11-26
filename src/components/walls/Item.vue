@@ -37,7 +37,7 @@
         <span class="text-[14px] ml-auto text-[#65676b] dark:text-[#afb0b1] " v-if="wall.comments_num > 0">{{ wall.comments_num }} comments</span>
       </div>
       <div class="mx-[12px] mt-2 py-1 flex items-center justify-between border-y dark:border-y-[#3E4042] border-y-[#CED0D4] px-[6px]  ">
-        <button class=" py-[6px] px-2 flex items-center justify-center gap-x-1 w-full rounded-sm hover:bg-[#e0e0e0] text-[#6A7583] dark:hover:bg-[#3A3B3C] font-semibold text-[15px] dark:text-[#b0b3b8] transition-50 cursor-pointer ">
+        <button :class="classLiked(wall.liked)" @click="wallLike">
           <v-icon name="like" class="text-xl translate-y-[1px] "/>
           Like
         </button>
@@ -74,7 +74,6 @@ export default {
       show: true,
       showMenu: false,
       showComments: false,
-
     }
   },
   methods: {
@@ -109,11 +108,37 @@ export default {
           });
         }        
       })
-
-
-
-
-    }
+    },
+    classLiked(item) {
+      let buttonClass = 'py-[6px] px-2 flex items-center justify-center gap-x-1 w-full rounded-sm font-semibold text-[15px] transition-50 cursor-pointer'
+      if (item) {        
+        return [
+        buttonClass,
+        'text-red-700 dark:text-red-400 hover:bg-[#e0e0e0] dark:hover:bg-[#3A3B3C]',
+        ]
+      } else {
+        return [
+          buttonClass,
+          'hover:bg-[#e0e0e0] text-[#6A7583] dark:hover:bg-[#3A3B3C] dark:text-[#b0b3b8]',
+        ]
+      }
+    },
+    wallLike() {
+      // status = !status
+      if (this.wall.liked) {
+        this.wall.likes_num = this.wall.likes_num - 1
+      } else {
+        this.wall.likes_num = this.wall.likes_num + 1
+      }
+      this.wall.liked = !this.wall.liked
+      Notification.notify({
+        title: 'Уведомление',
+        content: 'Ошибка',
+        duration: 2000,
+      }).then(() => {
+        // resolve after dismissed
+      });
+    },
   },
 }
 </script>
