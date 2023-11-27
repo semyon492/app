@@ -5,7 +5,7 @@
     <div class="h-screen flex-col justify-between hidden xl:flex fixed w-80">
     <div class="">
       <div class="h-20"></div>
-      <div class="bg-white dark:bg-slate-900 lg:rounded-2xl px-2 mx-3  py-4">
+      <div class="bg-white dark:bg-[#242526] lg:rounded-2xl px-2 mx-3  py-4">
         <div class="text-xl font-bold mb-2">Условия и правила</div>
         <ul class="list-none list-inside text-slate-900 dark:text-slate-200">
             <li class="mb-3">
@@ -25,7 +25,7 @@
 
   </div>
   <div class="w-full max-w-full px-3 mx-3 md:w-6/12 md:flex-0">
-    <div class="bg-white dark:bg-slate-900 lg:rounded-2xl">
+    <div class="bg-white dark:bg-[#242526] lg:rounded-2xl">
       <div class="text-2xl p-6">Условия и выходные данные</div>
       <div class="p-6">
         <div class="text-xl font-bold mb-2">Условия использования</div>

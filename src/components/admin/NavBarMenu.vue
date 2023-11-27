@@ -54,12 +54,12 @@
       </router-link> -->
       <div v-if="user.is_connected"
            class="block lg:flex items-center relative cursor-pointer text-blue-600 dark:text-white dark:hover:text-slate-400 hover:text-black lg:py-2 lg:px-3">
-        <div class="flex items-center bg-gray-100 dark:bg-slate-800 lg:bg-transparent lg:dark:bg-transparent p-3 lg:p-0"
+        <div class="flex items-center bg-gray-100 dark:bg-[#242526] lg:bg-transparent lg:dark:bg-transparent p-3 lg:p-0"
              @click="menu1 = !menu1">
           <div class="w-6 h-6 mr-3 inline-flex">
             <img
               :src="user.photo_50"
-              :alt="user.first_name" class="rounded-full block h-auto w-full max-w-full bg-gray-100 dark:bg-slate-800">
+              :alt="user.first_name" class="rounded-full block h-auto w-full max-w-full bg-gray-100 dark:bg-[#242526]">
           </div>
           <span class="px-2 transition-colors">{{ user.first_name }}</span>
           <span class="inline-flex justify-center items-center w-6 h-6 hidden lg:inline-flex transition-colors">
@@ -154,12 +154,12 @@ export default {
       show: false,
       showOnSvg: 'M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z',
       showOffSvg: 'M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z',
-      showOnList: 'max-h-screen-menu overflow-y-auto lg:overflow-visible absolute w-screen top-14 left-0 bg-gray-50 shadow-lg lg:w-auto lg:flex lg:static lg:shadow-none dark:bg-slate-800 block',
-      showOffList: 'max-h-screen-menu overflow-y-auto lg:overflow-visible absolute w-screen top-14 left-0 bg-gray-50 shadow-lg lg:w-auto lg:flex lg:static lg:shadow-none dark:bg-slate-800 hidden',
+      showOnList: 'max-h-screen-menu overflow-y-auto lg:overflow-visible absolute w-screen top-14 left-0 bg-gray-50 shadow-lg lg:w-auto lg:flex lg:static lg:shadow-none dark:bg-[#242526] block',
+      showOffList: 'max-h-screen-menu overflow-y-auto lg:overflow-visible absolute w-screen top-14 left-0 bg-gray-50 shadow-lg lg:w-auto lg:flex lg:static lg:shadow-none dark:bg-[#242526] hidden',
 
       menu1: false,
-      menu1On: 'text-sm border-b border-gray-100 lg:border lg:bg-white lg:absolute lg:top-full lg:left-0 lg:min-w-full lg:z-20 lg:rounded-lg lg:shadow-lg lg:dark:bg-slate-800 dark:border-slate-700',
-      menu1Off: 'text-sm border-b border-gray-100 lg:border lg:bg-white lg:absolute lg:top-full lg:left-0 lg:min-w-full lg:z-20 lg:rounded-lg lg:shadow-lg lg:dark:bg-slate-800 dark:border-slate-700 lg:hidden',
+      menu1On: 'text-sm border-b border-gray-100 lg:border lg:bg-white lg:absolute lg:top-full lg:left-0 lg:min-w-full lg:z-20 lg:rounded-lg lg:shadow-lg lg:dark:bg-[#242526] dark:border-slate-700',
+      menu1Off: 'text-sm border-b border-gray-100 lg:border lg:bg-white lg:absolute lg:top-full lg:left-0 lg:min-w-full lg:z-20 lg:rounded-lg lg:shadow-lg lg:dark:bg-[#242526] dark:border-slate-700 lg:hidden',
     }
   },
   watch: {

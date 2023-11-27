@@ -4,7 +4,7 @@
   </main>
   <main v-if="(user.is_connected)">
     <SettingsCard>
-      <div class="bg-white dark:bg-slate-900 lg:rounded-2xl">
+      <div class="bg-white dark:bg-[#242526] lg:rounded-2xl">
         <div class="p-6">
           <h5 class="text-2xl">{{ $t('settings.delete_account') }}</h5>
         </div>

@@ -4,7 +4,7 @@
 
 
 body {
-    @apply bg-gray-50 dark:bg-slate-800 dark:text-slate-100
+    @apply bg-gray-50 dark:bg-[#18191a] dark:text-slate-100
   }
 
 :root{

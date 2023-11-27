@@ -1,5 +1,5 @@
 <template>
-  <button @click="showModal = true"
+  <!-- <button @click="showModal = true"
           class="block lg:flex items-center relative cursor-pointer text-blue-600 dark:text-white dark:hover:text-slate-400 hover:text-black py-2 px-3 lg:w-16 lg:justify-center">
     <div class="flex items-center">
         <span class="inline-flex justify-center items-center w-6 h-6 transition-colors">
@@ -10,7 +10,12 @@
         </span>
       <span class="px-2 transition-colors lg:hidden">{{ $t('auth.signin') }}</span>
     </div>
-  </button>
+  </button> -->
+  <li @click="showModal = true">
+      <div class="text-xl grid place-items-center bg-gray-200 dark:bg-[#3a3b3c] dark:text-[#b8bbbf] rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative" id="dark-mode-toggle">
+        <v-icon name="login" class="inline-block" size="20"/>
+      </div>
+  </li>
   <Teleport to="body">
     <v-modal size="md" :show="showModal" :title="title" @onDismissed="dismissed">
       <template #body>

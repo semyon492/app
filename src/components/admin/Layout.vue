@@ -1,6 +1,6 @@
 <template>
   <NotificationView />
-  <div class="bg-gray-50 dark:bg-slate-800 dark:text-slate-100">
+  <div class="bg-gray-50 dark:bg-[#242526] dark:text-slate-100">
     <header>
       <Navigation :user="user"/>
     </header>

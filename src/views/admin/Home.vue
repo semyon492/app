@@ -7,7 +7,7 @@
     <section class="p-6 xl:max-w-6xl xl:mx-auto">
       <section class="mb-6 flex items-center justify-between">
         <div class="flex items-center justify-start">
-          <span class="inline-flex justify-center items-center w-12 h-12 rounded-full bg-white text-black dark:bg-slate-900/70 dark:text-white mr-3">
+          <span class="inline-flex justify-center items-center w-12 h-12 rounded-full bg-white text-black dark:bg-[#242526] dark:text-white mr-3">
             <v-icon name="analytics" class="inline-block" :size="24" />
           </span>
           <h1 class="text-3xl leading-tight">Overview</h1>

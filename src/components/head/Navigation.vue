@@ -1,6 +1,6 @@
 <template>
   <nav
-      class="top-0 inset-x-0 fixed bg-gray-50 h-14 z-30 transition-position w-screen lg:w-auto dark:bg-slate-800 xl:pl-60">
+      class="top-0 inset-x-0 fixed bg-gray-50 h-14 z-30 transition-position w-screen lg:w-auto dark:bg-[#242526] xl:pl-60">
     <div class="flex lg:items-stretch xl:max-w-6xl xl:mx-auto">
       <div class="flex flex-1 items-stretch h-14">
         <router-link
@@ -30,19 +30,19 @@
         </div> -->
 
       </div>
-      <NavBarMenu :user="user"/>
+      <!-- <NavBarMenu :user="user"/> -->
     </div>
   </nav>
   <div class="h-14"></div>
 </template>
 
 <script>
-import NavBarMenu from "./NavBarMenu.vue";
+// import NavBarMenu from "./NavBarMenu.vue";
 
 export default {
   props: ['user'],
   components: {
-    NavBarMenu,
+    // NavBarMenu,
   },
   data() {
     return {

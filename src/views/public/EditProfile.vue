@@ -6,7 +6,7 @@
     <div class="mx-4 sm:mx-[5%] md:mx-[15%] px-1 sm:px-10 mt-4 ">
     <div class="w-full sm:grid grid-cols-3 gap-x-4 ">
       <div class="col-span-3">
-        <div class="bg-white dark:bg-slate-900 lg:rounded-2xl">
+        <div class="bg-white dark:bg-[#242526] lg:rounded-2xl">
           <div class="pt-[50px] md:pt-[75px] md:px-[15%] w-full dark:bg-[#242426] bg-white overflow-x-hidden">
             <div class="flex flex-col sm:flex-row mx-10 sm:items-start gap-x-4 border-b-[1px] dark:border-b-white/10 border-b-black/10 items-center">
               <img :src="user.photo_100" alt="avatar" 
